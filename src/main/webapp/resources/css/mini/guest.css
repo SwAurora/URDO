@@ -1,0 +1,76 @@
+.guest-box-container
+{
+    height: 600px;
+    margin: 20px;
+    overflow: auto;
+}
+
+.guest-box
+{
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.guest-box-title
+{
+    background-color: rgb(230, 230, 230);
+    padding: 5px;
+}
+
+.guest-box-content
+{
+    display: flex;
+    align-items: center;
+    margin: 10px 0 10px 0;
+}
+
+.guest-img
+{
+    background-size: cover;
+    height: 100%;
+    flex: 0.3;
+}
+
+.guest-img img
+{
+    width: 50%;
+    /*이미지 가운데 정렬*/
+    display: block;
+    margin: 0 auto;
+}
+
+.guest1
+{
+    background-image: url("../../img/miniHomePage/guest1.jpg");
+}
+
+.guest2
+{
+    background-image: url("../../img/miniHomePage/guest2.jpg");
+}
+
+.guest3
+{
+    background-image: url("../../img/miniHomePage/guest3.jpg");
+}
+
+.guest-text
+{
+    padding: 10px;
+    flex: 0.7;
+}
+
+.add-button
+{
+    display: block;
+    width: 35%;
+    margin: 0 auto;
+}
+
+.add-button button
+{
+    border: none;
+    background-color: #b4d1da;
+    padding: 10px;
+    cursor: pointer;
+}
