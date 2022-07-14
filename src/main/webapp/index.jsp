@@ -111,7 +111,7 @@
                     <span>유머</span>
                 </label>
                 <ul class="depth2">
-                    <li><a href="board_humor.html" title="웃긴 자료">웃긴 자료</a></li>
+                    <li><a href="/board/humor.jsp" title="웃긴 자료">웃긴 자료</a></li>
                 </ul>
             </li>
             <li>
