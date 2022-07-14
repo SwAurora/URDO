@@ -1,0 +1,474 @@
+ul
+{
+    list-style: none;
+    padding: 0px;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+
+#container_Title
+{
+    margin-top: 10px;
+    font-size: var(--font-L);
+}
+
+#main-header
+{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}
+
+#search
+{
+    font-size: var(--font-XL);
+    margin-top: 28.5px;
+    display: flex;
+    align-items: center;
+}
+
+#search div
+{
+    margin-right: 40px;
+}
+
+/* #main-header-left {
+    width: 60%;
+} */
+
+#weather
+{
+    margin-top: 35px;
+
+}
+
+#weather img
+{
+    width: 60px;
+}
+
+.searchBarIcon
+{
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+}
+
+.searchBar
+{
+    width: 300px;
+    height: 30px;
+    font-size: var(--font-XL);
+    font-weight: var(--font-weight-light);
+    background: none;
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
+    color:var(--color-blackToWhite);
+    padding-left:10px;
+    cursor:pointer;
+}
+
+.searchBar::placeholder
+{
+    color: var(--color-placeholder);
+}
+
+/* 공지사항 */
+
+#notice
+{
+    width: 97%;
+    /* 이부분 수정해서 맞췄음. 배너 margin-right:3%라서 딱맞음 */
+    height: 30px;
+    border: 1px solid var(--color-lightgray);
+    border-radius: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    user-select: none;
+}
+
+#notice > div
+{
+    display: flex;
+}
+
+#notice ul
+{
+    display: flex;
+    height: 35px;
+    line-height: 30px;
+    margin: 0px;
+}
+
+#notice-left
+{
+    width: 110px;
+    /* display:flex; */
+    /* justify-content: center; */
+    /* align-items:center; */
+}
+
+#notice img
+{
+    width: 20px;
+    margin: 5px 8px 5px 10px;
+}
+
+/* 포인트 부분 */
+.notice-A
+{
+    background-color: var(--color-point);
+    width: 100px;
+    height: 30px;
+    margin: 0px 10px 0px 2px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    display: inline-block;
+}
+
+/* 중앙(베스트유머, 배너) */
+
+#contents-top
+{
+    height: auto;
+    display: flex;
+    margin-top: 30px;
+}
+
+/* 베스트 유머 */
+
+caption
+{
+    text-align: left;
+    font-size: var(--font-XL);
+    margin-bottom: 15px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--color-lightgray);
+}
+
+#best-humour
+{
+    width: 70%;
+    font-size: var(--font-L);
+}
+
+#best-humour table
+{
+    width: 100%;
+}
+
+.best-humor-row2 td
+{
+    font-size: var(--font-M);
+}
+
+.best-humor-row3 td
+{
+    font-size: var(--font-S);
+    height: 14px;
+}
+
+#best-humour img
+{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+#best-humour img:hover
+{
+    transform: scale(1.1, 1.1);
+    transition: 0.5s;
+}
+
+/* 배너(스와이프) */
+
+#banner
+{
+    margin: 0px 5%;
+}
+
+.banner
+{
+    width: 280px;
+    height: 280px;
+}
+
+.banner-slide img
+{
+    width: 100%;
+    height: 100%;
+}
+
+/* 버튼 */
+.swiper-button-prev, .swiper-button-next
+{
+    color: var(--color-point);
+}
+
+/* 하단 */
+
+#contents-bottom
+{
+    display: flex;
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+/* 실시간 테이블 */
+
+#realTimeBoard
+{
+    width: 70%;
+}
+
+.mainTitle
+{
+    text-align: left;
+    font-size: var(--font-XL);
+    font-weight: var(--font-weight-regular);
+    margin-bottom: 5px;
+    padding-bottom: 6px;
+    width: 100%;
+    border-bottom: 1px solid var(--color-lightgray);
+
+}
+
+/* 실시간 유머, 실시간 뉴스 구간의 메뉴 */
+
+#tabUI
+{
+    display: flex;
+    text-align: center;
+    padding-top: 3px;
+}
+
+#tabUI span
+{
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+#Board-menu
+{
+    display: flex;
+    height: 40px;
+    width: 98%;
+    margin: 0px;
+    padding: 0px;
+}
+
+#Board-menu li
+{
+    width: 115px;
+    height: 30px;
+    line-height: 30px;
+    font-size: var(--font-L);
+    cursor: pointer;
+    user-select: none;
+
+}
+
+/* 현재 메뉴 알려주기 */
+#Board-menu .change-borad
+{
+    background-color: var(--color-point);
+    border-radius: 30px;
+    color: white;
+}
+
+/* 실시간 유머, 실시간 뉴스 구간의 버튼 */
+#buttonbox
+{
+    width: 20%;
+}
+
+#buttonbox button
+{
+    border: 0px;
+    background-color: var(--color-point);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    margin-left: -3px;
+    cursor: pointer;
+    user-select: none;
+    font-size: var(--font-S);
+    padding: 0px;
+    text-align: center;
+    line-height: 25px;
+}
+
+/* 테이블 구간 */
+#Board-table table
+{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#Board-table tr
+{
+    font-size: var(--font-M);
+}
+
+#Board-table td
+{
+    border-top: 1px solid var(--color-lightgray);
+    border-bottom: 1px solid var(--color-lightgray);
+    /* padding: 13px 0px; */
+    height: 40px;
+}
+
+/*제목 가로 길이 늘려줌*/
+.name
+{
+    width: 50%;
+}
+
+/* 테이블 변경용 */
+#Board-table > table
+{
+    display: none;
+    text-align: center;
+}
+
+#Board-table .change-borad
+{
+    display: table;
+
+}
+
+/* 포인트샵 */
+
+#pointshop
+{
+    width: auto;
+    margin-left: 50px;
+    margin-right: 3%;
+    /* 끝단을 맞추기위해서 3% */
+    font-size: 14px;
+    text-align: center;
+}
+
+#pointshop ul
+{
+    display: flex;
+    list-style: none;
+    padding: 0px;
+    margin: 10px 0px 10px 0px;
+
+}
+
+#pointshop li
+{
+    width: 70px;
+    user-select: none;
+    cursor: pointer;
+}
+
+#pointshop-table
+{
+
+    width: 350px;
+    height: auto;
+    margin-top: 10px;
+}
+
+#pointshop-table table
+{
+    /* border-collapse: separate; */
+    /* border-spacing: 20px 10px; */
+    margin: 0 auto;
+}
+
+#pointshop-table img
+{
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+#pointshop-table label
+{
+    font-size: var(--font-S);
+    display: inline-block;
+    width: 100%;
+}
+
+#pointshop > ul .item
+{
+    color: var(--color-point);
+    font-weight: 800;
+}
+
+#pointshop-table > table
+{
+    display: none;
+}
+
+#pointshop-table .item
+{
+    display: table;
+}
+
+/* footer */
+
+footer {
+    margin: 10px 0px;
+    border-top: 1px solid var(--color-lightgray);
+}
+
+#footer-bottom {
+    display:flex;
+    font-size: var(--font-S);
+    margin-top: 15px;
+    width: 97%;
+    align-items:center;
+}
+
+
+
+#footer-logo
+{
+    margin-right: 5px;
+    line-height: 20px;
+}
+
+#footer-logo img
+{
+    width: 65px;
+}
+
+#footer-terms
+{
+    line-height: 20px;
+    margin-left:20px;
+}
+
+#footer-right {
+    display: grid;
+    align-items:center;
+    margin-left:auto;
+}
+
+#sns img
+{
+    width: 40px;
+    height: 40px;
+}
+
+#footer-right select
+{
+    background-color: var(--color-sidebar);
+    color: var(--color-logoname);
+    width: 130px;
+}

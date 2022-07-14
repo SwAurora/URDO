@@ -1,0 +1,250 @@
+#container_Title
+{
+    margin-top: 10px;
+    font-size: var(--font-L);
+}
+
+#search
+{
+    font-size: var(--font-XL);
+    margin-top: 28.5px;
+    display: flex;
+    align-items: center;
+}
+
+#search div
+{
+    margin-right: 40px;
+}
+
+.searchBarIcon
+{
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    cursor:pointer;
+}
+
+.searchBar
+{
+    width: 300px;
+    height: 30px;
+    font-size: var(--font-XL);
+    font-weight: var(--font-weight-light);
+    background: none;
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
+    color: var(--color-blackToWhite);
+    padding-left:10px;
+}
+
+.searchBar::placeholder
+{
+    color: var(--color-placeholder);
+}
+
+a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+#search
+{
+    font-size: var(--font-XL);
+}
+
+/* 게시판 + sel 부분포함 전체부분 */
+.board_list_wrap
+{
+    padding: 20px 0px;
+    width: calc(100% - 20px);
+
+}
+
+.board_list
+{
+    width: 100%;
+
+    font-size: var(--font-M);
+    border-collapse: collapse;
+}
+
+/* table 안의 tdborder 설정 */
+.board_list tr
+{
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
+
+#boardCol3
+{
+    text-align: left;
+}
+
+/* 게시판 글제목 내용에 가까이갈시 작동   */
+.boardlist:hover
+{
+    text-decoration: underline;
+}
+
+/* page 숫자부분  */
+.board_list_wrap .pagination
+{
+    /* a 태그안의 문자 */
+    text-align: center;
+    display: flex;
+    /* page a태그 위치 */
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+/* page 부분 */
+.board_list_wrap .pagination .num
+{
+    border: 1px solid gray;
+    height: 28px;
+    width: 28px;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: var(--color-whiteToBlack);
+    font-size: var(--font-L);
+}
+
+/* 썸네일 이미지 */
+.board_list_wrap img
+{
+    width: 50px;
+    height: 50px;
+}
+
+/* page 버튼 부분 가까이 댈시 색갈변경 */
+.board_list_wrap .pagination .num:hover
+{
+    background-color: var(--color-pointhover);
+}
+
+/* 게시글 타이틀 부분관련 */
+.tname
+{
+    width: 50px;
+}
+
+/* 게시판 내용물 사이즈 */
+#titleboard
+{
+    width: 300px;
+}
+
+/* 썸네일등등부분 끝 */
+
+/* 페이지 번호 확인하는부분 관련 */
+.sel
+{
+    width: 86px;
+    height: 36px;
+    border-radius: 10px;
+
+    margin-right: 15px;
+    margin-bottom: 23.8px;
+    background-color: var(--color-body);
+    color: var(--color-text);
+}
+
+/* 페이지 번호 확인하는부분 관련 */
+#seltwo
+{
+    width: 150px;
+}
+
+.post
+{
+    display: flex;
+    margin-left: auto;
+}
+
+/* 게시글추가 버튼 과 게시글삭제버튼 */
+.pagebtn
+{
+    background-color: var(--color-point);
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+    width: 160px;
+    height: 45px;
+    cursor: pointer;
+}
+
+/* 게시글 삭제 추가 버튼 가까이갈시 작동  */
+.pagebtn:hover
+{
+    background-color: var(--color-pointhover);
+}
+
+/* 페이지네이션 시작 */
+.page_wrap
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: calc(50% - 80px);
+}
+
+.page_num
+{
+    margin: 3px;
+    float: left;
+    border-radius: 5px;
+    border: 1px solid var(--color-darkbtn);
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    background-color: var(--color-whiteToBlack);
+    font-size: var(--font-L);
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.page_num.on
+{
+    background-color: var(--color-blackToWhite);
+    color: var(--color-whiteToBlack);
+}
+
+.page_wrap img
+{
+    width: 20px;
+    height: 20px;
+    margin: 3px;
+}
+
+
+.page_arrow
+{
+    cursor: pointer;
+}
+
+/* 페이지네이션 끝 */
+
+.boardfoot
+{
+    display: flex;
+    justify-content: center;
+    width: calc(100% - 20px);
+    margin: 10px 0;
+
+}
+
+/* 페이지네이션 끝 */
+
+.boardfoot
+{
+    display: flex;
+    justify-content: center;
+    width: calc(100% - 20px);
+    margin: 10px 0;
+}
+

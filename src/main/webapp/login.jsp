@@ -222,7 +222,7 @@
             let expdate = new Date();
             if($("#chk1").is(":checked"))
             {
-                expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 30);
+                expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 30); // 1달
                 setCookie("saveid", $("#id").val(), expdate);
             }
             else
