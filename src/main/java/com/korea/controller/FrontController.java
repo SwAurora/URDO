@@ -2,6 +2,7 @@ package com.korea.controller;
 
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
+import com.korea.controller.board.BoardHumorController;
 import com.korea.controller.member.SignUpController;
 
 import javax.servlet.http.HttpServlet;
@@ -18,11 +19,13 @@ public class FrontController extends HttpServlet
     public void init()
     {
         list = new HashMap<>();
-        // 인증관련
+        // 인증
         list.put("/Login.do", new LoginController());
         list.put("/Logout.do", new LogoutController());
-        // 회원관련
+        // 회원
         list.put("/SignUp.do", new SignUpController());
+        // 게시판
+        list.put("/BoardHumor.do", new BoardHumorController());
     }
 
     @Override

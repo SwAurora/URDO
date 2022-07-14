@@ -9,16 +9,9 @@
     <title>URDO</title>
     <link href="resources/img/sidebar/logo.svg" rel="shortcut icon" type="image/png">
     <!--CSS 링크-->
-    <link rel="stylesheet" href="resources/css/common.css">
     <link rel="stylesheet" type="text/css" href="resources/css/index.css">
 
-    <!-- JQ -->
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-
-    <!-- 스와이퍼 -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-
+    <jsp:include page="resources/includes/link.jsp"/>
 </head>
 <body>
 <%
@@ -35,56 +28,9 @@
 <!--네비게이션 시작-->
 <nav class="nav-all">
     <!--헤더 시작-->
-    <div id="nav-header">
-        <!--로고-->
-        <img src="resources/img/sidebar/logo.svg" alt="LOGO" id="logo" class="" onclick="GoHome()">
-        <div id="logo-name">
-            <span class="head-span1">URDO</span>
-            <span class="head-span2">유머를 위한 알렉산드리아 도서관</span>
-        </div>
-        <div>
-            <button id="arrow" onclick="moving_sidebar()">
-                <img src="resources/img/sidebar/arrowLeft.png" alt="leftArrow">
-                <!-- 아이콘바꿨음 -->
-            </button>
-        </div>
-    </div>
-
+    <jsp:include page="resources/includes/header.jsp"/>
     <!--퀵 메뉴 시작-->
-    <div id="Quick_menu">
-        <table>
-            <colgroup>
-                <col id="Quick_col1">
-                <col id="Quick_col2">
-                <col id="Quick_col3">
-            </colgroup>
-            <tr onclick="MiniHomePage()">
-                <td><img src="resources/img/sidebar/quick-home.svg" alt="MiniHomePage" class="navHIcon"></td>
-                <td><span>내 미니홈피 바로가기</span></td>
-                <td><img src="resources/img/sidebar/quick-golink.svg" alt="arrow" class="linkIcon menuIcon"></td>
-            </tr>
-            <tr onclick="PointShop()">
-                <td><img src="resources/img/sidebar/quick-shop.svg" alt="PointShop" class="navHIcon"></td>
-                <td><span>포인트샵</span></td>
-                <td><img src="resources/img/sidebar/quick-golink.svg" alt="arrow" class="linkIcon menuIcon"></td>
-            </tr>
-            <tr onclick="MyPage()">
-                <td><img src="resources/img/sidebar/quick-myPage.svg" alt="MyPage" class="navHIcon"></td>
-                <td><span>마이 페이지</span></td>
-                <td><img src="resources/img/sidebar/quick-golink.svg" alt="arrow" class="linkIcon menuIcon"></td>
-            </tr>
-        </table>
-        <div class="darkMode">
-            <div class="sunMoon">
-                <img src="resources/img/sidebar/quick-moon.svg" alt="#" class="Moon navHIcon">
-                <img src="resources/img/sidebar/quick-sun.svg" alt="#" class="Sun navHIcon">
-            </div>
-            <span class="darkMode-text">다크 모드</span>
-            <div class="toggle-switch">
-                <span class="switch"></span>
-            </div>
-        </div>
-    </div>
+    <jsp:include page="resources/includes/quickMenu.jsp"/>
     <!--메뉴 바 시작-->
     <div id="Menu_bar">
         <span>게시판</span>
@@ -111,7 +57,7 @@
                     <span>유머</span>
                 </label>
                 <ul class="depth2">
-                    <li><a href="/board/humor.jsp" title="웃긴 자료">웃긴 자료</a></li>
+                    <li><a href="/BoardHumor.do" title="웃긴 자료">웃긴 자료</a></li>
                 </ul>
             </li>
             <li>
@@ -154,32 +100,7 @@
         </ul>
     </div>
     <!--로그인/로그아웃 버튼-->
-    <%
-        HttpSession sessionchk = request.getSession();
-        String id = (String) sessionchk.getAttribute("id");
-        if(id == null)
-        {
-    %>
-            <div id="loginWrap">
-                <button onclick="Login()" class="btn" style="cursor:pointer;">
-                    <img src="resources/img/sidebar/login-unlock.svg" alt="login" class="navIcon">
-                    <span>로그인</span>
-                </button>
-            </div>
-    <%
-        }
-        else
-        {
-    %>
-            <div id="loginWrap">
-                <button onclick="Logout()" class="btn" style="cursor:pointer;">
-                    <img src="resources/img/sidebar/login-unlock.svg" alt="login" class="navIcon">
-                    <span>로그아웃</span>
-                </button>
-            </div>
-    <%
-        }
-    %>
+    <jsp:include page="resources/includes/loginBtn.jsp"/>
 </nav>
 
 <!-- 메인 시작 -->
@@ -459,33 +380,8 @@
 
         <!-- contents-bottom 끝 -->
     </div>
-    <footer>
-        <div id="footer-bottom">
-            <div id="footer-logo">
-                <img src="resources/img/sidebar/logo.svg" alt="로고">
-            </div>
-            <div id="footer-terms">
-                서비스 이용약관 | 개인정보 처리방침 | 청소년보호정책 | 이메일주소 무단수집거부 | 이용약관 | <span onclick="goDeveloper()"
-                                                                             style="cursor:pointer;">개발자 소개</span> <br>
-                URDO | 사업자등록번호 111-22-33333 | 대구 중구 중앙대로 366 반월센트럴타워 9층 | Fax 123-1234-1234 | 대표이사 XXX <br>
-                Since 2022.06.XX, Copyright (c) 2022 URDO All right reserved.
-            </div>
-            <div id="footer-right">
-                <div id="sns">
-                    <img src="resources/img/index/github-square-brands.svg" alt="깃허브">
-                    <img src="resources/img/index/twitter-square-brands.svg" alt="트위터">
-                    <img src="resources/img/index/instagram-square-brands.svg" alt="인스타">
-                </div>
-                <div>
-                    <select>
-                        <option>부가 메뉴</option>
-                    </select>
-                </div>
-            </div>
-
-        </div><!--footer-bottom끝  -->
-
-    </footer>
+    <!-- footer -->
+    <jsp:include page="resources/includes/footer.jsp"/>
 
 </section>
 

@@ -105,7 +105,7 @@
           <span>유머</span>
         </label>
         <ul class="depth2">
-          <li><a href="/board/humor.jsp" title="웃긴 자료" id="active">웃긴 자료</a></li>
+          <li><a href="/BoardHumor.do" title="웃긴 자료" id="active">웃긴 자료</a></li>
         </ul>
       </li>
       <li>
@@ -156,7 +156,7 @@
   %>
   <div id="loginWrap">
     <button onclick="Login()" class="btn" style="cursor:pointer;">
-      <img src="resources/img/sidebar/login-unlock.svg" alt="login" class="navIcon">
+      <img src="../resources/img/sidebar/login-unlock.svg" alt="login" class="navIcon">
       <span>로그인</span>
     </button>
   </div>
@@ -167,7 +167,7 @@
   %>
   <div id="loginWrap">
     <button onclick="Logout()" class="btn" style="cursor:pointer;">
-      <img src="resources/img/sidebar/login-unlock.svg" alt="login" class="navIcon">
+      <img src="../resources/img/sidebar/login-unlock.svg" alt="login" class="navIcon">
       <span>로그아웃</span>
     </button>
   </div>
@@ -196,11 +196,6 @@
         <option>15개</option>
         <option>20개</option>
         <option>30개</option>
-      </select>
-      <select class="sel" id="seltwo">
-        <option>전체</option>
-        <option>유머</option>
-        <option>공감</option>
       </select>
       <!-- 게시판 Table -->
       <table class="board_list" id="t1">
