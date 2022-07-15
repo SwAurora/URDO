@@ -42,7 +42,7 @@ function MiniHomePage()
 
 function PointShop()
 {
-    location.href = '/pointShop/pointShop.jsp';
+    location.href = '/PointShop.do';
 }
 
 function MyPage()

@@ -109,9 +109,7 @@
             <p class="imgDesc">2페이지입니다.</p>
           </div>
         </span>
-
       </div>
-
 
       <!-- 2페이지 시작 -->
       <div class="tab1_page">
@@ -188,11 +186,11 @@
   </div>
 
   </section>
+</body>
   <!--전체 JS-->
   <script src="/js/common.js"></script>
   <!--포인트샵 JS-->
   <script src="/js/pointShop copy.js"></script>
-</body>
 
 </html>
 
