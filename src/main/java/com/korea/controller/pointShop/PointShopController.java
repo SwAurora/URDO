@@ -11,7 +11,7 @@ public class PointShopController implements SubController{
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
         try
         {
-            req.getRequestDispatcher("/pointshop/pointShop.jsp").forward(req, resp);
+            req.getRequestDispatcher("/pointShop/pointShop.jsp").forward(req, resp);
         }
         catch(Exception e)
         {

@@ -311,8 +311,8 @@
 
 
 <!--전체 JS-->
-<script src="resources/js/common.js"></script>
+<script src="/resources/js/common.js"></script>
 <!-- index JS -->
-<script src="resources/js/index.js"></script>
+<script src="/resources/js/index.js"></script>
 </body>
 </html>

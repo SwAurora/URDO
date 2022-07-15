@@ -3,6 +3,8 @@ let leftArrow = document.querySelector('#arrow img');
 let cnt = 0;
 let common = document.querySelector(".Main");
 
+
+
 function moving_sidebar()
 {
     if(cnt === 0)
@@ -40,7 +42,7 @@ function MiniHomePage()
 
 function PointShop()
 {
-    location.href = 'pointShop.html';
+    location.href = '/pointShop/pointShop.jsp';
 }
 
 function MyPage()
