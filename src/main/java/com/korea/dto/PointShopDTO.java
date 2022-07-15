@@ -2,7 +2,7 @@ package com.korea.dto;
 
 import lombok.Data;
 @Data
-public class PointshopDTO
+public class PointShopDTO
 {
     int no;
     String name;

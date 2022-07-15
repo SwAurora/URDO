@@ -12,7 +12,7 @@ import com.korea.controller.auth.LogoutController;
 import com.korea.controller.board.CreArtController;
 import com.korea.controller.board.HumorController;
 import com.korea.controller.member.SignUpController;
-import com.korea.controller.pointShop.PointshopController;
+import com.korea.controller.pointShop.PointShopController;
 
 public class FrontController extends HttpServlet
 {
@@ -31,7 +31,7 @@ public class FrontController extends HttpServlet
         list.put("/BoardHumor.do", new HumorController());
         list.put("/BoardCreArt.do", new CreArtController());
         // 포인트샵
-        list.put("/Pointshop.do", new PointshopController());
+        list.put("/Pointshop.do", new PointShopController());
     }
 
     @Override

@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.korea.controller.SubController;
 
-public class PointshopController  implements SubController{
+public class PointShopController implements SubController{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
