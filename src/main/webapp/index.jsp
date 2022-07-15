@@ -306,9 +306,7 @@
     </div>
     <!-- footer -->
     <jsp:include page="resources/includes/footer.jsp"/>
-
 </section>
-
 
 <!--전체 JS-->
 <script src="resources/js/common.js"></script>

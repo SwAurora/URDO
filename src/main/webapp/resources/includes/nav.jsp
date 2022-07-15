@@ -29,7 +29,7 @@
                 <td><span>내 미니홈피 바로가기</span></td>
                 <td><img src="/resources/img/sidebar/quick-golink.svg" alt="arrow" class="linkIcon menuIcon"></td>
             </tr>
-            <tr onclick="PointShop()">
+            <tr onclick="location.href='/PointShop.do'">
                 <td><img src="/resources/img/sidebar/quick-shop.svg" alt="PointShop" class="navHIcon"></td>
                 <td><span>포인트샵</span></td>
                 <td><img src="/resources/img/sidebar/quick-golink.svg" alt="arrow" class="linkIcon menuIcon"></td>
@@ -88,7 +88,7 @@
                     <span>창작게시판</span>
                 </label>
                 <ul class="depth2">
-                    <li><a href="board_creArt.html" title="그림">그림</a></li>
+                    <li><a href="/BoardCreArt.do" title="그림">그림</a></li>
                     <li><a href="board_creCook.html" title="요리">요리</a></li>
                 </ul>
             </li>

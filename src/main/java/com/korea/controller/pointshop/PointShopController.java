@@ -1,18 +1,18 @@
-package com.korea.controller.board;
+package com.korea.controller.pointshop;
+
+import com.korea.controller.SubController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.korea.controller.SubController;
-
-public class CreArtController implements SubController
+public class PointShopController implements SubController
 {
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
     {
         try
         {
-            req.getRequestDispatcher("/board/creArt.jsp").forward(req, resp);
+            req.getRequestDispatcher("/pointShop.jsp").forward(req, resp);
         }
         catch(Exception e)
         {
