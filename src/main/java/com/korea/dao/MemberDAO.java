@@ -70,7 +70,7 @@ public class MemberDAO extends DAO
                 dto.setPw(rs.getString("pw"));
                 dto.setEmail(rs.getString("email"));
                 dto.setNickname(rs.getString("nickname"));
-                dto.setMemberpoint(rs.getInt("memberpoint"));
+                dto.setPoint(rs.getInt("point"));
                 dto.setGrade(rs.getInt("grade"));
                 return dto;
             }

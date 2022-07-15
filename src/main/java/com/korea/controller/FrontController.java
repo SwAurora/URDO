@@ -9,11 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
-import com.korea.controller.board.BoardCreArtController;
-import com.korea.controller.board.BoardContentController;
-import com.korea.controller.board.BoardHumorController;
+import com.korea.controller.board.CreArtController;
+import com.korea.controller.board.HumorController;
 import com.korea.controller.member.SignUpController;
-import com.korea.controller.pointshop.PointshopController;
+import com.korea.controller.pointShop.PointshopController;
 
 public class FrontController extends HttpServlet
 {
@@ -29,9 +28,8 @@ public class FrontController extends HttpServlet
         // 회원
         list.put("/SignUp.do", new SignUpController());
         // 게시판
-        list.put("/BoardHumor.do", new BoardHumorController());
-        list.put("/BoarCreArt.do", new BoardCreArtController());
-        list.put("/BoardContent.do", new BoardContentController());
+        list.put("/BoardHumor.do", new HumorController());
+        list.put("/BoardCreArt.do", new CreArtController());
         // 포인트샵
         list.put("/Pointshop.do", new PointshopController());
     }

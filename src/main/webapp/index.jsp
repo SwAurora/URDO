@@ -7,10 +7,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>URDO</title>
-    <!--CSS 링크-->
-    <link rel="stylesheet" type="text/css" href="resources/css/index.css">
-
+    <!-- 링크 -->
     <jsp:include page="resources/includes/link.jsp"/>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="resources/css/index.css">
 </head>
 <body>
 <%
@@ -25,16 +25,7 @@
     }
 %>
 <!--네비게이션 시작-->
-<nav class="nav-all">
-    <!--헤더 시작-->
-    <jsp:include page="resources/includes/header.jsp"/>
-    <!--퀵 메뉴 시작-->
-    <jsp:include page="resources/includes/quickMenu.jsp"/>
-    <!--메뉴 바 시작-->
-    <jsp:include page="resources/includes/menuBar.jsp"/>
-    <!--로그인/로그아웃 버튼-->
-    <jsp:include page="resources/includes/loginBtn.jsp"/>
-</nav>
+<jsp:include page="resources/includes/nav.jsp"/>
 
 <!-- 메인 시작 -->
 <section class="Main">
