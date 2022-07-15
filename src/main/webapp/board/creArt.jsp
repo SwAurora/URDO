@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -21,6 +20,8 @@
             span[4].innerHTML = '&#65293';
             span[5].style.color = getColor('--color-point');
             span[5].style.fontWeight = 'bold';
+            let activeAdd = document.querySelectorAll(".depth2 > li > a");
+            activeAdd[3].id = "active";
             $('#active').css('color', getColor('--color-active')).css('font-weight', 'bold');
         })
     </script>
@@ -49,11 +50,6 @@
                 <option>15개</option>
                 <option>20개</option>
                 <option>30개</option>
-            </select>
-            <select class="sel" id="seltwo">
-                <option>전체</option>
-                <option>유머</option>
-                <option>공감</option>
             </select>
             <!-- 게시판 Table -->
             <table class="board_list" id="t1">

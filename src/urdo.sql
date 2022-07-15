@@ -7,7 +7,7 @@ create table member_tbl
     pw varchar(100) not null,
     email varchar(40) not null,
     nickname varchar(20) not null,
-    memberpoint int,
+    point int,
     grade int
 );
 

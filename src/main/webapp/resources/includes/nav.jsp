@@ -66,7 +66,7 @@
                 <ul class="depth2">
                     <li><a href="board_nowBest.html" title="실시간베스트">실시간 베스트</a></li>
                     <li><a href="board_monthBest.html" title="월간베스트">월간 베스트</a></li>
-                    <li><a href="board_miniBest.html" title="미니홈피추천작">미니홈피 추천작</a></li>
+                    <%--<li><a href="board_miniBest.html" title="미니홈피추천작">미니홈피 추천작</a></li>--%>
                 </ul>
             </li>
             <li>

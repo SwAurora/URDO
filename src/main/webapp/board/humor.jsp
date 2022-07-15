@@ -20,6 +20,8 @@
             span[2].innerHTML = '&#65293';
             span[3].style.color = getColor('--color-point');
             span[3].style.fontWeight = 'bold';
+            let activeAdd = document.querySelectorAll(".depth2 > li > a");
+            activeAdd[2].id = "active";
             $('#active').css('color', getColor('--color-active')).css('font-weight', 'bold');
         })
     </script>
