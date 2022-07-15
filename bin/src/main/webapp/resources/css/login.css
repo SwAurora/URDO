@@ -1,0 +1,230 @@
+a
+{
+    color: var(--color-text);
+}
+
+#LoginBox
+{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    width: 500px;
+    height: 600px;
+    border-radius: 32px;
+    transition: left 0.8s ease;
+}
+
+#LoginBox::before
+{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    letter-spacing: 0.25em;
+    color: var(--color-point);
+    box-shadow: 0 0 35px var(--color-point);
+    border-radius: 32px;
+    z-index: -1;
+}
+
+/* 아이디 비번 치는 공간 */
+.inputBox
+{
+    position: relative;
+    width: 250px;
+    color: var(--color-blackToWhite);
+}
+
+.inputBox input
+{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    background: var(--color-whiteToBlack);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    color: var(--color-blackToWhite);
+}
+
+.inputBox span
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span
+{
+    color: var(--color-point);
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #fff;
+    border-left: 1px solid var(--color-point);
+    border-right: 1px solid var(--color-point);
+    letter-spacing: 0.2em;
+}
+
+.inputBox:nth-child(1) input:valid ~ span,
+.inputBox:nth-child(1) input:focus ~ span
+{
+    background: var(--color-point);
+    color: #FFF;
+    border-radius: 2px;
+}
+
+.inputBox:nth-child(2) input:valid ~ span,
+.inputBox:nth-child(2) input:focus ~ span
+{
+    background: var(--color-point);
+    color: #FFF;
+    border-radius: 2px;
+}
+
+.inputBox input:valid,
+.inputBox input:focus
+{
+    border: 2px solid var(--color-point);
+}
+
+/* 로그인 유지 체크박스 */
+.checkbox
+{
+    position: relative;
+    top: -20px;
+    left: -73px;
+
+}
+
+#chkLabel
+{
+    cursor: pointer;
+    user-select: none;
+}
+
+/* 로그인 버튼 공간 */
+.loginA
+{
+    position: relative;
+    background: #444;
+    color: var(--color-blackToWhite);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    padding: 10px 30px;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+.loginA:hover
+{
+    letter-spacing: 0.25em;
+    background: var(--color-point);
+    color: var(--color-point);
+    box-shadow: 0 0 35px var(--color-point);
+}
+
+.loginA::before
+{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: var(--color-whiteToBlack);
+    border-radius: 5px;
+}
+
+.loginA span
+{
+    position: relative;
+    z-index: 1;
+}
+
+.loginA i
+{
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.loginA i::before
+{
+    content: '';
+    position: absolute;
+    top: -3.5px;
+    left: 80%;
+    width: 10px;
+    height: 5px;
+    border: 2px solid var(--color-point);
+    background: #fff;
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.loginA:hover i::before
+{
+    width: 20px;
+    left: 20%;
+}
+
+.loginA i::after
+{
+    content: '';
+    position: absolute;
+    bottom: -3.5px;
+    left: 20%;
+    width: 10px;
+    height: 5px;
+    border: 2px solid var(--color-point);
+    background: #fff;
+    transition: 0.5s;
+}
+
+.loginA:hover i::after
+{
+    width: 20px;
+    left: 80%;
+}
+
+/* 회원가입 */
+
+#signIn
+{
+    display: block;
+}
+
+#ss1
+{
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+}
+
+#ss3
+{
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+}
+
+#toggle
+{
+    position: absolute;
+    top: 9px;
+    left: 235px;
+    width: 32px;
+    height: 32px;
+    background: url(../img/login/loginEye.svg);
+    background-size: cover;
+    cursor: pointer;
+    user-select: none;
+}

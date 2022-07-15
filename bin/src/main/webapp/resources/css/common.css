@@ -1,0 +1,460 @@
+/* Google-font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+
+:root
+{
+    /* ====== font-size ====== */
+    --font-XL: 18px;
+    --font-L: 15px;
+    --font-M: 14px;
+    --font-S: 12px;
+
+    /* ====== font-weight ====== */
+    --font-weight-bold: bold;
+    --font-weight-regular: normal;
+    --font-weight-light: 100;
+
+    /* ====== Color ====== */
+    --color-body: #F8F9FA;
+    --color-logoname: #424242;
+    --color-sidebar: #FFF;
+    --color-point: #5865F2;
+    --color-pointhover: #4752C4;
+    --color-darkbtn: #F1F1F1;
+    --color-lightgray: lightgray;
+    --color-text: #202225;
+    --color-sidebarBorder: lightgray;
+    --color-white: white;
+    --color-black: black;
+    --color-placeholder: gray;
+    --color-whiteToBlack: white;
+    --color-blackToWhite: black;
+    --color-warning: #FF6369;
+    --color-terms: white;
+    --color-termsText: #888;
+    --color-termsTextarea: #F7F7F7;
+    --color-active: #FFAE00;
+    --color-darkgray: #36393F;
+    --color-textField: #F8F9FA;
+    /* =====Left-margin==== */
+    --margin-normal: 20px;
+}
+
+::selection
+{
+    background-color: var(--color-point);
+    color: var(--color-white);
+}
+
+*
+{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body
+{
+    margin-top: 0;
+    background-color: var(--color-body);
+    color: var(--color-text);
+    height: calc(100vh - 20px);
+}
+
+body.dark
+{
+    --color-body: #36393F;
+    --color-logoname: white;
+    --color-sidebar: #2F3135;
+    --color-sidebarBorder: #36393F;
+    --color-darkbtn: #42464D;
+    --color-text: #DCDDDE;
+    --color-placeholder: #DCDDDE;
+    --color-whiteToBlack: #202225;
+    --color-blackToWhite: white;
+    --color-terms: #2F3135;
+    --color-termsText: #DCDDDE;
+    --color-termsTextarea: #42464D;
+    --color-textField: #4F505C;
+}
+
+/* ======== 네비게이션 ======== */
+
+/* 네비게이션 전체 */
+.nav-all
+{
+    display: block;
+    left: 0;
+    top: 0;
+    margin-left: 0;
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    width: 250px;
+    color: var(--color-text);
+    background-color: var(--color-sidebar);
+    box-shadow: 2px 0 10px var(--color-sidebarBorder);
+    transition: transform 0.8s ease;
+}
+
+/* 네비 헤더 아이콘 */
+.navHIcon
+{
+    width: 24px;
+    height: 24px;
+}
+
+/* 네비 카테고리 아이콘 */
+.navIcon, .linkIcon
+{
+    width: 20px;
+    height: 20px;
+}
+
+.linkIcon
+{
+    filter: brightness(0) saturate(100%) invert(88%) sepia(4%) saturate(5%) hue-rotate(192deg) brightness(50%) contrast(90%);
+}
+
+/* ======== 네비게이션 ======== */
+
+/* ======== 내비 헤더======== */
+/* 로고 */
+#logo
+{
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+#arrow
+{
+    position: absolute;
+    left: 240px;
+    top: 40px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: var(--color-point);
+    border: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#arrow:hover
+{
+    background-color: var(--color-pointhover);
+}
+
+#arrow img
+{
+    width: 34px;
+}
+
+#nav-header
+{
+
+    display: flex;
+    margin-top: 34px;
+    margin-left: var(--margin-normal);
+
+}
+
+#nav-header #logo-name
+{
+    display: flex;
+    flex-direction: column;
+    line-height: 18px;
+    margin-left: 8px;
+    padding: 2px;
+    color: var(--color-text);
+}
+
+#nav-header .head-span1
+{
+    font-size: var(--font-XL);
+    font-weight: var(--font-weight-bold);
+}
+
+#nav-header .head-span2
+{
+    font-size: var(--font-S);
+    font-weight: var(--font-weight-light);
+    width: 163px;
+}
+
+/* ======== #nav-header ======== */
+
+/* ======== Quick-Menu ======== */
+
+#Quick_menu
+{
+    margin-left: var(--margin-normal);
+    margin-bottom: 30px;
+    margin-top: 25px;
+    font-size: var(--font-M);
+    font-weight: var(--font-weight-bold);
+}
+
+#Quick_menu img
+{
+    display: flex;
+}
+
+#Quick_col1
+{
+    width: 40px;
+}
+
+#Quick_col2
+{
+    width: 140px;
+}
+
+#Quick_menu td
+{
+    height: 35px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ======== Quick-Menu ======== */
+
+/* ======== Menu-bar ======== */
+
+#Menu_bar input[type='checkbox']
+{
+    display: none;
+}
+
+#Menu_bar
+{
+    user-select: none;
+    cursor: pointer;
+    font-size: var(--font-L);
+    font-weight: var(--font-weight-regular);
+    margin-left: var(--margin-normal);
+}
+
+#Menu_bar > span
+{
+    font-size: var(--font-M);
+    color: var(--color-text);
+}
+
+#Menu_bar label
+{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 40px;
+}
+
+#Menu_bar .depth1
+{
+    list-style: none;
+    padding-left: 0;
+}
+
+#Menu_bar .depth2
+{
+    list-style: none;
+}
+
+#Menu_bar .plus_minus
+{
+    font-size: var(--font-S);
+}
+
+#Menu_bar img
+{
+    margin-left: 8px;
+    margin-right: 13px;
+}
+
+.depth1
+{
+    font-size: var(--font-L);
+}
+
+.depth2
+{
+    display: none;
+    padding-left: 10px;
+}
+
+.depth2 a
+{
+    margin-left: 41px;
+    padding-left: 16px;
+    color: var(--color-text);
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.depth2 li
+{
+    display: flex;
+    height: 33px;
+    line-height: 33px;
+    width: 174px;
+    padding-left: 0;
+}
+
+#Menu_bar input[type='checkbox']:checked ~ .depth2
+{
+    display: block;
+}
+
+.depth2 li:hover a
+{
+    background-color: var(--color-point);
+    color: white;
+}
+
+/* ======== Menu-bar ======== */
+
+/* ======== 다크 모드 ======== */
+
+.darkMode
+{
+    position: relative;
+    left: -22px;
+    top: 23%;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-darkbtn);
+    width: 250px;
+    height: 40px;
+}
+
+.darkMode img
+{
+    position: absolute;
+    top: 10px;
+    left: 25px;
+}
+
+.sunMoon .Sun
+{
+    opacity: 0;
+}
+
+body.dark .Sun
+{
+    opacity: 1;
+}
+
+.sunMoon .Moon
+{
+    opacity: 1;
+}
+
+body.dark .Moon
+{
+    opacity: 0;
+}
+
+.darkMode-text
+{
+    position: absolute;
+    left: 67px;
+}
+
+.toggle-switch
+{
+    position: absolute;
+    left: 195px;
+    display: flex;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-switch .switch
+{
+    position: relative;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: gray;
+    transition: all 0.3s ease;
+}
+
+.switch::before
+{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    background-color: var(--color-sidebar);
+}
+
+body.dark .switch::before
+{
+    left: 20px;
+}
+
+/* ======== 다크 모드 ======== */
+
+/* ======== 로그인 버튼 ======== */
+#loginWrap
+{
+    display: flex;
+    justify-content: center;
+}
+
+.btn
+{
+    position: fixed;
+    top: 90%;
+    background-color: var(--color-point);
+    color: var(--color-white);
+    width: 200px;
+    height: 46px;
+    border: none;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-XL);
+    font-weight: var(--font-weight-regular);
+    box-shadow: none;
+}
+
+.btn:hover
+{
+    background-color: var(--color-pointhover);
+}
+
+.btn img
+{
+    margin-right: 30px;
+    width: 16px;
+}
+
+/* ======== 로그인 버튼 ======== */
+
+/* ======== 컨텐츠 영역 ======== */
+.Main
+{
+    font-size: var(--font-XL); /* 기본 폰트 사이즈 */
+    margin: 10px 10px 10px 270px; /* 270px = 컨텐츠영역의 기본 마진 */
+    width: calc(100% - 270px);
+    height: 100%;
+    overflow-y: auto;
+    display: block;
+}
+
+/* ======== 컨텐츠 영역 ======== */
+
+
