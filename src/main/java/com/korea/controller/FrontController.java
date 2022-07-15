@@ -1,15 +1,18 @@
 package com.korea.controller;
 
-import com.korea.controller.auth.LoginController;
-import com.korea.controller.auth.LogoutController;
-import com.korea.controller.board.BoardHumorController;
-import com.korea.controller.member.SignUpController;
+import java.io.IOException;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.util.HashMap;
+
+import com.korea.controller.auth.LoginController;
+import com.korea.controller.auth.LogoutController;
+import com.korea.controller.board.BoardCreArtController;
+import com.korea.controller.board.BoardContentController;
+import com.korea.controller.board.BoardHumorController;
+import com.korea.controller.member.SignUpController;
 
 public class FrontController extends HttpServlet
 {
@@ -26,6 +29,8 @@ public class FrontController extends HttpServlet
         list.put("/SignUp.do", new SignUpController());
         // 게시판
         list.put("/BoardHumor.do", new BoardHumorController());
+        list.put("/BoarCreArt.do", new BoardCreArtController());
+        list.put("/BoardContent.do", new BoardContentController());
     }
 
     @Override
