@@ -12,7 +12,7 @@ public class BoardHumorController implements SubController
     {
         try
         {
-            req.getRequestDispatcher("/board/humor.jsp").forward(req, resp);
+            req.getRequestDispatcher("/board/board_Humor.jsp").forward(req, resp);
         }
         catch(Exception e)
         {
