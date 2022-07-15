@@ -1,0 +1,19 @@
+canvas
+{
+    border: 1px solid white;
+}
+
+.swal-footer
+{
+    text-align: center;
+}
+
+.swal-button
+{
+    background-color: var(--color-point);
+}
+
+.swal-button:hover
+{
+    background-color: yellow;
+}
