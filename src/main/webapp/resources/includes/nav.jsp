@@ -29,7 +29,7 @@
                 <td><span>내 미니홈피 바로가기</span></td>
                 <td><img src="/resources/img/sidebar/quick-golink.svg" alt="arrow" class="linkIcon menuIcon"></td>
             </tr>
-            <tr onclick="location.href='/PointShop.do'">
+            <tr onclick="PointShop()">
                 <td><img src="/resources/img/sidebar/quick-shop.svg" alt="PointShop" class="navHIcon"></td>
                 <td><span>포인트샵</span></td>
                 <td><img src="/resources/img/sidebar/quick-golink.svg" alt="arrow" class="linkIcon menuIcon"></td>
