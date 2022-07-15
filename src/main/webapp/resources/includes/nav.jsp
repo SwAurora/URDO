@@ -88,7 +88,7 @@
                     <span>창작게시판</span>
                 </label>
                 <ul class="depth2">
-                    <li><a href="board_creArt.html" title="그림">그림</a></li>
+                    <li><a href="/BoardCreArt.do" title="그림">그림</a></li>
                     <li><a href="board_creCook.html" title="요리">요리</a></li>
                 </ul>
             </li>

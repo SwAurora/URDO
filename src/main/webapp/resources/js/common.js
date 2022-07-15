@@ -36,8 +36,7 @@ function GoHome()
 
 function MiniHomePage()
 {
-
-    location.href = "mini_index.html";
+    location.href = "#";
 }
 
 function PointShop()

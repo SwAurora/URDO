@@ -5,12 +5,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.korea.controller.SubController;
 
-public class CreArtController implements SubController{
-
-	@Override
-	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		// TODO Auto-generated method stub
-		
-	}
-
+public class CreArtController implements SubController
+{
+    @Override
+    public void execute(HttpServletRequest req, HttpServletResponse resp)
+    {
+        try
+        {
+            req.getRequestDispatcher("/board/creArt.jsp").forward(req, resp);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
