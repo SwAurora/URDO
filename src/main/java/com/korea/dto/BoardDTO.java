@@ -14,5 +14,5 @@ public class BoardDTO
     private int views;
     private int recommend;
     private String comment;
-    private int avaliable;
+    private int available;
 }
