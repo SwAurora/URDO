@@ -23,16 +23,16 @@ public class BoardDAO extends DAO
 
     }
 
-    public List<BoardDTO> Select(String table, int start, int limit)
+    public List<BoardDTO> Select(String subject, int start, int limit)
     {
         ArrayList<BoardDTO> list = new ArrayList<>();
         BoardDTO dto;
-        String sql = "select * from " + table + " order by no desc limit ?,?";
         try
         {
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, start);
-            pstmt.setInt(2, limit);
+            pstmt = conn.prepareStatement("select * from board_tbl where subject = ? order by no desc limit ?,?");
+            pstmt.setString(1, subject);
+            pstmt.setInt(2, start);
+            pstmt.setInt(3, limit);
             rs = pstmt.executeQuery();
             while(rs.next())
             {
@@ -45,7 +45,7 @@ public class BoardDAO extends DAO
                 dto.setDate(rs.getString("date"));
                 dto.setViews(rs.getInt("views"));
                 dto.setRecommend(rs.getInt("recommend"));
-                dto.setContent(rs.getString("comment"));
+                dto.setFilename(rs.getString("filename"));
                 dto.setAvailable(rs.getInt("available"));
                 list.add(dto);
             }
@@ -76,13 +76,13 @@ public class BoardDAO extends DAO
         return list;
     }
 
-    public int getTotalCount(String table)
+    public int getTotalCount(String subject)
     {
         int result = 0;
-        String sql = "select count(*) from " + table;
         try
         {
-            pstmt = conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement("select count(*) from board_tbl where subject = ?");
+            pstmt.setString(1, subject);
             rs = pstmt.executeQuery();
             rs.next();
             result = rs.getInt(1);
@@ -113,4 +113,36 @@ public class BoardDAO extends DAO
         return result;
     }
 
+    public boolean insert(BoardDTO dto)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("insert into board_tbl(subject, title, content, writer, date, views, recommend, filename, available) values(?,?,?,?,sysdate(),0,0,?,1)");
+            pstmt.setString(1, dto.getSubject());
+            pstmt.setString(2, dto.getTitle());
+            pstmt.setString(3, dto.getContent());
+            pstmt.setString(4, dto.getWriter());
+            pstmt.setString(5, dto.getFilename());
+
+            int result = pstmt.executeUpdate();
+            if(result > 0)
+                return true;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
 }

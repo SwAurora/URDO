@@ -14,20 +14,31 @@
     <jsp:include page="/resources/includes/link.jsp"/>
     <!--CSS-->
     <link rel="stylesheet" href="../resources/css/board.css">
-    <script>
-        $(document).ready(function()
-        {
-            let span = document.querySelectorAll('.depth1 span');
-            $('#check2').prop('checked', true);
-            span[2].innerHTML = '&#65293';
-            span[3].style.color = getColor('--color-point');
-            span[3].style.fontWeight = 'bold';
-            let activeAdd = document.querySelectorAll(".depth2 > li > a");
-            activeAdd[2].id = "active";
-            $('#active').css('color', getColor('--color-active')).css('font-weight', 'bold');
-        })
-    </script>
 <body>
+<%
+    String msg = (String) request.getAttribute("msg");
+    if(msg != null)
+    {
+%>
+<script>
+    alert('<%=msg%>');
+</script>
+<%
+    }
+%>
+<script>
+    window.onpageshow = function(event)
+    {
+        let span = document.querySelectorAll('.depth1 span');
+        $('#check2').prop('checked', true);
+        span[2].innerHTML = '&#65293';
+        span[3].style.color = getColor('--color-point');
+        span[3].style.fontWeight = 'bold';
+        let activeAdd = document.querySelectorAll(".depth2 > li > a");
+        activeAdd[2].id = "active";
+        $('#active').css('color', getColor('--color-active')).css('font-weight', 'bold');
+    };
+</script>
 <%
     int totalcount; // 총 게시물
     int limit = 10; // 한페이지에 보여줄 게시물 초기값
@@ -188,9 +199,31 @@
                 %>
             </div>
             <div class="post">
-                <input type='button' value='게시글 작성' onclick="location.href='#'" class="pagebtn"
+                <input type='button' value='게시글 작성' onclick="loginchk()" class="pagebtn"
                        id="add">
             </div>
+            <script>
+                function loginchk()
+                {
+            <%
+                    HttpSession session1 = request.getSession();
+                    String id = (String) session1.getAttribute("id");
+                    if(id != null)
+                    {
+            %>
+                        location.href = "/BoardPost.do?subject=humor";
+            <%
+                    }
+                    else
+                    {
+            %>
+                        alert("로그인이 필요합니다.");
+                        location.href = "/login.jsp";
+            <%
+                    }
+            %>
+                }
+            </script>
             <!--  페이지 숫자 끝-->
             <!-- 게시판 내용 관련 코드  끝-->
         </div>

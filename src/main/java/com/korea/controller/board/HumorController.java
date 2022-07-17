@@ -11,7 +11,7 @@ import java.util.List;
 public class HumorController implements SubController
 {
     BoardService service = BoardService.getInstance();
-    String table = "boardHumor_tbl"; // DB 테이블명
+    String subject = "humor"; // DB 테이블명
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
@@ -33,8 +33,8 @@ public class HumorController implements SubController
                 limit = Integer.parseInt(tmplimit);
             }
 
-            List<BoardDTO> list = service.getBoardList(table, start, limit);
-            int tcnt = service.getTotalCnt(table);
+            List<BoardDTO> list = service.getBoardList(subject, start, limit);
+            int tcnt = service.getTotalCnt(subject);
 
             req.setAttribute("tcnt", tcnt);
             req.setAttribute("list", list);

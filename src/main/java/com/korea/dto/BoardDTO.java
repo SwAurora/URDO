@@ -13,6 +13,6 @@ public class BoardDTO
     private String date;
     private int views;
     private int recommend;
-    private String comment;
+    private String filename;
     private int available;
 }

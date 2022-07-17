@@ -10,7 +10,7 @@
   <!-- 링크 -->
   <jsp:include page="resources/includes/link.jsp"/>
   <!-- CSS -->
-  <link rel="stylesheet" href="resources/css/common.css">
+  <link rel="stylesheet" href="resources/css/developer.css">
 </head>
 <body>
 
