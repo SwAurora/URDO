@@ -1,6 +1,7 @@
 create database urdo;
 use urdo;
 
+#------------------------------------------------- 회원 테이블
 create table member_tbl
 (
     id varchar(20) primary key,
@@ -11,11 +12,27 @@ create table member_tbl
     grade int
 );
 
-desc member_tbl;
-
-create table boardhumor_tbl
+#------------------------------------------------- 게시판 테이블
+create table subject_tbl
 (
-    no int primary key,
+    subject varchar(20) primary key
+);
+
+insert into subject_tbl values('bestNow');
+insert into subject_tbl values('bestMonth');
+insert into subject_tbl values('humor');
+insert into subject_tbl values('creArt');
+insert into subject_tbl values('creCook');
+insert into subject_tbl values('regionRestaurant');
+insert into subject_tbl values('regionLandmark');
+insert into subject_tbl values('themeGame');
+insert into subject_tbl values('themeSports');
+insert into subject_tbl values('themeMusic');
+
+#------------------------------------------------ 게시글 테이블
+create table board_tbl
+(
+    no int primary key auto_increment,
     subject varchar(20) not null,
     title varchar(45) not null,
     content varchar(5000) not null,
@@ -23,8 +40,29 @@ create table boardhumor_tbl
     date varchar(45) not null,
     views int,
     recommend int,
-    comment varchar(5000),
-    available int
+    filename varchar(500),
+    available int,
+    foreign key(subject) references subject_tbl(subject) on update cascade on delete cascade
 );
 
-desc boardhumor_tbl;
+create procedure board()
+BEGIN
+    DECLARE i INT DEFAULT 1;
+while(i<=100) DO
+insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('bestNow', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
+insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('bestMonth', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
+insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('humor', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
+insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('creArt', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
+insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('creCook', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
+insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('regionRestaurant', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
+insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('regionLandmark', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
+insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('themeGame', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
+insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('themeSports', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
+insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('themeMusic', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
+set i = i+1;
+end while;
+END;
+
+CALL board();
+
+select * from subject_tbl;
