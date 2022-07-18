@@ -22,6 +22,7 @@ import com.korea.controller.board.ThemeMusicController;
 import com.korea.controller.board.ThemeSportsController;
 import com.korea.controller.member.SignUpController;
 import com.korea.controller.pointShop.PointShopController;
+import com.korea.controller.pointShop.ProduceController;
 
 @MultipartConfig(
         fileSizeThreshold = 1024*1024*10, // 10mb
@@ -53,7 +54,8 @@ public class FrontController extends HttpServlet
         list.put("/Board/post.do", new PostController());
         list.put("/Board/read.do", new ReadController());
         // 포인트샵
-        list.put("/Board/pointShop.do", new PointShopController());
+        list.put("/Shop/pointShop.do", new PointShopController());
+        list.put("/Shop/produce.do", new ProduceController());
     }
 
     @Override

@@ -41,7 +41,7 @@ function MiniHomePage()
 
 function PointShop()
 {
-    location.href = '/Board/pointShop.do';
+    location.href = '/Shop/pointShop.do';
 }
 
 function MyPage()

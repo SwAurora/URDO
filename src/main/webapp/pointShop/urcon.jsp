@@ -70,77 +70,52 @@
       <!-- 1페이지 시작 -->
       <div class="tab1_page on">
         
-        <span class="hov-anim-box">
+        <div class="hov-anim-box">
           <img src="/resources/img/pointShop/urcon6.bmp" alt="" class="static">
           <img src="/resources/img/pointShop/urcon6.gif" alt="" class="animated">
           <div>
             <p class="imgTitle">유알콘실시간인기</p>
             <p class="imgDesc">1페이지입니다.</p>
           </div>
-        </span>
-        <span class="hov-anim-box">
+        </div>
+        <div class="hov-anim-box">
           <img src="/resources/img/pointShop/urcon7.bmp" alt="" class="static">
           <img src="/resources/img/pointShop/urcon7.gif" alt="" class="animated">
           <div>
             <p class="imgTitle">유알콘실시간인기</p>
             <p class="imgDesc">2페이지입니다.</p>
           </div>
-        </span>
-        <span class="hov-anim-box">
+        </div>
+        <div class="hov-anim-box">
           <img src="/resources/img/pointShop/urcon10.bmp" alt="" class="static">
           <img src="/resources/img/pointShop/urcon10.gif" alt="" class="animated">
           <div>
             <p class="imgTitle">유알콘실시간인기</p>
             <p class="imgDesc">2페이지입니다.</p>
           </div>
-        </span>
-        <span class="hov-anim-box">
+        </div>
+        <div class="hov-anim-box">
           <img src="/resources/img/pointShop/urcon11.bmp" alt="" class="static">
           <img src="/resources/img/pointShop/urcon11.gif" alt="" class="animated">
           <div>
             <p class="imgTitle">유알콘실시간인기</p>
             <p class="imgDesc">2페이지입니다.</p>
           </div>
-        </span>
-        <span class="hov-anim-box">
+        </div>
+        <div class="hov-anim-box">
           <img src="/resources/img/pointShop/urcon12.bmp" alt="" class="static">
           <img src="/resources/img/pointShop/urcon12.gif" alt="" class="animated">
           <div>
             <p class="imgTitle">유알콘실시간인기</p>
             <p class="imgDesc">2페이지입니다.</p>
           </div>
-        </span>
+        </div>
 
       </div>
 
 
-      <!-- 2페이지 시작 -->
-      <div class="tab1_page">
-        <span class="hov-anim-box">
-          <img src="/resources/img/pointShop/pointshop.png" alt="" class="static">
-          <img src="/resources/img/pointShop/pointshop.gif" alt="" class="animated">
-          <div>
-            <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">2페이지입니다.</p>
-          </div>
-        </span>
-      </div>
-      <!-- 2페이지 끝 -->
 
-      <!-- 3페이지 시작 -->
-      <div class="tab1_page">
-        <span class="hov-anim-box">
-          <img src="/resources/img/pointShop/pointshop.png" alt="" class="static">
-          <img src="/resources/img/pointShop/pointshop.gif" alt="" class="animated">
-          <div>
-            <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">3페이지입니다!</p>
-          </div>
-        </span>
-      </div>
-      <!-- 3페이지 끝 -->
-
-    </div>
+    
 
       <!-- 일간인기 컨텐츠 -->
     <div class="tabContents">
@@ -154,19 +129,15 @@
 
     <!-- 주간 인기 컨텐츠 -->
     <div class="tabContents">
-      <span class="hov-anim-box">
+      <div class="hov-anim-box">
         <img src="/resources/img/pointShop/pointshop.png" alt="" class="static">
         <img src="/resources/img/pointShop/pointshop.gif" alt="" class="animated">
         <div>
           <p class="imgTitle">유알콘주간인기</p>
           <p class="imgDesc">내용입니다!</p>
         </div>
-      </span>
+      </div>
     </div>
-
-
-      
-
     </div> <!-- 컨테이너 끝 -->
 
 
@@ -182,10 +153,11 @@
           <img class="page_arrow menuIcon" id="next" src="/resources/img/board/page-arrow-forward.svg">
       </div>
       <div class="post">
-          <input type='button' value='제작/등록' onclick='addtr()' class="addBtn" id="add">
+          <a href="/Shop/produce.do">제작/등록</a>
       </div>
       <!--  페이지 숫자 끝-->
       <!-- 게시판 내용 관련 코드  끝-->
+  </div>
   </div>
 
   </section>
