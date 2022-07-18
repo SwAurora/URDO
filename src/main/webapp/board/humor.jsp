@@ -276,6 +276,7 @@
             form.nowPage.value = <%=nowPage%>;
             form.action = "/Board/read.do";
             form.submit();
+            alert('페이지보기!');
         }
     </script>
 </section>
