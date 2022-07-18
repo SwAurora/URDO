@@ -128,8 +128,6 @@
                     {
                 %>
                 <tr id="tableContent">
-                    <%-- <td><%=boardDTO.getNo()%>
-                    </td> --%>
                     <td><img src="../resources/img/board/frog.png" class="pic"></td>
                     <td><a href="javascript:read(<%=boardDTO.getNo()%>)"><%=boardDTO.getTitle()%></a>
                     </td>
