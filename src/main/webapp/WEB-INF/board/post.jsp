@@ -75,12 +75,12 @@
                     <div class="filebox">
                         <input class="upload-name" value="첨부파일" placeholder="첨부파일" readonly>
                         <label for="file">파일찾기</label>
-                        <input type="file" name="files" id="file" multiple/>
+                        <input type="file" name="files" id="file" accept="image/*" multiple/>
                     </div>
 
                     <div class="post">
                         <input type='button' value='취소' class="CancelBtn" onclick="goBack()">
-                        <input type='button' value='도서 등록' class="WriteBtn" onclick="submit()">
+                        <input type='button' value='게시글 등록' class="WriteBtn" onclick="submit()">
                     </div>
                     <input type="hidden" name="flag" value="true">
                 </form>

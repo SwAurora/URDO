@@ -39,9 +39,9 @@ public class FrontController extends HttpServlet
         list.put("/BoardHumor.do", new HumorController());
         list.put("/BoardCreArt.do", new CreArtController());
         list.put("/BoardPost.do", new PostController());
-        list.put("BoardRead.do", new BoardReadController());
+        list.put("/BoardRead.do", new BoardReadController());
         // 포인트샵
-        list.put("/PointShop.do", new PointShopController());
+//        list.put("/PointShop.do", new PointShopController());
     }
 
     @Override

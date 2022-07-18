@@ -12,7 +12,7 @@ public class PointShopController implements SubController
     {
         try
         {
-            req.getRequestDispatcher("/pointShop.jsp").forward(req, resp);
+            req.getRequestDispatcher("/pointShop/pointShop.jsp").forward(req, resp);
         }
         catch(Exception e)
         {
