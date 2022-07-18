@@ -157,8 +157,11 @@
         form.no.value = no;
         form.subject.value = subj;
         form.action = "/Board/delete.do";
-        alert("삭제되었습니다.");
-        form.submit();
+        let conf = confirm("정말 삭제하시겠습니까?");
+        if(conf)
+        {
+            form.submit();
+        }
     }
 </script>
 <!--전체 JS-->

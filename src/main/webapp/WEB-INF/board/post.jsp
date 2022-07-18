@@ -128,7 +128,6 @@
             }
             else
             {
-                alert("작성이 완료되었습니다.");
                 form.submit();
             }
         }

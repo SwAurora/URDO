@@ -20,7 +20,8 @@ public class DeleteController implements SubController
         {
             try
             {
-                resp.sendRedirect("/Board/" + subject + ".do");
+                req.setAttribute("msg", "게시글이 삭제 되었습니다.");
+                req.getRequestDispatcher("/Board/" + subject + ".do").forward(req,resp);
             }
             catch(Exception e)
             {

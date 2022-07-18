@@ -19,11 +19,8 @@
     String msg = (String) request.getAttribute("msg");
     if(msg != null)
     {
-%>
-<script>
-    alert('<%=msg%>');
-</script>
-<%
+        out.println("<script>alert('" + msg + "')</script>");
+        out.println("<script>location.href='/Board/themeSports.do'</script>");
     }
 %>
 <script>

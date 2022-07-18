@@ -18,15 +18,16 @@ public class HumorController implements SubController
     {
         try
         {
-            String tmpstart = req.getParameter("start");
+//            String tmpstart = req.getParameter("start");
             String tmplimit = req.getParameter("limit");
-            String nowPage = req.getParameter("nowPage");
+            String nowPage = req.getParameter("page");
             int start = 0;
             int limit = 10;
-            if(tmpstart != null && tmplimit != null)
+            if(tmplimit != null && nowPage != null)
             {
-                start = Integer.parseInt(tmpstart);
                 limit = Integer.parseInt(tmplimit);
+                int nowpage = Integer.parseInt(nowPage);
+                start = (limit * nowpage) - limit;
             }
             if(tmplimit != null)
             {
