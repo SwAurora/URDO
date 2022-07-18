@@ -63,7 +63,7 @@
 					<button class="btn_board">목록</button>
 					<%
 						HttpSession session1 = request.getSession();
-						String id = (String) session.getAttribute("id");
+						String id = (String) session1.getAttribute("id");
 						String writer = id;
 						if(id.equals(writer)) {
 							%>

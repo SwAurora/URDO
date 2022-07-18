@@ -67,7 +67,6 @@ a
 .cont_tbl {
 	font-size: var(--font-XL);
 	border-collapse:collapse;
-	margin:20px 0;
 	text-align:center;
 	
 }
