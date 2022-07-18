@@ -1,7 +1,6 @@
 package com.korea.controller;
 
 import java.io.IOException;
-
 import java.util.HashMap;
 
 import javax.servlet.annotation.MultipartConfig;
@@ -11,8 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
-import com.korea.controller.board.*;
+import com.korea.controller.board.CreArtController;
+import com.korea.controller.board.CreCookController;
+import com.korea.controller.board.HumorController;
+import com.korea.controller.board.PostController;
+import com.korea.controller.board.ReadController;
+import com.korea.controller.board.RegionLandmarkController;
+import com.korea.controller.board.RegionRestaurantController;
+import com.korea.controller.board.ThemeGameController;
+import com.korea.controller.board.ThemeMusicController;
+import com.korea.controller.board.ThemeSportsController;
 import com.korea.controller.member.SignUpController;
+import com.korea.controller.pointShop.PointShopController;
 
 @MultipartConfig(
         fileSizeThreshold = 1024*1024*10, // 10mb
@@ -43,6 +52,8 @@ public class FrontController extends HttpServlet
         list.put("/Board/themeMusic.do", new ThemeMusicController());
         list.put("/Board/post.do", new PostController());
         list.put("/Board/read.do", new ReadController());
+        // 포인트샵
+        list.put("/Board/pointShop.do", new PointShopController());
     }
 
     @Override
