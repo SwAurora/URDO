@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!-- JS -->
+<script src="/resources/js/common.js"></script>
 <nav class="nav-all">
     <!--헤더 시작-->
     <div id="nav-header">
@@ -147,3 +149,4 @@
         }
     %>
 </nav>
+

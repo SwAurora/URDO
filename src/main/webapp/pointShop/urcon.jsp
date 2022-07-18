@@ -13,12 +13,12 @@
   <!--CSS 링크-->
   <link rel="stylesheet" href="/resources/css/common.css">
   <link rel="stylesheet" href="/resources/css/pointShop.css">
-
   <!-- JQ -->
   <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
+
   <!--네비게이션 시작-->
   <jsp:include page="/resources/includes/nav.jsp"/>
 
@@ -43,7 +43,7 @@
         <li class="level1 on">
           <a href="pointShop.html" class="on">유알콘</a>
           <ul class="menu-level2">
-            <li><a href="#" class="l2-list on">실시간 인기</a></li>
+            <li><a href="#" class="l2-list">실시간 인기</a></li>
             <li><a href="#" class="l2-list">일간 인기</a></li>
             <li><a href="#" class="l2-list">주간 인기</a></li>
           </ul>
@@ -126,16 +126,13 @@
           <img class="page_arrow menuIcon" id="next" src="/resources/img/board/page-arrow-forward.svg">
       </div>
       <div class="post">
-          <a href="/Shop/produce.do">제작/등록</a>
+          <a href="/Shop/produce.do" class="addBtn">제작/등록</a>
       </div>
       <!--  페이지 숫자 끝-->
       <!-- 게시판 내용 관련 코드  끝-->
+ 	 </div>
   </div>
-  </div>
-
   </section>
-  <!--전체 JS-->
-  <script src="/resources/js/common.js"></script>
 </body>
-
 </html>
+
