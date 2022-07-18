@@ -75,7 +75,7 @@
           <img src="/resources/img/pointShop/urcon6.gif" alt="" class="animated">
           <div>
             <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">1페이지입니다.</p>
+            <p class="imgDesc">첫 번째 아이콘.</p>
           </div>
         </div>
         <div class="hov-anim-box">
@@ -83,7 +83,7 @@
           <img src="/resources/img/pointShop/urcon7.gif" alt="" class="animated">
           <div>
             <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">2페이지입니다.</p>
+            <p class="imgDesc">2두 번째 아이콘.</p>
           </div>
         </div>
         <div class="hov-anim-box">
@@ -91,7 +91,7 @@
           <img src="/resources/img/pointShop/urcon10.gif" alt="" class="animated">
           <div>
             <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">2페이지입니다.</p>
+            <p class="imgDesc">2세 번째아이콘.</p>
           </div>
         </div>
         <div class="hov-anim-box">
@@ -99,7 +99,7 @@
           <img src="/resources/img/pointShop/urcon11.gif" alt="" class="animated">
           <div>
             <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">2페이지입니다.</p>
+            <p class="imgDesc">2네번째아이콘.</p>
           </div>
         </div>
         <div class="hov-anim-box">
@@ -107,37 +107,10 @@
           <img src="/resources/img/pointShop/urcon12.gif" alt="" class="animated">
           <div>
             <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">2페이지입니다.</p>
+            <p class="imgDesc">2다섯번째아이콘.</p>
           </div>
         </div>
-
       </div>
-
-
-
-    
-
-      <!-- 일간인기 컨텐츠 -->
-    <div class="tabContents">
-      <div class="tab2_page on">
-        일간인기 1페이지
-      </div>
-      <div class="tab2_page">일간인기 2페이지</div>
-      <div class="tab2_page">일간인기 3페이지</div>
-    </div>
-
-
-    <!-- 주간 인기 컨텐츠 -->
-    <div class="tabContents">
-      <div class="hov-anim-box">
-        <img src="/resources/img/pointShop/pointshop.png" alt="" class="static">
-        <img src="/resources/img/pointShop/pointshop.gif" alt="" class="animated">
-        <div>
-          <p class="imgTitle">유알콘주간인기</p>
-          <p class="imgDesc">내용입니다!</p>
-        </div>
-      </div>
-    </div>
     </div> <!-- 컨테이너 끝 -->
 
 
