@@ -117,14 +117,14 @@
                 return false;
             }
         }
-
-        function goBack()
-        {
-            history.back();
-        }
     </script>
 </section>
-
+<script>
+    function goBack()
+    {
+        history.back();
+    }
+</script>
 <!--전체 JS-->
 <script src="../../resources/js/common.js"></script>
 
