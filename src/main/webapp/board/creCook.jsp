@@ -35,7 +35,7 @@
         span[5].style.color = getColor('--color-point');
         span[5].style.fontWeight = 'bold';
         let activeAdd = document.querySelectorAll(".depth2 > li > a");
-        activeAdd[3].id = "active";
+        activeAdd[4].id = "active";
         $('#active').css('color', getColor('--color-active')).css('font-weight', 'bold');
     };
 </script>
@@ -71,10 +71,10 @@
 <section class="Main">
     <div class="container">
         <div id="container_Title">
-            게시판 > 창작게시판 > 그림
+            게시판 > 창작게시판 > 요리
         </div>
         <div id="search">
-            <div>그림</div>
+            <div>요리</div>
             <div>|</div>
             <input type="text" class="searchBar" placeholder="검색어를 입력하세요">
             <img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
@@ -83,7 +83,7 @@
         <!-- 게시판 내용 관련 코드 -->
         <!-- 게시판윗부분 시작 -->
         <div class="board_list_wrap">
-            <form action="/Board/creArt.do" method="get">
+            <form action="/Board/creCook.do" method="get">
                 <select class="sel" onchange="this.form.submit()" name="limit" id="sel1">
                     <option value="10">10개</option>
                     <option value="20">20개</option>
@@ -208,7 +208,7 @@
                             if(id != null)
                             {
                     %>
-                    location.href = "/Board/post.do?subject=creArt";
+                    location.href = "/Board/post.do?subject=creCook";
                     <%
                             }
                             else
@@ -247,7 +247,7 @@
             limit = <%=limit%>;
             form.start.value = (pageNum * limit) - limit;
             form.limit.value = limit;
-            form.action = "/Board/creArt.do";
+            form.action = "/Board/creCook.do";
             form.submit();
         }
 
@@ -262,7 +262,7 @@
             form.nowPage.value = StartPage;
             form.start.value = (StartPage * limit) - limit + 1;
             form.limit.value = limit;
-            form.action = "/Board/creArt.do";
+            form.action = "/Board/creCook.do";
             form.submit();
         }
 

@@ -77,7 +77,7 @@
                     <span>유머</span>
                 </label>
                 <ul class="depth2">
-                    <li><a href="/BoardHumor.do" title="웃긴 자료">웃긴 자료</a></li>
+                    <li><a href="/Board/humor.do" title="웃긴 자료">웃긴 자료</a></li>
                 </ul>
             </li>
             <li>
@@ -88,8 +88,8 @@
                     <span>창작게시판</span>
                 </label>
                 <ul class="depth2">
-                    <li><a href="/BoardCreArt.do" title="그림">그림</a></li>
-                    <li><a href="board_creCook.html" title="요리">요리</a></li>
+                    <li><a href="/Board/creArt.do" title="그림">그림</a></li>
+                    <li><a href="/Board/creCook.do" title="요리">요리</a></li>
                 </ul>
             </li>
             <li>
@@ -100,8 +100,8 @@
                     <span>지역</span>
                 </label>
                 <ul class="depth2">
-                    <li><a href="board_regionRestaurant.html" title="맛집">맛집</a></li>
-                    <li><a href="board_regionLandMark.html" title="명소">명소</a></li>
+                    <li><a href="/Board/regionRestaurant.do" title="맛집">맛집</a></li>
+                    <li><a href="/Board/regionLandmark.do" title="명소">명소</a></li>
                 </ul>
             </li>
             <li>
@@ -112,9 +112,9 @@
                     <span>테마</span>
                 </label>
                 <ul class="depth2">
-                    <li><a href="board_themeGame.html" title="게임">게임</a></li>
-                    <li><a href="board_themeSports.html" title="스포츠">스포츠</a></li>
-                    <li><a href="board_themeMusic.html" title="음악">음악</a></li>
+                    <li><a href="/Board/themeGame.do" title="게임">게임</a></li>
+                    <li><a href="/Board/themeSports.do" title="스포츠">스포츠</a></li>
+                    <li><a href="/Board/themeMusic.do" title="음악">음악</a></li>
                 </ul>
             </li>
         </ul>

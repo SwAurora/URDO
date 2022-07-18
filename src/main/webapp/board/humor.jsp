@@ -83,7 +83,7 @@
         <!-- 게시판 내용 관련 코드 -->
         <!-- 게시판윗부분 시작 -->
         <div class="board_list_wrap">
-            <form action="/BoardHumor.do" method="get">
+            <form action="/Board/humor.do" method="get">
                 <select class="sel" onchange="this.form.submit()" name="limit" id="sel1">
                     <option value="10">10개</option>
                     <option value="20">20개</option>
@@ -209,7 +209,7 @@
                     if(id != null)
                     {
             %>
-                        location.href = "/BoardPost.do?subject=humor";
+                        location.href = "/Board/post.do?subject=humor";
             <%
                     }
                     else
@@ -248,7 +248,7 @@
             limit = <%=limit%>;
             form.start.value = (pageNum * limit) - limit;
             form.limit.value = limit;
-            form.action = "/BoardHumor.do";
+            form.action = "/Board/humor.do";
             form.submit();
         }
 
@@ -263,7 +263,7 @@
             form.nowPage.value = StartPage;
             form.start.value = (StartPage * limit) - limit + 1;
             form.limit.value = limit;
-            form.action = "/BoardHumor.do";
+            form.action = "/Board/humor.do";
             form.submit();
         }
 
@@ -280,8 +280,6 @@
 
 <!--전체 JS-->
 <script src="../resources/js/common.js"></script>
-<!--포인트샵 JS-->
-<script src="../resources/js/pointShop.js"></script>
 <!--게시판 JS-->
 <script src="../resources/js/board.js"></script>
 
