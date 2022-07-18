@@ -128,8 +128,10 @@
                     {
                 %>
                 <tr id="tableContent">
+                    <%-- <td><%=boardDTO.getNo()%>
+                    </td> --%>
                     <td><img src="../resources/img/board/frog.png" class="pic"></td>
-                    <td><a href="javascript:read(<%=boardDTO.getNo()%>)"><%=boardDTO.getTitle()%></a>
+                    <td><a href="/BoardRead.do"><%=boardDTO.getTitle()%></a>
                     </td>
                     <td><%=boardDTO.getViews()%>
                     </td>
@@ -274,7 +276,6 @@
             form.nowPage.value = <%=nowPage%>;
             form.action = "/Board/read.do";
             form.submit();
-            alert('페이지보기!');
         }
     </script>
 </section>

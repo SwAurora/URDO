@@ -1,6 +1,7 @@
 package com.korea.controller;
 
 import java.io.IOException;
+
 import java.util.HashMap;
 
 import javax.servlet.annotation.MultipartConfig;
@@ -15,7 +16,6 @@ import com.korea.controller.board.CreArtController;
 import com.korea.controller.board.HumorController;
 import com.korea.controller.board.PostController;
 import com.korea.controller.member.SignUpController;
-import com.korea.controller.pointShop.PointShopController;
 
 @MultipartConfig(
         fileSizeThreshold = 1024*1024*10, // 10mb
