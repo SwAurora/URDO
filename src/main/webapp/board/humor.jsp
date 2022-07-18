@@ -113,7 +113,6 @@
                     <col id="boardCol6">
                 </colgroup>
                 <tr class="titlename">
-                    <!-- <td class="tname">번호</td> -->
                     <td class="tname">썸네일</td>
                     <td class="tname" id="titleboard">글제목</td>
                     <td class="tname">조회</td>
