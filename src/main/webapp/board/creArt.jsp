@@ -128,7 +128,7 @@
                 %>
                 <tr>
                     <td><img src="../resources/img/board/frog.png" class="pic"></td>
-                    <td ><a href="javascript:read(<%=boardDTO.getNo()%>)"><%=boardDTO.getTitle()%></a>
+                    <td ><a href="/Board/read.do?no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%></a>
                     </td>
                     <td><%=boardDTO.getViews()%>
                     </td>
@@ -225,10 +225,6 @@
             <!-- 게시판 내용 관련 코드  끝-->
         </div>
     </div>
-
-    <form name="initFrm" method="get">
-        <input type="hidden" name="nowPage">
-    </form>
 
     <%--페이징 처리 폼--%>
     <form name="readFrm" method="get">

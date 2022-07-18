@@ -24,6 +24,7 @@
     alert('<%=msg%>');
 </script>
 <%
+        request.setAttribute("msg", null);
     }
 %>
 <script>
@@ -128,7 +129,7 @@
                 %>
                 <tr id="tableContent">
                     <td><img src="../resources/img/board/frog.png" class="pic"></td>
-                    <td><a href="/Board/read.do"><%=boardDTO.getTitle()%></a>
+                    <td><a href="/Board/read.do?no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%></a>
                     </td>
                     <td><%=boardDTO.getViews()%>
                     </td>
@@ -226,10 +227,6 @@
         </div>
     </div>
 
-    <form name="initFrm" method="get">
-        <input type="hidden" name="nowPage">
-    </form>
-
     <%--페이징 처리 폼--%>
     <form name="readFrm" method="get">
         <input type="hidden" name="no"> <%--게시물번호--%>
@@ -271,7 +268,7 @@
             let form = document.readFrm;
             form.no.value = no;
             form.nowPage.value = <%=nowPage%>;
-            form.action = "/Board/read.do";
+            form.action = "/Board/read.do?";
             form.submit();
         }
     </script>

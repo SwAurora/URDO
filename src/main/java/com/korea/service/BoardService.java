@@ -96,7 +96,7 @@ public class BoardService
     }
 
     // 게시글 번호와 subject로 게시글 불러오기
-    public BoardDTO getBoardDTO(int no, String subject)
+    public BoardDTO Select(int no)
     {
         return dao.Select(no);
     }
