@@ -15,6 +15,7 @@ public class BoardService
     BoardDAO dao = BoardDAO.getInstance();
 
     private static BoardService instance = null;
+
     public static BoardService getInstance()
     {
         if(instance == null)
@@ -47,11 +48,7 @@ public class BoardService
     //파일포함 글쓰기 서비스
     public boolean PostBoard(BoardDTO dto, ArrayList<Part> parts)
     {
-        String writer = dto.getWriter();
-        Date now = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String date = simpleDateFormat.format(now);
-        String subPath = writer + "/" + date;
+        String subPath = "B" + (dao.getLastNo() + 1);
         String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
         rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
         File RealPath = new File(rootPath + "/files/" + subPath);
@@ -69,9 +66,9 @@ public class BoardService
 
                 totalFilename.append(FileName).append(";");
 
-                String ext = FileName.substring(FileName.lastIndexOf(".") + 1);
-                FileName = FileName.replaceAll("." + ext, "");
-                FileName = FileName + "_" + UUID.randomUUID() + "." + ext;
+//                String ext = FileName.substring(FileName.lastIndexOf(".") + 1);
+//                FileName = FileName.replaceAll("." + ext, "");
+//                FileName = FileName + "_" + UUID.randomUUID() + "." + ext;
                 try
                 {
                     part.write(RealPath + "/" + FileName);
@@ -97,9 +94,10 @@ public class BoardService
         String[] arr = contentDisp.split(";");
         return arr[2].substring(11, arr[2].length() - 1);
     }
-    
+
     // 게시글 번호와 subject로 게시글 불러오기
-    public BoardDTO getBoardDTO(int no, String subject) {
-    	return dao.Select(no);
+    public BoardDTO getBoardDTO(int no, String subject)
+    {
+        return dao.Select(no);
     }
 }

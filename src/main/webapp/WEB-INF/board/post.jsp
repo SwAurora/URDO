@@ -11,7 +11,6 @@
     <jsp:include page="../../resources/includes/link.jsp"/>
     <!-- CSS -->
     <link rel="stylesheet" href="../../resources/css/boardPost.css">
-    <link rel="stylesheet" href="../../resources/css/pointShop.css">
 <body>
 <%
     String msg = (String) request.getAttribute("msg");
@@ -41,43 +40,43 @@
 
         <div class="container2">
             <div id="writeField">
-                <form action="/BoardPost.do" method="post" enctype="multipart/form-data">
-                        <select name="subjects" id="sel1">
-                            <option value="humor">웃긴 자료</option>
-                            <option value="creArt" style="text-align: center">그림</option>
-                            <option value="creCook">요리</option>
-                            <option value="regionRestaurant">맛집</option>
-                            <option value="regionLandmark">명소</option>
-                            <option value="themeGame">게임</option>
-                            <option value="themeSports">스포츠</option>
-                            <option value="themeMusic">음악</option>
-                        </select>
-                        <%
-                            String subject = request.getParameter("subject");
+                <form action="/Board/post.do" method="post" enctype="multipart/form-data">
+                    <select name="subjects" id="sel1">
+                        <option value="humor">웃긴 자료</option>
+                        <option value="creArt" style="text-align: center">그림</option>
+                        <option value="creCook">요리</option>
+                        <option value="regionRestaurant">맛집</option>
+                        <option value="regionLandmark">명소</option>
+                        <option value="themeGame">게임</option>
+                        <option value="themeSports">스포츠</option>
+                        <option value="themeMusic">음악</option>
+                    </select>
+                    <%
+                        String subject = request.getParameter("subject");
 
-                            if(subject != null)
-                            {
-                        %>
-                        <script>
-                            $('#sel1').val('<%=subject%>').prop("selected", true);
-                        </script>
-                        <%
-                            }
-                        %>
+                        if(subject != null)
+                        {
+                    %>
+                    <script>
+                        $('#sel1').val('<%=subject%>').prop("selected", true);
+                    </script>
+                    <%
+                        }
+                    %>
                     <div class="title_write_area">
                         <input type="text" class="URtitle" placeholder="제목을 입력해 주세요" name="title">
                     </div>
 
                     <div class="main_write_area">
-                        <textarea name="content" class="URmain" cols="30" rows="10" placeholder="내용을 입력해 주세요"></textarea>
+                        <textarea name="content" class="URmain" cols="30" rows="10"
+                                  placeholder="내용을 입력해 주세요"></textarea>
                     </div>
 
                     <div class="filebox">
                         <input class="upload-name" value="첨부파일" placeholder="첨부파일" readonly>
                         <label for="file">파일찾기</label>
-                        <input type="file" name="files" id="file" accept="image/*" multiple/>
+                        <input type="file" name="files" id="file" accept="image/*" onchange="fileCheck(this)" multiple/>
                     </div>
-
                     <div class="post">
                         <input type='button' value='취소' class="CancelBtn" onclick="goBack()">
                         <input type='button' value='게시글 등록' class="WriteBtn" onclick="submit()">
@@ -89,19 +88,35 @@
 
     </div>
     <script>
-        $("#file").on('change', function()
+        function fileCheck(obj)
         {
-            let file = document.getElementById('file');
-            let name = [];
-            if(file.files.length > 0)
+            let pathpoint = obj.value.lastIndexOf('.');
+            let filepoint = obj.value.substring(pathpoint + 1, obj.length);
+            let filetype = filepoint.toLowerCase();
+            if(filetype === 'jpg' || filetype === 'gif' || filetype === 'png' || filetype === 'jpeg' || filetype === 'bmp')
             {
-                for(let i = 0; i < file.files.length; i++)
+                let file = document.getElementById('file');
+                let name = [];
+                if(file.files.length > 0)
                 {
-                    name[i] = file.files[i].name;
+                    for(let i = 0; i < file.files.length; i++)
+                    {
+                        name[i] = file.files[i].name;
+                    }
                 }
+                $(".upload-name").val(name.toString());
+                return true;
             }
-            $(".upload-name").val(name.toString());
-        })
+            else
+            {
+                alert('이미지 파일만 선택할 수 있습니다.');
+                let parentObj = obj.parentNode
+                let node = parentObj.replaceChild(obj.cloneNode(true), obj);
+                document.getElementById("file").value = "";
+                document.getElementsByClassName("upload-name")[0].value = "";
+                return false;
+            }
+        }
 
         function goBack()
         {

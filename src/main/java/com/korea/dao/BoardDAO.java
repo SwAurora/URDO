@@ -76,6 +76,42 @@ public class BoardDAO extends DAO
         return list;
     }
 
+    public int getLastNo()
+    {
+        int result = 0;
+        try
+        {
+            pstmt = conn.prepareStatement("select no from board_tbl order by no desc;");
+            rs = pstmt.executeQuery();
+            rs.next();
+            result = rs.getInt(1);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+
     public int getTotalCount(String subject)
     {
         int result = 0;
@@ -150,7 +186,7 @@ public class BoardDAO extends DAO
     public BoardDTO Select(int No) {
     	BoardDTO dto = new BoardDTO();
     	try {
-    		pstmt = conn.prepareStatement("select * from tbl_board where no = ?");
+    		pstmt = conn.prepareStatement("select * from board_tbl where no = ?");
     		pstmt.setInt(1, No);
     		rs = pstmt.executeQuery();
     		
