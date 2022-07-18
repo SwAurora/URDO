@@ -105,7 +105,7 @@ a
 
 .cont_tbl_r3 td
 {
-    padding: 15px 0;
+    padding: 30px 0 15px 0;
     text-align: left;
     line-height: 1.8rem;
 }
@@ -148,7 +148,6 @@ a
     width: 100px;
     height: 40px;
     gap: 10px;
-
 }
 
 

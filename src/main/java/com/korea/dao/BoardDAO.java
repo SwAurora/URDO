@@ -181,29 +181,54 @@ public class BoardDAO extends DAO
         }
         return false;
     }
-    
+
     // 게시글 번호로 게시글 불러오기
-    public BoardDTO Select(int No) {
-    	BoardDTO dto = new BoardDTO();
-    	try {
-    		pstmt = conn.prepareStatement("select * from board_tbl where no = ?");
-    		pstmt.setInt(1, No);
-    		rs = pstmt.executeQuery();
-    		
-    		while(rs.next()) {
-    			dto.setWriter(rs.getString("writer"));
-    			dto.setContent(rs.getString("content"));
-    			dto.setTitle(rs.getString("title"));
-    			dto.setNo(rs.getInt("no"));
-    			dto.setFilename(rs.getString("filename"));
-    			dto.setDate(rs.getString("date"));
-    		}
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	} finally {
-    		try { rs.close(); } catch (Exception e) { e.printStackTrace(); }
-    		try { pstmt.close(); } catch (Exception e) { e.printStackTrace(); }
-    	}
-    	return dto;
+    public BoardDTO Select(int no)
+    {
+        BoardDTO dto = new BoardDTO();
+        try
+        {
+            pstmt = conn.prepareStatement("select * from board_tbl where no = ?");
+            pstmt.setInt(1, no);
+            rs = pstmt.executeQuery();
+
+            while(rs.next())
+            {
+                dto.setNo(rs.getInt("no"));
+                dto.setSubject(rs.getString("subject"));
+                dto.setTitle(rs.getString("title"));
+                dto.setContent(rs.getString("content"));
+                dto.setDate(rs.getString("date"));
+                dto.setWriter(rs.getString("writer"));
+                dto.setViews(rs.getInt("views"));
+                dto.setRecommend(rs.getInt("recommend"));
+                dto.setFilename(rs.getString("filename"));
+                dto.setAvailable(rs.getInt("available"));
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return dto;
     }
 }
