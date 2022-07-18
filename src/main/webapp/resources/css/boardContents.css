@@ -1,0 +1,146 @@
+
+/* ----------상단영역 시작---------- */
+#container_Title
+{
+    margin-top: 10px;
+    font-size: var(--font-L);
+}
+
+#search
+{
+    font-size: var(--font-XL);
+    margin-top: 28.5px;
+    display: flex;
+    align-items: center;
+}
+
+#search div
+{
+    margin-right: 40px;
+}
+
+.searchBarIcon
+{
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    cursor:pointer;
+}
+
+.searchBar
+{
+    width: 300px;
+    height: 30px;
+    font-size: var(--font-XL);
+    font-weight: var(--font-weight-light);
+    background: none;
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
+    color: var(--color-blackToWhite);
+    padding-left:10px;
+}
+
+.searchBar::placeholder
+{
+    color: var(--color-placeholder);
+}
+
+a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+#search
+{
+    font-size: var(--font-XL);
+}
+/* ----------상단영역 끝---------- */
+
+
+/* ----------컨텐츠 테이블 시작---------- */
+.container2 {
+	width: calc(90% - 20px);
+	margin : 15px auto;
+	
+}
+.cont_tbl {
+	font-size: var(--font-XL);
+	border-collapse:collapse;
+	text-align:center;
+	
+}
+
+
+/* row css */
+.cont_tbl_r1 {
+	height:2.5rem;
+	font-size : 28px;
+}
+.cont_tbl_r1 td {
+	padding: 30px 0;
+	border-bottom:2px solid gray;
+	text-align:left;
+	
+}
+.cont_tbl_r2 td{
+	width:25%;
+	height:2.5rem;
+	padding: 10px 0;
+	border-bottom:2px solid gray;
+}
+.cont_tbl_r3 {
+	vertical-align:top;
+	height:500px;
+	padding:10px 0;
+	font-size: var(--font-L);
+}
+.cont_tbl_r3 td {
+	padding: 30px 0;
+	text-align:left;
+	line-height: 1.8rem;
+}
+
+
+/* ----------컨텐츠 테이블 끝---------- */
+
+
+/* 버튼 */
+.btn_container {
+	display:flex;
+	justify-content:space-between;
+}
+.btn_group{
+	display:flex; 
+	gap:8px;
+	align-items:center;
+}
+.btn_board {
+    background-color: #4F505C;
+    color: var(--color-white);
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--font-L);
+    font-weight: var(--font-weight-regular);
+    box-shadow: none;
+}
+
+.btn_board.point {
+	background-color : var(--color-warning);
+	width:100px;
+	height:40px;
+	gap:10px;
+	
+}
+
+
+
+
+
+
+
