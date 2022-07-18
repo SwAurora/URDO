@@ -40,7 +40,7 @@
 
         <div class="container2">
             <div id="writeField">
-                <form action="/Board/post.do" method="post" enctype="multipart/form-data">
+                <form action="/Board/post.do" name="form1" method="post" enctype="multipart/form-data">
                     <select name="subjects" id="sel1">
                         <option value="humor">웃긴 자료</option>
                         <option value="creArt" style="text-align: center">그림</option>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="post">
                         <input type='button' value='취소' class="CancelBtn" onclick="goBack()">
-                        <input type='button' value='게시글 등록' class="WriteBtn" onclick="submit()">
+                        <input type='button' value='게시글 등록' class="WriteBtn" onclick="postchk()">
                     </div>
                     <input type="hidden" name="flag" value="true">
                 </form>
@@ -115,6 +115,21 @@
                 document.getElementById("file").value = "";
                 document.getElementsByClassName("upload-name")[0].value = "";
                 return false;
+            }
+        }
+
+        function postchk()
+        {
+            let form = document.form1;
+
+            if(form.title.value === "" || form.content.value === "")
+            {
+                alert("비어있는 항목이 있습니다.");
+            }
+            else
+            {
+                alert("작성이 완료되었습니다.");
+                form.submit();
             }
         }
     </script>

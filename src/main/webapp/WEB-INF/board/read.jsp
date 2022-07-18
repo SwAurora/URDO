@@ -68,7 +68,8 @@
             게시판 > <%=depth1%> > <%=depth2%>
         </div>
         <div id="search">
-            <div><%=depth2%></div>
+            <div><%=depth2%>
+            </div>
             <div>|</div>
             <input type="text" class="searchBar" placeholder="검색어를 입력하세요">
             <img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
@@ -78,16 +79,22 @@
     <div class="container2">
         <table class="cont_tbl">
             <tr class="cont_tbl_r1">
-                <td colspan="4"><%=dto.getTitle()%></td>
+                <td colspan="4"><%=dto.getTitle()%>
+                </td>
             </tr>
             <tr class="cont_tbl_r2">
-                <td>작성자 : <%=dto.getWriter()%></td>
-                <td>작성일시 : <%=dto.getDate()%></td>
-                <td>조회수 : <%=dto.getViews()%></td>
-                <td>추천수 : <%=dto.getRecommend()%></td>
+                <td>작성자 : <%=dto.getWriter()%>
+                </td>
+                <td>작성일시 : <%=dto.getDate()%>
+                </td>
+                <td>조회수 : <%=dto.getViews()%>
+                </td>
+                <td>추천수 : <%=dto.getRecommend()%>
+                </td>
             </tr>
             <tr class="cont_tbl_r3">
-                <td colspan="4"><%=dto.getContent()%></td>
+                <td colspan="4"><%=dto.getContent()%>
+                </td>
             </tr>
         </table>
 

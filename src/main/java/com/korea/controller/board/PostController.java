@@ -50,8 +50,6 @@ public class PostController implements SubController
                 dto.setContent(content);
                 dto.setWriter(writer);
 
-
-
                 //첨부파일 part 전달
                 ArrayList<Part> parts = (ArrayList<Part>) req.getParts();
                 boolean result;
@@ -71,7 +69,6 @@ public class PostController implements SubController
                     ArrayList<BoardDTO> list =  (ArrayList<BoardDTO>) service.getBoardList(subject, 0, 10);
                     req.setAttribute("tcnt", tcnt);
                     req.setAttribute("list", list);
-                    req.setAttribute("msg", "작성을 완료하였습니다.");
                     req.getRequestDispatcher("/board/" + subject + ".jsp?nowPage=1").forward(req, resp);
                 }
                 else

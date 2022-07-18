@@ -129,7 +129,7 @@
                 %>
                 <tr id="tableContent">
                     <td><img src="../resources/img/board/frog.png" class="pic"></td>
-                    <td><a href="/Board/read.do?no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%></a>
+                    <td><a href="javascript:read(<%=boardDTO.getNo()%>)"><%=boardDTO.getTitle()%></a>
                     </td>
                     <td><%=boardDTO.getViews()%>
                     </td>
@@ -267,8 +267,8 @@
         {
             let form = document.readFrm;
             form.no.value = no;
-            form.nowPage.value = <%=nowPage%>;
-            form.action = "/Board/read.do?";
+            <%--form.nowPage.value = <%=nowPage%>;--%>
+            form.action = "/Board/read.do";
             form.submit();
         }
     </script>
