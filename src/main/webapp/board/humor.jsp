@@ -131,7 +131,7 @@
                     <%-- <td><%=boardDTO.getNo()%>
                     </td> --%>
                     <td><img src="../resources/img/board/frog.png" class="pic"></td>
-                    <td><a href="/BoardRead.do"><%=boardDTO.getTitle()%></a>
+                    <td><a href="/Board/read.do"><%=boardDTO.getTitle()%></a>
                     </td>
                     <td><%=boardDTO.getViews()%>
                     </td>
