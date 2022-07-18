@@ -10,7 +10,7 @@
     <!-- 링크 -->
     <jsp:include page="../../resources/includes/link.jsp"/>
     <!-- CSS -->
-    <link rel="stylesheet" href="../../resources/css/board_write.css">
+    <link rel="stylesheet" href="../../resources/css/boardPost.css">
     <link rel="stylesheet" href="../../resources/css/pointShop.css">
 <body>
 <%
@@ -32,14 +32,10 @@
     <div class="container">
         <header>
             <div id="container_Title">
-                게시판 > 유머 > 웃긴 자료
+                게시판 > 게시글 작성
             </div>
             <div id="search">
-                <div>웃긴 자료</div>
-                <div>|</div>
-                <input type="text" class="searchBar" placeholder="검색어를 입력하세요">
-                <img src="../../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon"
-                     id="searchBarIcon">
+                <div style="font-size: 28px">게시글 작성</div>
             </div>
         </header>
 
@@ -48,7 +44,7 @@
                 <form action="/BoardPost.do" method="post" enctype="multipart/form-data">
                         <select name="subjects" id="sel1">
                             <option value="humor">웃긴 자료</option>
-                            <option value="creArt">그림</option>
+                            <option value="creArt" style="text-align: center">그림</option>
                             <option value="creCook">요리</option>
                             <option value="regionRestaurant">맛집</option>
                             <option value="regionLandmark">명소</option>

@@ -65,4 +65,4 @@ END;
 
 CALL board();
 
-select * from subject_tbl;
+select * from board_tbl where writer = 'aurora';
