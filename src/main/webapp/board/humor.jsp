@@ -24,7 +24,6 @@
     alert('<%=msg%>');
 </script>
 <%
-        request.setAttribute("msg", null);
     }
 %>
 <script>
@@ -61,7 +60,7 @@
         limit = Integer.parseInt(request.getParameter("limit"));
     }
     totalcount = (int) request.getAttribute("tcnt");
-    totalPage = (int) Math.ceil((double)totalcount / limit);
+    totalPage = (int) Math.ceil((double) totalcount / limit);
     totalBlock = (int) Math.ceil((double) totalPage / pagePerBlock);
     nowBlock = (int) Math.ceil((double) nowPage / pagePerBlock);
 %>
@@ -129,7 +128,8 @@
                 %>
                 <tr id="tableContent">
                     <td><img src="../resources/img/board/frog.png" class="pic"></td>
-                    <td><a href="javascript:read(<%=boardDTO.getNo()%>)"><%=boardDTO.getTitle()%></a>
+                    <td><a href="/Board/read.do?no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%>
+                    </a>
                     </td>
                     <td><%=boardDTO.getViews()%>
                     </td>
@@ -170,17 +170,17 @@
                             if(pageStart == nowPage)
                             {
                     %>
-                                <a class="page_num on"
-                                   href="javascript:paging(<%=pageStart%>)"><%=pageStart%>
-                                </a>
+                    <a class="page_num on"
+                       href="javascript:paging(<%=pageStart%>)"><%=pageStart%>
+                    </a>
                     <%
-                            }
-                            else
-                            {
+                    }
+                    else
+                    {
                     %>
-                                <a class="page_num"
-                                   href="javascript:paging(<%=pageStart%>)"><%=pageStart%>
-                                </a>
+                    <a class="page_num"
+                       href="javascript:paging(<%=pageStart%>)"><%=pageStart%>
+                    </a>
                     <%
                             }
                         }
@@ -203,23 +203,23 @@
             <script>
                 function loginchk()
                 {
-            <%
-                    HttpSession session1 = request.getSession();
-                    String id = (String) session1.getAttribute("id");
-                    if(id != null)
-                    {
-            %>
-                        location.href = "/Board/post.do?subject=humor";
-            <%
-                    }
-                    else
-                    {
-            %>
-                        alert("로그인이 필요합니다.");
-                        location.href = "/login.jsp";
-            <%
-                    }
-            %>
+                    <%
+                            HttpSession session1 = request.getSession();
+                            String id = (String) session1.getAttribute("id");
+                            if(id != null)
+                            {
+                    %>
+                    location.href = "/Board/post.do?subject=humor";
+                    <%
+                            }
+                            else
+                            {
+                    %>
+                    alert("로그인이 필요합니다.");
+                    location.href = "/login.jsp";
+                    <%
+                            }
+                    %>
                 }
             </script>
             <!--  페이지 숫자 끝-->
@@ -228,8 +228,7 @@
     </div>
 
     <%--페이징 처리 폼--%>
-    <form name="readFrm" method="get">
-        <input type="hidden" name="no"> <%--게시물번호--%>
+    <form name="readFrm" method="post">
         <input type="hidden" name="start"> <%--DB로 부터 읽을 시작 번호--%>
         <input type="hidden" name="limit"> <%--한 페이지에 보여줄 게시글 수--%>
         <input type="hidden" name="nowPage"> <%--현재 페이지 번호--%>
@@ -244,7 +243,7 @@
             limit = <%=limit%>;
             form.start.value = (pageNum * limit) - limit;
             form.limit.value = limit;
-            form.action = "/Board/humor.do";
+            form.action = "/Board/humor.do?page=" + pageNum;
             form.submit();
         }
 
@@ -259,16 +258,7 @@
             form.nowPage.value = StartPage;
             form.start.value = (StartPage * limit) - limit + 1;
             form.limit.value = limit;
-            form.action = "/Board/humor.do";
-            form.submit();
-        }
-
-        function read(no)
-        {
-            let form = document.readFrm;
-            form.no.value = no;
-            <%--form.nowPage.value = <%=nowPage%>;--%>
-            form.action = "/Board/read.do";
+            form.action = "/Board/humor.do?nowpage=" + StartPage;
             form.submit();
         }
     </script>

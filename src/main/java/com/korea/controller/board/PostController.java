@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class PostController implements SubController
@@ -65,11 +66,7 @@ public class PostController implements SubController
 
                 if(result)
                 {
-                    int tcnt = service.getTotalCnt(subject);
-                    ArrayList<BoardDTO> list =  (ArrayList<BoardDTO>) service.getBoardList(subject, 0, 10);
-                    req.setAttribute("tcnt", tcnt);
-                    req.setAttribute("list", list);
-                    req.getRequestDispatcher("/board/" + subject + ".jsp?nowPage=1").forward(req, resp);
+                    resp.sendRedirect("/Board/" + subject + ".do");
                 }
                 else
                 {

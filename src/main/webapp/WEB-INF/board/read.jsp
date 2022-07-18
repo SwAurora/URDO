@@ -1,4 +1,5 @@
 <%@ page import="com.korea.dto.BoardDTO" %>
+<%@ page import="java.util.Objects" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -14,6 +15,19 @@
     <link rel="stylesheet" href="../../resources/css/common.css">
     <link rel="stylesheet" href="../../resources/css/boardRead.css">
 <body>
+<%
+    String msg = (String) request.getAttribute("msg");
+
+    if(msg != null)
+    {
+%>
+<script>
+    alert('<%=msg%>');
+    history.back();
+</script>
+<%
+    }
+%>
 <%
     BoardDTO dto = (BoardDTO) request.getAttribute("dto");
     String subject = dto.getSubject();
@@ -103,12 +117,14 @@
                 <button class="btn_board" onclick="goBack()">목록</button>
                 <%
                     HttpSession session1 = request.getSession();
-                    String id = (String) session1.getAttribute("id");
-                    if(true)
+                    String nickname = (String) session1.getAttribute("nickname");
+                    String writer = dto.getWriter();
+
+                    if(Objects.equals(nickname, writer))
                     {
                 %>
                 <button class="btn_board">수정</button>
-                <button class="btn_board">삭제</button>
+                <a class="btn_board" href="javascript:Delete('<%=dto.getNo()%>','<%=dto.getSubject()%>')">삭제</a>
                 <%
                     }
                 %>
@@ -124,11 +140,25 @@
     </div>
     <div>
     </div>
+    <form name="forDelete" method="post">
+        <input type="hidden" name="no">
+        <input type="hidden" name="subject">
+    </form>
 </section>
 <script>
     function goBack()
     {
         history.back();
+    }
+
+    function Delete(no, subj)
+    {
+        let form = document.forDelete;
+        form.no.value = no;
+        form.subject.value = subj;
+        form.action = "/Board/delete.do";
+        alert("삭제되었습니다.");
+        form.submit();
     }
 </script>
 <!--전체 JS-->
