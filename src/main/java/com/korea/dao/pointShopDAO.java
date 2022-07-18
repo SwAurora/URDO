@@ -1,6 +1,5 @@
 package com.korea.dao;
 
-import com.korea.dto.MemberDTO;
 import com.korea.dto.PointShopDTO;
 
 public class pointShopDAO extends DAO{
@@ -26,12 +25,12 @@ public class pointShopDAO extends DAO{
 
             if(rs.next())
             {
-                dto.setId(id);
-                dto.setPw(rs.getString("pw"));
-                dto.setEmail(rs.getString("email"));
-                dto.setNickname(rs.getString("nickname"));
-                dto.setPoint(rs.getInt("point"));
-                dto.setGrade(rs.getInt("grade"));
+                dto.setNo(rs.getInt("no"));
+                dto.setName(rs.getString("name"));
+                dto.setDiscription(rs.getString("discription"));
+                dto.setPrice(rs.getInt("price"));
+                dto.setStaticImage(rs.getString("staticImage"));
+                dto.setGifImage(rs.getString("gifImage"));
                 return dto;
             }
         }

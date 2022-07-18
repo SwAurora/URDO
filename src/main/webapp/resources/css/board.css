@@ -73,13 +73,26 @@ a
 /* table 안의 tdborder 설정 */
 .board_list tr
 {
-    border-bottom: 1px solid gray;
-    text-align: center;
+	border-bottom:1px solid gray;
+  text-align: center;
+}
+.titlename td
+{
+	padding:10px;
+}
+/* 게시판 내용물 사이즈 */
+#boardCol2
+{
+    width: 45%;
 }
 
 #boardCol3
 {
     text-align: left;
+}
+#boardCol6
+{
+		width:15%;
 }
 
 /* 게시판 글제목 내용에 가까이갈시 작동   */
@@ -131,11 +144,7 @@ a
     width: 50px;
 }
 
-/* 게시판 내용물 사이즈 */
-#titleboard
-{
-    width: 300px;
-}
+
 
 /* 썸네일등등부분 끝 */
 

@@ -113,7 +113,7 @@
                     <col id="boardCol6">
                 </colgroup>
                 <tr class="titlename">
-                    <td class="tname">번호</td>
+                    <!-- <td class="tname">번호</td> -->
                     <td class="tname">썸네일</td>
                     <td class="tname" id="titleboard">글제목</td>
                     <td class="tname">조회</td>
@@ -127,11 +127,11 @@
                     for(BoardDTO boardDTO : list)
                     {
                 %>
-                <tr>
-                    <td><%=boardDTO.getNo()%>
-                    </td>
+                <tr id="tableContent">
+                    <%-- <td><%=boardDTO.getNo()%>
+                    </td> --%>
                     <td><img src="../resources/img/board/frog.png" class="pic"></td>
-                    <td ><a href="javascript:read(<%=boardDTO.getNo()%>)"><%=boardDTO.getTitle()%></a>
+                    <td><a href="javascript:read(<%=boardDTO.getNo()%>)"><%=boardDTO.getTitle()%></a>
                     </td>
                     <td><%=boardDTO.getViews()%>
                     </td>

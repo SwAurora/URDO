@@ -97,4 +97,9 @@ public class BoardService
         String[] arr = contentDisp.split(";");
         return arr[2].substring(11, arr[2].length() - 1);
     }
+    
+    // 게시글 번호와 subject로 게시글 불러오기
+    public BoardDTO getBoardDTO(int no, String subject) {
+    	return dao.Select(no);
+    }
 }
