@@ -35,6 +35,11 @@ public class FrontController extends HttpServlet
         list.put("/Board/humor.do", new HumorController());
         list.put("/Board/creArt.do", new CreArtController());
         list.put("/Board/creCook.do", new CreCookController());
+        list.put("/Board/regionRestaurant.do", new RegionRestaurantController());
+        list.put("/Board/regionLandmark.do", new RegionLandmarkController());
+        list.put("/Board/themeGame.do", new ThemeGameController());
+        list.put("/Board/themeSports.do", new ThemeSportsController());
+        list.put("/Board/themeMusic.do", new ThemeMusicController());
         list.put("/Board/post.do", new PostController());
         list.put("/Board/read.do", new ReadController());
     }

@@ -48,9 +48,9 @@
                             <option value="creCook">요리</option>
                             <option value="regionRestaurant">맛집</option>
                             <option value="regionLandmark">명소</option>
-                            <option value="regionLandmark">게임</option>
-                            <option value="regionLandmark">스포츠</option>
-                            <option value="regionLandmark">음악</option>
+                            <option value="themeGame">게임</option>
+                            <option value="themeSports">스포츠</option>
+                            <option value="themeMusic">음악</option>
                         </select>
                         <%
                             String subject = request.getParameter("subject");
