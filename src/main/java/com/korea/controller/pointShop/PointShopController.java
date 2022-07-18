@@ -1,4 +1,4 @@
-package com.korea.controller.pointshop;
+package com.korea.controller.pointShop;
 
 import com.korea.controller.SubController;
 

@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
+import com.korea.controller.board.BoardReadController;
 import com.korea.controller.board.CreArtController;
 import com.korea.controller.board.HumorController;
 import com.korea.controller.board.PostController;
 import com.korea.controller.member.SignUpController;
-import com.korea.controller.pointshop.PointShopController;
+import com.korea.controller.pointShop.PointShopController;
 
 @MultipartConfig(
         fileSizeThreshold = 1024*1024*10, // 10mb
@@ -38,6 +39,7 @@ public class FrontController extends HttpServlet
         list.put("/BoardHumor.do", new HumorController());
         list.put("/BoardCreArt.do", new CreArtController());
         list.put("/BoardPost.do", new PostController());
+        list.put("BoardRead.do", new BoardReadController());
         // 포인트샵
         list.put("/PointShop.do", new PointShopController());
     }
