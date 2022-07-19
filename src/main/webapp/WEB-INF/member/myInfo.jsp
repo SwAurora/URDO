@@ -15,14 +15,19 @@
 </head>
 <body>
 <%
-    String msg = (String) request.getAttribute("msg");
-    if(msg != null)
+    String result = request.getParameter("result");
+    if(result != null)
     {
-%>
-<script>
-    alert("<%=msg%>");
-</script>
-<%
+        if(result.equals("true"))
+        {
+            out.println("<script>alert('수정을 성공하였습니다.')</script>");
+            out.println("<script>location.href='/ShowInfo.do'</script>");
+        }
+        else
+        {
+            out.println("<script>alert('수정을 실패하였습니다.')</script>");
+            out.println("<script>location.href='/ShowInfo.do'</script>");
+        }
     }
 %>
 <!--네비게이션 시작-->
@@ -71,38 +76,53 @@
                 <div class="text">아이디</div>
                 <div class="text"><input type="text" class="ipSet" value="<%=dto.getId()%>" disabled></div>
             </div>
-            <form action="/Update.do" name="frm1">
-                <div class="item">
-                    <div class="text">이메일</div>
-                    <div class="text"><input type="text" class="ipSet" value="<%=dto.getEmail()%>" disabled>
-                    </div>
-                    <div class="right">
-                        <button class="text" id="btn1" onclick="sujung(frm1)">수정</button>
-                    </div>
+            <div class="item">
+                <div class="text">이메일</div>
+                <div class="text"><input type="email" id="email" class="ipSet" value="<%=dto.getEmail()%>" disabled>
                 </div>
-            </form>
-            <form action="/Update.do" name="frm2">
-                <div class="item">
-                    <div class="text">닉네임</div>
-                    <div class="text"><input type="text" class="ipSet" value="<%=dto.getNickname()%>" disabled>
-                    </div>
-                    <div class="right">
-                        <button class="text" id="btn2" onclick="sujung(frm2)">수정</button>
-                    </div>
+                <a class="updateBtn" id="submitBtn1" href="javascript:sujung(1)">수정</a>
+            </div>
+            <div class="item">
+                <div class="text">닉네임</div>
+                <div class="text"><input type="text" id="nickname" class="ipSet" value="<%=dto.getNickname()%>"
+                                         disabled>
                 </div>
+                <a class="updateBtn" id="submitBtn2" href="javascript:sujung(2)">수정</a>
+            </div>
+            <form action="/Update.do" name="frm1" method="post">
+                <input type="hidden" name="email">
+                <input type="hidden" name="nickname">
             </form>
             <script>
-                function sujung(form)
+                function sujung(num)
                 {
-                    if(form === frm1)
+                    if(num === 1)
                     {
-                        let btn1 = document.getElementById('btn1');
-                        btn1.innerHTML = '저장';
+                        if($('#submitBtn1').html() === '저장')
+                        {
+                            let frm1 = document.frm1;
+                            frm1.email.value = $('#email').val();
+                            frm1.submit();
+                        }
+                        else
+                        {
+                            $('#submitBtn1').html('저장');
+                            $("#email").attr("disabled", false);
+                        }
                     }
                     else
                     {
-                        let btn2 = document.getElementById('btn2');
-                        btn2.innerHTML = '저장';
+                        if($('#submitBtn2').html() === '저장')
+                        {
+                            let frm1 = document.frm1;
+                            frm1.nickname.value = $('#nickname').val();
+                            frm1.submit();
+                        }
+                        else
+                        {
+                            $('#submitBtn2').html('저장');
+                            $("#nickname").attr("disabled", false);
+                        }
                     }
                 }
             </script>

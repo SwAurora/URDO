@@ -100,4 +100,22 @@ public class MemberDAO extends DAO
         }
         return null;
     }
+
+    public boolean UpdateEmail(String id, String email)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("update member_tbl set email = ? where id = ?");
+            pstmt.setString(1, email);
+            pstmt.setString(2, id);
+            int result = pstmt.executeUpdate();
+            if(result > 0)
+                return true;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

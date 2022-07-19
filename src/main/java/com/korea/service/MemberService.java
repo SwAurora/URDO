@@ -35,4 +35,9 @@ public class MemberService
         return dao.Select(id);
     }
 
+
+    public boolean UpdateEmail(String id, String email)
+    {
+        return dao.UpdateEmail(id, email);
+    }
 }

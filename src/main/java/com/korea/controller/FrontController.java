@@ -13,6 +13,7 @@ import com.korea.controller.auth.LogoutController;
 import com.korea.controller.board.*;
 import com.korea.controller.member.ShowInfoController;
 import com.korea.controller.member.SignUpController;
+import com.korea.controller.member.UpdateController;
 import com.korea.controller.urpo.URPOController;
 
 @MultipartConfig(
@@ -35,6 +36,7 @@ public class FrontController extends HttpServlet
         // 회원
         list.put("/SignUp.do", new SignUpController());
         list.put("/ShowInfo.do", new ShowInfoController());
+        list.put("/Update.do", new UpdateController());
 
         // 게시판
         list.put("/Board/humor.do", new HumorController());

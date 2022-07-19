@@ -82,7 +82,7 @@
     text-align: right;
 }
 
-button
+.updateBtn
 {
     background-color: #5865F2;
     color: #FFFFFF;
@@ -90,6 +90,9 @@ button
     border:0;
     width:50px;
     height:25px;
+    text-decoration: none;
+    text-align: center;
+    font-size: var(--font-L);
 }
 
 .ipSet

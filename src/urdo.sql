@@ -68,3 +68,5 @@ CALL board();
 select * from board_tbl where writer = 'aurora' and available = 0;
 
 select * from subject_tbl;
+
+select * from member_tbl where id = 'wb0802';
