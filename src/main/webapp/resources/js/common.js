@@ -46,7 +46,7 @@ function PointShop()
 
 function MyPage()
 {
-    location.href = '#';
+    location.href = '/ShowInfo.do';
 }
 
 function Login()

@@ -10,16 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
-import com.korea.controller.board.CreArtController;
-import com.korea.controller.board.CreCookController;
-import com.korea.controller.board.HumorController;
-import com.korea.controller.board.PostController;
-import com.korea.controller.board.ReadController;
-import com.korea.controller.board.RegionLandmarkController;
-import com.korea.controller.board.RegionRestaurantController;
-import com.korea.controller.board.ThemeGameController;
-import com.korea.controller.board.ThemeMusicController;
-import com.korea.controller.board.ThemeSportsController;
+import com.korea.controller.board.*;
+import com.korea.controller.member.ShowInfoController;
 import com.korea.controller.member.SignUpController;
 import com.korea.controller.pointShop.PointShopController;
 import com.korea.controller.pointShop.ProduceController;
@@ -40,8 +32,11 @@ public class FrontController extends HttpServlet
         // 인증
         list.put("/Login.do", new LoginController());
         list.put("/Logout.do", new LogoutController());
+
         // 회원
         list.put("/SignUp.do", new SignUpController());
+        list.put("/ShowInfo.do", new ShowInfoController());
+
         // 게시판
         list.put("/Board/humor.do", new HumorController());
         list.put("/Board/creArt.do", new CreArtController());
@@ -53,12 +48,11 @@ public class FrontController extends HttpServlet
         list.put("/Board/themeMusic.do", new ThemeMusicController());
         list.put("/Board/post.do", new PostController());
         list.put("/Board/read.do", new ReadController());
+        list.put("/Board/delete.do", new DeleteController());
 
         // 포인트샵
         list.put("/Shop/pointShop.do", new PointShopController());
         list.put("/Shop/produce.do", new ProduceController());
-
-        list.put("/Board/delete.do", new DeleteController());
 
     }
 
