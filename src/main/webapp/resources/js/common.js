@@ -41,7 +41,7 @@ function MiniHomePage()
 
 function PointShop()
 {
-    location.href = "/Shop/pointShop.do";
+    location.href = '/URPO.do';
 }
 
 function MyPage()
