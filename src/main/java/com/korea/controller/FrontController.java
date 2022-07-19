@@ -53,9 +53,13 @@ public class FrontController extends HttpServlet
         list.put("/Board/themeMusic.do", new ThemeMusicController());
         list.put("/Board/post.do", new PostController());
         list.put("/Board/read.do", new ReadController());
+
         // 포인트샵
         list.put("/Shop/pointShop.do", new PointShopController());
         list.put("/Shop/produce.do", new ProduceController());
+
+        list.put("/Board/delete.do", new DeleteController());
+
     }
 
     @Override

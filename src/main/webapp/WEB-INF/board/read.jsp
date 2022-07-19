@@ -1,4 +1,5 @@
 <%@ page import="com.korea.dto.BoardDTO" %>
+<%@ page import="java.util.Objects" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -14,6 +15,19 @@
     <link rel="stylesheet" href="../../resources/css/common.css">
     <link rel="stylesheet" href="../../resources/css/boardRead.css">
 <body>
+<%
+    String msg = (String) request.getAttribute("msg");
+
+    if(msg != null)
+    {
+%>
+<script>
+    alert('<%=msg%>');
+    history.back();
+</script>
+<%
+    }
+%>
 <%
     BoardDTO dto = (BoardDTO) request.getAttribute("dto");
     String subject = dto.getSubject();
@@ -68,7 +82,8 @@
             게시판 > <%=depth1%> > <%=depth2%>
         </div>
         <div id="search">
-            <div><%=depth2%></div>
+            <div><%=depth2%>
+            </div>
             <div>|</div>
             <input type="text" class="searchBar" placeholder="검색어를 입력하세요">
             <img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
@@ -78,16 +93,22 @@
     <div class="container2">
         <table class="cont_tbl">
             <tr class="cont_tbl_r1">
-                <td colspan="4"><%=dto.getTitle()%></td>
+                <td colspan="4"><%=dto.getTitle()%>
+                </td>
             </tr>
             <tr class="cont_tbl_r2">
-                <td>작성자 : <%=dto.getWriter()%></td>
-                <td>작성일시 : <%=dto.getDate()%></td>
-                <td>조회수 : <%=dto.getViews()%></td>
-                <td>추천수 : <%=dto.getRecommend()%></td>
+                <td>작성자 : <%=dto.getWriter()%>
+                </td>
+                <td>작성일시 : <%=dto.getDate()%>
+                </td>
+                <td>조회수 : <%=dto.getViews()%>
+                </td>
+                <td>추천수 : <%=dto.getRecommend()%>
+                </td>
             </tr>
             <tr class="cont_tbl_r3">
-                <td colspan="4"><%=dto.getContent()%></td>
+                <td colspan="4"><%=dto.getContent()%>
+                </td>
             </tr>
         </table>
 
@@ -96,12 +117,14 @@
                 <button class="btn_board" onclick="goBack()">목록</button>
                 <%
                     HttpSession session1 = request.getSession();
-                    String id = (String) session1.getAttribute("id");
-                    if(true)
+                    String nickname = (String) session1.getAttribute("nickname");
+                    String writer = dto.getWriter();
+
+                    if(Objects.equals(nickname, writer))
                     {
                 %>
                 <button class="btn_board">수정</button>
-                <button class="btn_board">삭제</button>
+                <a class="btn_board" href="javascript:Delete('<%=dto.getNo()%>','<%=dto.getSubject()%>')">삭제</a>
                 <%
                     }
                 %>
@@ -117,11 +140,28 @@
     </div>
     <div>
     </div>
+    <form name="forDelete" method="post">
+        <input type="hidden" name="no">
+        <input type="hidden" name="subject">
+    </form>
 </section>
 <script>
     function goBack()
     {
         history.back();
+    }
+
+    function Delete(no, subj)
+    {
+        let form = document.forDelete;
+        form.no.value = no;
+        form.subject.value = subj;
+        form.action = "/Board/delete.do";
+        let conf = confirm("정말 삭제하시겠습니까?");
+        if(conf)
+        {
+            form.submit();
+        }
     }
 </script>
 <!--전체 JS-->

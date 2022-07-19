@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 public class PostController implements SubController
@@ -50,8 +51,6 @@ public class PostController implements SubController
                 dto.setContent(content);
                 dto.setWriter(writer);
 
-
-
                 //첨부파일 part 전달
                 ArrayList<Part> parts = (ArrayList<Part>) req.getParts();
                 boolean result;
@@ -67,12 +66,8 @@ public class PostController implements SubController
 
                 if(result)
                 {
-                    int tcnt = service.getTotalCnt(subject);
-                    ArrayList<BoardDTO> list =  (ArrayList<BoardDTO>) service.getBoardList(subject, 0, 10);
-                    req.setAttribute("tcnt", tcnt);
-                    req.setAttribute("list", list);
-                    req.setAttribute("msg", "작성을 완료하였습니다.");
-                    req.getRequestDispatcher("/board/" + subject + ".jsp?nowPage=1").forward(req, resp);
+                    req.setAttribute("msg", "작성을 완료했습니다.");
+                    req.getRequestDispatcher("/Board/humor.do").forward(req, resp);
                 }
                 else
                 {

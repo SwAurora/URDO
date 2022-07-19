@@ -19,11 +19,8 @@
     String msg = (String) request.getAttribute("msg");
     if(msg != null)
     {
-%>
-<script>
-    alert('<%=msg%>');
-</script>
-<%
+        out.println("<script>alert('" + msg + "')</script>");
+        out.println("<script>location.href='/Board/regionRestaurant.do'</script>");
     }
 %>
 <script>
@@ -228,7 +225,6 @@
 
     <%--페이징 처리 폼--%>
     <form name="readFrm" method="get">
-        <input type="hidden" name="no"> <%--게시물번호--%>
         <input type="hidden" name="start"> <%--DB로 부터 읽을 시작 번호--%>
         <input type="hidden" name="limit"> <%--한 페이지에 보여줄 게시글 수--%>
         <input type="hidden" name="nowPage"> <%--현재 페이지 번호--%>
