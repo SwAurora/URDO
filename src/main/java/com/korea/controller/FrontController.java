@@ -20,6 +20,7 @@ import com.korea.controller.board.RegionRestaurantController;
 import com.korea.controller.board.ThemeGameController;
 import com.korea.controller.board.ThemeMusicController;
 import com.korea.controller.board.ThemeSportsController;
+import com.korea.controller.member.ShowInfoController;
 import com.korea.controller.member.SignUpController;
 import com.korea.controller.pointShop.PointShopController;
 import com.korea.controller.pointShop.ProduceController;
@@ -42,6 +43,7 @@ public class FrontController extends HttpServlet
         list.put("/Logout.do", new LogoutController());
         // 회원
         list.put("/SignUp.do", new SignUpController());
+        list.put("/ShowInfo.do", new ShowInfoController());
         // 게시판
         list.put("/Board/humor.do", new HumorController());
         list.put("/Board/creArt.do", new CreArtController());
