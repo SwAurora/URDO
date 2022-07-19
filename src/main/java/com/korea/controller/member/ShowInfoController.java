@@ -30,8 +30,6 @@ public class ShowInfoController implements SubController
                 MemberDTO dto = service.MemberSearch(id);
                 req.setAttribute("dto", dto);
                 req.getRequestDispatcher("/WEB-INF/member/myInfo.jsp").forward(req, resp);
-<<<<<<< HEAD
-
             }
         }
         catch(Exception e)
@@ -41,14 +39,3 @@ public class ShowInfoController implements SubController
 
     }
 }
-=======
-            }
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-
-    }
-}
->>>>>>> branch 'master' of https://github.com/SwAurora/URDO.git
