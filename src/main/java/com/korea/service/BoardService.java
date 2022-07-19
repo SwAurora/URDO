@@ -100,4 +100,9 @@ public class BoardService
     {
         return dao.Select(no);
     }
+
+    public boolean delete(int no)
+    {
+        return dao.delete(no);
+    }
 }

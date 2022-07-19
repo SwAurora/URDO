@@ -19,12 +19,8 @@
     String msg = (String) request.getAttribute("msg");
     if(msg != null)
     {
-%>
-<script>
-    alert('<%=msg%>');
-</script>
-<%
-        request.setAttribute("msg", null);
+        out.println("<script>alert('" + msg + "')</script>");
+        out.println("<script>location.href='/Board/humor.do'</script>");
     }
 %>
 <script>
@@ -45,7 +41,7 @@
     int limit = 10; // 한페이지에 보여줄 게시물 초기값
     int totalPage; // 총 페이지 수
     int nowPage = 1; // 현재 페이지
-    int pagePerBlock = 5; // 페이지네이션 보여줄 블럭 갯수 (1~10)
+    int pagePerBlock = 5; // 페이지네이션 보여줄 블럭 갯수 (1~5)
     int totalBlock; // 총 블럭 수
     int nowBlock; // 현재 블럭
 %>
@@ -61,7 +57,7 @@
         limit = Integer.parseInt(request.getParameter("limit"));
     }
     totalcount = (int) request.getAttribute("tcnt");
-    totalPage = (int) Math.ceil((double)totalcount / limit);
+    totalPage = (int) Math.ceil((double) totalcount / limit);
     totalBlock = (int) Math.ceil((double) totalPage / pagePerBlock);
     nowBlock = (int) Math.ceil((double) nowPage / pagePerBlock);
 %>
@@ -129,7 +125,8 @@
                 %>
                 <tr id="tableContent">
                     <td><img src="../resources/img/board/frog.png" class="pic"></td>
-                    <td><a href="/Board/read.do?no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%></a>
+                    <td><a href="/Board/read.do?no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%>
+                    </a>
                     </td>
                     <td><%=boardDTO.getViews()%>
                     </td>
@@ -153,7 +150,7 @@
                     if(nowBlock > 1)
                     {
                 %>
-                <img class="page_arrow menuIcon" onclick="block(<%=nowBlock-1%>)" id="prev"
+                <img class="page_arrow menuIcon" onclick="block(-1)" id="prev"
                      src="../resources/img/board/page-arrow-back.svg">
                 <%
                     }
@@ -170,17 +167,17 @@
                             if(pageStart == nowPage)
                             {
                     %>
-                                <a class="page_num on"
-                                   href="javascript:paging(<%=pageStart%>)"><%=pageStart%>
-                                </a>
+                    <a class="page_num on"
+                       href="/Board/humor.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
+                    </a>
                     <%
-                            }
-                            else
-                            {
+                    }
+                    else
+                    {
                     %>
-                                <a class="page_num"
-                                   href="javascript:paging(<%=pageStart%>)"><%=pageStart%>
-                                </a>
+                    <a class="page_num"
+                       href="/Board/humor.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
+                    </a>
                     <%
                             }
                         }
@@ -190,7 +187,7 @@
                     if(totalBlock > nowBlock)
                     {
                 %>
-                <img class="page_arrow menuIcon" onclick="block(<%=nowBlock+1%>)" id="next"
+                <img class="page_arrow menuIcon" onclick="block(1)" id="next"
                      src="../resources/img/board/page-arrow-forward.svg">
                 <%
                     }
@@ -203,73 +200,46 @@
             <script>
                 function loginchk()
                 {
-            <%
-                    HttpSession session1 = request.getSession();
-                    String id = (String) session1.getAttribute("id");
-                    if(id != null)
-                    {
-            %>
-                        location.href = "/Board/post.do?subject=humor";
-            <%
-                    }
-                    else
-                    {
-            %>
-                        alert("로그인이 필요합니다.");
-                        location.href = "/login.jsp";
-            <%
-                    }
-            %>
+                    <%
+                            HttpSession session1 = request.getSession();
+                            String id = (String) session1.getAttribute("id");
+                            if(id != null)
+                            {
+                    %>
+                                location.href = "/Board/post.do?subject=humor";
+                    <%
+                            }
+                            else
+                            {
+                    %>
+                                alert("로그인이 필요합니다.");
+                                location.href = "/login.jsp";
+                    <%
+                            }
+                    %>
                 }
             </script>
             <!--  페이지 숫자 끝-->
             <!-- 게시판 내용 관련 코드  끝-->
         </div>
     </div>
-
-    <%--페이징 처리 폼--%>
-    <form name="readFrm" method="get">
-        <input type="hidden" name="no"> <%--게시물번호--%>
-        <input type="hidden" name="start"> <%--DB로 부터 읽을 시작 번호--%>
-        <input type="hidden" name="limit"> <%--한 페이지에 보여줄 게시글 수--%>
-        <input type="hidden" name="nowPage"> <%--현재 페이지 번호--%>
-    </form>
-
     <script>
-        // 페이징 처리함수 - 페이지 번호를 받아 해당 페이지를 표시
-        function paging(pageNum)
+        // num = -1 이전블럭이동, num = 1 다음블럭이동
+        function block(num)
         {
-            let form = document.readFrm;
-            form.nowPage.value = pageNum;
-            limit = <%=limit%>;
-            form.start.value = (pageNum * limit) - limit;
-            form.limit.value = limit;
-            form.action = "/Board/humor.do";
-            form.submit();
-        }
-
-        // 블럭처리 함수 - 이전/이후 버튼 누를 때 이전블럭/다음블럭으로 이동
-        function block(value)
-        {
-            let form = document.readFrm;
-            StartPage =
-            <%=pagePerBlock%> *
-            (value - 1) + 1;
-            limit = <%=limit%>;
-            form.nowPage.value = StartPage;
-            form.start.value = (StartPage * limit) - limit + 1;
-            form.limit.value = limit;
-            form.action = "/Board/humor.do";
-            form.submit();
-        }
-
-        function read(no)
-        {
-            let form = document.readFrm;
-            form.no.value = no;
-            form.nowPage.value = <%=nowPage%>;
-            form.action = "/Board/read.do?";
-            form.submit();
+            let page;
+            let pageBlock = <%=pagePerBlock%>;
+            let nowBlock = <%=nowBlock%>;
+            if(num === 1)
+            {
+                page = pageBlock * nowBlock + 1;
+                location.href= "/Board/humor.do?limit=" + <%=limit%> + "&page=" + page;
+            }
+            else
+            {
+                page = pageBlock * (nowBlock - 2) + pageBlock;
+                location.href= "/Board/humor.do?limit=" + <%=limit%> + "&page=" + page;
+            }
         }
     </script>
 </section>

@@ -29,7 +29,7 @@ public class BoardDAO extends DAO
         BoardDTO dto;
         try
         {
-            pstmt = conn.prepareStatement("select * from board_tbl where subject = ? order by no desc limit ?,?");
+            pstmt = conn.prepareStatement("select * from board_tbl where subject = ? and available = 1 order by no desc limit ?,?");
             pstmt.setString(1, subject);
             pstmt.setInt(2, start);
             pstmt.setInt(3, limit);
@@ -117,7 +117,7 @@ public class BoardDAO extends DAO
         int result = 0;
         try
         {
-            pstmt = conn.prepareStatement("select count(*) from board_tbl where subject = ?");
+            pstmt = conn.prepareStatement("select count(*) from board_tbl where subject = ? and available = 1");
             pstmt.setString(1, subject);
             rs = pstmt.executeQuery();
             rs.next();
@@ -188,7 +188,7 @@ public class BoardDAO extends DAO
         BoardDTO dto = new BoardDTO();
         try
         {
-            pstmt = conn.prepareStatement("select * from board_tbl where no = ?");
+            pstmt = conn.prepareStatement("select * from board_tbl where no = ? and available = 1");
             pstmt.setInt(1, no);
             rs = pstmt.executeQuery();
 
@@ -230,5 +230,23 @@ public class BoardDAO extends DAO
             }
         }
         return dto;
+    }
+
+    public boolean delete(int no)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("update board_tbl set available = 0 where no = ?");
+            pstmt.setInt(1, no);
+
+            int result = pstmt.executeUpdate();
+            if(result > 0)
+                return true;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

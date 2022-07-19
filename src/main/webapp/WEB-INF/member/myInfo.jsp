@@ -138,4 +138,8 @@
 <!-- index JS -->
 <script src="/resources/js/index.js"></script>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> branch 'master' of https://github.com/SwAurora/URDO.git

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
+<<<<<<< HEAD
 import com.korea.controller.board.CreArtController;
 import com.korea.controller.board.CreCookController;
 import com.korea.controller.board.HumorController;
@@ -20,6 +21,9 @@ import com.korea.controller.board.RegionRestaurantController;
 import com.korea.controller.board.ThemeGameController;
 import com.korea.controller.board.ThemeMusicController;
 import com.korea.controller.board.ThemeSportsController;
+=======
+import com.korea.controller.board.*;
+>>>>>>> branch 'master' of https://github.com/SwAurora/URDO.git
 import com.korea.controller.member.ShowInfoController;
 import com.korea.controller.member.SignUpController;
 import com.korea.controller.pointShop.PointShopController;
@@ -57,6 +61,7 @@ public class FrontController extends HttpServlet
         list.put("/Board/themeMusic.do", new ThemeMusicController());
         list.put("/Board/post.do", new PostController());
         list.put("/Board/read.do", new ReadController());
+        list.put("/Board/delete.do", new DeleteController());
 
         // 포인트샵
         list.put("/Shop/pointShop.do", new PointShopController());

@@ -32,6 +32,7 @@ public class LoginController implements SubController
                 {
                     HttpSession session = req.getSession();
                     session.setAttribute("id", dto.getId());
+                    session.setAttribute("nickname", dto.getNickname());
                     session.setAttribute("grade", dto.getGrade());
                     session.setMaxInactiveInterval(60*60); // 세션 유지 시간 60분
                     // View로 이동
