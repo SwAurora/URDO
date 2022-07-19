@@ -257,7 +257,7 @@ li a {
 /* 아이콘 제작 시작 */
 .container_Contents {
 }
-.container_Contents div {
+.container_Contents input {
 	gap : 10px;
 	border:1px solid gray;
 }

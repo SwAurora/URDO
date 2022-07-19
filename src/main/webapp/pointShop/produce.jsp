@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="/resources/css/pointShop.css">
 <!-- JQ -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<!--전체 JS-->
+<script src="/resources/js/common.js"></script>
 </head>
 <body>
   <!--네비게이션 시작-->
@@ -32,16 +34,15 @@
         </div>
       </header>
       
-      <div class="container_Contents">
-      	<div class="shopImage">이미지</div>
-      	<div class="title">타이틀</div>
-      	<div class="discrip">설명</div>
-      </div>
+      <form action="/Shop/post.do" method="post" enctype="multipart/form-data" class="container_Contents">
+      	<input type="text" name="title" placeholder="타이틀 입력부분">
+      	<input type="file" name="staticImage" class="form-control mb-3" multiple/>
+      	<textarea name="content"></textarea>
+      </form>
 
   </div>
 
   </section>
-  <!--전체 JS-->
-  <script src="/resources/js/common.js"></script>
+
 </body>
 </html>

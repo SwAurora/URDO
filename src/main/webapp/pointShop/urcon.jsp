@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="/resources/css/pointShop.css">
   <!-- JQ -->
   <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+   <!--전체 JS-->
+  <script src="/resources/js/common.js?"></script>
 </head>
 
 <body>
