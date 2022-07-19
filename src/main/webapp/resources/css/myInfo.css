@@ -1,0 +1,274 @@
+@charset "UTF-8";
+
+ul
+{
+    list-style: none;
+    padding: 0px;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+#container_Title
+{
+    margin-top: 10px;
+    font-size: var(--font-L);
+}
+
+#main-header
+{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}
+
+#search
+{
+    font-size: var(--font-XL);
+    margin-top: 28.5px;
+    display: flex;
+    align-items: center;
+}
+
+#search div
+{
+    margin-right: 40px;
+}
+
+/* #main-header-left {
+    width: 60%;
+} */
+
+#weather
+{
+    margin-top: 35px;
+
+}
+
+#weather img
+{
+    width: 60px;
+}
+
+.searchBarIcon
+{
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+}
+
+.searchBar
+{
+    width: 300px;
+    height: 30px;
+    font-size: var(--font-XL);
+    font-weight: var(--font-weight-light);
+    background: none;
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
+    color: var(--color-blackToWhite);
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.searchBar::placeholder
+{
+    color: var(--color-placeholder);
+}
+
+/* 공지사항 */
+
+#notice
+{
+    width: 97%;
+    /* 이부분 수정해서 맞췄음. 배너 margin-right:3%라서 딱맞음 */
+    height: 30px;
+    border: 1px solid var(--color-lightgray);
+    border-radius: 10px;
+    font-size: 15px;
+    margin-top: 20px;
+    user-select: none;
+}
+
+#notice > div
+{
+    display: flex;
+}
+
+#notice ul
+{
+    display: flex;
+    height: 35px;
+    line-height: 30px;
+    margin: 0px;
+}
+
+#notice-left
+{
+    width: 110px;
+    /* display:flex; */
+    /* justify-content: center; */
+    /* align-items:center; */
+}
+
+#notice img
+{
+    width: 20px;
+    margin: 5px 8px 5px 10px;
+}
+
+/* 마이페이지 */
+
+.wrap
+{
+    background-color: #F8F8F8;
+    width: 97%;
+}
+
+/* 배경 */
+.blueContainer
+{
+    width: 97%;
+    height: 132px;
+    background-color: #5865F2;
+
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+}
+
+.blueContainer .name
+{
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.blueContainer .modify
+{
+    margin-left: auto;
+}
+
+/* 내가쓴글 , 댓글 , 포인트 */
+.summaryContainer
+{
+    width: 97%;
+    background-color: white;
+    display: flex;
+    padding: 21px 16px;
+    height: 90px;
+    margin-bottom: 10px;
+}
+
+/* 내가쓴글 , 댓글 , 포인트 */
+.summaryContainer .item
+{
+    flex-grow: 1
+}
+
+/* 텍스트 */
+.summaryContainer .item > div:nth-child(2)
+{
+    font-size: 13px;
+}
+
+/* 아이디 닉네임 */
+
+.listContainer
+{
+    padding: 0;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.listContainer .item
+{
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    color: black;
+    text-decoration: none;
+    height: 56px;
+    box-sizing: border-box;
+}
+
+.text
+{
+    margin-right: 14px;
+    text-align: center;
+}
+
+.listContainer .listinputBox
+{
+    font-size: 16px;
+    position: relative;
+}
+
+.listContainer .right
+{
+    text-align: right;
+}
+
+button
+{
+    background-color: #5865F2;
+    color: #FFFFFF;
+    border-radius: 8px;
+
+}
+
+/* footer */
+
+footer
+{
+    margin: 10px 0px;
+    border-top: 1px solid var(--color-lightgray);
+}
+
+#footer-bottom
+{
+    display: flex;
+    font-size: var(--font-S);
+    margin-top: 15px;
+    width: 97%;
+    align-items: center;
+}
+
+#footer-logo
+{
+    margin-right: 5px;
+    line-height: 20px;
+}
+
+#footer-logo img
+{
+    width: 65px;
+}
+
+#footer-terms
+{
+    line-height: 20px;
+    margin-left: 20px;
+}
+
+#footer-right
+{
+    display: grid;
+    align-items: center;
+    margin-left: auto;
+}
+
+#sns img
+{
+    width: 40px;
+    height: 40px;
+}
+
+#footer-right select
+{
+    background-color: var(--color-sidebar);
+    color: var(--color-logoname);
+    width: 130px;
+}

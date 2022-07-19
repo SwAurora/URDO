@@ -41,9 +41,11 @@ public class FrontController extends HttpServlet
         // 인증
         list.put("/Login.do", new LoginController());
         list.put("/Logout.do", new LogoutController());
+
         // 회원
         list.put("/SignUp.do", new SignUpController());
         list.put("/ShowInfo.do", new ShowInfoController());
+
         // 게시판
         list.put("/Board/humor.do", new HumorController());
         list.put("/Board/creArt.do", new CreArtController());
@@ -55,9 +57,11 @@ public class FrontController extends HttpServlet
         list.put("/Board/themeMusic.do", new ThemeMusicController());
         list.put("/Board/post.do", new PostController());
         list.put("/Board/read.do", new ReadController());
+
         // 포인트샵
         list.put("/Shop/pointShop.do", new PointShopController());
         list.put("/Shop/produce.do", new ProduceController());
+
     }
 
     @Override
