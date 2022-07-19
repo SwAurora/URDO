@@ -13,8 +13,7 @@ import com.korea.controller.auth.LogoutController;
 import com.korea.controller.board.*;
 import com.korea.controller.member.ShowInfoController;
 import com.korea.controller.member.SignUpController;
-import com.korea.controller.pointShop.PointShopController;
-import com.korea.controller.pointShop.ProduceController;
+import com.korea.controller.urpo.URPOController;
 
 @MultipartConfig(
         fileSizeThreshold = 1024*1024*10, // 10mb
@@ -50,10 +49,8 @@ public class FrontController extends HttpServlet
         list.put("/Board/read.do", new ReadController());
         list.put("/Board/delete.do", new DeleteController());
 
-        // 포인트샵
-        list.put("/Shop/pointShop.do", new PointShopController());
-        list.put("/Shop/produce.do", new ProduceController());
-
+        // 유알포
+        list.put("/URPO.do", new URPOController());
     }
 
     @Override

@@ -8,7 +8,7 @@
 <link href="/resources/img/sidebar/logo.svg" rel="shortcut icon" type="image/png">
 <!--CSS 링크-->
 <link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/pointShop.css">
+<link rel="stylesheet" href="/resources/css/URPO.css">
 <!-- JQ -->
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>

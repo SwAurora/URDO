@@ -9,12 +9,10 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>URDO</title>
-  <link href="/resources/img/sidebar/logo.svg" rel="shortcut icon" type="image/png">
+  <%--링크--%>
+  <jsp:include page="/resources/includes/link.jsp"/>
   <!--CSS 링크-->
-  <link rel="stylesheet" href="/resources/css/common.css">
-  <link rel="stylesheet" href="/resources/css/pointShop.css">
-  <!-- JQ -->
-  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <link rel="stylesheet" href="../resources/css/URPO.css">
 </head>
 
 <body>
@@ -133,6 +131,9 @@
  	 </div>
   </div>
   </section>
+
+  <!--전체 JS-->
+  <script src="../resources/js/common.js"></script>
 </body>
 </html>
 

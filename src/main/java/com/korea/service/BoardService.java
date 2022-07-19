@@ -66,9 +66,6 @@ public class BoardService
 
                 totalFilename.append(FileName).append(";");
 
-//                String ext = FileName.substring(FileName.lastIndexOf(".") + 1);
-//                FileName = FileName.replaceAll("." + ext, "");
-//                FileName = FileName + "_" + UUID.randomUUID() + "." + ext;
                 try
                 {
                     part.write(RealPath + "/" + FileName);
