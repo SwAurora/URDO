@@ -118,4 +118,22 @@ public class MemberDAO extends DAO
         }
         return false;
     }
+
+    public boolean UpdateNickName(String id, String nickname)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("update  member_tbl set nickname = ? where id = ?");
+            pstmt.setString(1, nickname);
+            pstmt.setString(2, id);
+            int result = pstmt.executeUpdate();
+            if(result > 0)
+                return true;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

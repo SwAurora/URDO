@@ -35,5 +35,19 @@ public class UpdateController implements SubController
         {
 
         }
+        
+        if(!nickname.equals(""))
+        {
+            try
+            {
+                boolean result = service.UpdateNickName(id, nickname);
+                resp.sendRedirect("/ShowInfo.do?result=" + result);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            
+        }
     }
 }
