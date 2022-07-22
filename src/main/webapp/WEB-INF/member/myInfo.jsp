@@ -81,6 +81,7 @@
                 <div class="text"><input type="email" id="email" class="ipSet" value="<%=dto.getEmail()%>" disabled>
                 </div>
                 <a class="updateBtn" id="submitBtn1" href="javascript:sujung(1)">수정</a>
+                <a class="updateBtn" id="submitBtn1-1" href="#">취소</a>
             </div>
             <div class="item">
                 <div class="text">닉네임</div>
@@ -88,12 +89,22 @@
                                          disabled>
                 </div>
                 <a class="updateBtn" id="submitBtn2" href="javascript:sujung(2)">수정</a>
+                <a class="updateBtn" id="submitBtn2-1" href="#">취소</a>
+            </div>
+            <div class="item">
+                <div class="text">비밀번호</div>
+                <div class="text"></div>
+                <a class="updateBtn" id="submitBtn3" href="javascript:modal()">수정</a>
+                <a class="updateBtn" id="submitBtn3-1" href="#">취소</a>
             </div>
             <form action="/Update.do" name="frm1" method="post">
                 <input type="hidden" name="email">
                 <input type="hidden" name="nickname">
             </form>
+
             <script>
+
+                // 수정
                 function sujung(num)
                 {
                     if(num === 1)
@@ -125,10 +136,72 @@
                         }
                     }
                 }
+
+                // 모달
+                function modal()
+                {
+                    let modal = document.getElementsByClassName("modal");
+                    let main = document.getElementsByClassName("Main");
+                    modal[0].style.display = "block";
+                    main[0].style.opacity = "0.5";
+
+                    if($('#submitBtn3').html() === '저장')
+                    {
+                        let frm1 = document.frm1;
+                        frm1.nickname.value = $('#password').val();
+                        frm1.submit();
+                    }
+                    else
+                    {
+                        $('#submitBtn3').html('저장');
+                        $("#password").attr("disabled", false);
+                    }
+
+                }
+
+                // 닫기
+                function aaaa()
+                {
+                    let modal = document.getElementsByClassName("modal");
+                    let main = document.getElementsByClassName("Main");
+                    modal[0].style.display = "none";
+                    main[0].style.opacity = "1";
+                }
             </script>
         </div>
     </div>
 </section>
+
+<%-- 모달 --%>
+<div class="modal">
+    <div class="section_pwconfirm">
+        <div class="spc_header">
+            <h2>비밀번호 변경</h2>
+            <p class="contxt">안전한 비밀번호로 내정보를 보호하세요</p>
+            <p class="contxt contxt_list"><em>다른 아이디/사이트에서 사용한 적 없는 비밀번호</em></p>
+            <p class="contxt contxt_list"><em>이전에 사용한 적 없는 비밀번호</em>가 안전합니다.</p>
+        </div>
+        <div class="spc_content">
+            <form id="fm" name="fm">
+                <fieldset>
+                    <legend>비밀번호 변경</legend>
+                    <input type="password" name="now_pw" id="now_pw" maxlength="20" placeholder="현재 비밀번호 입력">
+                    <input type="password" id="new_pw" name="new_pw" maxlength="20" placeholder="새 비밀번호 입력">
+                    <input type="password" id="conf_pw" maxlength="20" placeholder="새 비밀번호 확인 입력">
+
+                    <p class="btn_area_btm">
+
+                        <button type="submit" id="changeSubmit">확인</button>
+                        <button type="button" onclick="aaaa();return false;">취소</button>
+                    </p>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 <!--전체 JS-->
 <script src="../../resources/js/common.js"></script>
 
