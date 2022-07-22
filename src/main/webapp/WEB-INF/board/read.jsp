@@ -1,5 +1,6 @@
 <%@ page import="com.korea.dto.BoardDTO" %>
 <%@ page import="java.util.Objects" %>
+<%@ page import="java.io.File" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
@@ -107,7 +108,20 @@
                 </td>
             </tr>
             <tr class="cont_tbl_r3">
-                <td colspan="4"><%=dto.getContent()%>
+                <td colspan="4">
+                    <%
+                        File[] files = (File[]) request.getAttribute("files");
+                        if(files != null)
+                        {
+                            for(File file : files)
+                            {
+                    %>
+                                <img src="<%=file.getPath().split("webapp")[1]%>" style="max-width: 70%; height:auto;"><br>
+                    <%
+                            }
+                        }
+                    %>
+                    <%=dto.getContent()%>
                 </td>
             </tr>
         </table>

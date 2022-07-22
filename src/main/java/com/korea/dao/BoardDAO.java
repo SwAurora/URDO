@@ -81,7 +81,9 @@ public class BoardDAO extends DAO
         int result = 0;
         try
         {
-            pstmt = conn.prepareStatement("select no from board_tbl order by no desc;");
+            pstmt = conn.prepareStatement("ANALYZE TABLE board_tbl");
+            pstmt.executeQuery();
+            pstmt = conn.prepareStatement("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'board_tbl' AND table_schema = 'urdo'");
             rs = pstmt.executeQuery();
             rs.next();
             result = rs.getInt(1);
