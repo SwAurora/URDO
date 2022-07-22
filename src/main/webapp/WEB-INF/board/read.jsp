@@ -137,6 +137,86 @@
                 추천
             </button>
         </div>
+        
+        <!-- 댓글 등록하기 시작-->
+		    <style>
+		    	.replyWrap {
+		    		border:1px solid red;
+		    	}
+		    	.replyPostWrap {
+		    		display:flex;
+		    		width:100%;
+		    		height:150px;
+		    	}
+		    	.replyArea {
+		    		width:calc(90% - 5px); margin:0 5px 0 0;
+		    		font-size:var(--font-L);
+		    		background-color:var(--color-termsTextarea);
+		    		color:var(--color-text);
+		    		border:1px solid gray;
+		    		border-radius:5px;
+						resize: none;
+		    	}
+		    	.replyBtn {
+		    		width:10%;
+		    		text-align:center;
+		    		line-height:150px;
+		    		border:1px solid gray;
+		    		border-radius:5px;
+		    		background-color:var(--color-point);
+		    		color:var(--color-white);
+		    		font-size:var(--font-M);
+		    	}
+		    	.replyCnt {
+		    		font-size:var(--font-M);
+		    		color:var(--color-termsText);
+		    		margin:5px 0;
+		    	}
+		    	.replyRead {
+		    		width:100%;
+		    		text-align:left;
+		    		vertical-align:top;
+		    	}
+		    	.replyIcon {
+		    		width:80px; height:80px;
+		    		border:1px solid red;
+		    	}
+		    	
+		    	.replyDate {
+		    		font-size:var(--font-M);
+		    		text-align:left;
+		    		vertical-align:top;
+		    		height:20px;
+		    	}
+		    	.replyContent {
+		    		font-size:var(--font-L);
+		    		vertical-align:top;
+		    	}
+		    	
+		    	
+		    </style>
+		    <div class="replyWrap">
+					<div class="replyPostWrap">
+						<textarea class="replyArea" id="replyArea" placeholder="내용을 입력해주세요."></textarea>
+						<a href="#" class="replyBtn">댓글작성</a>
+					</div>
+		    	<div class="replyCnt">
+			    	comments : 500개
+					</div>
+					<table class="replyRead">
+						<tr>
+							<td rowspan="2" class="replyReadCol1"><div class="replyIcon">사람아이콘</div></td>
+							<td class="replyDate" id="replyDate">작성일시</td>
+						</tr>
+						<tr>
+							<td class="replyContent" id="replyContent">내용내용내용내용내용내용내용내용내용내용내용내용</td>
+						</tr>
+					</table>
+
+		    
+		    </div>
+		    <!-- 댓글 등록하기 끝--->
+        
     </div>
     <div>
     </div>
@@ -144,6 +224,9 @@
         <input type="hidden" name="no">
         <input type="hidden" name="subject">
     </form>
+    
+
+    
 </section>
 <script>
     function goBack()
