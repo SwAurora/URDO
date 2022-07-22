@@ -81,6 +81,7 @@
                 <div class="text"><input type="email" id="email" class="ipSet" value="<%=dto.getEmail()%>" disabled>
                 </div>
                 <a class="updateBtn" id="submitBtn1" href="javascript:sujung(1)">수정</a>
+                <a class="updateBtn" id="submitBtn1-1" href="#">취소</a>
             </div>
             <div class="item">
                 <div class="text">닉네임</div>
@@ -88,11 +89,13 @@
                                          disabled>
                 </div>
                 <a class="updateBtn" id="submitBtn2" href="javascript:sujung(2)">수정</a>
+                <a class="updateBtn" id="submitBtn2-1" href="#">취소</a>
             </div>
             <div class="item">
                 <div class="text">비밀번호</div>
                 <div class="text"></div>
                 <a class="updateBtn" id="submitBtn3" href="javascript:modal()">수정</a>
+                <a class="updateBtn" id="submitBtn3-1" href="#">취소</a>
             </div>
             <form action="/Update.do" name="frm1" method="post">
                 <input type="hidden" name="email">
@@ -141,6 +144,19 @@
                     let main = document.getElementsByClassName("Main");
                     modal[0].style.display = "block";
                     main[0].style.opacity = "0.5";
+
+                    if($('#submitBtn3').html() === '저장')
+                    {
+                        let frm1 = document.frm1;
+                        frm1.nickname.value = $('#password').val();
+                        frm1.submit();
+                    }
+                    else
+                    {
+                        $('#submitBtn3').html('저장');
+                        $("#password").attr("disabled", false);
+                    }
+
                 }
 
                 // 닫기

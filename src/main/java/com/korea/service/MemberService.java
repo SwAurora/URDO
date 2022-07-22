@@ -45,4 +45,9 @@ public class MemberService
     {
         return dao.UpdateNickName(id, nickname);
     }
+
+    public boolean UpdatePassword(String id, String password)
+    {
+        return dao.UpdatePassword(id, password);
+    }
 }

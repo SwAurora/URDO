@@ -239,3 +239,10 @@ button
     appearance: none;
     cursor: pointer;
 }
+
+a #submitBtn1-1,
+a #submitBtn2-1,
+a #submitBtn3-1
+{
+    display: none;
+}
