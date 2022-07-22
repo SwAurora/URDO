@@ -16,10 +16,8 @@
   <!--네비게이션 시작-->
   <jsp:include page="/resources/includes/nav.jsp"/>
 
-  <section class="Main">
-    <div class="container">
-      <!-- 컨테이너 시작-->
-
+ 	<section class="Main">
+  	<div class="container"> <!-- **********container시작********** -->
       <header>
         <div id="container_Title">
           포인트샵 > 유알콘
@@ -32,13 +30,30 @@
         </div>
       </header>
       
-      <div class="container_Contents">
-      	<div class="shopImage">이미지</div>
-      	<div class="title">타이틀</div>
-      	<div class="discrip">설명</div>
-      </div>
-
-  </div>
+			<div class="container_Contents">
+				<form action="/URPO/produce.do" name="produce_form" id="produce_form" method="post">
+					<select name="category">
+					  <option value="urcon" selected>유알콘</option>
+					  <option value="room">방꾸미기</option>
+					</select>
+				
+				<div>
+			    <input type="text" class="" placeholder="제목을 입력해주세요." name="title">
+			    <textarea name="content" class="URmain" cols="30" rows="10" placeholder="설명을 입력해 주세요"></textarea>
+					<input type="text" class="" placeholder="가격을 입력해주세요." name="price">
+					<input type="text" class="" placeholder="staticImage" name="staticImage">
+				</div>
+				
+				<div class="post">
+				    <input type='button' value='취소' class="" onclick="goBack()">
+				<input type='button' value='게시글 등록' class="" onclick="postchk()">
+				</div>
+				<input type="hidden" name="flag" value="true">
+				
+				</form>
+			</div>
+			
+		</div> <!-- **********container 끝********** -->
 
   </section>
   <!--전체 JS-->

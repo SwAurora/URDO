@@ -10,12 +10,9 @@ public class URPOController implements SubController
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
     {
-        try
-        {
+        try {
             req.getRequestDispatcher("/URPO/urcon.jsp").forward(req, resp);
-        }
-        catch(Exception e)
-        {
+        } catch(Exception e) {
             e.printStackTrace();
         }
     }

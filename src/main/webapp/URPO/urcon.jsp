@@ -124,7 +124,7 @@
           <img class="page_arrow menuIcon" id="next" src="/resources/img/board/page-arrow-forward.svg">
       </div>
       <div class="post">
-          <a href="/Shop/produce.do" class="addBtn">제작/등록</a>
+          <a href="/URPO/produce.do" class="addBtn">제작/등록</a>
       </div>
       <!--  페이지 숫자 끝-->
       <!-- 게시판 내용 관련 코드  끝-->
