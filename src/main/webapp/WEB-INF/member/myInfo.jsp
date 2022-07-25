@@ -92,10 +92,7 @@
                 <a class="updateBtn" id="submitBtn2-1" href="#">취소</a>
             </div>
             <div class="item">
-                <div class="text">비밀번호</div>
-                <div class="text"></div>
-                <a class="updateBtn" id="submitBtn3" href="javascript:modal()">수정</a>
-                <a class="updateBtn" id="submitBtn3-1" href="#">취소</a>
+                <a href="javascript:modal()" class="text" style="color:#5865F2;text-decoration: none;">비밀번호 재설정</a>
             </div>
             <form action="/Update.do" name="frm1" method="post">
                 <input type="hidden" name="email">
