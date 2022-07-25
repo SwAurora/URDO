@@ -117,7 +117,7 @@
                             for(String file : files)
                             {
                     %>
-                                <img src="/resources/files/B<%=dto.getNo()%>/<%=file%>" style="max-width: 70%; height:auto;"><br>
+                                <img src="/resources/files/B<%=dto.getNo()%>/<%=file%>" style="max-width: 100%; height:auto;"><br>
                     <%
                             }
                         }

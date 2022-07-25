@@ -135,7 +135,8 @@
                             else
                             {
                         %>
-                                <img src="../resources/img/board/frog.png" class="pic">
+                                <%--<img src="../resources/img/board/frog.png" class="pic">--%>
+                                <img src="../resources/img/sidebar/logo.svg" class="pic">
                     <%
                             }
                         %>
