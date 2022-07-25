@@ -65,8 +65,10 @@ END;
 
 CALL board();
 
-select * from board_tbl where writer = 'aurora' and available = 0;
+select * from board_tbl where writer = 'halfmoon' and available = 1;
 
 select * from subject_tbl;
 
 select * from board_tbl where writer = 'aurora' order by no desc;
+
+select * from board_tbl order by no desc;

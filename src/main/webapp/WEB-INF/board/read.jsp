@@ -110,13 +110,14 @@
             <tr class="cont_tbl_r3">
                 <td colspan="4">
                     <%
-                        File[] files = (File[]) request.getAttribute("files");
-                        if(files != null)
+                        if(dto.getFilename() != null)
                         {
-                            for(File file : files)
+                            String fname = dto.getFilename();
+                            String[] files = fname.split(";");
+                            for(String file : files)
                             {
                     %>
-                                <img src="<%=file.getPath().split("webapp")[1]%>" style="max-width: 70%; height:auto;"><br>
+                                <img src="/resources/files/B<%=dto.getNo()%>/<%=file%>" style="max-width: 70%; height:auto;"><br>
                     <%
                             }
                         }
