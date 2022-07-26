@@ -72,3 +72,5 @@ select * from subject_tbl;
 select * from board_tbl where writer = 'aurora' order by no desc;
 
 select * from board_tbl order by no desc;
+
+delete from board_tbl where writer = 'aurora';
