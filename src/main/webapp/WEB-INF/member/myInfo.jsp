@@ -81,7 +81,7 @@
                 <div class="text"><input type="email" id="email" class="ipSet" value="<%=dto.getEmail()%>" disabled>
                 </div>
                 <a class="updateBtn" id="submitBtn1" href="javascript:sujung(1)">수정</a>
-                <a class="updateBtn" id="submitBtn1-1" href="#">취소</a>
+                <a class="updateBtn" id="submitBtn1-1" href="javascript:cancel(1)">취소</a>
             </div>
             <div class="item">
                 <div class="text">닉네임</div>
@@ -89,10 +89,13 @@
                                          disabled>
                 </div>
                 <a class="updateBtn" id="submitBtn2" href="javascript:sujung(2)">수정</a>
-                <a class="updateBtn" id="submitBtn2-1" href="#">취소</a>
+                <a class="updateBtn" id="submitBtn2-1" href="javascript:cancel(2)">취소</a>
             </div>
             <div class="item">
-                <a href="javascript:modal()" class="text" style="color:#5865F2;text-decoration: none;">비밀번호 재설정</a>
+                <a href="javascript:modal()" id="pwdchange">비밀번호 재설정</a>
+            </div>
+            <div class="item">
+                <a href="#" id="delAccount">회원 탈퇴</a>
             </div>
             <form action="/Update.do" name="frm1" method="post">
                 <input type="hidden" name="email">
@@ -116,6 +119,7 @@
                         {
                             $('#submitBtn1').html('저장');
                             $("#email").attr("disabled", false);
+                            $('#submitBtn1-1').css("display", "block");
                         }
                     }
                     else
@@ -130,7 +134,26 @@
                         {
                             $('#submitBtn2').html('저장');
                             $("#nickname").attr("disabled", false);
+                            $('#submitBtn2-1').css("display", "block");
                         }
+                    }
+                }
+                // 취소 버튼
+                function cancel(num)
+                {
+                    if(num === 1)
+                    {
+                        $('#submitBtn1').html('수정');
+                        $("#email").attr("disabled", true);
+                        $('#email').val("<%=dto.getEmail()%>");
+                        $('#submitBtn1-1').css("display", "none");
+                    }
+                    else
+                    {
+                        $('#submitBtn2').html('수정');
+                        $("#nickname").attr("disabled", true);
+                        $('#nickname').val("<%=dto.getNickname()%>");
+                        $('#submitBtn2-1').css("display", "none");
                     }
                 }
 
