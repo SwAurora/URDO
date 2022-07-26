@@ -65,12 +65,11 @@ END;
 
 CALL board();
 
-select * from board_tbl where writer = 'halfmoon' and available = 1;
-
-select * from subject_tbl;
-
-select * from board_tbl where writer = 'aurora' order by no desc;
-
-select * from board_tbl order by no desc;
-
-delete from board_tbl where writer = 'aurora';
+#------------------------------------------------ 추천 테이블
+create table rec_tbl
+(
+    board_no int,
+    rec_id varchar(20),
+    foreign key(board_no) references board_tbl(no) on update cascade on delete cascade,
+    foreign key(rec_id) references member_tbl(id) on update cascade on delete cascade
+);
