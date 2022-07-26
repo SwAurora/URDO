@@ -112,4 +112,10 @@ public class BoardService
         File file = new File(rootPath + "B" + no);
         return file.listFiles();
     }
+
+    // 조회수 증가
+    public void ViewsUp(int no)
+    {
+        dao.ViewsUp(no);
+    }
 }

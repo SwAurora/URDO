@@ -22,7 +22,7 @@
     width: 30px;
     height: 30px;
     margin-left: 30px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .searchBar
@@ -35,7 +35,7 @@
     border: 1px solid var(--color-text);
     border-radius: 4px;
     color: var(--color-blackToWhite);
-    padding-left:10px;
+    padding-left: 10px;
 }
 
 .searchBar::placeholder
@@ -73,13 +73,21 @@ a
 /* table 안의 tdborder 설정 */
 .board_list tr
 {
-	border-bottom:1px solid gray;
-  text-align: center;
+    border-bottom: 1px solid gray;
+    text-align: center;
 }
+
+.board_list td
+{
+    padding: 4px;
+    line-height: 0;
+}
+
 .titlename td
 {
-	padding:10px;
+    padding: 10px;
 }
+
 /* 게시판 내용물 사이즈 */
 #boardCol2
 {
@@ -90,9 +98,10 @@ a
 {
     text-align: left;
 }
+
 #boardCol6
 {
-		width:15%;
+    width: 15%;
 }
 
 /* 게시판 글제목 내용에 가까이갈시 작동   */
@@ -128,8 +137,8 @@ a
 /* 썸네일 이미지 */
 .board_list_wrap img
 {
-    width: 50px;
-    height: 50px;
+    width:70px;
+    height:50px;
 }
 
 /* page 버튼 부분 가까이 댈시 색갈변경 */
@@ -143,8 +152,6 @@ a
 {
     width: 50px;
 }
-
-
 
 /* 썸네일등등부분 끝 */
 
@@ -231,7 +238,6 @@ a
     margin: 3px;
 }
 
-
 .page_arrow
 {
     cursor: pointer;
@@ -257,4 +263,3 @@ a
     width: calc(100% - 20px);
     margin: 10px 0;
 }
-

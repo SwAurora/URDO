@@ -251,4 +251,30 @@ public class BoardDAO extends DAO
         }
         return false;
     }
+
+    // 조회수 증가
+    public void ViewsUp(int no)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("update board_tbl set views = views + 1 where no = ?");
+            pstmt.setInt(1, no);
+            pstmt.executeUpdate();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
 }

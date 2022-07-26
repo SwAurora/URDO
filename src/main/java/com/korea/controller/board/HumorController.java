@@ -4,6 +4,7 @@ import com.korea.controller.SubController;
 import com.korea.dto.BoardDTO;
 import com.korea.service.BoardService;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -39,6 +40,9 @@ public class HumorController implements SubController
 
             req.setAttribute("tcnt", tcnt);
             req.setAttribute("list", list);
+
+            Cookie views = new Cookie("views", "true");
+            resp.addCookie(views);
 
             req.setAttribute("nowPage", nowPage);
             req.getRequestDispatcher("/board/humor.jsp").forward(req, resp);
