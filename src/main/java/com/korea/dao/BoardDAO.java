@@ -289,8 +289,8 @@ public class BoardDAO extends DAO
     	} catch (Exception e) {
     		e.printStackTrace();
     	} finally {
-    		try { pstmt.close(); } catch (Exception e) { e.printStackTrace(); }
     		try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+    		try { pstmt.close(); } catch (Exception e) { e.printStackTrace(); }
     	}
     	return list;
     }

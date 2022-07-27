@@ -81,3 +81,14 @@ create table reply_tbl (
   regdate date
 );
  
+#------------------------------------------------- 포인트샵 테이블
+create table pointshop_tbl (
+	no int not null primary key, 
+	title varchar(45) not null,
+	discription varchar(500),
+	price int not null,
+	staticImage varchar(500),
+	gifImage varchar(500),
+	category varchar(45),
+	producer varchar(40)
+);

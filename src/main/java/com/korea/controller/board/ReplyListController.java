@@ -23,10 +23,10 @@ public class ReplyListController implements SubController{
 			PrintWriter out = resp.getWriter();
 			for(int i=0; i<list.size(); i++) {
 				out.print("<tr>");
-				out.print("<td scope=\"col\"><img src=\"/resources/img/board/frog.png\"></td>");
-				out.print("<td scope=\"col\">"+ list.get(i).getWriter() +" (" + list.get(i).getRegdate()+ ")</td>");
-				out.print("<td scope=\"col\">"+ list.get(i).getContent() +"</td>");
-				out.print("<td>삭제</td>");
+				out.print("<td class=\"replyCol1\"><img src=\"/resources/img/board/frog.png\"></td>");
+				out.print("<td class=\"replyCol2\">"+ list.get(i).getWriter() +" (" + list.get(i).getRegdate()+ ")</td>");
+				out.print("<td class=\"replyCol3\">"+ list.get(i).getContent() +"</td>");
+				out.print("<td class=\"replyCol4\"><a href=\"#\" class=\"replyDeleteBtn\">X</a></td>");
 				out.print("</tr>");
 			}
 		} catch (Exception e) {

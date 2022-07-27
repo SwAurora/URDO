@@ -153,10 +153,45 @@ a
 }
 
 
-/* 댓글 등록하기 css 시작 */
+/* ----------댓글 등록하기 css 시작---------- */
 .replyWrap {
-	margin:20px 0;
 }
+
+/* 댓글 불러오기 부분 */
+.replyRead {
+	width:100%;
+	margin:10px 0;
+}
+.replyRead td {
+	vertical-align:top;
+	font-size:var(--font-M);
+	padding:5px 0;
+}
+.replyCol1 { /* 이미지 */
+	width:20px;
+}
+.replyRead img{
+	width:20px;
+}
+.replyCol2 { /* 작성자 + 작성일 */
+	width:180px;
+}
+.replyCol3 { /* 댓글 내용 */
+}
+.replyCol4 { /* 삭제 버튼 */
+	width:50px;
+	text-align:right;
+}
+.replyDeleteBtn {
+	border : 1px solid var(--color-warning);
+	border-radius:5px;
+	padding: 2px 8px;
+	background-color : var(--color-textField);
+	font-size : var(--font-S);
+	color: var(--color-warning);
+}
+
+/* 댓글 작성하는 부분 */
 .replyPostWrap {
 	display:flex;
 	width:100%;
@@ -182,30 +217,7 @@ a
 	color:var(--color-white);
 	font-size:var(--font-M);
 }
-.replyCnt {
-	font-size:var(--font-M);
-	color:var(--color-termsText);
-	margin:20px 0 10px 0;
-}
-.replyRead {
-	width:100%;
-}
-.replyRead img{
-	width:1.5rem;
-}
-.replyRead td {
-	vertical-align:top;
-	font-size:var(--font-M);
-	padding:5px 0;
-}
-.readCol1 {
-	width:2rem;
-}
-.readCol2 {
-	width:200px;
-}
-
-/* 댓글 등록하기 css 끝 */
+/* ----------댓글 등록하기 css 끝---------- */
 
 
 
