@@ -14,9 +14,6 @@ public class ReplyDeleteController implements SubController{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		ReplyDTO rdto = new ReplyDTO();
-		service.replyDelete(rdto);
-		req.getParameter("replyno");
 		
 	}
 

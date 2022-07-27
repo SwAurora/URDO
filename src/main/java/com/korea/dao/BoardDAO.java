@@ -335,6 +335,7 @@ public class BoardDAO extends DAO
     }
     
     // 댓글 삭제 함수
+    /*
     public boolean replyDelete(ReplyDTO rdto) {
     	try {
 			//DB삭제
@@ -350,6 +351,7 @@ public class BoardDAO extends DAO
 		}
 		return false;
     }
+    */
     
     
 

@@ -156,21 +156,6 @@
         </div>
 
         <!-- 댓글 등록하기 폼 시작-->
-<<<<<<< HEAD
-        <form name="replyFrm" method="post">
-			    <div class="replyWrap">
-						<table class="replyRead" id="replyRead">
-							
-						</table>
-						<div class="replyPostWrap">
-							<textarea id="comment" class="replyArea" id="replyArea" placeholder="내용을 입력해주세요."></textarea>
-							<a href="javascript:reply()" class="replyBtn">댓글작성</a>
-						</div>
-			    </div>
-		    </form>
-		    <!-- 댓글 등록하기 폼 끝--->
-        
-=======
         <form>
             <div class="replyWrap">
                 <table class="replyRead" id="replyRead">
@@ -184,7 +169,6 @@
         </form>
         <!-- 댓글 등록하기 폼 끝--->
 
->>>>>>> branch 'master' of https://github.com/SwAurora/URDO.git
     </div>
     <div>
     </div>
@@ -192,52 +176,6 @@
         <input type="hidden" name="no">
         <input type="hidden" name="subject">
     </form>
-<<<<<<< HEAD
-    
-    <script>
-    listreply();
-    function reply(){
-    	$.ajax({
-    		url : '/Board/reply.do',
-    		type : 'GET',
-    		data : {"comment" : $('#comment').val()},
-    		error : function(){
-    			alert('댓글 작성에 오류가 발생했습니다!');
-    		},
-    		success : function(result){
-    			listreply();
-    			$('#comment').val("");
-    		}
-    	});
-    }
-    function listreply(){
-    	$.ajax({
-    		url : '/Board/replylist.do',
-    		type : 'GET',
-    		error : function(){
-    			alert('댓글 목록 확인 에러!');
-    		},
-    		success : function(result){
-    			$('#replyRead').html(result);
-    		}
-    	});
-    }
-    function deletereply(){
-    	$.ajax({
-    		url : '/Board/replydelete.do',
-    		type : 'GET',
-    		error : function(){
-    			alert('댓글 삭제 실패!');
-    		},
-    		success : function(result){
-    		}
-    	});
-    }
-    
-    </script>
-    
-=======
->>>>>>> branch 'master' of https://github.com/SwAurora/URDO.git
 
     <script>
         listreply();

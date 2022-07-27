@@ -170,38 +170,22 @@ a
     font-size: var(--font-M);
     padding: 5px 0;
 }
-<<<<<<< HEAD
-.replyCol1 { /* 이미지 */
-	width:30px;
-=======
 
 .replyCol1
 {
     width: 30px;
->>>>>>> branch 'master' of https://github.com/SwAurora/URDO.git
 }
-<<<<<<< HEAD
-.replyRead img{
-	width:20px;
-	height:20px;
-=======
 
 /* 이미지 */
 .replyRead img
 {
     width: 20px;
     height: 20px;
->>>>>>> branch 'master' of https://github.com/SwAurora/URDO.git
 }
-<<<<<<< HEAD
-.replyCol2 { /* 작성자 + 작성일 */
-	width:150px;
-=======
 
 .replyCol2
 { /* 작성자 + 작성일 */
     width: 230px;
->>>>>>> branch 'master' of https://github.com/SwAurora/URDO.git
 }
 
 .replyCol3
