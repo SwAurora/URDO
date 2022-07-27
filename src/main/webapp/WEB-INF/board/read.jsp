@@ -177,6 +177,7 @@
         <input type="hidden" name="subject">
     </form>
 
+    <%--댓글--%>
     <script>
         listreply();
         setInterval(listreply, 500);
@@ -232,7 +233,7 @@
             form.submit();
         }
     }
-
+    /*추천 시작*/
     function rec(id)
     {
         if(id === "null")
@@ -272,6 +273,7 @@
     }
 
     recCount();
+    /*추천 끝*/
 </script>
 <!--전체 JS-->
 <script src="../../resources/js/common.js"></script>

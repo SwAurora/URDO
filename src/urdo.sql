@@ -98,7 +98,6 @@ create table rec_tbl
     foreign key(rec_id) references member_tbl(id) on update cascade on delete cascade
 );
 
-select * from reply_tbl;
 select * from rec_tbl;
 select * from board_tbl order by no desc;
-insert into rec_tbl values(1001, 'wb0802');
+select * from reply_tbl;
