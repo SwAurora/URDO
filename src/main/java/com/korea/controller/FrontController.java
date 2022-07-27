@@ -51,6 +51,7 @@ public class FrontController extends HttpServlet
         list.put("/ShowInfo.do", new ShowInfoController());
         list.put("/Update.do", new UpdateController());
 
+
         // 게시판
         list.put("/Board/humor.do", new HumorController());
         list.put("/Board/creArt.do", new CreArtController());

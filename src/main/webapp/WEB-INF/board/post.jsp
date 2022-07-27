@@ -43,7 +43,7 @@
                 <form action="/Board/post.do" name="form1" method="post" enctype="multipart/form-data">
                     <select name="subjects" id="sel1">
                         <option value="humor">웃긴 자료</option>
-                        <option value="creArt" style="text-align: center">그림</option>
+                        <option value="creArt">그림</option>
                         <option value="creCook">요리</option>
                         <option value="regionRestaurant">맛집</option>
                         <option value="regionLandmark">명소</option>

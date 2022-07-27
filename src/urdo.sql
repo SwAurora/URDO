@@ -91,4 +91,11 @@ create table pointshop_tbl (
 	gifImage varchar(500),
 	category varchar(45),
 	producer varchar(40)
+#------------------------------------------------ 추천 테이블
+create table rec_tbl
+(
+    board_no int,
+    rec_id varchar(20),
+    foreign key(board_no) references board_tbl(no) on update cascade on delete cascade,
+    foreign key(rec_id) references member_tbl(id) on update cascade on delete cascade
 );

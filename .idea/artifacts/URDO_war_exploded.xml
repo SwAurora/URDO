@@ -24,7 +24,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/URDO-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="URDO/web/Web" />
+      <element id="javaee-facet-resources" facet="URDO/web/웹" />
     </root>
   </artifact>
 </component>

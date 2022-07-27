@@ -33,6 +33,7 @@ public class PostController implements SubController
                 String subject = req.getParameter("subjects");
                 String title = req.getParameter("title");
                 String content = req.getParameter("content");
+                content = content.replaceAll("\n", "<br>");
                 HttpSession session = req.getSession();
                 String id = (String) session.getAttribute("id");
                 MemberDTO mdto = mservice.MemberSearch(id);

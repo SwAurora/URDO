@@ -82,7 +82,9 @@ public class BoardDAO extends DAO
         int result = 0;
         try
         {
-            pstmt = conn.prepareStatement("select no from board_tbl order by no desc;");
+            pstmt = conn.prepareStatement("ANALYZE TABLE board_tbl");
+            pstmt.executeQuery();
+            pstmt = conn.prepareStatement("SELECT AUTO_INCREMENT FROM information_schema.tables WHERE table_name = 'board_tbl' AND table_schema = 'urdo'");
             rs = pstmt.executeQuery();
             rs.next();
             result = rs.getInt(1);
@@ -295,4 +297,30 @@ public class BoardDAO extends DAO
     	return list;
     }
     
+
+    // 조회수 증가
+    public void ViewsUp(int no)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("update board_tbl set views = views + 1 where no = ?");
+            pstmt.setInt(1, no);
+            pstmt.executeUpdate();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
 }

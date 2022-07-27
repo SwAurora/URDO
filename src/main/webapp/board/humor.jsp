@@ -124,7 +124,22 @@
                     {
                 %>
                 <tr id="tableContent">
-                    <td><img src="../resources/img/board/frog.png" class="pic"></td>
+                    <td>
+                        <%
+                            if(boardDTO.getFilename() != null)
+                            {
+                        %>
+                                <img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" class="pic">
+                        <%
+                            }
+                            else
+                            {
+                        %>
+                                <img src="../resources/img/board/thumbLogo.svg" class="pic">
+                        <%
+                            }
+                        %>
+                    </td>
                     <td><a href="/Board/read.do?no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%>
                     </a>
                     </td>

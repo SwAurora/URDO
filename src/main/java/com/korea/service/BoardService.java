@@ -49,10 +49,10 @@ public class BoardService
     //파일포함 글쓰기 서비스
     public boolean PostBoard(BoardDTO dto, ArrayList<Part> parts)
     {
-        String subPath = "B" + (dao.getLastNo() + 1);
+        String subPath = "B" + (dao.getLastNo());
         String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
         rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
-        File RealPath = new File(rootPath + "/files/" + subPath);
+        File RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
 
         if(!RealPath.exists())
             RealPath.mkdirs();
@@ -111,5 +111,21 @@ public class BoardService
     
     public ArrayList<ReplyDTO> getReplylist(int bno) {
     	return dao.getReplylist(bno);
+    }
+    
+    public File[] fileChk(String no)
+    {
+        String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
+        rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
+        rootPath = rootPath + "/src/main/webapp/resources/files/";
+
+        File file = new File(rootPath + "B" + no);
+        return file.listFiles();
+    }
+
+    // 조회수 증가
+    public void ViewsUp(int no)
+    {
+        dao.ViewsUp(no);
     }
 }
