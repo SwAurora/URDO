@@ -168,13 +168,14 @@ a
 	padding:5px 0;
 }
 .replyCol1 { /* 이미지 */
-	width:20px;
+	width:30px;
 }
 .replyRead img{
 	width:20px;
+	height:20px;
 }
 .replyCol2 { /* 작성자 + 작성일 */
-	width:180px;
+	width:150px;
 }
 .replyCol3 { /* 댓글 내용 */
 }

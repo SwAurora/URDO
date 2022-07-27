@@ -156,7 +156,7 @@
         </div>
         
         <!-- 댓글 등록하기 폼 시작-->
-        <form>
+        <form name="replyFrm" method="post">
 			    <div class="replyWrap">
 						<table class="replyRead" id="replyRead">
 							
@@ -205,7 +205,17 @@
     		}
     	});
     }
-    listreply();
+    function deletereply(){
+    	$.ajax({
+    		url : '/Board/replydelete.do',
+    		type : 'GET',
+    		error : function(){
+    			alert('댓글 삭제 실패!');
+    		},
+    		success : function(result){
+    		}
+    	});
+    }
     
     </script>
     

@@ -19,6 +19,7 @@ import com.korea.controller.board.ReadController;
 import com.korea.controller.board.RegionLandmarkController;
 import com.korea.controller.board.RegionRestaurantController;
 import com.korea.controller.board.ReplyController;
+import com.korea.controller.board.ReplyDeleteController;
 import com.korea.controller.board.ReplyListController;
 import com.korea.controller.board.ThemeGameController;
 import com.korea.controller.board.ThemeMusicController;
@@ -66,6 +67,7 @@ public class FrontController extends HttpServlet
         list.put("/Board/delete.do", new DeleteController());
         list.put("/Board/reply.do", new ReplyController());
         list.put("/Board/replylist.do", new ReplyListController());
+        list.put("/Board/replydelete.do", new ReplyDeleteController());
 
         // 유알포
         list.put("/URPO.do", new URPOController());

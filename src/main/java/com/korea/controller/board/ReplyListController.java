@@ -18,16 +18,23 @@ public class ReplyListController implements SubController{
 		BoardService service = BoardService.getInstance();
 		HttpSession session = req.getSession();
 		BoardDTO dto = (BoardDTO) session.getAttribute("dto");
+		ReplyDTO rdto = (ReplyDTO) session.getAttribute("rdto");
 		ArrayList<ReplyDTO> list = service.getReplylist(dto.getNo());
 		try {
 			PrintWriter out = resp.getWriter();
 			for(int i=0; i<list.size(); i++) {
 				out.print("<tr>");
 				out.print("<td class=\"replyCol1\"><img src=\"/resources/img/board/frog.png\"></td>");
-				out.print("<td class=\"replyCol2\">"+ list.get(i).getWriter() +" (" + list.get(i).getRegdate()+ ")</td>");
+				out.print("<td class=\"replyCol2\">"+ list.get(i).getWriter() +"<br>" + list.get(i).getRegdate()+ "</td>");
 				out.print("<td class=\"replyCol3\">"+ list.get(i).getContent() +"</td>");
-				out.print("<td class=\"replyCol4\"><a href=\"#\" class=\"replyDeleteBtn\">X</a></td>");
+				out.print("<td class=\"replyCol4\">");
+				System.out.println(rdto.getWriter());
+				if(rdto.getWriter().equals(list.get(i).getWriter())) {
+					out.print("<a href=\"javascript:deletereply()\" class=\"replyDeleteBtn\">X</a>");
+				}
+				out.print("</td>");
 				out.print("</tr>");
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

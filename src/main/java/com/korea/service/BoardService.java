@@ -104,6 +104,7 @@ public class BoardService
         return dao.delete(no);
     }
     
+    // 댓글 서비스
     public boolean reply(ReplyDTO rdto) 
     {
     	return dao.reply(rdto);
@@ -112,6 +113,11 @@ public class BoardService
     public ArrayList<ReplyDTO> getReplylist(int bno) {
     	return dao.getReplylist(bno);
     }
+    
+    public boolean replyDelete(ReplyDTO rdto) {
+    	return dao.replyDelete(rdto);
+    }
+    // 댓글 서비스 끝
     
     public File[] fileChk(String no)
     {
