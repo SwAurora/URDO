@@ -10,19 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
-import com.korea.controller.board.CreArtController;
-import com.korea.controller.board.CreCookController;
-import com.korea.controller.board.DeleteController;
-import com.korea.controller.board.HumorController;
-import com.korea.controller.board.PostController;
-import com.korea.controller.board.ReadController;
-import com.korea.controller.board.RegionLandmarkController;
-import com.korea.controller.board.RegionRestaurantController;
-import com.korea.controller.board.ReplyController;
-import com.korea.controller.board.ReplyListController;
-import com.korea.controller.board.ThemeGameController;
-import com.korea.controller.board.ThemeMusicController;
-import com.korea.controller.board.ThemeSportsController;
+import com.korea.controller.board.*;
 import com.korea.controller.member.ShowInfoController;
 import com.korea.controller.member.SignUpController;
 import com.korea.controller.member.UpdateController;
@@ -66,6 +54,8 @@ public class FrontController extends HttpServlet
         list.put("/Board/delete.do", new DeleteController());
         list.put("/Board/reply.do", new ReplyController());
         list.put("/Board/replylist.do", new ReplyListController());
+        list.put("/Board/rec.do", new RecController());
+        list.put("/Board/recCount.do", new RecCountController());
 
         // 유알포
         list.put("/URPO.do", new URPOController());

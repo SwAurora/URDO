@@ -14,6 +14,7 @@ public class DAO
     Connection conn = null;
     PreparedStatement pstmt = null;
     ResultSet rs = null;
+    ResultSet rs2 = null;
 
     DAO()
     {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.korea.dto.BoardDTO;
+import com.korea.dto.RecDTO;
 import com.korea.dto.ReplyDTO;
 
 public class BoardDAO extends DAO
@@ -252,51 +253,77 @@ public class BoardDAO extends DAO
         }
         return false;
     }
-    
+
     // 댓글 등록 함수
-    public boolean reply(ReplyDTO rdto) {
-    	try {
+    public boolean reply(ReplyDTO rdto)
+    {
+        try
+        {
             pstmt = conn.prepareStatement("insert into reply_tbl(boardNo, writer, content, regdate) values(?,?,?, sysdate())");
             pstmt.setInt(1, rdto.getBoardNo());
             pstmt.setString(2, rdto.getWriter());
             pstmt.setString(3, rdto.getContent());
             int result = pstmt.executeUpdate();
-            if(result > 0)  return true;
-        } catch(Exception e) {
+            if(result > 0)
+                return true;
+        }
+        catch(Exception e)
+        {
             e.printStackTrace();
-        } finally {
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        finally
+        {
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
         return false;
     }
-    
+
     // 댓글 불러오기 함수
-    public ArrayList<ReplyDTO> getReplylist(int bno) {
-    	ArrayList<ReplyDTO> list = new ArrayList();
-    	ReplyDTO dto = null;
-    	try {
-    		pstmt = conn.prepareStatement("select * from reply_tbl where boardNo = ? order by no desc");
-    		pstmt.setInt(1, bno);
-    		rs = pstmt.executeQuery();
-    		while(rs.next()) {
-    			dto = new ReplyDTO();
-    			dto.setNo(rs.getInt("no"));
-    			dto.setBoardNo(rs.getInt("boardNo"));
-    			dto.setContent(rs.getString("content"));
-    			dto.setContent(rs.getString("content"));
-    			dto.setWriter(rs.getString("writer"));
-    			dto.setRegdate(rs.getString("regdate"));
-    			list.add(dto);
-    		}
-    	} catch (Exception e) {
-    		e.printStackTrace();
-    	} finally {
-    		try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
-    		try { pstmt.close(); } catch (Exception e) { e.printStackTrace(); }
-    	}
-    	return list;
+    public ArrayList<ReplyDTO> getReplylist(int bno)
+    {
+        ArrayList<ReplyDTO> list = new ArrayList();
+        ReplyDTO dto = null;
+        try
+        {
+            pstmt = conn.prepareStatement("select * from reply_tbl where boardNo = ? order by no desc");
+            pstmt.setInt(1, bno);
+            rs = pstmt.executeQuery();
+            while(rs.next())
+            {
+                dto = new ReplyDTO();
+                dto.setNo(rs.getInt("no"));
+                dto.setBoardNo(rs.getInt("boardNo"));
+                dto.setContent(rs.getString("content"));
+                dto.setContent(rs.getString("content"));
+                dto.setWriter(rs.getString("writer"));
+                dto.setRegdate(rs.getString("regdate"));
+                list.add(dto);
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return list;
     }
-    
 
     // 조회수 증가
     public void ViewsUp(int no)
@@ -322,5 +349,112 @@ public class BoardDAO extends DAO
                 e.printStackTrace();
             }
         }
+    }
+
+    // 게시글 추천여부 검사
+    public int recCheck(RecDTO dto)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("select * from rec_tbl where board_no = ? and rec_id = ?");
+            pstmt.setInt(1, dto.getBoard_no());
+            pstmt.setString(2, dto.getRec_id());
+            rs = pstmt.executeQuery();
+            while(rs.next())
+            {
+                return 1;
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+    // 게시글 추천
+    public void recUpdate(RecDTO dto)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("insert into rec_tbl values(?,?)");
+            pstmt.setInt(1, dto.getBoard_no());
+            pstmt.setString(2, dto.getRec_id());
+            pstmt.executeUpdate();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // 게시글 추천수
+    public int recCount(int no)
+    {
+        int count = 0;
+        try
+        {
+            pstmt = conn.prepareStatement("select count(*) from rec_tbl where board_no = ?");
+            pstmt.setInt(1, no);
+            rs2 = pstmt.executeQuery();
+            while(rs2.next())
+            {
+                count = rs2.getInt(1);
+            };
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs2.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return count;
     }
 }

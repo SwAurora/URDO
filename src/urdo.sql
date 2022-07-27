@@ -73,24 +73,27 @@ select * from member_tbl where id = 'wb0802';
 
 
 #------------------------------------------------- 댓글 테이블
-create table reply_tbl (
-  no int primary key,
+create table reply_tbl
+(
+  no int primary key auto_increment,
   boardNo int not null,
-  writer varchar(100) not null,
+  writer varchar(20) not null,
   content varchar(2000) not null,
-  regdate date
+  regdate varchar(45),
+  foreign key(boardNo) references board_tbl(no)
 );
- 
 #------------------------------------------------- 포인트샵 테이블
-create table pointshop_tbl (
-	no int not null primary key, 
-	title varchar(45) not null,
-	discription varchar(500),
-	price int not null,
-	staticImage varchar(500),
-	gifImage varchar(500),
-	category varchar(45),
-	producer varchar(40)
+create table pointshop_tbl
+(
+    no          int         not null primary key,
+    title       varchar(45) not null,
+    discription varchar(500),
+    price       int         not null,
+    staticImage varchar(500),
+    gifImage    varchar(500),
+    category    varchar(45),
+    producer    varchar(40)
+);
 #------------------------------------------------ 추천 테이블
 create table rec_tbl
 (
