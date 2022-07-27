@@ -189,7 +189,9 @@
 	    		if(nickname=="null"){
 	    			alert('로그인 하셔야 댓글을 다실 수 있습니다.');
             location.href = '/login.jsp';
-	    		} else {
+	    		} else if ($('#comment').val()==""){
+	    			alert('내용을 입력해주세요.');
+	    		}	else {
 	    			reply();
 	    		}
     			
