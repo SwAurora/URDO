@@ -14,13 +14,13 @@ public class ReplyController implements SubController{
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		HttpSession session = req.getSession();
-		BoardDTO dto = (BoardDTO)session.getAttribute("dto");
 		String nickname = (String) session.getAttribute("nickname");
 		
 		String comment = req.getParameter("comment");
+		String bno = req.getParameter("bno");
 		
 		ReplyDTO rdto = new ReplyDTO();
-		rdto.setBoardNo(dto.getNo());
+		rdto.setBoardNo(Integer.parseInt(bno));
 		rdto.setWriter(nickname);
 		rdto.setContent(comment);
 		

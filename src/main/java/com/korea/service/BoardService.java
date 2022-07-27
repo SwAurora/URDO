@@ -3,12 +3,14 @@ package com.korea.service;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import javax.servlet.http.Part;
 
 import com.korea.dao.BoardDAO;
 import com.korea.dto.BoardDTO;
+import com.korea.dto.RecDTO;
 import com.korea.dto.ReplyDTO;
 
 public class BoardService
@@ -101,17 +103,26 @@ public class BoardService
 
     public boolean delete(int no)
     {
+        File file = fileChk(String.valueOf(no));
+        if(file.exists())
+        {
+            for(File files : Objects.requireNonNull(file.listFiles()))
+            {
+                files.delete();
+            }
+            file.delete();
+        }
         return dao.delete(no);
     }
-    
-    // 댓글 서비스
-    public boolean reply(ReplyDTO rdto) 
+
+    public boolean reply(ReplyDTO rdto)
     {
-    	return dao.reply(rdto);
+        return dao.reply(rdto);
     }
-    
-    public ArrayList<ReplyDTO> getReplylist(int bno) {
-    	return dao.getReplylist(bno);
+
+    public ArrayList<ReplyDTO> getReplylist(int bno)
+    {
+        return dao.getReplylist(bno);
     }
     
     public boolean replyDelete(ReplyDTO rdto) {
@@ -119,19 +130,39 @@ public class BoardService
     }
     // 댓글 서비스 끝
     
-    public File[] fileChk(String no)
+
+    public File fileChk(String no)
     {
         String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
         rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
         rootPath = rootPath + "/src/main/webapp/resources/files/";
 
-        File file = new File(rootPath + "B" + no);
-        return file.listFiles();
+        return new File(rootPath + "B" + no);
     }
 
     // 조회수 증가
     public void ViewsUp(int no)
     {
         dao.ViewsUp(no);
+    }
+
+    public int recCheck(RecDTO dto)
+    {
+        return dao.recCheck(dto);
+    }
+
+    public void recUpdate(RecDTO dto)
+    {
+        dao.recUpdate(dto);
+    }
+
+    public void recUp(int bno)
+    {
+        dao.recUp(bno);
+    }
+
+    public int recCount(int no)
+    {
+        return dao.recCount(no);
     }
 }

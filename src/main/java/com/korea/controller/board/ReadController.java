@@ -41,10 +41,6 @@ public class ReadController implements SubController
 
 			req.setAttribute("dto", dto);
 			
-			HttpSession session = req.getSession();
-			session.setAttribute("dto", dto);
-			
-			
             req.getRequestDispatcher("/WEB-INF/board/read.jsp").forward(req, resp);
         }
         catch(Exception e)
