@@ -138,33 +138,33 @@
             </button>
         </div>
         
-        <!-- 댓글 등록하기 시작-->
-		    <div class="replyWrap">
-					<table class="replyRead">
-						<colgroup>
-							<col class="readCol1" style="">
-							<col class="readCol2" style="">
-							<col class="readCol3" style="">
-						</colgroup>
-						<tr>
-							<td scope="col"><img src="/resources/img/board/frog.png"></td>
-							<td scope="col">닉네임 (2022-02-12 12:34)</td>
-							<td scope="col">세 줄 요약 바랍니다.<br>어쩌고저쩌고저쩌꼬꺾꼬꼬꺼땨ㅑㄹ떨ㄸ러ㅑㄸ러ㅑ</td>
-							<td>삭제</td>
-						</tr>
-						
-						
-						
-					</table>
-		    	<div class="replyCnt">
-			    	comments : 500개
-					</div>
-					<div class="replyPostWrap">
-						<textarea class="replyArea" id="replyArea" placeholder="내용을 입력해주세요."></textarea>
-						<a href="#" class="replyBtn">댓글작성</a>
-					</div>
-		    </div>
-		    <!-- 댓글 등록하기 끝--->
+        <!-- 댓글 등록하기 폼 시작-->
+        <form>
+			    <div class="replyWrap">
+						<table class="replyRead" id="replyRead">
+							<colgroup>
+								<col class="readCol1" style="">
+								<col class="readCol2" style="">
+								<col class="readCol3" style="">
+							</colgroup>
+							<tr>
+								<td scope="col"><img src="/resources/img/board/frog.png"></td>
+								<td scope="col">닉네임 (2022-02-12 12:34)</td>
+								<td scope="col">세 줄 요약 바랍니다.<br>어쩌고저쩌고저쩌꼬꺾꼬꼬꺼땨ㅑㄹ떨ㄸ러ㅑㄸ러ㅑ</td>
+								<td>삭제</td>
+							</tr>
+							
+						</table>
+			    	<div class="replyCnt">
+				    	comments : 500개
+						</div>
+						<div class="replyPostWrap">
+							<textarea id="comment" class="replyArea" id="replyArea" placeholder="내용을 입력해주세요."></textarea>
+							<a href="javascript:reply()" class="replyBtn">댓글작성</a>
+						</div>
+			    </div>
+		    </form>
+		    <!-- 댓글 등록하기 폼 끝--->
         
     </div>
     <div>
@@ -173,6 +173,38 @@
         <input type="hidden" name="no">
         <input type="hidden" name="subject">
     </form>
+    
+    <script>
+    listreply();
+    function reply(){
+    	$.ajax({
+    		url : '/Board/reply.do',
+    		type : 'GET',
+    		data : {"comment" : $('#comment').val()},
+    		error : function(){
+    			alert('댓글 작성에 오류가 발생했습니다!');
+    		},
+    		success : function(result){
+    			listreply();
+    			$('#comment').val("");
+    		}
+    	});
+    }
+    function listreply(){
+    	$.ajax({
+    		url : '/Board/replylist.do',
+    		type : 'GET',
+    		error : function(){
+    			alert('댓글 목록 확인 에러!');
+    		},
+    		success : function(result){
+    			$('#replyRead').html(result);
+    		}
+    	});
+    }
+    listreply();
+    
+    </script>
     
 
     

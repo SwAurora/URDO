@@ -1,9 +1,10 @@
 package com.korea.dao;
 
-import com.korea.dto.BoardDTO;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.korea.dto.BoardDTO;
+import com.korea.dto.ReplyDTO;
 
 public class BoardDAO extends DAO
 {
@@ -249,4 +250,49 @@ public class BoardDAO extends DAO
         }
         return false;
     }
+    
+    // 댓글 등록 함수
+    public boolean reply(ReplyDTO rdto) {
+    	try {
+            pstmt = conn.prepareStatement("insert into reply_tbl(boardNo, writer, content, regdate) values(?,?,?, sysdate())");
+            pstmt.setInt(1, rdto.getBoardNo());
+            pstmt.setString(2, rdto.getWriter());
+            pstmt.setString(3, rdto.getContent());
+            int result = pstmt.executeUpdate();
+            if(result > 0)  return true;
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        return false;
+    }
+    
+    // 댓글 불러오기 함수
+    public ArrayList<ReplyDTO> getReplylist(int bno) {
+    	ArrayList<ReplyDTO> list = new ArrayList();
+    	ReplyDTO dto = null;
+    	try {
+    		pstmt = conn.prepareStatement("select * from reply_tbl where boardNo = ? order by no desc");
+    		pstmt.setInt(1, bno);
+    		rs = pstmt.executeQuery();
+    		while(rs.next()) {
+    			dto = new ReplyDTO();
+    			dto.setNo(rs.getInt("no"));
+    			dto.setBoardNo(rs.getInt("boardNo"));
+    			dto.setContent(rs.getString("content"));
+    			dto.setContent(rs.getString("content"));
+    			dto.setWriter(rs.getString("writer"));
+    			dto.setRegdate(rs.getString("regdate"));
+    			list.add(dto);
+    		}
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    	} finally {
+    		try { pstmt.close(); } catch (Exception e) { e.printStackTrace(); }
+    		try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+    	}
+    	return list;
+    }
+    
 }

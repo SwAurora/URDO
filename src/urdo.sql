@@ -70,3 +70,14 @@ select * from board_tbl where writer = 'aurora' and available = 0;
 select * from subject_tbl;
 
 select * from member_tbl where id = 'wb0802';
+
+
+#------------------------------------------------- 댓글 테이블
+create table reply_tbl (
+  no int primary key,
+  boardNo int not null,
+  writer varchar(100) not null,
+  content varchar(2000) not null,
+  regdate date
+);
+ 

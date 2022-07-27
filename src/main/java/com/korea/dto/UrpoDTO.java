@@ -4,12 +4,12 @@ import lombok.Data;
 
 @Data
 public class UrpoDTO {
-	int no;
-	String title;
-	String discription;
-	String producer;
-	int price;
-	String staticImage;
-	String gifImage;
-	String category;
+	private int no;
+	private String title;
+	private String discription;
+	private String producer;
+	private int price;
+	private String staticImage;
+	private String gifImage;
+	private String category;
 }

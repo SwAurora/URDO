@@ -1,14 +1,15 @@
 package com.korea.service;
 
-import com.korea.dao.BoardDAO;
-import com.korea.dto.BoardDTO;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.servlet.http.Part;
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
-import java.util.*;
+
+import com.korea.dao.BoardDAO;
+import com.korea.dto.BoardDTO;
+import com.korea.dto.ReplyDTO;
 
 public class BoardService
 {
@@ -101,5 +102,14 @@ public class BoardService
     public boolean delete(int no)
     {
         return dao.delete(no);
+    }
+    
+    public boolean reply(ReplyDTO rdto) 
+    {
+    	return dao.reply(rdto);
+    }
+    
+    public ArrayList<ReplyDTO> getReplylist(int bno) {
+    	return dao.getReplylist(bno);
     }
 }
