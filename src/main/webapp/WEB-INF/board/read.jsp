@@ -163,7 +163,7 @@
                 </table>
                 <div class="replyPostWrap">
                     <textarea id="comment" class="replyArea" id="replyArea" placeholder="내용을 입력해주세요."></textarea>
-                    <a href="javascript:reply()" class="replyBtn">댓글작성</a>
+                    <a href="javascript:replyConfirm()" class="replyBtn">댓글작성</a>
                 </div>
             </div>
         </form>
@@ -179,8 +179,22 @@
 
     <%--댓글--%>
     <script>
+    <%
+    %>
         listreply();
         setInterval(listreply, 500);
+        
+    		let nickname = '<%=nickname%>';
+    		function replyConfirm(){
+	    		if(nickname=="null"){
+	    			alert('로그인 하셔야 댓글을 다실 수 있습니다.');
+            location.href = '/login.jsp';
+	    		} else {
+	    			reply();
+	    		}
+    			
+    		}
+				
         function reply()
         {
             $.ajax({
