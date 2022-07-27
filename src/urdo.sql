@@ -65,13 +65,6 @@ END;
 
 CALL board();
 
-select * from board_tbl where writer = 'aurora' and available = 0;
-
-select * from subject_tbl;
-
-select * from member_tbl where id = 'wb0802';
-
-
 #------------------------------------------------- 댓글 테이블
 create table reply_tbl
 (
@@ -80,8 +73,9 @@ create table reply_tbl
   writer varchar(20) not null,
   content varchar(2000) not null,
   regdate varchar(45),
-  foreign key(boardNo) references board_tbl(no)
+  foreign key(boardNo) references board_tbl(no) on delete cascade
 );
+
 #------------------------------------------------- 포인트샵 테이블
 create table pointshop_tbl
 (
@@ -94,6 +88,7 @@ create table pointshop_tbl
     category    varchar(45),
     producer    varchar(40)
 );
+
 #------------------------------------------------ 추천 테이블
 create table rec_tbl
 (
@@ -102,3 +97,8 @@ create table rec_tbl
     foreign key(board_no) references board_tbl(no) on update cascade on delete cascade,
     foreign key(rec_id) references member_tbl(id) on update cascade on delete cascade
 );
+
+select * from reply_tbl;
+select * from rec_tbl;
+select * from board_tbl order by no desc;
+insert into rec_tbl values(1001, 'wb0802');

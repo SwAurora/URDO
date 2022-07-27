@@ -140,14 +140,21 @@ public class BoardService
         dao.ViewsUp(no);
     }
 
-    public void recUpdate(RecDTO dto)
-    {
-        dao.recUpdate(dto);
-    }
     public int recCheck(RecDTO dto)
     {
         return dao.recCheck(dto);
     }
+
+    public void recUpdate(RecDTO dto)
+    {
+        dao.recUpdate(dto);
+    }
+
+    public void recUp(int bno)
+    {
+        dao.recUp(bno);
+    }
+
     public int recCount(int no)
     {
         return dao.recCount(no);

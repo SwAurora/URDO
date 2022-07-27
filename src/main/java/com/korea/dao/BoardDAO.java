@@ -1,7 +1,9 @@
 package com.korea.dao;
 
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import com.korea.dto.BoardDTO;
 import com.korea.dto.RecDTO;
@@ -287,32 +289,39 @@ public class BoardDAO extends DAO
 
     // 댓글 불러오기 함수
     public ArrayList<ReplyDTO> getReplylist(int bno)
-    {
-        ArrayList<ReplyDTO> list = new ArrayList();
-        ReplyDTO dto = null;
-        try
         {
-            pstmt = conn.prepareStatement("select * from reply_tbl where boardNo = ? order by no desc");
-            pstmt.setInt(1, bno);
-            rs = pstmt.executeQuery();
-            while(rs.next())
+            ArrayList<ReplyDTO> list = new ArrayList();
+            ReplyDTO dto;
+            try
             {
-                dto = new ReplyDTO();
-                dto.setNo(rs.getInt("no"));
-                dto.setBoardNo(rs.getInt("boardNo"));
-                dto.setContent(rs.getString("content"));
-                dto.setContent(rs.getString("content"));
-                dto.setWriter(rs.getString("writer"));
-                dto.setRegdate(rs.getString("regdate"));
-                list.add(dto);
+                pstmt = conn.prepareStatement("select * from reply_tbl where boardNo = ? order by no desc");
+                pstmt.setInt(1, bno);
+                rs = pstmt.executeQuery();
+                while(rs.next())
+                {
+                    dto = new ReplyDTO();
+                    dto.setNo(rs.getInt("no"));
+                    dto.setBoardNo(rs.getInt("boardNo"));
+                    dto.setContent(rs.getString("content"));
+                    dto.setWriter(rs.getString("writer"));
+                    dto.setRegdate(rs.getString("regdate"));
+                    list.add(dto);
+                }
             }
-        }
-        catch(Exception e)
+            catch(Exception e)
         {
             e.printStackTrace();
         }
         finally
         {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
             try
             {
                 pstmt.close();
@@ -356,14 +365,16 @@ public class BoardDAO extends DAO
     {
         try
         {
-            pstmt = conn.prepareStatement("select * from rec_tbl where board_no = ? and rec_id = ?");
+            pstmt = conn.prepareStatement("select board_no from rec_tbl where board_no = ? and rec_id = ?");
             pstmt.setInt(1, dto.getBoard_no());
             pstmt.setString(2, dto.getRec_id());
             rs = pstmt.executeQuery();
+            int result = 0;
             while(rs.next())
             {
-                return 1;
-            }
+                result = rs.getInt(1);
+            };
+            return result;
         }
         catch(Exception e)
         {
@@ -418,6 +429,31 @@ public class BoardDAO extends DAO
         }
     }
 
+    public void recUp(int bno)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("update board_tbl set recommend = recommend + 1 where no = ?");
+            pstmt.setInt(1, bno);
+            pstmt.executeUpdate();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
     // 게시글 추천수
     public int recCount(int no)
     {
@@ -426,10 +462,10 @@ public class BoardDAO extends DAO
         {
             pstmt = conn.prepareStatement("select count(*) from rec_tbl where board_no = ?");
             pstmt.setInt(1, no);
-            rs2 = pstmt.executeQuery();
-            while(rs2.next())
+            rs = pstmt.executeQuery();
+            while(rs.next())
             {
-                count = rs2.getInt(1);
+                count = rs.getInt(1);
             };
         }
         catch(Exception e)
@@ -440,7 +476,7 @@ public class BoardDAO extends DAO
         {
             try
             {
-                rs2.close();
+                rs.close();
             }
             catch(Exception e)
             {
