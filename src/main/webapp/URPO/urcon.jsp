@@ -14,7 +14,7 @@
   <%--링크--%>
   <jsp:include page="/resources/includes/link.jsp"/>
   <!--CSS 링크-->
-  <link rel="stylesheet" href="../resources/css/URPO.css">
+  <link rel="stylesheet" href="../resources/css/urpo.css">
 </head>
 
 
@@ -75,10 +75,12 @@
 			  for(UrpoDTO urpoDTO: list)
 			  {
 			%>
-			<div class="hov-anim-box">
-			  <img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
-				<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
-				<div>
+			<div class="hov-ani">
+				<div class="hov-ani-img">
+				  <img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
+					<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
+			  </div>
+			  <div>
 				  <p class="imgTitle"><%=urpoDTO.getTitle()%></p>
 					<p class="imgDesc"><%=urpoDTO.getDiscription() %></p>
 			  </div>

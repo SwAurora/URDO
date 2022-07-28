@@ -48,20 +48,22 @@
 /* 탭 컨텐츠 시작 */
 .tabContents
 {
-    height: calc(100vh - 260px);
-    width: calc(100% - 20px);
-    overflow-y: auto;
-    display: none;
-    margin-top:50px;
+  height: calc(100vh - 260px);
+  width: calc(100% - 20px);
+  overflow-y: auto;
+  display: none;
+  margin-top:50px;
 }
 .tabContents div {
-    font-size:var(--font-L);
+  font-size:var(--font-L);
 }
 
 .tabContents.on
 {
-    display: flex;
-
+  display: grid;
+	grid-template-columns: repeat(10, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+  gap:20px;
 }
 /* 탭 컨텐츠 끝 */
 
@@ -137,27 +139,31 @@ li a {
 }
 
 /* gif호버 애니메이션 설정 */
-.hov-anim-box img {
-    width:100px; height:100px;
+.hov-ani {
+	width:100px;
+	height:140px;
+}
+.hov-ani img {
+  width:100%;
 }
 
-.hov-anim-box .imgTitle {
-    font-size:var(--font-M);
-    margin:0px;
+.hov-ani .imgTitle {
+  font-size:var(--font-M);
+  margin:0px;
 }
-.hov-anim-box .imgDesc {
-    font-size:var(--font-S);
-    margin:0px;
+.hov-ani .imgDesc {
+  font-size:var(--font-S);
+  margin:0px;
 }
 
-.hov-anim-box .animated {
-    display:none;
+.hov-ani-img .animated {
+  display:none;
 }
-.hov-anim-box:hover .animated
+.hov-ani-img:hover .animated
 {
-    display: inline;
+  display: inline;
 }
-.hov-anim-box:hover .static
+.hov-ani-img:hover .static
 {
     display: none;
 }
