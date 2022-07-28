@@ -181,7 +181,7 @@
                 }
 
                 // 닫기
-                function aaaa()
+                function closeModal()
                 {
                     let modal = document.getElementsByClassName("modal");
                     let main = document.getElementsByClassName("Main");
@@ -202,15 +202,12 @@
                     }
                     else if(new_pw.value !== conf_pw.value)
                     {
-                        //conf_pw.setCustomValidity("재설정한 비밀번호가 일치하지 않습니다.");
-                        alert("비밀번호를 다시 확인해주세요.");
+                        alert("비밀번호가 서로 다릅니다.");
                     }
                     else
                     {
                         fm.submit();
                     }
-
-                    //conf_pw.setCustomValidity('')
                 }
             </script>
         </div>
@@ -236,15 +233,14 @@
                     <input type="password" id="conf_pw" maxlength="20" placeholder="새 비밀번호 확인">
 
                     <p class="btn_area_btm">
-                        <a href="javascript:pwChk()" id="changeSubmit">확인</a>
-                        <button type="button" onclick="aaaa();return false;">취소</button>
+                        <button id="changeSubmit" onclick="pwChk();return false;">확인</button>
+                        <button type="button" onclick="closeModal();return false;">취소</button>
                     </p>
                 </fieldset>
             </forM>
         </div>
     </div>
 </div>
-
 
 <!--전체 JS-->
 <script src="../../resources/js/common.js"></script>
