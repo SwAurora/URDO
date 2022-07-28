@@ -58,26 +58,20 @@ public class PostUpdateController implements SubController
                         size += part.getSize();
                     }
                 }
-                System.out.println("delfiles : " + delfiles);
-                System.out.println("size : " + size);
                 if(size == 0 && delfiles.equals("")) // 첨부파일이 없고 삭제한 파일도 없는 경우
                 {
-                    System.out.println(1);
                     service.update(dto);
                 }
                 else if(size == 0) // 첨부파일이 없고 삭제한 파일만 있는 경우
                 {
-                    System.out.println(2);
                     service.update(dto, delfiles);
                 }
                 else if(delfiles.equals("")) // 첨부파일이 있고 삭제한 파일은 없는 경우
                 {
-                    System.out.println(3);
                     service.update(dto, parts);
                 }
                 else
                 {
-                    System.out.println(4);
                     service.update(dto, delfiles, parts);
                 }
 

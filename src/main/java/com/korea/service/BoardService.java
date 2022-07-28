@@ -287,19 +287,16 @@ public class BoardService
     public File fileChk(String no)
     {
         String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
-        rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
-        rootPath = rootPath + "/src/main/webapp/resources/files/";
-        
-        
         if(rootPath.contains("metadata"))
         {
             rootPath = rootPath.replaceAll("/WEB-INF/classes", "");
+            rootPath = rootPath + "/resources/files/";
         }
         else
         {
             rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
+            rootPath = rootPath + "/src/main/webapp/resources/files/";
         }
-
         return new File(rootPath + "B" + no);
     }
 
