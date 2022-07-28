@@ -79,7 +79,7 @@ public class BoardService
             }
         }
 
-        // DTO에 총파일명과 총파일사이즈를 저장
+        // DTO에 총파일명 저장
         dto.setFilename(totalFilename.toString());
 
         // DAO 파일명 전달
@@ -100,11 +100,136 @@ public class BoardService
         return dao.Select(no);
     }
 
+    // ------------------------------------------------------------------- 게시글 수정 시작
+
     public void update(BoardDTO dto)
     {
         dao.update(dto);
     }
 
+    public void update(BoardDTO dto, String delfiles)
+    {
+        String filename = dto.getFilename();
+        String[] files = delfiles.split(";");
+        for(String file : files)
+        {
+            filename = filename.replaceAll(file + ";", "");
+            File file2 = fileChk(String.valueOf(dto.getNo()));
+            if(file2.exists())
+            {
+                for(File files2 : Objects.requireNonNull(file2.listFiles()))
+                {
+                    if(files2.getName().equals(file))
+                    {
+                        files2.delete();
+                    }
+                }
+                file2.delete();
+            }
+
+        }
+        dto.setFilename(filename);
+        dao.updateWithFile(dto);
+    }
+
+    public void update(BoardDTO dto, ArrayList<Part> Parts)
+    {
+        String subPath = "B" + (dto.getNo());
+        String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
+        rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
+        File RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
+
+        if(!RealPath.exists())
+            RealPath.mkdirs();
+
+        StringBuilder totalFilename = new StringBuilder();
+        if(!dto.getFilename().equals("null"))
+        {
+            totalFilename.append(dto.getFilename());
+        }
+
+        for(Part part : Parts)
+        {
+            if(part.getName().equals("files"))
+            {
+                String FileName = getFileName(part);
+
+                totalFilename.append(FileName).append(";");
+
+                try
+                {
+                    part.write(RealPath + "/" + FileName);
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        dto.setFilename(totalFilename.toString());
+
+        dao.updateWithFile(dto);
+    }
+
+    public void update(BoardDTO dto, String delfiles, ArrayList<Part> Parts)
+    {
+        String filename = dto.getFilename();
+        String[] files = delfiles.split(";");
+        for(String file : files)
+        {
+            filename = filename.replaceAll(file + ";", "");
+            File file2 = fileChk(String.valueOf(dto.getNo()));
+            if(file2.exists())
+            {
+                for(File files2 : Objects.requireNonNull(file2.listFiles()))
+                {
+                    if(files2.getName().equals(file))
+                    {
+                        files2.delete();
+                    }
+                }
+            }
+
+        }
+
+        String subPath = "B" + (dto.getNo());
+        String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
+        rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
+        File RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
+
+        if(!RealPath.exists())
+            RealPath.mkdirs();
+
+        StringBuilder totalFilename = new StringBuilder();
+        if(!filename.equals(""))
+            totalFilename.append(filename);
+
+        for(Part part : Parts)
+        {
+            if(part.getName().equals("files"))
+            {
+                String FileName = getFileName(part);
+
+                totalFilename.append(FileName).append(";");
+
+                try
+                {
+                    part.write(RealPath + "/" + FileName);
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        dto.setFilename(totalFilename.toString());
+
+        dao.updateWithFile(dto);
+    }
+
+    // ------------------------------------------------------------------- 게시글 수정 끝
     public boolean delete(int no)
     {
         File file = fileChk(String.valueOf(no));
@@ -128,9 +253,9 @@ public class BoardService
     {
         return dao.getReplylist(bno);
     }
-    
+
     // 댓글 서비스 끝
-    
+
 
     public File fileChk(String no)
     {

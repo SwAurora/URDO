@@ -57,8 +57,7 @@
                             for(String file : files)
                             {
                     %>
-                                <input type="checkbox" id="<%=file%>" class="chk">
-                                <label for="<%=file%>"><%=file%></label>
+                                <label><input type="checkbox" class="fileslist" value="<%=file%>"><%=file%></label>
                                 <br>
                     <%
                             }
@@ -71,6 +70,8 @@
                     <input type="hidden" name="flag" value="true">
                     <input type="hidden" name="subject" value="<%=dto.getSubject()%>">
                     <input type="hidden" name="no" value="<%=dto.getNo()%>">
+                    <input type="hidden" name="filename" value="<%=dto.getFilename()%>">
+                    <input type="hidden" name="delfiles">
                 </form>
             </div>
         </div>
@@ -110,14 +111,6 @@
         function postchk()
         {
             let form = document.form1;
-            let chks = $('.chk');
-            for(let i = 0; i < chks.length; i++)
-            {
-                if(chks[i].is(':checked'))
-                {
-                    console.log(chks[i].attr("name"));
-                }
-            }
 
             if(form.title.value === "" || form.content.value === "")
             {
@@ -125,8 +118,22 @@
             }
             else
             {
-                // form.submit();
+                form.delfiles.value = delfile();
+                form.submit();
             }
+        }
+
+        function delfile()
+        {
+            let files = "";
+            for(let i = 0; i < $('.fileslist').length; i++)
+            {
+                if($($('.fileslist')[i]).is(":checked"))
+                {
+                    files += $($('.fileslist')[i]).val() + ";";
+                }
+            }
+            return files;
         }
     </script>
 </section>

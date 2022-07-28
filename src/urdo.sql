@@ -76,8 +76,6 @@ create table reply_tbl
   foreign key(boardNo) references board_tbl(no) on delete cascade
 );
 
-
-
 #------------------------------------------------ 추천 테이블
 create table rec_tbl
 (
@@ -86,10 +84,6 @@ create table rec_tbl
     foreign key(board_no) references board_tbl(no) on update cascade on delete cascade,
     foreign key(rec_id) references member_tbl(id) on update cascade on delete cascade
 );
-
-select * from rec_tbl;
-select * from board_tbl order by no desc;
-select * from reply_tbl;
 
 #------------------------------------------------- 포인트샵 테이블
 create table urpo_tbl
@@ -111,7 +105,3 @@ values ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/ur
  ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon10.bmp', '/resources/img/urpo/urcon/urcon10.gif', 'urcon', 'admin1234'),
  ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234'),
  ('귀여운', '허허!.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234');
-
-select * from urpo_tbl;
--- truncate urpo_tbl;
-commit;

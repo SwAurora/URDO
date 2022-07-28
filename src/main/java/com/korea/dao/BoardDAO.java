@@ -235,7 +235,7 @@ public class BoardDAO extends DAO
         }
         return dto;
     }
-
+// --------------------------------------------------------------------------------------------------------------- 게시글 수정 시작
     public void update(BoardDTO dto)
     {
         try
@@ -263,6 +263,36 @@ public class BoardDAO extends DAO
         }
     }
 
+    public void updateWithFile(BoardDTO dto)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("update board_tbl set title = ?, content = ?, filename = ? where no = ?");
+            pstmt.setString(1, dto.getTitle());
+            pstmt.setString(2, dto.getContent());
+            if(dto.getFilename().equals(""))
+                dto.setFilename(null);
+            pstmt.setString(3, dto.getFilename());
+            pstmt.setInt(4, dto.getNo());
+            pstmt.executeUpdate();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+    // --------------------------------------------------------------------------------------------------------------- 게시글 수정 끝
     public boolean delete(int no)
     {
         try
