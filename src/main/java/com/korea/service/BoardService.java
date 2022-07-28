@@ -270,7 +270,8 @@ public class BoardService
         }
         return dao.delete(no);
     }
-
+    
+    // 댓글 서비스 시작
     public boolean reply(ReplyDTO rdto)
     {
         return dao.reply(rdto);
@@ -280,7 +281,10 @@ public class BoardService
     {
         return dao.getReplylist(bno);
     }
-
+    
+    public boolean replyDelete(int no) {
+    	return dao.replyDelete(no);
+    }
     // 댓글 서비스 끝
 
 
