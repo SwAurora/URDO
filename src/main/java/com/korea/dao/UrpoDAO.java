@@ -42,7 +42,7 @@ public class UrpoDAO extends DAO{
     	UrpoDTO dto;
         try
         {
-            pstmt = conn.prepareStatement("select * from urpo_tbl where category = ?");
+            pstmt = conn.prepareStatement("select * from urpo_tbl where category = ? order by no desc limit 30");
             pstmt.setString(1, category);
             rs = pstmt.executeQuery();
 

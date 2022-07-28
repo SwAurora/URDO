@@ -81,8 +81,7 @@
 					<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
 			  </div>
 			  <div>
-				  <a class="imgTitle" href = "/Urpo/read.do?no=<%=urpoDTO.getNo()%>"><%=urpoDTO.getTitle()%></a>
-					<p class="imgDesc"><%=urpoDTO.getDiscription() %></p>
+				  <a class="imgTitle" href="javascript:modalOn()"><%=urpoDTO.getTitle()%></a>
 			  </div>
 			</div>
 			<%
@@ -90,8 +89,33 @@
 			%>      		
       
     </div> <!-- 컨테이너 끝 -->
-
-
+    
+    <!-- 모달창 시작 -->
+    
+    
+    <div id="urpo_modal">
+    	<div class="modal_img"><img src=""></div>
+    	<div class="modal_content">
+    		<div class="modal_title"></div>
+    		<div class="modal_discription"></div>
+    		<div class="modal_price"></div>
+	    	<a class="addBtn" href="javascript:modalOff()">닫기</a>
+    		<div class="addBtn">구매하러가기</div>
+    	</div>
+    </div>
+    <!-- 모달창 끝 -->
+    
+    <script>
+    zidx=10;
+    function modalOn() {
+      $('#urpo_modal').css('display','flex').css('z-index',(zidx+1));
+    }
+    function modalOff() {
+    	$('#urpo_modal').css('display', 'none');
+    }
+    
+    </script>
+    
     <!-- 페이지네이션 시작 -->
     <div class="pointfoot">
       <div class="page_wrap">
@@ -106,9 +130,10 @@
       <div class="post">
           <a href="/URPO/produce.do" class="addBtn">제작/등록</a>
       </div>
-      <!--  페이지 숫자 끝-->
-      <!-- 게시판 내용 관련 코드  끝-->
  	 </div>
+    <!-- 페이지네이션 끝 -->
+
+
   </div>
   </section>
 

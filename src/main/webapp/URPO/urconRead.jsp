@@ -65,32 +65,15 @@
         </li>
       </ul>
 
-      
+		<!-- 아이템 설명 시작 -->
+    <div class="urcon_detail">
+    	
+			
+			
+			      
+    </div>
+		<!-- 아이템 설명 끝 -->
 
-    <!-- 탭컨텐츠 시작 -->
-    <!-- 실시간인기 컨텐츠 -->
-    <div class="container_Contents">
-			<h1>허허</h1>      
-    </div> <!-- 컨테이너 끝 -->
-
-
-    <!-- 페이지네이션 시작 -->
-    <div class="pointfoot">
-      <div class="page_wrap">
-          <img class="page_arrow menuIcon" id="prev" src="/resources/img/board/page-arrow-back.svg">
-          <div class="page_nation">
-              <a href="#" class="page_num on">1</a>
-              <a href="#" class="page_num">2</a>
-              <a href="#" class="page_num">3</a>
-          </div>
-          <img class="page_arrow menuIcon" id="next" src="/resources/img/board/page-arrow-forward.svg">
-      </div>
-      <div class="post">
-          <a href="/URPO/produce.do" class="addBtn">제작/등록</a>
-      </div>
-      <!--  페이지 숫자 끝-->
-      <!-- 게시판 내용 관련 코드  끝-->
- 	 </div>
   </div>
   </section>
 
