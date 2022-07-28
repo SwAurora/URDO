@@ -19,7 +19,6 @@ public class HumorController implements SubController
     {
         try
         {
-//            String tmpstart = req.getParameter("start");
             String tmplimit = req.getParameter("limit");
             String nowPage = req.getParameter("page");
             int start = 0;
