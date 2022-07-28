@@ -48,11 +48,11 @@
 /* 탭 컨텐츠 시작 */
 .tabContents
 {
-  height: calc(100vh - 260px);
+  height: calc(100vh - 280px);
   width: calc(100% - 20px);
-  overflow-y: auto;
   display: none;
   margin-top:50px;
+  border:1px solid red;
 }
 .tabContents div {
   font-size:var(--font-L);
@@ -63,7 +63,7 @@
   display: grid;
 	grid-template-columns: repeat(10, 1fr);
 	grid-template-rows: repeat(3, 1fr);
-  gap:20px;
+  gap:10px;
 }
 /* 탭 컨텐츠 끝 */
 
@@ -115,6 +115,7 @@
     padding: 0px;
     display: flex;
     position: absolute;
+    height:40px;
     top: 40px;
     gap:10px;
     border:none;
@@ -140,8 +141,7 @@ li a {
 
 /* gif호버 애니메이션 설정 */
 .hov-ani {
-	width:100px;
-	height:140px;
+	scroll:hidden;
 }
 .hov-ani img {
   width:100%;
@@ -152,11 +152,12 @@ li a {
   margin:0px;
   text-decoration : none;
 	color : var(--color-blackToWhite);
-}
-.hov-ani .imgDesc {
-  font-size:var(--font-S);
-  font-weight : var(--font-weight-light);
-  margin:0px;
+	display: -webkit-box;
+  	-webkit-line-clamp: 1;
+  	-webkit-box-orient: vertical;
+  border:1px solid red;
+  overflow:hidden;
+	
 }
 
 .hov-ani-img .animated {
@@ -263,18 +264,32 @@ li a {
 }
 
 
-/* 아이콘 제작 시작 */
+/* 아이콘 보기 시작 */
 .container_Contents {
-}
-.container_Contents div {
-	gap : 10px;
-	border:1px solid gray;
-}
-.shopImage {
+	height : 100%;
+	margin : 50px 0 0 0;
+	border:1px solid red;
 }
 
+/* 아이콘 보기 끝 */
 
 
-/* 아이콘 제작 끝 */
-
+/* 모달 창 시작 */
+#urpo_modal {
+	width:800px; height:600px;
+	display:none;
+	position:absolute;
+	background-color:white;
+	top : calc(50% - 300px);
+	left : calc(50% - 400px);
+	justify-content:center;
+	align-items:center;
+}
+#urpo_modal div {
+	border:1px solid red;
+}
+.modal_img {
+	width:200px; height:200px;
+	
+}
 
