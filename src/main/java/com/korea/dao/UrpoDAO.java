@@ -3,6 +3,7 @@ package com.korea.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.korea.dto.BoardDTO;
 import com.korea.dto.UrpoDTO;
 
 public class UrpoDAO extends DAO{
@@ -67,5 +68,32 @@ public class UrpoDAO extends DAO{
             try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
         return list;
+    }
+    
+    public UrpoDTO Select(int no)
+    {
+        UrpoDTO dto = new UrpoDTO();
+        try {
+            pstmt = conn.prepareStatement("select * from urpo_tbl where no = ?");
+            pstmt.setInt(1, no);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()) {
+                dto.setNo(rs.getInt("no"));
+                dto.setTitle(rs.getString("title"));
+                dto.setDiscription(rs.getString("discription"));
+                dto.setPrice(rs.getInt("price"));
+                dto.setStaticImage(rs.getString("staticImage"));
+                dto.setGifImage(rs.getString("gifImage"));
+                dto.setCategory(rs.getString("category"));
+                dto.setProducer(rs.getString("producer"));
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        return dto;
     }
 }

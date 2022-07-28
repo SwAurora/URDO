@@ -64,11 +64,12 @@
           </ul>
         </li>
       </ul>
-
+		<%
+			UrpoDTO dto = (UrpoDTO) request.getAttribute("dto");
+		%>
 		<!-- 아이템 설명 시작 -->
     <div class="urcon_detail">
-    	
-			
+		<%=dto.getTitle() %>
 			
 			      
     </div>

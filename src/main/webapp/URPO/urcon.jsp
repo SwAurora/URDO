@@ -81,7 +81,7 @@
 					<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
 			  </div>
 			  <div>
-				  <a class="imgTitle" href="javascript:modalOn()"><%=urpoDTO.getTitle()%></a>
+				  <a class="imgTitle" href="/Urpo/read.do?no=<%=urpoDTO.getNo()%>"><%=urpoDTO.getTitle()%></a>
 			  </div>
 			</div>
 			<%
@@ -94,13 +94,15 @@
     
     
     <div id="urpo_modal">
-    	<div class="modal_img"><img src=""></div>
+    	<div class="modal_img"><img src="" style="width:100%; height:100%;"></div>
     	<div class="modal_content">
-    		<div class="modal_title"></div>
-    		<div class="modal_discription"></div>
-    		<div class="modal_price"></div>
-	    	<a class="addBtn" href="javascript:modalOff()">닫기</a>
-    		<div class="addBtn">구매하러가기</div>
+    		<div class="modal_title">타이틀</div>
+    		<div class="modal_discription">상세설명</div>
+    		<div class="modal_price">가격</div>
+    		<div class="modal_btn_container">
+		    	<a class="modal_btn" href="javascript:modalOff()">닫기</a>
+	    		<div class="modal_btn">구매하러가기</div>
+    		</div>
     	</div>
     </div>
     <!-- 모달창 끝 -->
