@@ -68,7 +68,7 @@ public class PostController implements SubController
                 if(result)
                 {
                     req.setAttribute("msg", "작성을 완료했습니다.");
-                    req.getRequestDispatcher("/Board/humor.do").forward(req, resp);
+                    req.getRequestDispatcher("/Board/" + subject + ".do").forward(req, resp);
                 }
                 else
                 {
