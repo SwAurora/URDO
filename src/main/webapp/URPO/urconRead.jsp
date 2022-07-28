@@ -64,50 +64,25 @@
           </ul>
         </li>
       </ul>
-
-      
-
-    <!-- 탭컨텐츠 시작 -->
-    <!-- 실시간인기 컨텐츠 -->
-    <div class="tabContents on">
-			<%
-				ArrayList<UrpoDTO> list = (ArrayList<UrpoDTO>) request.getAttribute("list");
-			  for(UrpoDTO urpoDTO: list)
-			  {
-			%>
-			<div class="hov-ani">
-				<div class="hov-ani-img">
-				  <img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
-					<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
-			  </div>
-			  <div>
-				  <a class="imgTitle" href="/Urpo/read.do?no=<%=urpoDTO.getNo()%>"><%=urpoDTO.getTitle()%></a>
-			  </div>
-			</div>
-			<%
-				}
-			%>      		
-      
-    </div> <!-- 컨테이너 끝 -->
-    
-    
-    <!-- 페이지네이션 시작 -->
-    <div class="pointfoot">
-      <div class="page_wrap">
-          <img class="page_arrow menuIcon" id="prev" src="/resources/img/board/page-arrow-back.svg">
-          <div class="page_nation">
-              <a href="#" class="page_num on">1</a>
-              <a href="#" class="page_num">2</a>
-              <a href="#" class="page_num">3</a>
-          </div>
-          <img class="page_arrow menuIcon" id="next" src="/resources/img/board/page-arrow-forward.svg">
-      </div>
-      <div class="post">
-          <a href="/URPO/produce.do" class="addBtn">제작/등록</a>
-      </div>
- 	 </div>
-    <!-- 페이지네이션 끝 -->
-
+		<%
+			UrpoDTO dto = (UrpoDTO) request.getAttribute("dto");
+		%>
+		<!-- 아이템 설명 시작 -->
+    <div class="urcon_detail"> <!-- urcon_detail : ud -->
+    <div class="ud_title"><%=dto.getTitle() %></div>
+    <div class="ud_contents">
+    	<div class="ud_img"><img src=<%=dto.getGifImage() %>></div>
+    	<div class="ud_discription"><%=dto.getDiscription() %></div>
+    	<div class="ud_pay">
+    		<div class="ud_price">가격 : <%=dto.getPrice() %> 유알포</div>
+    		<div class="ud_purchase"><a href="#">구매하기!</a></div>
+    	</div>
+    </div>
+		
+			
+			      
+    </div>
+		<!-- 아이템 설명 끝 -->
 
   </div>
   </section>

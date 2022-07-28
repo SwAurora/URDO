@@ -3,6 +3,7 @@ package com.korea.service;
 import java.util.List;
 
 import com.korea.dao.UrpoDAO;
+import com.korea.dto.BoardDTO;
 import com.korea.dto.UrpoDTO;
 
 public class UrpoService {
@@ -18,7 +19,14 @@ public class UrpoService {
 	public boolean ProduceUrcon(UrpoDTO dto){
 		return dao.insert(dto);
 	}
+	
+	// 카테고리 명으로 아이템 목록 보기
 	public List<UrpoDTO> ShowItems(String category) {
 		return dao.ShowItems(category);
 	}
+	
+	// 아이템 번호로 아이템 찾기
+    public UrpoDTO Select(int no) {
+        return dao.Select(no);
+    }
 }
