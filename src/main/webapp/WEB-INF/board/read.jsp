@@ -180,8 +180,7 @@
 	<%--댓글--%>
 	<script>
 	  listreply();
-	  setInterval(listreply, 500);
-		  
+
 		let nickname = '<%=nickname%>';
 		function replyConfirm(){
 			if(nickname=="null"){

@@ -92,9 +92,9 @@ select * from board_tbl order by no desc;
 select * from reply_tbl;
 
 #------------------------------------------------- 포인트샵 테이블
-create table pointshop_tbl
+create table urpo_tbl
 (
-    no          int         not null primary key,
+    no          int         primary key auto_increment,
     title       varchar(45) not null,
     discription varchar(500),
     price       int         not null,
@@ -104,8 +104,7 @@ create table pointshop_tbl
     producer    varchar(40)
 );
 -- pointshop -> urpo로 테이블 이름 바꿈
-alter table pointshop_tbl rename urpo_tbl;
-insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer) 
+insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer)
 values ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon6.bmp', '/resources/img/urpo/urcon/urcon6.gif', 'urcon', 'admin1234'),
  ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon7.bmp', '/resources/img/urpo/urcon/urcon7.gif', 'urcon', 'admin1234'),
  ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon9.bmp', '/resources/img/urpo/urcon/urcon9.gif', 'urcon', 'admin1234'),

@@ -1,5 +1,8 @@
 package com.korea.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +13,7 @@ import com.korea.dto.ReplyDTO;
 public class BoardDAO extends DAO
 {
     private static BoardDAO instance;
+    DBConnectionMgr pool = DBConnectionMgr.getInstance();
 
     public static BoardDAO getInstance()
     {
@@ -288,10 +292,14 @@ public class BoardDAO extends DAO
     // 댓글 불러오기 함수
     public ArrayList<ReplyDTO> getReplylist(int bno)
         {
+
             ArrayList<ReplyDTO> list = new ArrayList();
             ReplyDTO dto;
             try
             {
+                Connection conn = pool.getConnection();
+                PreparedStatement pstmt;
+                ResultSet rs;
                 pstmt = conn.prepareStatement("select * from reply_tbl where boardNo = ? order by no desc");
                 pstmt.setInt(1, bno);
                 rs = pstmt.executeQuery();
@@ -314,15 +322,7 @@ public class BoardDAO extends DAO
         {
             try
             {
-                rs.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-            try
-            {
-                pstmt.close();
+                pool.freeConnection(conn,pstmt,rs);
             }
             catch(Exception e)
             {
@@ -332,7 +332,7 @@ public class BoardDAO extends DAO
         return list;
     }
     
-    // 댓글 삭제 함수
+    // 댓글 삭제
     /*
     public boolean replyDelete(ReplyDTO rdto) {
     	try {
@@ -479,6 +479,9 @@ public class BoardDAO extends DAO
         int count = 0;
         try
         {
+            Connection conn = pool.getConnection();
+            PreparedStatement pstmt;
+            ResultSet rs;
             pstmt = conn.prepareStatement("select count(*) from rec_tbl where board_no = ?");
             pstmt.setInt(1, no);
             rs = pstmt.executeQuery();
@@ -495,15 +498,7 @@ public class BoardDAO extends DAO
         {
             try
             {
-                rs.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-            try
-            {
-                pstmt.close();
+                pool.freeConnection(conn,pstmt,rs);
             }
             catch(Exception e)
             {
