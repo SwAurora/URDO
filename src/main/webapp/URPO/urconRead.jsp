@@ -69,26 +69,8 @@
 
     <!-- 탭컨텐츠 시작 -->
     <!-- 실시간인기 컨텐츠 -->
-    <div class="tabContents on">
-			<%
-				ArrayList<UrpoDTO> list = (ArrayList<UrpoDTO>) request.getAttribute("list");
-			  for(UrpoDTO urpoDTO: list)
-			  {
-			%>
-			<div class="hov-ani">
-				<div class="hov-ani-img">
-				  <img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
-					<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
-			  </div>
-			  <div>
-				  <a class="imgTitle" href = "/Urpo/read.do?no=<%=urpoDTO.getNo()%>"><%=urpoDTO.getTitle()%></a>
-					<p class="imgDesc"><%=urpoDTO.getDiscription() %></p>
-			  </div>
-			</div>
-			<%
-				}
-			%>      		
-      
+    <div class="container_Contents">
+			<h1>허허</h1>      
     </div> <!-- 컨테이너 끝 -->
 
 

@@ -150,9 +150,12 @@ li a {
 .hov-ani .imgTitle {
   font-size:var(--font-M);
   margin:0px;
+  text-decoration : none;
+	color : var(--color-blackToWhite);
 }
 .hov-ani .imgDesc {
   font-size:var(--font-S);
+  font-weight : var(--font-weight-light);
   margin:0px;
 }
 

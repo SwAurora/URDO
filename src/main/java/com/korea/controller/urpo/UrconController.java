@@ -20,9 +20,6 @@ public class UrconController implements SubController
         try {
         	List<UrpoDTO> list = service.ShowItems(category);
             req.setAttribute("list", list);
-            for(int i=0; i<list.size(); i++) {
-            	System.out.println(list.get(i).getGifImage());
-            }
             req.getRequestDispatcher("/URPO/urcon.jsp").forward(req, resp);
         } catch(Exception e) {
             e.printStackTrace();
