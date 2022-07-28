@@ -32,10 +32,6 @@ public class UpdateController implements SubController
                 e.printStackTrace();
             }
         }
-        else
-        {
-
-        }
         
         if(!nickname.equals(""))
         {
@@ -51,18 +47,18 @@ public class UpdateController implements SubController
             
         }
 
-        if(!password.equals(""))
-        {
-            try
-            {
-                boolean result = service.UpdatePassword(id, password);
-                resp.sendRedirect("/ShowInfo.do?result=" + result);
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-
-        }
+//        if(!password.equals(""))
+//        {
+//            try
+//            {
+//                boolean result = service.UpdatePassword(id, password);
+//                resp.sendRedirect("/ShowInfo.do?result=" + result);
+//            }
+//            catch(Exception e)
+//            {
+//                e.printStackTrace();
+//            }
+//
+//        }
     }
 }
