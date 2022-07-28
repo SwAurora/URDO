@@ -1,5 +1,8 @@
 package com.korea.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +13,7 @@ import com.korea.dto.ReplyDTO;
 public class BoardDAO extends DAO
 {
     private static BoardDAO instance;
+    DBConnectionMgr pool = DBConnectionMgr.getInstance();
 
     public static BoardDAO getInstance()
     {
@@ -349,6 +353,9 @@ public class BoardDAO extends DAO
             ReplyDTO dto;
             try
             {
+                Connection conn = pool.getConnection();
+                PreparedStatement pstmt;
+                ResultSet rs;
                 pstmt = conn.prepareStatement("select * from reply_tbl where boardNo = ? order by no desc");
                 pstmt.setInt(1, bno);
                 rs = pstmt.executeQuery();
@@ -388,27 +395,6 @@ public class BoardDAO extends DAO
         }
         return list;
     }
-    
-    // 댓글 삭제 함수
-    /*
-    public boolean replyDelete(ReplyDTO rdto) {
-    	try {
-			//DB삭제
-			pstmt = conn.prepareStatement("delete from reply_tbl where no=?");
-			pstmt.setInt(1,rdto.getNo());
-			int result = pstmt.executeUpdate();
-			if(result>0)
-				return true;
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally{
-			try {pstmt.close();}catch(Exception e) {e.printStackTrace();}
-		}
-		return false;
-    }
-    */
-    
-    
 
     // 조회수 증가
     public void ViewsUp(int no)
@@ -536,7 +522,10 @@ public class BoardDAO extends DAO
         int count = 0;
         try
         {
-            pstmt = conn.prepareStatement("select count(*) from rec_tbl where board_no = ?");
+            Connection conn = pool.getConnection();
+            PreparedStatement pstmt;
+            ResultSet rs;
+            pstmt = conn.prepareStatement("select count(*) from rec9_tbl where board_no = ?");
             pstmt.setInt(1, no);
             rs = pstmt.executeQuery();
             while(rs.next())
