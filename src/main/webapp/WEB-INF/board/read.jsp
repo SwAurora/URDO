@@ -140,7 +140,7 @@
                     if(Objects.equals(nickname, writer))
                     {
                 %>
-                <button class="btn_board">수정</button>
+                <button class="btn_board" onclick="PostUpdate()">수정</button>
                 <a class="btn_board" href="javascript:Delete('<%=dto.getNo()%>','<%=dto.getSubject()%>')">삭제</a>
                 <%
                     }
@@ -236,11 +236,19 @@
 
 </section>
 <script>
+    // 뒤로 가기
     function goBack()
     {
         history.back();
     }
 
+    // 게시글 수정
+    function PostUpdate()
+    {
+        location.href = "/Board/postUpdate.do?no=" + <%=dto.getNo()%>;
+    }
+
+    // 게시글 삭제
     function Delete(no, subj)
     {
         let form = document.forDelete;

@@ -3,7 +3,6 @@ package com.korea.service;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 import javax.servlet.http.Part;
@@ -99,6 +98,11 @@ public class BoardService
     public BoardDTO Select(int no)
     {
         return dao.Select(no);
+    }
+
+    public void update(BoardDTO dto)
+    {
+        dao.update(dto);
     }
 
     public boolean delete(int no)

@@ -240,6 +240,33 @@ public class BoardDAO extends DAO
         return dto;
     }
 
+    public void update(BoardDTO dto)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("update board_tbl set title = ?, content = ? where no = ?");
+            pstmt.setString(1, dto.getTitle());
+            pstmt.setString(2, dto.getContent());
+            pstmt.setInt(3, dto.getNo());
+            pstmt.executeUpdate();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public boolean delete(int no)
     {
         try

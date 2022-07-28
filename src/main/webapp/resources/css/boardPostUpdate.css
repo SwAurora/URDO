@@ -1,0 +1,199 @@
+/* ----------상단영역 시작---------- */
+#container_Title
+{
+    margin-top: 10px;
+    font-size: var(--font-L);
+}
+
+#search
+{
+    font-size: var(--font-XL);
+    margin-top: 28.5px;
+    display: flex;
+    align-items: center;
+}
+
+#search div
+{
+    margin-right: 40px;
+}
+
+.searchBarIcon
+{
+    width: 30px;
+    height: 30px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.searchBar
+{
+    width: 300px;
+    height: 30px;
+    font-size: var(--font-XL);
+    font-weight: var(--font-weight-light);
+    background: none;
+    border: 1px solid var(--color-text);
+    border-radius: 4px;
+    color: var(--color-blackToWhite);
+    padding-left: 10px;
+}
+
+.searchBar::placeholder
+{
+    color: var(--color-placeholder);
+}
+
+a
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+#search
+{
+    font-size: var(--font-XL);
+}
+
+/* ----------상단영역 끝---------- */
+
+.container
+{
+    height: calc(100% - 10px);
+}
+
+.container2
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100% - 100px);
+}
+
+#sel1
+{
+    width:100px;
+    height:40px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: var(--color-textField);
+    color: var(--color-text);
+    font-size: 16px;
+    border: 1px solid var(--color-darkgray);
+    padding-left: 5px;
+}
+
+#writeField
+{
+    display: flex;
+    flex-direction: column;
+    width: 1100px;
+    height: 470px;
+    margin: auto;
+}
+
+.URtitle
+{
+    width: 1093px;
+    height: 50px;
+    font-size: 20px;
+    align-items: center;
+    border: 1px solid var(--color-darkgray);
+    border-radius: 5px;
+    background-color: var(--color-textField);
+    color: var(--color-text);
+    padding-left: 10px;
+}
+
+.URmain
+{
+    width: 1085px;
+    height: 300px;
+    resize: none;
+    margin: 10px 0;
+    border: 1px solid var(--color-darkgray);
+    border-radius: 5px;
+    background-color: var(--color-textField);
+    color: var(--color-text);
+    padding: 10px;
+
+}
+
+.filebox .upload-name
+{
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid var(--color-darkgray);
+    width: 400px;
+    color: #999999;
+    user-select: none;
+    border-radius: 5px;
+    background-color: var(--color-textField);
+}
+
+.filebox label
+{
+    display: inline-block;
+    padding: 10px 15px;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #808080;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: var(--font-M);
+    user-select: none;
+}
+
+.filebox input[type="file"]
+{
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.post
+{
+    display: flex;
+    justify-content: right;
+    margin-top: 70px;
+    gap: 5px;
+}
+
+.CancelBtn
+{
+    background-color: #808080;
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+    width: 160px;
+    height: 45px;
+    font-size: var(--font-XL);
+    cursor: pointer;
+}
+
+.CancelBtn:hover
+{
+    background-color: #B9BBBE;
+}
+
+.WriteBtn
+{
+    background-color: var(--color-point);
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+    width: 160px;
+    height: 45px;
+    font-size: var(--font-XL);
+    cursor: pointer;
+}
+
+.WriteBtn:hover
+{
+    background-color: var(--color-pointhover);
+}
