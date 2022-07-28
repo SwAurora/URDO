@@ -525,7 +525,7 @@ public class BoardDAO extends DAO
             Connection conn = pool.getConnection();
             PreparedStatement pstmt;
             ResultSet rs;
-            pstmt = conn.prepareStatement("select count(*) from rec9_tbl where board_no = ?");
+            pstmt = conn.prepareStatement("select count(*) from rec_tbl where board_no = ?");
             pstmt.setInt(1, no);
             rs = pstmt.executeQuery();
             while(rs.next())

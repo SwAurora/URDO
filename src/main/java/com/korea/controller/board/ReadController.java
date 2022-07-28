@@ -21,6 +21,7 @@ public class ReadController implements SubController
 	@Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
     {
+		System.out.println(req.getRealPath("/"));
 		try
         {
 			String no = req.getParameter("no");

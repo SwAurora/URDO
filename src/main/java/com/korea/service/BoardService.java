@@ -50,11 +50,20 @@ public class BoardService
     //파일포함 글쓰기 서비스
     public boolean PostBoard(BoardDTO dto, ArrayList<Part> parts)
     {
-        String subPath = "B" + (dao.getLastNo());
+    	String subPath = "B" + (dao.getLastNo());
         String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
-        rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
-        File RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
-
+        File RealPath;
+        if(rootPath.contains("metadata"))
+        {
+            rootPath = rootPath.replaceAll("/WEB-INF/classes", "");
+            RealPath = new File(rootPath + "/resources/files/" + subPath);
+        }
+        else
+        {
+            rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
+            RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
+        }
+        
         if(!RealPath.exists())
             RealPath.mkdirs();
 
@@ -136,8 +145,17 @@ public class BoardService
     {
         String subPath = "B" + (dto.getNo());
         String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
-        rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
-        File RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
+        File RealPath;
+        if(rootPath.contains("metadata"))
+        {
+            rootPath = rootPath.replaceAll("/WEB-INF/classes", "");
+            RealPath = new File(rootPath + "/resources/files/" + subPath);
+        }
+        else
+        {
+            rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
+            RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
+        }
 
         if(!RealPath.exists())
             RealPath.mkdirs();
@@ -195,8 +213,17 @@ public class BoardService
 
         String subPath = "B" + (dto.getNo());
         String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
-        rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
-        File RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
+        File RealPath;
+        if(rootPath.contains("metadata"))
+        {
+            rootPath = rootPath.replaceAll("/WEB-INF/classes", "");
+            RealPath = new File(rootPath + "/resources/files/" + subPath);
+        }
+        else
+        {
+            rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
+            RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
+        }
 
         if(!RealPath.exists())
             RealPath.mkdirs();
@@ -262,6 +289,16 @@ public class BoardService
         String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
         rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
         rootPath = rootPath + "/src/main/webapp/resources/files/";
+        
+        
+        if(rootPath.contains("metadata"))
+        {
+            rootPath = rootPath.replaceAll("/WEB-INF/classes", "");
+        }
+        else
+        {
+            rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
+        }
 
         return new File(rootPath + "B" + no);
     }
