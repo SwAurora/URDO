@@ -177,57 +177,57 @@
         <input type="hidden" name="subject">
     </form>
 
-    <%--댓글--%>
-    <script>
-    <%
-    %>
-        listreply();
-        setInterval(listreply, 500);
-        
-    		let nickname = '<%=nickname%>';
-    		function replyConfirm(){
-	    		if(nickname=="null"){
-	    			alert('로그인 하셔야 댓글을 다실 수 있습니다.');
-            location.href = '/login.jsp';
-	    		} else if ($('#comment').val()==""){
-	    			alert('내용을 입력해주세요.');
-	    		}	else {
-	    			reply();
-	    		}
-    			
-    		}
-				
-        function reply()
-        {
-            $.ajax({
-                url: '/Board/reply.do', type: 'GET', data: {"comment": $('#comment').val(), "bno":'<%=dto.getNo()%>'}, error: function()
-                {
-                    alert('댓글 작성에 오류가 발생했습니다!');
-                }, success: function()
-                {
-                    listreply();
-                    $('#comment').val("");
-                }
-            });
-        }
-
-        function listreply()
-        {
-            $.ajax({
-                url: '/Board/replylist.do',
-                type: 'GET',
-                data: {"bno": '<%=dto.getNo()%>'},
-                success: function(result)
-                {
-                    $('#replyRead').html(result);
-                },
-                error: function()
-                {
-                    alert('댓글 목록 확인 에러!');
-                }
-            });
-        }
-    </script>
+	<%--댓글--%>
+	<script>
+	  listreply();
+	  setInterval(listreply, 500);
+		  
+		let nickname = '<%=nickname%>';
+		function replyConfirm(){
+			if(nickname=="null"){
+				alert('로그인 하셔야 댓글을 다실 수 있습니다.');
+		      location.href = '/login.jsp';
+			} else if ($('#comment').val()==""){
+				alert('내용을 입력해주세요.');
+			}	else {
+				reply();
+			}
+			
+		}
+		
+		  function reply()
+		  {
+		      $.ajax({
+		          url: '/Board/reply.do', type: 'GET', data: {"comment": $('#comment').val(), "bno":'<%=dto.getNo()%>'}, error: function()
+		         {
+		             alert('댓글 작성에 오류가 발생했습니다!');
+		         }, success: function()
+		         {
+		             listreply();
+		             $('#comment').val("");
+		         }
+		     });
+		 }
+		
+		 function listreply()
+		 {
+	     $.ajax({
+		     url: '/Board/replylist.do',
+		     type: 'GET',
+		     data: {"bno" : '<%=dto.getNo()%>'},
+		     success: function(result)
+		     {
+		      $('#replyRead').html(result);
+		     },
+		     error: function()
+		     {
+		   	  alert('댓글 목록 확인 에러!');
+		     }
+	     });
+		 }
+	</script>
+	
+	
 
 
 </section>

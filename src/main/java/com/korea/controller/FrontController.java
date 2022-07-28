@@ -31,7 +31,7 @@ import com.korea.controller.member.ShowInfoController;
 import com.korea.controller.member.SignUpController;
 import com.korea.controller.member.UpdateController;
 import com.korea.controller.urpo.ProduceController;
-import com.korea.controller.urpo.URPOController;
+import com.korea.controller.urpo.UrconController;
 
 @MultipartConfig(
         fileSizeThreshold = 1024*1024*10, // 10mb
@@ -76,7 +76,7 @@ public class FrontController extends HttpServlet
         list.put("/Board/recCount.do", new RecCountController());
 
         // 유알포
-        list.put("/URPO.do", new URPOController());
+        list.put("/URPO.do", new UrconController());
         list.put("/URPO/produce.do", new ProduceController());
     }
 
