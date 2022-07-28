@@ -69,16 +69,16 @@
 		%>
 		<!-- 아이템 설명 시작 -->
     <div class="urcon_detail"> <!-- urcon_detail : ud -->
-    <div class="ud_title"></div>
+    <div class="ud_title"><%=dto.getTitle() %></div>
     <div class="ud_contents">
-    	<div class="ud_img"></div>
-    	<div class="ud_discription"></div>
+    	<div class="ud_img"><img src=<%=dto.getGifImage() %>></div>
+    	<div class="ud_discription"><%=dto.getDiscription() %></div>
     	<div class="ud_pay">
-    		<div class="ud_price"></div>
-    		<div class="ud_purchase"></div>
+    		<div class="ud_price">가격 : <%=dto.getPrice() %> 유알포</div>
+    		<div class="ud_purchase"><a href="#">구매하기!</a></div>
     	</div>
     </div>
-		<%=dto.getTitle() %>
+		
 			
 			      
     </div>
