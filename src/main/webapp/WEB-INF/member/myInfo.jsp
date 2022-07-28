@@ -138,6 +138,7 @@
                         }
                     }
                 }
+
                 // 취소 버튼
                 function cancel(num)
                 {
@@ -187,6 +188,30 @@
                     modal[0].style.display = "none";
                     main[0].style.opacity = "1";
                 }
+
+                function pwChk()
+                {
+                    let now_pw = document.getElementById("now_pw");
+                    let new_pw = document.getElementById("new_pw");
+                    let conf_pw = document.getElementById("conf_pw");
+                    let fm = document.fm;
+
+                    if(now_pw.value === "" || new_pw.value === "" || conf_pw.value === "")
+                    {
+                        alert("비어있는 항목이 있습니다.");
+                    }
+                    else if(new_pw.value !== conf_pw.value)
+                    {
+                        //conf_pw.setCustomValidity("재설정한 비밀번호가 일치하지 않습니다.");
+                        alert("비밀번호를 다시 확인해주세요.");
+                    }
+                    else
+                    {
+                        fm.submit();
+                    }
+
+                    //conf_pw.setCustomValidity('')
+                }
             </script>
         </div>
     </div>
@@ -202,21 +227,20 @@
             <p class="contxt contxt_list"><em>이전에 사용한 적 없는 비밀번호</em>가 안전합니다.</p>
         </div>
         <div class="spc_content">
-            <form id="fm" name="fm">
+            <form action="/PwdUpdate.do" id="fm" name="fm" method="post">
                 <fieldset>
                     <legend>비밀번호 변경</legend>
-                    <input type="password" name="now_pw" id="now_pw" maxlength="20" placeholder="현재 비밀번호 입력">
+
+                    <input type="password" id="now_pw" name="now_pw" maxlength="20" placeholder="현재 비밀번호 입력">
                     <input type="password" id="new_pw" name="new_pw" maxlength="20" placeholder="새 비밀번호 입력">
-                    <input type="password" id="conf_pw" maxlength="20" placeholder="새 비밀번호 확인 입력">
+                    <input type="password" id="conf_pw" maxlength="20" placeholder="새 비밀번호 확인">
 
                     <p class="btn_area_btm">
-
-                        <button type="submit" id="changeSubmit">확인</button>
+                        <a href="javascript:pwChk()" id="changeSubmit">확인</a>
                         <button type="button" onclick="aaaa();return false;">취소</button>
                     </p>
-
                 </fieldset>
-            </form>
+            </forM>
         </div>
     </div>
 </div>

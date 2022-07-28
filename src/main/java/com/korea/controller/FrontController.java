@@ -26,6 +26,7 @@ import com.korea.controller.board.ReplyListController;
 import com.korea.controller.board.ThemeGameController;
 import com.korea.controller.board.ThemeMusicController;
 import com.korea.controller.board.ThemeSportsController;
+import com.korea.controller.member.PwdUpdateController;
 import com.korea.controller.member.ShowInfoController;
 import com.korea.controller.member.SignUpController;
 import com.korea.controller.member.UpdateController;
@@ -54,7 +55,7 @@ public class FrontController extends HttpServlet
         list.put("/SignUp.do", new SignUpController());
         list.put("/ShowInfo.do", new ShowInfoController());
         list.put("/Update.do", new UpdateController());
-
+        list.put("/PwdUpdate.do", new PwdUpdateController());
 
         // 게시판
         list.put("/Board/humor.do", new HumorController());
