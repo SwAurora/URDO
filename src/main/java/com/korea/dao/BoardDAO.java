@@ -377,7 +377,7 @@ public class BoardDAO extends DAO
     
     // 댓글 삭제 함수
     public boolean replyDelete(int no) {
-    	
+    	return false;
     }
 
     // 조회수 증가
