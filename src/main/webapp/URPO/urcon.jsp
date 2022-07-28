@@ -1,3 +1,5 @@
+<%@ page import="com.korea.dto.UrpoDTO" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!doctype html>
@@ -15,14 +17,17 @@
   <link rel="stylesheet" href="../resources/css/URPO.css">
 </head>
 
+
+
+
 <body>
 
   <!--네비게이션 시작-->
   <jsp:include page="/resources/includes/nav.jsp"/>
 
   <section class="Main">
+    <!-- 컨테이너 시작-->
     <div class="container">
-      <!-- 컨테이너 시작-->
 
       <header>
         <div id="container_Title">
@@ -41,9 +46,9 @@
         <li class="level1 on">
           <a href="pointShop.html" class="on">유알콘</a>
           <ul class="menu-level2">
+            <li><a href="#" class="l2-list">모든 아이템</a></li>
             <li><a href="#" class="l2-list">실시간 인기</a></li>
-            <li><a href="#" class="l2-list">일간 인기</a></li>
-            <li><a href="#" class="l2-list">주간 인기</a></li>
+            <li><a href="#" class="l2-list">월간 인기</a></li>
           </ul>
         </li>
         <li class="level1">
@@ -65,50 +70,23 @@
     <!-- 탭컨텐츠 시작 -->
     <!-- 실시간인기 컨텐츠 -->
     <div class="tabContents on">
-      <!-- 1페이지 시작 -->
-      <div class="tab1_page on">
-        
-        <div class="hov-anim-box">
-          <img src="/resources/img/pointShop/urcon6.bmp" alt="" class="static">
-          <img src="/resources/img/pointShop/urcon6.gif" alt="" class="animated">
-          <div>
-            <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">첫 번째 아이콘.</p>
-          </div>
-        </div>
-        <div class="hov-anim-box">
-          <img src="/resources/img/pointShop/urcon7.bmp" alt="" class="static">
-          <img src="/resources/img/pointShop/urcon7.gif" alt="" class="animated">
-          <div>
-            <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">2두 번째 아이콘.</p>
-          </div>
-        </div>
-        <div class="hov-anim-box">
-          <img src="/resources/img/pointShop/urcon10.bmp" alt="" class="static">
-          <img src="/resources/img/pointShop/urcon10.gif" alt="" class="animated">
-          <div>
-            <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">2세 번째아이콘.</p>
-          </div>
-        </div>
-        <div class="hov-anim-box">
-          <img src="/resources/img/pointShop/urcon11.bmp" alt="" class="static">
-          <img src="/resources/img/pointShop/urcon11.gif" alt="" class="animated">
-          <div>
-            <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">2네번째아이콘.</p>
-          </div>
-        </div>
-        <div class="hov-anim-box">
-          <img src="/resources/img/pointShop/urcon12.bmp" alt="" class="static">
-          <img src="/resources/img/pointShop/urcon12.gif" alt="" class="animated">
-          <div>
-            <p class="imgTitle">유알콘실시간인기</p>
-            <p class="imgDesc">2다섯번째아이콘.</p>
-          </div>
-        </div>
-      </div>
+			<%
+				ArrayList<UrpoDTO> list = (ArrayList<UrpoDTO>) request.getAttribute("list");
+			  for(UrpoDTO urpoDTO: list)
+			  {
+			%>
+			<div class="hov-anim-box">
+			  <img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
+				<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
+				<div>
+				  <p class="imgTitle"><%=urpoDTO.getTitle()%></p>
+					<p class="imgDesc"><%=urpoDTO.getDiscription() %></p>
+			  </div>
+			</div>
+			<%
+				}
+			%>      		
+      
     </div> <!-- 컨테이너 끝 -->
 
 

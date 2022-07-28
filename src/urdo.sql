@@ -76,18 +76,7 @@ create table reply_tbl
   foreign key(boardNo) references board_tbl(no) on delete cascade
 );
 
-#------------------------------------------------- 포인트샵 테이블
-create table pointshop_tbl
-(
-    no          int         not null primary key,
-    title       varchar(45) not null,
-    discription varchar(500),
-    price       int         not null,
-    staticImage varchar(500),
-    gifImage    varchar(500),
-    category    varchar(45),
-    producer    varchar(40)
-);
+
 
 #------------------------------------------------ 추천 테이블
 create table rec_tbl
@@ -101,3 +90,29 @@ create table rec_tbl
 select * from rec_tbl;
 select * from board_tbl order by no desc;
 select * from reply_tbl;
+
+#------------------------------------------------- 포인트샵 테이블
+create table pointshop_tbl
+(
+    no          int         not null primary key,
+    title       varchar(45) not null,
+    discription varchar(500),
+    price       int         not null,
+    staticImage varchar(500),
+    gifImage    varchar(500),
+    category    varchar(45),
+    producer    varchar(40)
+);
+-- pointshop -> urpo로 테이블 이름 바꿈
+alter table pointshop_tbl rename urpo_tbl;
+insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer) 
+values ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon6.bmp', '/resources/img/urpo/urcon/urcon6.gif', 'urcon', 'admin1234'),
+ ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon7.bmp', '/resources/img/urpo/urcon/urcon7.gif', 'urcon', 'admin1234'),
+ ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon9.bmp', '/resources/img/urpo/urcon/urcon9.gif', 'urcon', 'admin1234'),
+ ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon10.bmp', '/resources/img/urpo/urcon/urcon10.gif', 'urcon', 'admin1234'),
+ ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234'),
+ ('귀여운', '허허!.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234');
+
+select * from urpo_tbl;
+-- truncate urpo_tbl;
+commit;
