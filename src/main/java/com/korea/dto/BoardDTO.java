@@ -14,5 +14,4 @@ public class BoardDTO
     private int views;
     private int recommend;
     private String filename;
-    private int available;
 }

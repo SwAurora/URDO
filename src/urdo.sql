@@ -49,16 +49,16 @@ create procedure board()
 BEGIN
     DECLARE i INT DEFAULT 1;
 while(i<=100) DO
-insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('bestNow', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
-insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('bestMonth', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
-insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('humor', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
-insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('creArt', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
-insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('creCook', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
-insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('regionRestaurant', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
-insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('regionLandmark', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
-insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('themeGame', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
-insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('themeSports', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
-insert into board_tbl(subject, title, content, writer, date, views, recommend, available) values ('themeMusic', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0, 1);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('bestNow', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('bestMonth', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('humor', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('creArt', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('creCook', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('regionRestaurant', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('regionLandmark', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeGame', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeSports', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeMusic', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
 set i = i+1;
 end while;
 END;
@@ -73,7 +73,8 @@ create table reply_tbl
   writer varchar(20) not null,
   content varchar(2000) not null,
   regdate varchar(45),
-  foreign key(boardNo) references board_tbl(no) on delete cascade
+  foreign key(boardNo) references board_tbl(no) on delete cascade,
+  foreign key(writer) references member_tbl(nickname) on update cascade
 );
 
 #------------------------------------------------ 추천 테이블
@@ -88,14 +89,14 @@ create table rec_tbl
 #------------------------------------------------- 포인트샵 테이블
 create table urpo_tbl
 (
-    no          int         primary key auto_increment,
-    title       varchar(45) not null,
+    no int primary key auto_increment,
+    title varchar(45) not null,
     discription varchar(500),
-    price       int         not null,
+    price int not null,
     staticImage varchar(500),
-    gifImage    varchar(500),
-    category    varchar(45),
-    producer    varchar(40)
+    gifImage varchar(500),
+    category varchar(45),
+    producer varchar(40)
 );
 -- pointshop -> urpo로 테이블 이름 바꿈
 insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer)
