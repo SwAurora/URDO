@@ -35,7 +35,7 @@ public class BoardDAO extends DAO
         BoardDTO dto;
         try
         {
-            pstmt = conn.prepareStatement("select * from board_tbl where subject = ? and available = 1 order by no desc limit ?,?");
+            pstmt = conn.prepareStatement("select * from board_tbl where subject = ? order by no desc limit ?,?");
             pstmt.setString(1, subject);
             pstmt.setInt(2, start);
             pstmt.setInt(3, limit);
@@ -52,7 +52,6 @@ public class BoardDAO extends DAO
                 dto.setViews(rs.getInt("views"));
                 dto.setRecommend(rs.getInt("recommend"));
                 dto.setFilename(rs.getString("filename"));
-                dto.setAvailable(rs.getInt("available"));
                 list.add(dto);
             }
         }
@@ -125,7 +124,7 @@ public class BoardDAO extends DAO
         int result = 0;
         try
         {
-            pstmt = conn.prepareStatement("select count(*) from board_tbl where subject = ? and available = 1");
+            pstmt = conn.prepareStatement("select count(*) from board_tbl where subject = ?");
             pstmt.setString(1, subject);
             rs = pstmt.executeQuery();
             rs.next();
@@ -161,7 +160,7 @@ public class BoardDAO extends DAO
     {
         try
         {
-            pstmt = conn.prepareStatement("insert into board_tbl(subject, title, content, writer, date, views, recommend, filename, available) values(?,?,?,?,sysdate(),0,0,?,1)");
+            pstmt = conn.prepareStatement("insert into board_tbl(subject, title, content, writer, date, views, recommend, filename) values(?,?,?,?,sysdate(),0,0,?)");
             pstmt.setString(1, dto.getSubject());
             pstmt.setString(2, dto.getTitle());
             pstmt.setString(3, dto.getContent());
@@ -196,7 +195,7 @@ public class BoardDAO extends DAO
         BoardDTO dto = new BoardDTO();
         try
         {
-            pstmt = conn.prepareStatement("select * from board_tbl where no = ? and available = 1");
+            pstmt = conn.prepareStatement("select * from board_tbl where no = ?");
             pstmt.setInt(1, no);
             rs = pstmt.executeQuery();
 
@@ -211,7 +210,6 @@ public class BoardDAO extends DAO
                 dto.setViews(rs.getInt("views"));
                 dto.setRecommend(rs.getInt("recommend"));
                 dto.setFilename(rs.getString("filename"));
-                dto.setAvailable(rs.getInt("available"));
             }
         }
         catch(Exception e)
@@ -301,7 +299,7 @@ public class BoardDAO extends DAO
     {
         try
         {
-            pstmt = conn.prepareStatement("update board_tbl set available = 0 where no = ?");
+            pstmt = conn.prepareStatement("delete from board_tbl where no = ?");
             pstmt.setInt(1, no);
 
             int result = pstmt.executeUpdate();
