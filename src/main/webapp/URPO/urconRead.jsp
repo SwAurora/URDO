@@ -68,7 +68,16 @@
 			UrpoDTO dto = (UrpoDTO) request.getAttribute("dto");
 		%>
 		<!-- 아이템 설명 시작 -->
-    <div class="urcon_detail">
+    <div class="urcon_detail"> <!-- urcon_detail : ud -->
+    <div class="ud_title"></div>
+    <div class="ud_contents">
+    	<div class="ud_img"></div>
+    	<div class="ud_discription"></div>
+    	<div class="ud_pay">
+    		<div class="ud_price"></div>
+    		<div class="ud_purchase"></div>
+    	</div>
+    </div>
 		<%=dto.getTitle() %>
 			
 			      

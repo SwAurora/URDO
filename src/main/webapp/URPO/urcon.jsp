@@ -90,33 +90,6 @@
       
     </div> <!-- 컨테이너 끝 -->
     
-    <!-- 모달창 시작 -->
-    
-    
-    <div id="urpo_modal">
-    	<div class="modal_img"><img src="" style="width:100%; height:100%;"></div>
-    	<div class="modal_content">
-    		<div class="modal_title">타이틀</div>
-    		<div class="modal_discription">상세설명</div>
-    		<div class="modal_price">가격</div>
-    		<div class="modal_btn_container">
-		    	<a class="modal_btn" href="javascript:modalOff()">닫기</a>
-	    		<div class="modal_btn">구매하러가기</div>
-    		</div>
-    	</div>
-    </div>
-    <!-- 모달창 끝 -->
-    
-    <script>
-    zidx=10;
-    function modalOn() {
-      $('#urpo_modal').css('display','flex').css('z-index',(zidx+1));
-    }
-    function modalOff() {
-    	$('#urpo_modal').css('display', 'none');
-    }
-    
-    </script>
     
     <!-- 페이지네이션 시작 -->
     <div class="pointfoot">
