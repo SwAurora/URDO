@@ -127,11 +127,11 @@
         function delfile()
         {
             let files = "";
-            for(let i = 0; i < $('.fileslist').length; i++)
+            for(let i = 0; i < $('.file_list').length; i++)
             {
-                if($($('.fileslist')[i]).is(":checked"))
+                if($($('.file_list')[i]).is(":checked"))
                 {
-                    files += $($('.fileslist')[i]).val() + ";";
+                    files += $($('.file_list')[i]).val() + ";";
                 }
             }
             return files;
