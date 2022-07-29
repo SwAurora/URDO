@@ -287,6 +287,15 @@ button
 
 .modal_2 legend
 {
+    margin-left: 26px;
+    margin-bottom: 3px;
     color: var(--color-black);
+}
+
+.modal_2 #fm_2 input
+{
+    width: 260px;
+    height: 30px;
+    margin: 8px 0;
 }
 
