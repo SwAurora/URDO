@@ -236,20 +236,27 @@
                 }
             });
         }
+        
+        function replydeleteConfirm() {
+        	
+        }
         function replydelete(rno) {
-        	$.ajax({
-        		url:'/Board/replydelete.do',
-        		type:'GET',
-        		data:{ "rno" : rno },
-                error: function()
-                {
-                    alert('댓글 삭제에 오류가 발생했습니다!');
-                },
-                success: function()
-                {
-                    listreply();
-                }
-        	})
+            let conf = confirm("댓글을 정말 삭제하시겠습니까?");
+            if(conf) {
+	        	$.ajax({
+	        		url:'/Board/replydelete.do',
+	        		type:'GET',
+	        		data:{ "rno" : rno },
+	                error: function()
+	                {
+	                    alert('댓글 삭제에 오류가 발생했습니다!');
+	                },
+	                success: function()
+	                {
+	                    listreply();
+	                }
+	        	})
+            }
         }
     </script>
 
