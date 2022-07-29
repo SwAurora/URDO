@@ -78,7 +78,6 @@
     		<div class="ud_purchase"><a href="#">구매하기!</a></div>
     	</div>
     </div>
-		
 			
 			      
     </div>

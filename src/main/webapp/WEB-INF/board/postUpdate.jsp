@@ -48,21 +48,22 @@
                         <label for="file">파일찾기</label>
                         <input type="file" name="files" id="file" accept="image/*" onchange="fileCheck(this)" multiple/>
                     </div>
-                    <%
-                        if(dto.getFilename() != null)
-                        {
-                            String fname = dto.getFilename();
-                            String[] files = fname.split(";");
-                            out.println("<span>파일 목록 (삭제할 이미지을 선택해주세요)</span><br>");
-                            for(String file : files)
-                            {
-                    %>
-                                <label><input type="checkbox" class="fileslist" value="<%=file%>"><%=file%></label>
-                                <br>
-                    <%
-                            }
-                        }
-                    %>
+                    <div class="filelistbox">
+	                    <%
+	                        if(dto.getFilename() != null)
+	                        {
+	                            String fname = dto.getFilename();
+	                            String[] files = fname.split(";");
+	                            out.println("<p class=\"file_ex\">파일 목록 (삭제할 이미지를 선택해주세요)</p>");
+	                            for(String file : files)
+	                            {
+	                    %>
+	                                <label class="file_label"><input type="checkbox" class="file_list" value="<%=file%>"><%=file%></label>
+	                    <%
+	                            }
+	                        }
+	                    %>
+                    </div>
                     <div class="post">
                         <input type='button' value='취소' class="CancelBtn" onclick="goBack()">
                         <input type='button' value='게시글 수정' class="WriteBtn" onclick="postchk()">

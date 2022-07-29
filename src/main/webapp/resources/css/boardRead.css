@@ -60,7 +60,7 @@ a
 /* ----------컨텐츠 테이블 시작---------- */
 .container2
 {
-    width: calc(100% - 270px);
+    width: calc(100% - 240px); /* 수정 - 이 부분 조금 늘림 */
     margin: 15px auto;
 }
 

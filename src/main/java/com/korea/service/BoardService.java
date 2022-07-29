@@ -50,7 +50,7 @@ public class BoardService
     //파일포함 글쓰기 서비스
     public boolean PostBoard(BoardDTO dto, ArrayList<Part> parts)
     {
-        String subPath = "B" + (dao.getLastNo());
+    	String subPath = "B" + (dao.getLastNo());
         String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
         File RealPath;
         if(rootPath.contains("metadata"))
@@ -63,7 +63,7 @@ public class BoardService
             rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
             RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
         }
-
+        
         if(!RealPath.exists())
             RealPath.mkdirs();
 
@@ -270,7 +270,8 @@ public class BoardService
         }
         return dao.delete(no);
     }
-
+    
+    // 댓글 서비스 시작
     public boolean reply(ReplyDTO rdto)
     {
         return dao.reply(rdto);
@@ -280,7 +281,10 @@ public class BoardService
     {
         return dao.getReplylist(bno);
     }
-
+    
+    public boolean replyDelete(int no) {
+    	return dao.replyDelete(no);
+    }
     // 댓글 서비스 끝
 
 
