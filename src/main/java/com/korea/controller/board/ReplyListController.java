@@ -30,7 +30,7 @@ public class ReplyListController implements SubController
                 out.print("<td class=\"replyCol1\"><img src=\"/resources/img/board/frog.png\"></td>");
                 out.print("<td class=\"replyCol2\">" + dto.getWriter() + " (" + dto.getRegdate() + ")</td>");
                 out.print("<td class=\"replyCol3\">" + dto.getContent() + "</td>");
-                out.print("<td class=\"replyCol4\"><a href=\"/Board/replyDelete.do?no="+ dto.getNo() +"\" class=\"replyDeleteBtn\">X</a></td>");
+                out.print("<td class=\"replyCol4\"><a href=\"/Board/replydelete.do?no="+ dto.getNo() +"\" class=\"replyDeleteBtn\">X</a></td>");
                 out.print("</tr>");
             }
         }

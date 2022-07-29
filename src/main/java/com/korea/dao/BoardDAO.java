@@ -375,7 +375,17 @@ public class BoardDAO extends DAO
     
     // 댓글 삭제 함수
     public boolean replyDelete(int no) {
-    	return false;
+        try {
+            pstmt = conn.prepareStatement("delete from reply_tbl where no = ?");
+            pstmt.setInt(1, no);
+            int result = pstmt.executeUpdate();
+            if(result > 0) return true;
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+	        try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        return false;
     }
 
     // 조회수 증가

@@ -76,6 +76,7 @@ create table reply_tbl
   foreign key(boardNo) references board_tbl(no) on delete cascade,
   foreign key(writer) references member_tbl(nickname) on update cascade
 );
+select * from reply_tbl order by no desc;
 
 #------------------------------------------------ 추천 테이블
 create table rec_tbl
