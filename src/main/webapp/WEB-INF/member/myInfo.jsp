@@ -95,7 +95,7 @@
                 <a href="javascript:modal()" id="pwdchange">비밀번호 재설정</a>
             </div>
             <div class="item">
-                <a href="#" id="delAccount">회원 탈퇴</a>
+                <a href="javascript:modal2()" id="delAccount">회원 탈퇴</a>
             </div>
             <form action="/Update.do" name="frm1" method="post">
                 <input type="hidden" name="email">
@@ -177,7 +177,14 @@
                         $('#submitBtn3').html('저장');
                         $("#password").attr("disabled", false);
                     }
+                }
 
+                function modal2()
+                {
+                    let modal = document.getElementsByClassName("modal_2");
+                    let main = document.getElementsByClassName("Main");
+                    modal[0].style.display = "block";
+                    main[0].style.opacity = "0.5";
                 }
 
                 // 닫기
@@ -186,6 +193,14 @@
                     let modal = document.getElementsByClassName("modal");
                     let main = document.getElementsByClassName("Main");
                     modal[0].style.display = "none";
+                    main[0].style.opacity = "1";
+                }
+
+                function closeModal2()
+                {
+                    let modal_2 = document.getElementsByClassName("modal_2");
+                    let main = document.getElementsByClassName("Main");
+                    modal_2[0].style.display = "none";
                     main[0].style.opacity = "1";
                 }
 
@@ -209,6 +224,7 @@
                         fm.submit();
                     }
                 }
+
             </script>
         </div>
     </div>
@@ -235,6 +251,31 @@
                     <p class="btn_area_btm">
                         <button id="changeSubmit" onclick="pwChk();return false;">확인</button>
                         <button type="button" onclick="closeModal();return false;">취소</button>
+                    </p>
+                </fieldset>
+            </forM>
+        </div>
+    </div>
+</div>
+<%---------------------------------------------- 모달 2 -----------------------------------------------------%>
+
+<div class="modal_2">
+    <div class="section_pwconfirm">
+        <div class="spc_header">
+            <h2>회원탈퇴</h2>
+            <p class="contxt">회원탈퇴를 하시게 되면 더이상</p>
+            <p class="contxt contxt_list">유알도 <em>서비스</em> 를 이용 하실수가 없습니다.</p>
+        </div>
+        <div class="spc_content">
+            <form action="/Delete.do" id="fm_2" name="fm_2" method="post">
+                <fieldset>
+                    <legend>비밀번호 입력</legend>
+
+                    <input type="password" id="delpw" name="delpw" maxlength="20" placeholder="현재 비밀번호">
+
+                    <p class="btn_area_btm">
+                        <button type="submit" id="changeSubmit_2">확인</button>
+                        <button type="button" onclick="closeModal2();return false;">취소</button>
                     </p>
                 </fieldset>
             </forM>

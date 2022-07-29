@@ -258,3 +258,35 @@ button
     background-color: var(--color-darkgray);
     display: none;
 }
+
+/* 모달2 */
+.modal_2
+{
+    position: fixed;
+    width: 406px;
+    height: 350px;
+    left: 40%;
+    top: 15%;
+    display: none;
+}
+
+.modal_2 em
+{
+    color: red;
+}
+
+.modal_2 h2
+{
+    color: var(--color-black);
+}
+
+.modal_2 .contxt
+{
+    color: var(--color-black);
+}
+
+.modal_2 legend
+{
+    color: var(--color-black);
+}
+
