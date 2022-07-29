@@ -7,7 +7,7 @@ create table member_tbl
     id varchar(20) primary key,
     pw varchar(100) not null,
     email varchar(40) not null,
-    nickname varchar(20) not null,
+    nickname varchar(20) not null unique,
     point int,
     grade int
 );
@@ -41,7 +41,6 @@ create table board_tbl
     views int,
     recommend int,
     filename varchar(500),
-    available int,
     foreign key(subject) references subject_tbl(subject) on update cascade on delete cascade
 );
 
@@ -98,6 +97,7 @@ create table urpo_tbl
     category varchar(45),
     producer varchar(40)
 );
+
 -- pointshop -> urpo로 테이블 이름 바꿈
 insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer)
 values ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon6.bmp', '/resources/img/urpo/urcon/urcon6.gif', 'urcon', 'admin1234'),
