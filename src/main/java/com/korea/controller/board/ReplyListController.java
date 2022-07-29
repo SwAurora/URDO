@@ -24,13 +24,13 @@ public class ReplyListController implements SubController
         try
         {
             PrintWriter out = resp.getWriter();
-            for(ReplyDTO dto : list)
+            for(ReplyDTO rdto : list)
             {
                 out.print("<tr>");
                 out.print("<td class=\"replyCol1\"><img src=\"/resources/img/board/frog.png\"></td>");
-                out.print("<td class=\"replyCol2\">" + dto.getWriter() + " (" + dto.getRegdate() + ")</td>");
-                out.print("<td class=\"replyCol3\">" + dto.getContent() + "</td>");
-                out.print("<td class=\"replyCol4\"><a href=\"/Board/replydelete.do?no="+ dto.getNo() +"\" class=\"replyDeleteBtn\">X</a></td>");
+                out.print("<td class=\"replyCol2\">" + rdto.getWriter() + " (" + rdto.getRegdate() + ")</td>");
+                out.print("<td class=\"replyCol3\">" + rdto.getContent() + "</td>");
+                out.print("<td class=\"replyCol4\"><a href=\"javascript:replydelete("+rdto.getNo()+")\" class=\"replyDeleteBtn\">X</a></td>");
                 out.print("</tr>");
             }
         }

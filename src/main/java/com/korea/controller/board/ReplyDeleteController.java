@@ -14,10 +14,12 @@ public class ReplyDeleteController implements SubController{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
+		System.out.println("컨트롤러 실행 됨!");
 		HttpSession session = req.getSession();
 		String nickname = (String) session.getAttribute("nickname");
-		int no = Integer.parseInt(req.getParameter("no"));
-		service.replyDelete(no);
+		int rno = Integer.parseInt(req.getParameter("rno"));
+		System.out.println(rno);
+		service.replyDelete(rno);
 	}
 
 }
