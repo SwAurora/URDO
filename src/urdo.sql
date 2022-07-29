@@ -35,7 +35,7 @@ create table board_tbl
     no int primary key auto_increment,
     subject varchar(20) not null,
     title varchar(45) not null,
-    content varchar(5000) not null,
+    content varchar(10000) not null,
     writer varchar(20) not null,
     date varchar(45) not null,
     views int,
