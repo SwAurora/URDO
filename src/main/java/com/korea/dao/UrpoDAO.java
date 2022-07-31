@@ -37,8 +37,7 @@ public class UrpoDAO extends DAO{
     }
     
     // 카테고리로 아이템 불러오기
-    public List<UrpoDTO> ShowItems(String category)
-    {
+    public List<UrpoDTO> ShowItems(String category) {
     	ArrayList<UrpoDTO> list = new ArrayList<>();
     	UrpoDTO dto;
         try
@@ -70,6 +69,7 @@ public class UrpoDAO extends DAO{
         return list;
     }
     
+    // 아이템 번호로 아이템 정보 불러오기
     public UrpoDTO Select(int no)
     {
         UrpoDTO dto = new UrpoDTO();
@@ -96,4 +96,29 @@ public class UrpoDAO extends DAO{
         }
         return dto;
     }
+    
+    // 멤버 아이디로 아이템 구매하기
+    public boolean purchase(String id, int price)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("update member_tbl set point = point - ? where id = ?");
+            pstmt.setInt(1, price);
+            pstmt.setString(2, id);
+            int result = pstmt.executeUpdate();
+            if(result>0) { return true; }
+            else {
+            	System.out.println("DAO 실패");
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        return false;
+    }
+    
 }

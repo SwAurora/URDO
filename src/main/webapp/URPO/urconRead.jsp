@@ -68,22 +68,25 @@
 			UrpoDTO dto = (UrpoDTO) request.getAttribute("dto");
 		%>
 		<!-- 아이템 설명 시작 ud = urcon detail -->
-		<div class="ud_container">
-		   <div class="ud_title"><%=dto.getTitle() %></div>
-		   <div class="urcon_detail"> 
-		   	<div class="ud_img"><img src=<%=dto.getGifImage() %>></div>
-		    <div class="ud_contents">
-		    	<div>제작자 : <%=dto.getProducer() %></div>
-		    	<div class="ud_discription"><%=dto.getDiscription() %></div>
-		    	<div class="ud_pay">
-			   		<div class="ud_price">가격 : <b><%=dto.getPrice() %></b> URPO</div>
-			   		<div class=""><a href="/" class="ud_purchase">구매하기!</a></div>
-		 	  	</div>
-		   </div>
-		</div>
+		<form action="/URPO.purchase.do" method="post">
+			<div class="ud_container">
+			   <div class="ud_title"><%=dto.getTitle() %></div>
+			   <div class="urcon_detail"> 
+			   	<div class="ud_img"><img src=<%=dto.getGifImage() %>></div>
+			    <div class="ud_contents">
+			    	<div>제작자 : <%=dto.getProducer() %></div>
+			    	<div class="ud_discription"><%=dto.getDiscription() %></div>
+			    	<div class="ud_pay">
+				   		<input type="text" class="ud_price" name="">가격 : <b><%=dto.getPrice() %></b> URPO
+				   		<div class=""><input type="submit" href="/" class="ud_purchase">구매하기!</a></div>
+				   		<input type="hidden" name="price" value="<%=dto.getPrice() %>">
+			 	  	</div>
+			   </div>
+				</div>
+		    </div>
+		</form>
 			
 			      
-    </div>
 		<!-- 아이템 설명 끝 -->
 
   </div>
