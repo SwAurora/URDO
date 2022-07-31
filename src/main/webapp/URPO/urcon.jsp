@@ -22,6 +22,7 @@
 
 <body>
 
+
   <!--네비게이션 시작-->
   <jsp:include page="/resources/includes/nav.jsp"/>
 

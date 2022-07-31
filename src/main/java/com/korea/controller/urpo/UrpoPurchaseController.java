@@ -1,5 +1,8 @@
 package com.korea.controller.urpo;
 
+import java.io.IOException;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,17 +21,25 @@ public class UrpoPurchaseController implements SubController{
 	MemberDTO mdto = new MemberDTO();
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		System.out.println("서비스 진입 성공!");
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
 		int price = Integer.parseInt(req.getParameter("price"));
-		
 		req.setAttribute("dto", dto);
 		
 		if(id==null) {
-			System.out.println("로그인을 먼저 해 주세요.");
+			try {
+				req.setAttribute("msg", "로그인을 먼저 해 주세요");
+				req.getRequestDispatcher("/URPO/urconRead.jsp").forward(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else if(mdto.getPoint() <price) {
-			System.out.println("포인트가 부족합니다.");
+			req.setAttribute("msg", "포인트가 부족합니다.");
+			try {
+				req.getRequestDispatcher("/URPO/urconRead.jsp").forward(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else {
 			mdto = mservice.MemberSearch(id);
 			service.purchase(id, price);
