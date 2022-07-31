@@ -98,18 +98,17 @@ public class UrpoDAO extends DAO{
     }
     
     // 멤버 아이디로 아이템 구매하기
-    public boolean purchase(String id, int price)
+    public boolean purchase(String id, int price, int no)
     {
         try
         {
-            pstmt = conn.prepareStatement("update member_tbl set point = point - ? where id = ?");
+        	String items = no + ";";
+            pstmt = conn.prepareStatement("update member_tbl set point = point - ?, items =? where id = ?");
             pstmt.setInt(1, price);
-            pstmt.setString(2, id);
+            pstmt.setString(2, items);
+            pstmt.setString(3, id);
             int result = pstmt.executeUpdate();
             if(result>0) { return true; }
-            else {
-            	System.out.println("DAO 실패");
-            }
         }
         catch(Exception e) {
             e.printStackTrace();

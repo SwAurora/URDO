@@ -90,6 +90,7 @@
 				   		<div class="ud_price" >가격 : <b><%=dto.getPrice() %></b> URPO</div>
 				   		<input type="submit" class="ud_purchase" value="구매하기">
 				   		<input type="hidden" name="price" value="<%=dto.getPrice() %>">
+				   		<input type="hidden" name="no" value="<%=dto.getNo() %>">
 			 	  	</div>
 			   </div>
 				</div>

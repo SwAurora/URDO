@@ -107,3 +107,6 @@ values ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/ur
  ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon10.bmp', '/resources/img/urpo/urcon/urcon10.gif', 'urcon', 'admin1234'),
  ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234'),
  ('귀여운', '허허!.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234');
+ 
+-- member_tbl 칼럼 추가. 구매한 아이템 목록을 의미합니다.
+ALTER TABLE member_Tbl ADD items varchar(5000);

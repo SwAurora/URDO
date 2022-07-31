@@ -33,7 +33,7 @@ public class UrpoService {
     }
     
     // 멤버 아이디로 아이템 구매하기
-    public boolean purchase(String id, int price) {
-        return dao.purchase(id, price);
+    public boolean purchase(String id, int price, int no) {
+        return dao.purchase(id, price, no);
     }
 }

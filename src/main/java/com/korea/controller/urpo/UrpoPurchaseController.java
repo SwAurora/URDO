@@ -23,8 +23,11 @@ public class UrpoPurchaseController implements SubController{
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		HttpSession session = req.getSession();
 		String id = (String) session.getAttribute("id");
+		int no = Integer.parseInt(req.getParameter("no"));
 		int price = Integer.parseInt(req.getParameter("price"));
 		req.setAttribute("dto", dto);
+		
+		mdto = mservice.MemberSearch(id);
 		
 		if(id==null) {
 			try {
@@ -33,7 +36,8 @@ public class UrpoPurchaseController implements SubController{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if(mdto.getPoint() <price) {
+		} else if(mdto.getPoint() < price) {
+			System.out.println("잔액 : " + mdto.getPoint());
 			req.setAttribute("msg", "포인트가 부족합니다.");
 			try {
 				req.getRequestDispatcher("/URPO/urconRead.jsp").forward(req, resp);
@@ -41,8 +45,13 @@ public class UrpoPurchaseController implements SubController{
 				e.printStackTrace();
 			}
 		} else {
-			mdto = mservice.MemberSearch(id);
-			service.purchase(id, price);
+			service.purchase(id, price, no);
+			req.setAttribute("msg", "구매성공!!!");
+			try {
+				req.getRequestDispatcher("/URPO/urconRead.jsp").forward(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 	}
