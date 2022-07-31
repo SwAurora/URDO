@@ -77,9 +77,9 @@
 			    	<div>제작자 : <%=dto.getProducer() %></div>
 			    	<div class="ud_discription"><%=dto.getDiscription() %></div>
 			    	<div class="ud_pay">
-				   		<input type="text" class="ud_price" name="">가격 : <b><%=dto.getPrice() %></b> URPO
-				   		<div class=""><input type="submit" href="/" class="ud_purchase">구매하기!</a></div>
-				   		<input type="hidden" name="price" value="<%=dto.getPrice() %>">
+				   		<div class="ud_price" >가격 : <b><%=dto.getPrice() %></b> URPO</div>
+				   		<input type="hidden" name="price" value="<%=dto.getPrice()%>">
+				   		<input type="submit" class="ud_purchase" value="구매하기">
 			 	  	</div>
 			   </div>
 				</div>
