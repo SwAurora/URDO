@@ -1,6 +1,8 @@
 package com.korea.service;
 
+import java.io.File;
 import java.util.List;
+import java.util.Objects;
 
 import com.korea.dao.UrpoDAO;
 import com.korea.dto.BoardDTO;
@@ -28,5 +30,10 @@ public class UrpoService {
 	// 아이템 번호로 아이템 찾기
     public UrpoDTO Select(int no) {
         return dao.Select(no);
+    }
+    
+    // 멤버 아이디로 아이템 구매하기
+    public boolean purchase(String id, int price, int no) {
+        return dao.purchase(id, price, no);
     }
 }
