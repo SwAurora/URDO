@@ -80,7 +80,7 @@
                 <div>추천한 글</div>
             </div>
             <div class="item">
-                <div class="number">1786</div>
+                <div class="number"><%=dto.getPoint()%></div>
                 <div>포인트(URDO)</div>
             </div>
         </div>
@@ -239,6 +239,15 @@
                     }
                 }
 
+                function emptyChk()
+                {
+                    if($('#delpw').val() === "")
+                    {
+                        alert("비밀번호를 입력 해주세요.");
+                        return false;
+                    }
+                    return true;
+                }
             </script>
         </div>
     </div>
@@ -281,7 +290,7 @@
             <p class="contxt contxt_list">유알도 <em>서비스</em> 를 이용 하실수가 없습니다.</p>
         </div>
         <div class="spc_content">
-            <form action="/Delete.do" id="fm_2" name="fm_2" method="post">
+            <form action="/Delete.do" id="fm_2" name="fm_2" method="post" onsubmit="return emptyChk();">
                 <fieldset>
                     <legend>비밀번호 입력</legend>
 
