@@ -75,6 +75,7 @@ public class MemberDAO extends DAO
                 dto.setNickname(rs.getString("nickname"));
                 dto.setPoint(rs.getInt("point"));
                 dto.setGrade(rs.getInt("grade"));
+                dto.setItems(rs.getString("items"));
                 return dto;
             }
         }

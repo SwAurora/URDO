@@ -11,4 +11,5 @@ public class MemberDTO
     private String nickname;
     private int point;
     private int grade;
+    private String items;
 }

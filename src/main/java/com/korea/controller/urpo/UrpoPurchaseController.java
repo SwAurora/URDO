@@ -44,6 +44,13 @@ public class UrpoPurchaseController implements SubController{
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if(mdto.getItems().contains(no+"")) {
+			req.setAttribute("msg", "동일한 아이템을 이미 구매하셨습니다.");
+			try {
+				req.getRequestDispatcher("/URPO/urconRead.jsp").forward(req, resp);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} else {
 			service.purchase(id, price, no);
 			req.setAttribute("msg", "구매성공!!!");
