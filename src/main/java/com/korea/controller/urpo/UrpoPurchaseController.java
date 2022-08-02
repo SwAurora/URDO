@@ -31,13 +31,14 @@ public class UrpoPurchaseController implements SubController{
 		mdto = mservice.MemberSearch(id);
 		
 		// 아이템 구매여부 확인 플래그 exist
-		String[] arr = mdto.getItems().split(";");
+		String[] nolist = mdto.getItems().split(";");
 		boolean exist = false;
-		for(int i=0; i<arr.length; i++) {
-			if(arr[i].contains(no + "")) {
+		for(int i=0; i<nolist.length; i++) {
+			if(nolist[i].contains(no + "")) {
 				exist = true;
 			} 
 		}
+		
 		
 		// 로그인, 포인트 잔액, 구매여부 검증
 		if(id==null) {

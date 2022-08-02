@@ -29,6 +29,11 @@ public class UrpoService {
 		return dao.ShowItems(category);
 	}
 	
+	// 아이템 목록 리스트로 아이템 목록 보기
+	public List<UrpoDTO> ShowItems(String[] nolist) {
+		return dao.ShowItems(nolist);
+	}
+	
 	// 아이템 번호로 아이템 찾기
     public UrpoDTO Select(int no) {
         return dao.Select(no);
