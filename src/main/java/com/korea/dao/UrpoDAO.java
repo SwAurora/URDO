@@ -3,43 +3,61 @@ package com.korea.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.korea.dto.BoardDTO;
 import com.korea.dto.UrpoDTO;
 
-public class UrpoDAO extends DAO{
-	private static UrpoDAO instance;
-	public static UrpoDAO getInstance() {
-		if(instance == null) {
-			instance = new UrpoDAO();
-		}
-		return instance;
-	}
-    public boolean insert(UrpoDTO dto) {
-        try {
-            pstmt = conn.prepareStatement("insert into pointshop_tbl values(?,?,'설명은생략한다',?,'gifImage',?,?)");
-            pstmt.setString(1, dto.getProducer());
-            pstmt.setString(2, dto.getTitle());
-            pstmt.setInt(3, dto.getPrice());
-            pstmt.setString(4,dto.getStaticImage());
-            pstmt.setString(5, dto.getCategory());
-            int result = pstmt.executeUpdate();
-            if(result > 0) {
-                return true;
-            }
-        } catch(Exception e) {
-            e.printStackTrace();
+public class UrpoDAO extends DAO
+{
+    private static UrpoDAO instance;
+
+    public static UrpoDAO getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new UrpoDAO();
         }
-        finally {
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
-        }
-        
-        return false;
+        return instance;
     }
-    
+
+//    public boolean insert(UrpoDTO dto)
+//    {
+//        try
+//        {
+//            pstmt = conn.prepareStatement("insert into urpo_tbl values(?,?,'설명은생략한다',?,'gifImage',?,?)");
+//            pstmt.setString(1, dto.getProducer());
+//            pstmt.setString(2, dto.getTitle());
+//            pstmt.setInt(3, dto.getPrice());
+//            pstmt.setString(4, dto.getStaticImage());
+//            pstmt.setString(5, dto.getCategory());
+//            int result = pstmt.executeUpdate();
+//            if(result > 0)
+//            {
+//                return true;
+//            }
+//        }
+//        catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        finally
+//        {
+//            try
+//            {
+//                pstmt.close();
+//            }
+//            catch(Exception e)
+//            {
+//                e.printStackTrace();
+//            }
+//        }
+//
+//        return false;
+//    }
+
     // 카테고리로 아이템 불러오기
-    public List<UrpoDTO> ShowItems(String category) {
-    	ArrayList<UrpoDTO> list = new ArrayList<>();
-    	UrpoDTO dto;
+    public List<UrpoDTO> ShowItems(String category)
+    {
+        ArrayList<UrpoDTO> list = new ArrayList<>();
+        UrpoDTO dto;
         try
         {
             pstmt = conn.prepareStatement("select * from urpo_tbl where category = ? order by no desc limit 30");
@@ -48,7 +66,7 @@ public class UrpoDAO extends DAO{
 
             while(rs.next())
             {
-            	dto = new UrpoDTO();
+                dto = new UrpoDTO();
                 dto.setNo(rs.getInt("no"));
                 dto.setTitle(rs.getString("title"));
                 dto.setDiscription(rs.getString("discription"));
@@ -60,25 +78,44 @@ public class UrpoDAO extends DAO{
                 list.add(dto);
             }
         }
-        catch(Exception e) {
+        catch(Exception e)
+        {
             e.printStackTrace();
-        } finally {
-            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
         return list;
     }
-    
+
     // 아이템 번호로 아이템 정보 불러오기
     public UrpoDTO Select(int no)
     {
         UrpoDTO dto = new UrpoDTO();
-        try {
+        try
+        {
             pstmt = conn.prepareStatement("select * from urpo_tbl where no = ?");
             pstmt.setInt(1, no);
             rs = pstmt.executeQuery();
 
-            while(rs.next()) {
+            while(rs.next())
+            {
                 dto.setNo(rs.getInt("no"));
                 dto.setTitle(rs.getString("title"));
                 dto.setDiscription(rs.getString("discription"));
@@ -88,36 +125,73 @@ public class UrpoDAO extends DAO{
                 dto.setCategory(rs.getString("category"));
                 dto.setProducer(rs.getString("producer"));
             }
-        } catch(Exception e) {
+        }
+        catch(Exception e)
+        {
             e.printStackTrace();
-        } finally {
-            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
         return dto;
     }
-    
+
     // 멤버 아이디로 아이템 구매하기
     public boolean purchase(String id, int price, int no)
     {
         try
         {
-        	String items = no + ";";
+            String items = no + ";";
             pstmt = conn.prepareStatement("update member_tbl set point = point - ?, items =? where id = ?");
             pstmt.setInt(1, price);
             pstmt.setString(2, items);
             pstmt.setString(3, id);
             int result = pstmt.executeUpdate();
-            if(result>0) { return true; }
+            if(result > 0)
+            {
+                return true;
+            }
         }
-        catch(Exception e) {
+        catch(Exception e)
+        {
             e.printStackTrace();
         }
-        finally {
-            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
         return false;
     }
-    
+
 }

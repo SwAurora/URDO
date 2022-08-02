@@ -38,6 +38,7 @@
 %>
 <script>
     alert("<%=msg%>");
+    location.href="/ShowInfo.do";
 </script>
 <%
     }

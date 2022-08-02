@@ -26,18 +26,25 @@ public class DeleteMemberController implements SubController
         {
             try
             {
-                if(pwd == null)
+                boolean result = service.DeleteMember(id);
+                if(result)
                 {
-                    req.setAttribute("msg", "비밀번호가 비어 있습니다. 비밀번호를 입력해주세요");
-                    req.getRequestDispatcher("/WEB-INF/member/myInfo.jsp").forward(req, resp);
-                }
-                else
-                {
-                    req.setAttribute("msg", "회원 탈퇴 성공 안녕히 가세요");
-                    boolean result = service.DeleteMember(id);
-                    resp.sendRedirect("/Delete.do?result=" + result);
+                    session.invalidate();
+                    req.setAttribute("msg", "그 동안 이용해주셔서 감사합니다.");
                     req.getRequestDispatcher("/").forward(req, resp);
                 }
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            try
+            {
+                req.setAttribute("msg", "잘못된 비밀번호 입니다.");
+                req.getRequestDispatcher("/ShowInfo.do").forward(req, resp);
             }
             catch(Exception e)
             {

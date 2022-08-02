@@ -27,7 +27,7 @@ public class MemberDAO extends DAO
     {
         try
         {
-            pstmt = conn.prepareStatement("insert into member_tbl values(?,?,?,?,0,0)");
+            pstmt = conn.prepareStatement("insert into member_tbl values(?,?,?,?,0,0,null)");
             pstmt.setString(1, dto.getId());
             pstmt.setString(2, dto.getPw());
             pstmt.setString(3, dto.getEmail());

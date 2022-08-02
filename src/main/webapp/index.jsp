@@ -20,6 +20,7 @@
 %>
 <script>
     alert("<%=msg%>");
+    location.href= "/";
 </script>
 <%
     }

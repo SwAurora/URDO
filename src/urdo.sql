@@ -11,7 +11,8 @@ create table member_tbl
     email varchar(40) not null,
     nickname varchar(20) not null unique,
     point int,
-    grade int
+    grade int,
+    items varchar(5000)
 );
 
 #------------------------------------------------- 게시판 테이블
@@ -113,4 +114,6 @@ values ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/ur
 -- member_tbl 칼럼 추가 구매한 아이템 목록을 의미합니다.
 ALTER TABLE member_Tbl ADD items varchar(5000);
 -- member_tbl 포인트 입력. 포인트가 있어야 구매가능하다.
-alter table member_tbl set point = 100 where id ='자기계정아이디';
+update member_tbl set point = 100 where id ='wb0802';
+
+desc
