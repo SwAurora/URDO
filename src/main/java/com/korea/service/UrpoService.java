@@ -17,10 +17,11 @@ public class UrpoService {
 		}
 		return instance;
 	}
-	
+	/*
 	public boolean ProduceUrcon(UrpoDTO dto){
 		return dao.insert(dto);
 	}
+	*/
 	
 	// 카테고리 명으로 아이템 목록 보기
 	public List<UrpoDTO> ShowItems(String category) {
