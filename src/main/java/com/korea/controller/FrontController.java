@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
 import com.korea.controller.board.*;
-import com.korea.controller.member.PwdUpdateController;
-import com.korea.controller.member.ShowInfoController;
-import com.korea.controller.member.SignUpController;
-import com.korea.controller.member.UpdateController;
+import com.korea.controller.member.*;
 import com.korea.controller.urpo.ProduceController;
 import com.korea.controller.urpo.UrconController;
 import com.korea.controller.urpo.UrpoReadController;
@@ -42,6 +39,7 @@ public class FrontController extends HttpServlet
         list.put("/ShowInfo.do", new ShowInfoController());
         list.put("/Update.do", new UpdateController());
         list.put("/PwdUpdate.do", new PwdUpdateController());
+        list.put("/Delete.do", new DeleteMemberController());
 
         // 게시판
         list.put("/Board/humor.do", new HumorController());

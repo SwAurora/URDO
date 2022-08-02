@@ -1,3 +1,5 @@
+drop database urdo;
+
 create database urdo;
 use urdo;
 
