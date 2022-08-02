@@ -53,7 +53,7 @@ public class ProduceController implements SubController{
                 dto.setProducer(producer);
                 dto.setGifImage(gifImage);
                 dto.setPrice(price);
-
+                /*
                 boolean result = service.ProduceUrcon(dto);
 
                 if(result)
@@ -66,6 +66,7 @@ public class ProduceController implements SubController{
                     req.setAttribute("msg", "작성에 실패했습니다.");
                     req.getRequestDispatcher("/URPO/produce.jsp").forward(req, resp);
                 }
+                */
             }
         }
         catch(Exception e)

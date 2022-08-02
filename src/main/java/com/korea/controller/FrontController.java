@@ -63,7 +63,7 @@ public class FrontController extends HttpServlet
 
         // 유알포
         list.put("/URPO.do", new UrconController());
-        list.put("/URPO/produce.do", new ProduceController());
+        //list.put("/URPO/produce.do", new ProduceController());
         list.put("/Urpo/read.do", new UrpoReadController()); //이거잘못함 ㅠ근데귀찮음
         list.put("/URPO/purchase.do", new UrpoPurchaseController());
     }
