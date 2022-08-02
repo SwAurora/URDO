@@ -105,11 +105,9 @@ public class UrpoDAO extends DAO
     }
 
     // 아이템 번호로 아이템 정보 불러오기
-    public UrpoDTO Select(int no)
-    {
+    public UrpoDTO Select(int no) {
         UrpoDTO dto = new UrpoDTO();
-        try
-        {
+        try {
             pstmt = conn.prepareStatement("select * from urpo_tbl where no = ?");
             pstmt.setInt(1, no);
             rs = pstmt.executeQuery();
@@ -125,71 +123,33 @@ public class UrpoDAO extends DAO
                 dto.setCategory(rs.getString("category"));
                 dto.setProducer(rs.getString("producer"));
             }
-        }
-        catch(Exception e)
-        {
+        } catch(Exception e) {
             e.printStackTrace();
-        }
-        finally
-        {
-            try
-            {
-                rs.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-            try
-            {
-                pstmt.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
+        } finally {
+        	try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
         return dto;
     }
 
     // 멤버 아이디로 아이템 구매하기
-    public boolean purchase(String id, int price, int no)
-    {
-        try
-        {
+    public boolean purchase(String id, int price, int no) {
+        try {
             String items = no + ";";
             pstmt = conn.prepareStatement("update member_tbl set point = point - ?, items =? where id = ?");
             pstmt.setInt(1, price);
             pstmt.setString(2, items);
             pstmt.setString(3, id);
             int result = pstmt.executeUpdate();
-            if(result > 0)
-            {
+            if(result > 0) {
                 return true;
             }
         }
-        catch(Exception e)
-        {
+        catch(Exception e) {
             e.printStackTrace();
-        }
-        finally
-        {
-            try
-            {
-                rs.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-            try
-            {
-                pstmt.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
         return false;
     }
