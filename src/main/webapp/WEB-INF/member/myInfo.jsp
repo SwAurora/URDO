@@ -1,4 +1,6 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page import="com.korea.dto.MemberDTO" %>
+<%@ page import="com.korea.dto.UrpoDTO" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!doctype html>
 <html lang="en">
@@ -51,6 +53,7 @@
 <section class="Main">
     <%
         MemberDTO dto = (MemberDTO) request.getAttribute("dto");
+    	ArrayList<UrpoDTO> itemlist = (ArrayList<UrpoDTO>) request.getAttribute("itemlist");
     %>
     <h1 style="margin:50px 0;">마이 페이지</h1>
 
@@ -80,7 +83,7 @@
                 <div>추천한 글</div>
             </div>
             <div class="item">
-                <div class="number">1786</div>
+                <div class="number"><%=dto.getPoint() %></div>
                 <div>포인트(URDO)</div>
             </div>
         </div>
@@ -241,7 +244,36 @@
 
             </script>
         </div>
+	    <!-- 댓글 아이콘 선택 -->
+	    <style>
+	    	.selec_wrap {
+	    		border:1px solid red;
+	    	}
+	    </style>
+	    <div class="iconContainer">
+	    	<h1>댓글 아이콘을 선택해보세요.</h1>
+	    	<%
+		  for(UrpoDTO urpoDTO: itemlist)
+			  {
+			%>
+			<div class="hov-ani">
+			<div class="hov-ani-img">
+			<%-- 
+			  <img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
+			 --%>  
+				<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated"  style ="width:50px;">
+			  </div>
+			  <div>
+				  <a class="imgTitle" href="/Urpo/read.do?no=<%=urpoDTO.getNo()%>"><%=urpoDTO.getTitle()%></a>
+			  </div>
+			</div>
+			<%
+				}
+			%>  
+	    </div>
+        
     </div>
+    
 </section>
 
 <%-- 모달 --%>
