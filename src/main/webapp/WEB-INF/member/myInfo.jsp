@@ -30,6 +30,19 @@
         }
     }
 %>
+
+<%
+    String msg = (String) request.getAttribute("msg");
+    if(msg != null)
+    {
+%>
+<script>
+    alert("<%=msg%>");
+</script>
+<%
+    }
+%>
+
 <!--네비게이션 시작-->
 <jsp:include page="/resources/includes/nav.jsp"/>
 

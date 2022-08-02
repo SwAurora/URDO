@@ -50,4 +50,9 @@ public class MemberService
     {
         return dao.UpdatePassword(id, password);
     }
+
+    public boolean DeleteMember(String id)
+    {
+        return dao.DeleteMember(id);
+    }
 }

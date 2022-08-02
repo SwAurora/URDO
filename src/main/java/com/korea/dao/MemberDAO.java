@@ -1,6 +1,9 @@
 package com.korea.dao;
 
 import com.korea.dto.MemberDTO;
+import org.mindrot.jbcrypt.BCrypt;
+
+import java.sql.SQLException;
 
 public class MemberDAO extends DAO
 {
@@ -151,6 +154,38 @@ public class MemberDAO extends DAO
         catch(Exception e)
         {
             e.printStackTrace();
+        }
+        return false;
+    }
+
+    public boolean DeleteMember(String id)
+    {
+        String sql = "delete from member_tbl where id=?";
+        try
+        {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, id);
+            int result = pstmt.executeUpdate();
+            if(result > 0)
+            {
+                return true;
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+
         }
         return false;
     }

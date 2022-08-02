@@ -10,27 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
-import com.korea.controller.board.CreArtController;
-import com.korea.controller.board.CreCookController;
-import com.korea.controller.board.DeleteController;
-import com.korea.controller.board.HumorController;
-import com.korea.controller.board.PostController;
-import com.korea.controller.board.PostUpdateController;
-import com.korea.controller.board.ReadController;
-import com.korea.controller.board.RecController;
-import com.korea.controller.board.RecCountController;
-import com.korea.controller.board.RegionLandmarkController;
-import com.korea.controller.board.RegionRestaurantController;
-import com.korea.controller.board.ReplyController;
-import com.korea.controller.board.ReplyDeleteController;
-import com.korea.controller.board.ReplyListController;
-import com.korea.controller.board.ThemeGameController;
-import com.korea.controller.board.ThemeMusicController;
-import com.korea.controller.board.ThemeSportsController;
-import com.korea.controller.member.PwdUpdateController;
-import com.korea.controller.member.ShowInfoController;
-import com.korea.controller.member.SignUpController;
-import com.korea.controller.member.UpdateController;
+import com.korea.controller.board.*;
+import com.korea.controller.member.*;
 import com.korea.controller.urpo.ProduceController;
 import com.korea.controller.urpo.UrconController;
 import com.korea.controller.urpo.UrpoPurchaseController;
@@ -59,6 +40,7 @@ public class FrontController extends HttpServlet
         list.put("/ShowInfo.do", new ShowInfoController());
         list.put("/Update.do", new UpdateController());
         list.put("/PwdUpdate.do", new PwdUpdateController());
+        list.put("/Delete.do", new DeleteMemberController());
 
         // 게시판
         list.put("/Board/humor.do", new HumorController());
