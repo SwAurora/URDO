@@ -14,7 +14,8 @@ public class ReplyDeleteController implements SubController{
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		
+		int rno = Integer.parseInt(req.getParameter("rno"));
+		service.replyDelete(rno);
 	}
 
 }

@@ -14,6 +14,7 @@ import com.korea.controller.board.*;
 import com.korea.controller.member.*;
 import com.korea.controller.urpo.ProduceController;
 import com.korea.controller.urpo.UrconController;
+import com.korea.controller.urpo.UrpoPurchaseController;
 import com.korea.controller.urpo.UrpoReadController;
 
 @MultipartConfig(
@@ -63,7 +64,8 @@ public class FrontController extends HttpServlet
         // 유알포
         list.put("/URPO.do", new UrconController());
         list.put("/URPO/produce.do", new ProduceController());
-        list.put("/Urpo/read.do", new UrpoReadController());
+        list.put("/Urpo/read.do", new UrpoReadController()); //이거잘못함 ㅠ근데귀찮음
+        list.put("/URPO/purchase.do", new UrpoPurchaseController());
     }
 
     @Override

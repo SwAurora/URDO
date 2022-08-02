@@ -77,6 +77,7 @@ create table reply_tbl
   foreign key(boardNo) references board_tbl(no) on delete cascade,
   foreign key(writer) references member_tbl(nickname) on update cascade
 );
+select * from reply_tbl order by no desc;
 
 #------------------------------------------------ 추천 테이블
 create table rec_tbl
@@ -108,3 +109,8 @@ values ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/ur
  ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon10.bmp', '/resources/img/urpo/urcon/urcon10.gif', 'urcon', 'admin1234'),
  ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234'),
  ('귀여운', '허허!.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234');
+ 
+-- member_tbl 칼럼 추가 구매한 아이템 목록을 의미합니다.
+ALTER TABLE member_Tbl ADD items varchar(5000);
+-- member_tbl 포인트 입력. 포인트가 있어야 구매가능하다.
+alter table member_tbl set point = 100 where id ='자기계정아이디';

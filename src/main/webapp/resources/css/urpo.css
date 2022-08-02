@@ -269,13 +269,61 @@ li a {
 
 
 /* 아이콘 보기 시작 */
-.urcon_detail {
+.ud_container {
+	width:calc(100% - 20px);
+}
+.ud_title {
 	height : 100%;
-	margin : 50px 0 0 0;
+	margin : 50px 0 20px 0;
+	font-size:2rem;
+	padding:5px 0 10px 0;
+	border-bottom:1px solid var(--color-text);
+	
+}
+.urcon_detail {
+	display:flex;
+	flex-direction:row;
+	gap:30px;
 	border:1px solid red;
 }
-
+.ud_img img{
+	width:300px;
+}
+.ud_contents {
+	font-size:var(--font-M);
+}
+.ud_discription {
+	height: 200px;
+	border:1px solid red;
+}
+.ud_pay {
+	display:flex;
+	flex-direction:row;
+	gap:20px;
+}
+.ud_price {
+	width:100px; height:50px; line-height:50px;
+	text-align:center;
+	background-color:var(--color-white);
+	border-radius:5px;
+	color:var(--color-text);
+	padding:5px;
+	border:1px solid red;
+}
+.ud_purchase {
+	height:50px; line-height:50px;
+	text-align:center;
+	background-color:var(--color-warning);
+	border-radius:5px;
+	color:var(--color-white);
+	padding:5px;
+}
 /* 아이콘 보기 끝 */
+
+/* urconRead 시작 */
+
+
+/* urconRead 끝 */
 
 
 

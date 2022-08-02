@@ -119,6 +119,7 @@ a
 
 }
 
+/* ---------- 파일박스 시작 ---------- */
 .filebox .upload-name
 {
     display: inline-block;
@@ -155,6 +156,31 @@ a
     overflow: hidden;
     border: 0;
 }
+
+.filelistbox {
+	width:506px;
+	margin:14px 0;
+	border:1px solid var(--color-darkgray);
+	border-radius:5px;
+	display:flex;
+	flex-direction:column;
+	gap:2px;
+	background-color:var(--color-textField);
+}
+
+.file_ex {
+	margin:5px;
+	padding-bottom:6px;
+	border-bottom:1px solid var(--color-blackToWhite);
+}
+
+.file_label {
+	font-size:var(--font-M);
+	margin:3px 0;
+	width:100%;
+}
+/* ---------- 파일박스 끝 ---------- */
+
 
 .post
 {

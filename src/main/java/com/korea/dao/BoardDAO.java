@@ -345,53 +345,47 @@ public class BoardDAO extends DAO
     }
 
     // 댓글 불러오기 함수
-    public ArrayList<ReplyDTO> getReplylist(int bno)
-        {
-            ArrayList<ReplyDTO> list = new ArrayList();
-            ReplyDTO dto;
-            try
-            {
-                Connection conn = pool.getConnection();
-                PreparedStatement pstmt;
-                ResultSet rs;
-                pstmt = conn.prepareStatement("select * from reply_tbl where boardNo = ? order by no desc");
-                pstmt.setInt(1, bno);
-                rs = pstmt.executeQuery();
-                while(rs.next())
-                {
-                    dto = new ReplyDTO();
-                    dto.setNo(rs.getInt("no"));
-                    dto.setBoardNo(rs.getInt("boardNo"));
-                    dto.setContent(rs.getString("content"));
-                    dto.setWriter(rs.getString("writer"));
-                    dto.setRegdate(rs.getString("regdate"));
-                    list.add(dto);
-                }
+    public ArrayList<ReplyDTO> getReplylist(int bno) {
+        ArrayList<ReplyDTO> list = new ArrayList();
+        ReplyDTO dto;
+        try {
+            Connection conn = pool.getConnection();
+            PreparedStatement pstmt;
+            ResultSet rs;
+            pstmt = conn.prepareStatement("select * from reply_tbl where boardNo = ? order by no desc");
+            pstmt.setInt(1, bno);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                dto = new ReplyDTO();
+                dto.setNo(rs.getInt("no"));
+                dto.setBoardNo(rs.getInt("boardNo"));
+                dto.setContent(rs.getString("content"));
+                dto.setWriter(rs.getString("writer"));
+                dto.setRegdate(rs.getString("regdate"));
+                list.add(dto);
             }
-            catch(Exception e)
-        {
+        } catch(Exception e) {
+        	e.printStackTrace();
+        } finally {
+	        try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+	        try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+	    }
+	    return list;
+    }
+    
+    // 댓글 삭제 함수
+    public boolean replyDelete(int no) {
+        try {
+            pstmt = conn.prepareStatement("delete from reply_tbl where no = ?");
+            pstmt.setInt(1, no);
+            int result = pstmt.executeUpdate();
+            if(result > 0) return true;
+        } catch(Exception e) {
             e.printStackTrace();
+        } finally {
+	        try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
-        finally
-        {
-            try
-            {
-                rs.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-            try
-            {
-                pstmt.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
-        return list;
+        return false;
     }
 
     // 조회수 증가

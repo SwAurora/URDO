@@ -1,4 +1,5 @@
 <%@ page import="com.korea.dto.BoardDTO" %>
+<%@ page import="com.korea.dto.ReplyDTO" %>
 <%@ page import="java.util.Objects" %>
 <%@ page import="java.io.File" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -178,6 +179,7 @@
     </form>
 
     <%--댓글--%>
+    
     <script>
         listreply();
 
@@ -222,7 +224,10 @@
         function listreply()
         {
             $.ajax({
-                url: '/Board/replylist.do', type: 'GET', data: {"bno": '<%=dto.getNo()%>'}, success: function(result)
+                url: '/Board/replylist.do', 
+                type: 'GET', 
+                data: {"bno": '<%=dto.getNo()%>'}, 
+                success: function(result)
                 {
                     $('#replyRead').html(result);
                 }, error: function()
@@ -230,6 +235,28 @@
                     alert('댓글 목록 확인 에러!');
                 }
             });
+        }
+        
+        function replydeleteConfirm() {
+        	
+        }
+        function replydelete(rno) {
+            let conf = confirm("댓글을 정말 삭제하시겠습니까?");
+            if(conf) {
+	        	$.ajax({
+	        		url:'/Board/replydelete.do',
+	        		type:'GET',
+	        		data:{ "rno" : rno },
+	                error: function()
+	                {
+	                    alert('댓글 삭제에 오류가 발생했습니다!');
+	                },
+	                success: function()
+	                {
+	                    listreply();
+	                }
+	        	})
+            }
         }
     </script>
 

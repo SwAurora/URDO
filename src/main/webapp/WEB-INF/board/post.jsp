@@ -12,6 +12,8 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../../resources/css/boardPost.css">
 <body>
+	
+	
 <%
     String msg = (String) request.getAttribute("msg");
     if(msg != null)
