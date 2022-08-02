@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import com.korea.dao.UrpoDAO;
 import com.korea.dto.BoardDTO;
+import com.korea.dto.MemberDTO;
 import com.korea.dto.UrpoDTO;
 
 public class UrpoService {
@@ -34,7 +35,7 @@ public class UrpoService {
     }
     
     // 멤버 아이디로 아이템 구매하기
-    public boolean purchase(String id, int price, int no) {
-        return dao.purchase(id, price, no);
+    public boolean purchase(MemberDTO dto, int price, int no) {
+        return dao.purchase(dto, price, no);
     }
 }

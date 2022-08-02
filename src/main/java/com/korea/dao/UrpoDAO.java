@@ -3,6 +3,7 @@ package com.korea.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.korea.dto.MemberDTO;
 import com.korea.dto.UrpoDTO;
 
 public class UrpoDAO extends DAO
@@ -133,13 +134,13 @@ public class UrpoDAO extends DAO
     }
 
     // 멤버 아이디로 아이템 구매하기
-    public boolean purchase(String id, int price, int no) {
+    public boolean purchase(MemberDTO dto, int price, int no) {
         try {
-            String items = no + ";";
+            String items = dto.getItems() + no + ";";
             pstmt = conn.prepareStatement("update member_tbl set point = point - ?, items =? where id = ?");
             pstmt.setInt(1, price);
             pstmt.setString(2, items);
-            pstmt.setString(3, id);
+            pstmt.setString(3, dto.getId());
             int result = pstmt.executeUpdate();
             if(result > 0) {
                 return true;
