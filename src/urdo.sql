@@ -12,9 +12,9 @@ create table member_tbl
     nickname varchar(20) not null unique,
     point int,
     grade int,
-    items varchar(5000)
+    icon int default 1,
+    items varchar(5000) default '1;'
 );
-
 #------------------------------------------------- 게시판 테이블
 create table subject_tbl
 (
@@ -44,42 +44,42 @@ create table board_tbl
     views int,
     recommend int,
     filename varchar(500),
-    foreign key(subject) references subject_tbl(subject) on update cascade on delete cascade
+    foreign key(subject) references subject_tbl(subject) on update cascade on delete cascade,
+    foreign key(writer) references member_tbl(nickname) on update cascade on delete cascade
 );
-
 create procedure board()
 BEGIN
     DECLARE i INT DEFAULT 1;
 while(i<=100) DO
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('bestNow', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('bestMonth', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('humor', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('creArt', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('creCook', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('regionRestaurant', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('regionLandmark', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeGame', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeSports', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeMusic', concat('제목', i), concat('내용', i), concat('작성자', i), SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('bestNow', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('bestMonth', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('humor', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('creArt', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('creCook', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('regionRestaurant', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('regionLandmark', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeGame', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeSports', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeMusic', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
 set i = i+1;
 end while;
 END;
 
 CALL board();
-
 #------------------------------------------------- 댓글 테이블
 create table reply_tbl
 (
   no int primary key auto_increment,
   boardNo int not null,
+  memberId varchar(20) not null,
   writer varchar(20) not null,
   content varchar(2000) not null,
   regdate varchar(45),
   foreign key(boardNo) references board_tbl(no) on delete cascade,
-  foreign key(writer) references member_tbl(nickname) on update cascade
+  foreign key(writer) references member_tbl(nickname) on update cascade,
+  foreign key(memberId) references member_tbl(id) on delete cascade
 );
 select * from reply_tbl order by no desc;
-
 #------------------------------------------------ 추천 테이블
 create table rec_tbl
 (
@@ -110,18 +110,6 @@ values ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/ur
  ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon10.bmp', '/resources/img/urpo/urcon/urcon10.gif', 'urcon', 'admin1234'),
  ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234'),
  ('귀여운', '허허!.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234');
- 
 
--- member_tbl 포인트 입력. 포인트가 있어야 구매가능하다.
-update member_tbl set point = 100 where id ='wb0802';
-
--- member_tbl 칼럼 추가 : 구매한 아이템 목록, 설정 한 아이콘을 의미합니다.
-alter table member_tbl drop column items;
-alter table member_tbl add items varchar(5000) default '1;';
-ALTER TABLE member_Tbl ADD icon int default 1;
-
---reply_tbl 칼럼 추가 : id로 멤버정보 dto를불러와야해서 추가했음
-ALTER TABLE reply_tbl ADD CONSTRAINT fk_id FOREIGN KEY (id) REFERENCES member_tbl (id);
-
---reply_tbl 비우기 : reply_tbl에 id가 등록되어있지 않기 때문에 비우고 새로등록해줘야함
-TRUNCATE reply_tbl;
+#----------------------------------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------------------------------

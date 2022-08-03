@@ -322,11 +322,11 @@ public class BoardDAO extends DAO
         	Connection conn = pool.getConnection();
             PreparedStatement pstmt;
         	// 댓글 작성 SQL
-            pstmt = conn.prepareStatement("insert into reply_tbl(boardNo, writer, content, regdate, id) values(?,?,?, sysdate(), ?)");
+            pstmt = conn.prepareStatement("insert into reply_tbl(boardNo, memberId, writer, content, regdate) values(?,?,?,?,sysdate())");
             pstmt.setInt(1, rdto.getBoardNo());
-            pstmt.setString(2, rdto.getWriter());
-            pstmt.setString(3, rdto.getContent());
-            pstmt.setString(4, rdto.getId());
+            pstmt.setString(2, rdto.getMemberId());
+            pstmt.setString(3, rdto.getWriter());
+            pstmt.setString(4, rdto.getContent());
             int result = pstmt.executeUpdate();
             
             // 댓글 작성 시 포인트 증가 SQL
@@ -357,7 +357,7 @@ public class BoardDAO extends DAO
 
     // 댓글 불러오기 함수
     public ArrayList<ReplyDTO> getReplylist(int bno) {
-        ArrayList<ReplyDTO> list = new ArrayList();
+        ArrayList<ReplyDTO> list = new ArrayList<>();
         ReplyDTO dto;
         try {
             Connection conn = pool.getConnection();
@@ -370,10 +370,10 @@ public class BoardDAO extends DAO
                 dto = new ReplyDTO();
                 dto.setNo(rs.getInt("no"));
                 dto.setBoardNo(rs.getInt("boardNo"));
-                dto.setContent(rs.getString("content"));
+                dto.setMemberId(rs.getString("memberId"));
                 dto.setWriter(rs.getString("writer"));
+                dto.setContent(rs.getString("content"));
                 dto.setRegdate(rs.getString("regdate"));
-                dto.setId(rs.getString("id"));
                 list.add(dto);
             }
         } catch(Exception e) {

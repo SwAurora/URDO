@@ -27,7 +27,7 @@ public class MemberDAO extends DAO
     {
         try
         {
-            pstmt = conn.prepareStatement("insert into member_tbl values(?,?,?,?,0,0,null)");
+            pstmt = conn.prepareStatement("insert into member_tbl(id, pw, email, nickname, point, grade) values(?,?,?,?,0,0)");
             pstmt.setString(1, dto.getId());
             pstmt.setString(2, dto.getPw());
             pstmt.setString(3, dto.getEmail());
@@ -105,9 +105,6 @@ public class MemberDAO extends DAO
         }
         return null;
     }
-    
-    
-    
 
     public boolean UpdateEmail(String id, String email)
     {

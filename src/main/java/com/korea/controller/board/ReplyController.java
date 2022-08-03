@@ -22,10 +22,10 @@ public class ReplyController implements SubController{
 		
 		ReplyDTO rdto = new ReplyDTO();
 		rdto.setBoardNo(Integer.parseInt(bno));
+		rdto.setMemberId(id);
 		rdto.setWriter(nickname);
 		rdto.setContent(comment);
-		rdto.setId(id);
-		
+
 		// 서비스 실행
 		service.reply(rdto);
 	}

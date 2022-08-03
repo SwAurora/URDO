@@ -34,8 +34,7 @@ public class ReplyListController implements SubController
             PrintWriter out = resp.getWriter();
             for(ReplyDTO rdto : list)
             {
-            	System.out.println(rdto.getId());
-            	MemberDTO dto = mservice.MemberSearch(rdto.getId());
+            	MemberDTO dto = mservice.MemberSearch(rdto.getMemberId());
             	UrpoDTO udto = uservice.Select(dto.getIcon());
                 out.print("<tr>");
                 out.print("<td class=\"replyCol1\"><img src="+udto.getGifImage()+"></td>");
