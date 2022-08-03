@@ -32,11 +32,11 @@ public class RecController implements SubController
                 // 추천하지 않았다면 추천 추가
                 service.recUpdate(dto);
                 service.recUp(Integer.parseInt(no));
-                out.print("추천 성공!");
+                out.print("<script>modal_open();</script>");
             }
             else
             {
-                out.print("이미 추천한 게시글입니다.");
+                out.print("<script>alert('이미 추천한 게시글입니다.')</script>");
             }
         }
         catch(Exception e)
