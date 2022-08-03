@@ -246,32 +246,33 @@
         </div>
 	    <!-- 댓글 아이콘 선택 -->
 	    <style>
-	    	.selec_wrap {
+	    	.iconContainer {
 	    		border:1px solid red;
+	    	}
+	    	.icon {
+	    		display:flex;
+	    		flex-wrap: wrap;
+	    	}
+	    	.imgTitle {
 	    	}
 	    </style>
 	    <div class="iconContainer">
 	    	<h1>댓글 아이콘을 선택해보세요.</h1>
-	    	<%
-		  for(UrpoDTO urpoDTO: itemlist)
-			  {
-			%>
-			<div class="hov-ani">
-			<div class="hov-ani-img">
-			<%-- 
-			  <img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
-			 --%>  
-				<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated"  style ="width:50px;">
-			  </div>
-			  <div>
-				  <a class="imgTitle" href="/Urpo/read.do?no=<%=urpoDTO.getNo()%>"><%=urpoDTO.getTitle()%></a>
-			  </div>
-			</div>
+			<form action="/URPO/Icon.do" method="post">
 			<%
-				}
-			%>  
-	    </div>
-        
+			  for(UrpoDTO urpoDTO: itemlist) {
+			%>
+				<div class="icon">
+					<div><img src=<%=urpoDTO.getGifImage() %> alt="" class="animated"  style ="width:50px; height:50px;"></div>
+					<div class="imgTitle"><%=urpoDTO.getTitle()%></div>
+					<input type="radio" name="replyIcon" value=<%=urpoDTO.getNo() %>>
+			<%
+			}
+			%>
+		    	</div>
+				<input type="submit" value="고르기">
+	        </form>
+		</div>
     </div>
     
 </section>

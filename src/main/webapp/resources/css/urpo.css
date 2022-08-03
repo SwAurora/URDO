@@ -64,10 +64,10 @@ a {
 
 .tabContents.on
 {
-  display: grid;
+    display: grid;
 	grid-template-columns: repeat(10, 1fr);
 	grid-template-rows: repeat(3, 1fr);
-  gap:10px;
+    gap:10px;
 }
 /* 탭 컨텐츠 끝 */
 

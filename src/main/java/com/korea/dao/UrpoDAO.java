@@ -87,8 +87,7 @@ public class UrpoDAO extends DAO
     }
     
     // 아이템 번호 리스트로 아이템 불러오기
-    public List<UrpoDTO> ShowItems(String[] nolist)
-    {
+    public List<UrpoDTO> ShowItems(String[] nolist) {
         ArrayList<UrpoDTO> list = new ArrayList<>();
         UrpoDTO dto;
         try {

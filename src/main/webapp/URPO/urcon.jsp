@@ -78,9 +78,9 @@
 			%>
 			<div class="hov-ani">
 				<div class="hov-ani-img">
-				  <img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
-					<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
-			  </div>
+				<img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
+				<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
+			  	</div>
 			  <div>
 				  <a class="imgTitle" href="/Urpo/read.do?no=<%=urpoDTO.getNo()%>"><%=urpoDTO.getTitle()%></a>
 			  </div>

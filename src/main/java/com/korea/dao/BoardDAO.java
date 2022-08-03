@@ -322,10 +322,11 @@ public class BoardDAO extends DAO
         	Connection conn = pool.getConnection();
             PreparedStatement pstmt;
         	// 댓글 작성 SQL
-            pstmt = conn.prepareStatement("insert into reply_tbl(boardNo, writer, content, regdate) values(?,?,?, sysdate())");
+            pstmt = conn.prepareStatement("insert into reply_tbl(boardNo, writer, content, regdate, id) values(?,?,?, sysdate(), ?)");
             pstmt.setInt(1, rdto.getBoardNo());
             pstmt.setString(2, rdto.getWriter());
             pstmt.setString(3, rdto.getContent());
+            pstmt.setString(4, rdto.getId());
             int result = pstmt.executeUpdate();
             
             // 댓글 작성 시 포인트 증가 SQL
@@ -372,6 +373,7 @@ public class BoardDAO extends DAO
                 dto.setContent(rs.getString("content"));
                 dto.setWriter(rs.getString("writer"));
                 dto.setRegdate(rs.getString("regdate"));
+                dto.setId(rs.getString("id"));
                 list.add(dto);
             }
         } catch(Exception e) {

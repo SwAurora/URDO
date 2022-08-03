@@ -12,4 +12,5 @@ public class MemberDTO
     private int point;
     private int grade;
     private String items;
+    private int icon;
 }
