@@ -255,33 +255,60 @@
         </div>
 	    <!-- 댓글 아이콘 선택 -->
 	    <style>
+	    	.iconFrm {
+	    		background-color : var(--color-whiteToBlack);
+	    		padding:16px;
+	    		margin:10px 0 0 0;
+	    		display:flex;
+	    		flex-direction:column;
+	    		gap:10px;
+	    	}
 	    	.iconContainer {
 	    		border:1px solid red;
+	    		display:flex;
+	    		flex-wrap:wrap;
+	    		gap:10px;
 	    	}
 	    	.icon {
-	    		display:flex;
-	    		flex-wrap: wrap;
 	    	}
 	    	.imgTitle {
+	    		font-size:var(--font-M);
+	    		color:var(--color-text);
 	    	}
+	    	.imgContainer {
+	    	}
+	    	.imgContainer img {
+	    		width:100px;height:100px;
+	    	}
+	    	.iconBtn {
+	    		cursor : pointer;
+	    		width:120px; height:40px;
+	    		border-radius:5px;
+	    		background-color:var(--color-warning);
+	    		color:var(--color-white);
+	    	}
+	    	.iconBtn:hover {
+	    		background-color:var(--color-warnin)
+	    	}
+	    	
 	    </style>
-	    <div class="iconContainer">
-	    	<h1>댓글 아이콘을 선택해보세요.</h1>
-			<form action="/URPO/Icon.do" method="post">
-			<%
-			  for(UrpoDTO urpoDTO: itemlist) {
-			%>
-				<div class="icon">
-					<div><img src=<%=urpoDTO.getGifImage() %> alt="" class="animated"  style ="width:50px; height:50px;"></div>
-					<div class="imgTitle"><%=urpoDTO.getTitle()%></div>
-					<input type="radio" name="replyIcon" value=<%=urpoDTO.getNo() %>>
-			<%
-			}
-			%>
-		    	</div>
-				<input type="submit" value="고르기">
+			<form class="iconFrm" action="/URPO/Icon.do" method="post">
+		    	<div class="iconNotice">댓글 아이콘을 선택해보세요.</div>
+			    <div class="iconContainer">
+					<%
+				    for(UrpoDTO urpoDTO: itemlist) {
+					%>
+					<div class="icon">
+						<div class="imgContainer"><img src=<%=urpoDTO.getGifImage() %> alt="icon"></div>
+						<div class="imgTitle"><%=urpoDTO.getTitle()%></div>
+						<input type="radio" name="replyIcon" value=<%=urpoDTO.getNo() %>>
+			    	</div>
+					<%
+					}
+					%>
+				</div>
+				<input class="iconBtn" type="submit" value="고르기">
 	        </form>
-		</div>
     </div>
     
 </section>
