@@ -55,4 +55,9 @@ public class MemberService
     {
         return dao.DeleteMember(id);
     }
+    
+    // 댓글아이콘 등록
+    public boolean replyIcon(int no, String id) {
+    	return dao.replyIcon(no, id);
+    }
 }

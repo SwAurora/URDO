@@ -3,6 +3,7 @@ package com.korea.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.korea.dto.MemberDTO;
 import com.korea.dto.UrpoDTO;
 
 public class UrpoDAO extends DAO
@@ -58,14 +59,12 @@ public class UrpoDAO extends DAO
     {
         ArrayList<UrpoDTO> list = new ArrayList<>();
         UrpoDTO dto;
-        try
-        {
+        try {
             pstmt = conn.prepareStatement("select * from urpo_tbl where category = ? order by no desc limit 30");
             pstmt.setString(1, category);
             rs = pstmt.executeQuery();
 
-            while(rs.next())
-            {
+            while(rs.next()) {
                 dto = new UrpoDTO();
                 dto.setNo(rs.getInt("no"));
                 dto.setTitle(rs.getString("title"));
@@ -77,29 +76,46 @@ public class UrpoDAO extends DAO
                 dto.setProducer(rs.getString("producer"));
                 list.add(dto);
             }
-        }
-        catch(Exception e)
+        } catch(Exception e)
         {
             e.printStackTrace();
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
-        finally
+        return list;
+    }
+    
+    // 아이템 번호 리스트로 아이템 불러오기
+    public List<UrpoDTO> ShowItems(String[] nolist) {
+        ArrayList<UrpoDTO> list = new ArrayList<>();
+        UrpoDTO dto;
+        try {
+            pstmt = conn.prepareStatement("select * from urpo_tbl where no = ? order by no desc");
+            for(int i=0; i<nolist.length; i++) {
+            	pstmt.setString(1, nolist[i]);
+            	rs = pstmt.executeQuery();
+            	while(rs.next()) {
+            		dto = new UrpoDTO();
+            		dto.setNo(rs.getInt("no"));
+            		dto.setTitle(rs.getString("title"));
+            		dto.setDiscription(rs.getString("discription"));
+            		dto.setPrice(rs.getInt("price"));
+            		dto.setStaticImage(rs.getString("staticImage"));
+            		dto.setGifImage(rs.getString("gifImage"));
+            		dto.setCategory(rs.getString("category"));
+            		dto.setProducer(rs.getString("producer"));
+            		list.add(dto);
+            		System.out.println(list.get(i).getGifImage());
+            	}
+
+            }
+        } catch(Exception e)
         {
-            try
-            {
-                rs.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-            try
-            {
-                pstmt.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
+            e.printStackTrace();
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
         return list;
     }
@@ -133,13 +149,13 @@ public class UrpoDAO extends DAO
     }
 
     // 멤버 아이디로 아이템 구매하기
-    public boolean purchase(String id, int price, int no) {
+    public boolean purchase(MemberDTO dto, int price, int no) {
         try {
-            String items = no + ";";
+            String items = dto.getItems() + no + ";";
             pstmt = conn.prepareStatement("update member_tbl set point = point - ?, items =? where id = ?");
             pstmt.setInt(1, price);
             pstmt.setString(2, items);
-            pstmt.setString(3, id);
+            pstmt.setString(3, dto.getId());
             int result = pstmt.executeUpdate();
             if(result > 0) {
                 return true;
@@ -153,5 +169,6 @@ public class UrpoDAO extends DAO
         }
         return false;
     }
+    
 
 }

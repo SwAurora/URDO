@@ -111,9 +111,17 @@ values ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/ur
  ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234'),
  ('귀여운', '허허!.', 20, '/resources/img/urpo/urcon/urcon11.bmp', '/resources/img/urpo/urcon/urcon11.gif', 'urcon', 'admin1234');
  
--- member_tbl 칼럼 추가 구매한 아이템 목록을 의미합니다.
-ALTER TABLE member_Tbl ADD items varchar(5000);
+
 -- member_tbl 포인트 입력. 포인트가 있어야 구매가능하다.
 update member_tbl set point = 100 where id ='wb0802';
 
-desc
+-- member_tbl 칼럼 추가 : 구매한 아이템 목록, 설정 한 아이콘을 의미합니다.
+alter table member_tbl drop column items;
+alter table member_tbl add items varchar(5000) default '1;';
+ALTER TABLE member_Tbl ADD icon int default 1;
+
+--reply_tbl 칼럼 추가 : id로 멤버정보 dto를불러와야해서 추가했음
+ALTER TABLE reply_tbl ADD CONSTRAINT fk_id FOREIGN KEY (id) REFERENCES member_tbl (id);
+
+--reply_tbl 비우기 : reply_tbl에 id가 등록되어있지 않기 때문에 비우고 새로등록해줘야함
+TRUNCATE reply_tbl;

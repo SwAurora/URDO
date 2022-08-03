@@ -76,6 +76,7 @@ public class MemberDAO extends DAO
                 dto.setPoint(rs.getInt("point"));
                 dto.setGrade(rs.getInt("grade"));
                 dto.setItems(rs.getString("items"));
+                dto.setIcon(rs.getInt("icon"));
                 return dto;
             }
         }
@@ -104,6 +105,9 @@ public class MemberDAO extends DAO
         }
         return null;
     }
+    
+    
+    
 
     public boolean UpdateEmail(String id, String email)
     {
@@ -187,6 +191,26 @@ public class MemberDAO extends DAO
                 e.printStackTrace();
             }
 
+        }
+        return false;
+    }
+    
+    // 멤버 정보에 댓글아이콘 등록하기
+    public boolean replyIcon(int no, String id) {
+        try {
+            pstmt = conn.prepareStatement("update member_tbl set icon = ? where id = ?");
+            pstmt.setInt(1, no);
+            pstmt.setString(2, id);
+            int result = pstmt.executeUpdate();
+            if(result > 0) {
+                return true;
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
         return false;
     }

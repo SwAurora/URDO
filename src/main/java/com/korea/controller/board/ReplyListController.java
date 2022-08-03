@@ -8,14 +8,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.korea.controller.SubController;
-import com.korea.dto.BoardDTO;
+import com.korea.dto.MemberDTO;
 import com.korea.dto.ReplyDTO;
+import com.korea.dto.UrpoDTO;
 import com.korea.service.BoardService;
+import com.korea.service.MemberService;
+import com.korea.service.UrpoService;
 
 public class ReplyListController implements SubController
 {
     BoardService service = BoardService.getInstance();
-
+    MemberService mservice = MemberService.getInstance();
+    UrpoService uservice = UrpoService.getInstance();
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
     {
@@ -24,13 +28,17 @@ public class ReplyListController implements SubController
 		HttpSession session = req.getSession();
 		String nickname = (String) session.getAttribute("nickname");
 		
+		
         try
         {
             PrintWriter out = resp.getWriter();
             for(ReplyDTO rdto : list)
             {
+            	System.out.println(rdto.getId());
+            	MemberDTO dto = mservice.MemberSearch(rdto.getId());
+            	UrpoDTO udto = uservice.Select(dto.getIcon());
                 out.print("<tr>");
-                out.print("<td class=\"replyCol1\"><img src=\"/resources/img/board/frog.png\"></td>");
+                out.print("<td class=\"replyCol1\"><img src="+udto.getGifImage()+"></td>");
                 out.print("<td class=\"replyCol2\">" + rdto.getWriter() + " (" + rdto.getRegdate() + ")</td>");
                 out.print("<td class=\"replyCol3\">" + rdto.getContent() + "</td>");
                 if(rdto.getWriter().equals(nickname)) {

@@ -15,6 +15,7 @@ public class ReplyController implements SubController{
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		HttpSession session = req.getSession();
 		String nickname = (String) session.getAttribute("nickname");
+		String id = (String) session.getAttribute("id");
 		
 		String comment = req.getParameter("comment");
 		String bno = req.getParameter("bno");
@@ -23,6 +24,7 @@ public class ReplyController implements SubController{
 		rdto.setBoardNo(Integer.parseInt(bno));
 		rdto.setWriter(nickname);
 		rdto.setContent(comment);
+		rdto.setId(id);
 		
 		// 서비스 실행
 		service.reply(rdto);

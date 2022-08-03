@@ -1,4 +1,6 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page import="com.korea.dto.MemberDTO" %>
+<%@ page import="com.korea.dto.UrpoDTO" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!doctype html>
 <html lang="en">
@@ -51,6 +53,7 @@
 <section class="Main">
     <%
         MemberDTO dto = (MemberDTO) request.getAttribute("dto");
+    	ArrayList<UrpoDTO> itemlist = (ArrayList<UrpoDTO>) request.getAttribute("itemlist");
     %>
     <h1 style="margin:50px 0;">마이 페이지</h1>
 
@@ -250,7 +253,37 @@
                 }
             </script>
         </div>
+	    <!-- 댓글 아이콘 선택 -->
+	    <style>
+	    	.iconContainer {
+	    		border:1px solid red;
+	    	}
+	    	.icon {
+	    		display:flex;
+	    		flex-wrap: wrap;
+	    	}
+	    	.imgTitle {
+	    	}
+	    </style>
+	    <div class="iconContainer">
+	    	<h1>댓글 아이콘을 선택해보세요.</h1>
+			<form action="/URPO/Icon.do" method="post">
+			<%
+			  for(UrpoDTO urpoDTO: itemlist) {
+			%>
+				<div class="icon">
+					<div><img src=<%=urpoDTO.getGifImage() %> alt="" class="animated"  style ="width:50px; height:50px;"></div>
+					<div class="imgTitle"><%=urpoDTO.getTitle()%></div>
+					<input type="radio" name="replyIcon" value=<%=urpoDTO.getNo() %>>
+			<%
+			}
+			%>
+		    	</div>
+				<input type="submit" value="고르기">
+	        </form>
+		</div>
     </div>
+    
 </section>
 
 <%-- 모달 --%>
