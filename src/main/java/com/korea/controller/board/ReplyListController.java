@@ -38,12 +38,14 @@ public class ReplyListController implements SubController
             	UrpoDTO udto = uservice.Select(dto.getIcon());
                 out.print("<tr>");
                 out.print("<td class=\"replyCol1\"><img src="+udto.getGifImage()+"></td>");
-                out.print("<td class=\"replyCol2\">" + rdto.getWriter() + " (" + rdto.getRegdate() + ")</td>");
+                out.print("<td class=\"replyCol2\">" + rdto.getWriter() + "<br>(" + rdto.getRegdate() + ")</td>");
                 out.print("<td class=\"replyCol3\">" + rdto.getContent() + "</td>");
                 if(rdto.getWriter().equals(nickname)) {
                 	out.print("<td class=\"replyCol4\"><a href=\"javascript:replydelete("+rdto.getNo()+")\" class=\"replyDeleteBtn\">X</a></td>");
                 }
                 out.print("</tr>");
+                out.print("<tr>");
+                
             }
         }
         catch(Exception e)

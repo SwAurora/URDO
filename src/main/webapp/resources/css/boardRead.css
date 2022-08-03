@@ -173,19 +173,19 @@ a
 
 .replyCol1
 {
-    width: 30px;
+    width: 46px;
 }
 
 /* 이미지 */
 .replyRead img
 {
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
 }
 
 .replyCol2
 { /* 작성자 + 작성일 */
-    width: 230px;
+    width: 180px;
 }
 
 .replyCol3
