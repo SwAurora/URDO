@@ -63,20 +63,31 @@
 			  {
 			%>
 			<div class="hov-ani">
-				<div class="hov-ani-img">
-				<a href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
-					<img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
-					<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
+				<a class="hov-ani-img" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
+				<img src="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
+				
+				<%-- 
+				<img src="<%=urpoDTO.getStaticImage() %>" alt="" data-animated="<%=urpoDTO.getGifImage() %>" data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
+				 --%>
+				<br><%=urpoDTO.getTitle()%>
 				</a>
-			  	</div>
-			  <div>
-				  <a class="imgTitle" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>"><%=urpoDTO.getTitle()%></a>
-			  </div>
 			</div>
 			<%
 				}
 			%>
+			<!-- 
+			<script>
 			
+				$(".hov-anim").mouseover(function() {
+				  $(this).attr("src", $(this).data("animated"))
+				}),
+				$(".hov-anim").mouseout(function() {
+				  $(this).attr("src", $(this).data("static"))
+				});
+
+			
+			</script>
+ -->			
 					
       
     </div> <!-- 컨테이너 끝 -->
