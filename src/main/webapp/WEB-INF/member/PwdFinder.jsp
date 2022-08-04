@@ -25,7 +25,7 @@
     }
 %>
 <!--네비게이션 시작-->
-<jsp:include page="resources/includes/nav.jsp"/>
+<jsp:include page="/resources/includes/nav.jsp"/>
 
 <!--메인 시작-->
 <section class="Main" style="display: flex; justify-content: center; align-items: center;">
