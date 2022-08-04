@@ -329,12 +329,7 @@ public class BoardDAO extends DAO
             pstmt.setString(4, rdto.getContent());
             int result = pstmt.executeUpdate();
             
-            // 댓글 작성 시 포인트 증가 SQL
-            pstmt = conn.prepareStatement("update member_tbl set point = point + 1 where nickname =?");
-            pstmt.setString(1, rdto.getWriter());
-            int result2 = pstmt.executeUpdate();
-            
-            if(result > 0 && result2 > 0)
+            if(result > 0 )
                 return true;
         }
         catch(Exception e)
