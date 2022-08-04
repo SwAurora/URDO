@@ -53,7 +53,6 @@ public class UrpoPurchaseController implements SubController{
 			}
 		
 			if(mdto.getPoint() < price) {
-				System.out.println("잔액 : " + mdto.getPoint());
 				req.setAttribute("msg", "포인트가 부족합니다. 남은 포인트 : " +mdto.getPoint());
 				try {
 					req.getRequestDispatcher("/URPO/urconRead.jsp").forward(req, resp);

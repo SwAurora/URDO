@@ -54,14 +54,16 @@
     <%
         MemberDTO dto = (MemberDTO) request.getAttribute("dto");
     	ArrayList<UrpoDTO> itemlist = (ArrayList<UrpoDTO>) request.getAttribute("itemlist");
+    	
+    	UrpoDTO udto = (UrpoDTO) request.getAttribute("udto");
     %>
     <h1 style="margin:50px 0;">마이 페이지</h1>
 
     <div class="wrap">
         <div class="blueContainer">
-            <div>
-                <div class="name"><%= dto.getNickname() %>
-                </div>
+            <img src="<%=udto.getGifImage() %>">
+            <div class="name">
+            	<%= dto.getNickname() %>
             </div>
 
         </div>
@@ -263,23 +265,16 @@
 	    		flex-direction:column;
 	    		gap:10px;
 	    	}
+	    	.iconDisc {
+				display:flex;
+				gap:20px;
+	    	}
 	    	.iconContainer {
-	    		border:1px solid red;
 	    		display:flex;
 	    		flex-wrap:wrap;
 	    		gap:10px;
 	    	}
-	    	.icon {
-	    	}
-	    	.imgTitle {
-	    		font-size:var(--font-M);
-	    		color:var(--color-text);
-	    	}
-	    	.imgContainer {
-	    	}
-	    	.imgContainer img {
-	    		width:100px;height:100px;
-	    	}
+
 	    	.iconBtn {
 	    		cursor : pointer;
 	    		width:120px; height:40px;
@@ -291,25 +286,67 @@
 	    	.iconBtn:hover {
 	    		background-color:var(--color-warninghover);
 	    	}
+	    	.iconNoticeS {
+	    		font-size:var(--font-S);
+	    	}
+	    	.icon input[type="radio"] {
+	    		display:none;
+	    	}
+	    	.icon input[type=radio]+label{
+			    display: inline-block;
+			    cursor: pointer;
+			}
+			.icon input[type=radio]:checked+.imgContainer img{
+				margin:0px;
+			    border:5px solid var(--color-point);
+			}
+	    	.imgContainer {
+  				font-size:var(--font-S);
+	    	}
+	    	.imgContainer img {
+	    		width:100px;height:100px;
+	    		margin:5px;
+	    	}
+	    	
 	    	
 	    </style>
-			<form class="iconFrm" action="/URPO/Icon.do" method="post">
-		    	<div class="iconNotice">댓글 아이콘을 선택해보세요.</div>
+			<form class="iconFrm" id="iconFrm" action="/URPO/Icon.do" method="post" onsubmit="return radioNull();">
+				<div class="iconDisc">
+					<div>
+				    	<div class="iconNotice">유알콘을 선택해 주세요.</div>
+				    	<div class="iconNoticeS">프로필을 개성있는 유알콘으로 꾸며보세요. 원하는 아이콘을 선택하고 선택하기 버튼을 클릭하면 아이콘이 변경됩니다.</div>
+					</div>
+			    	<input class="iconBtn" type="submit" value="선택하기">
+				</div>
 			    <div class="iconContainer">
 					<%
 				    for(UrpoDTO urpoDTO: itemlist) {
 					%>
 					<div class="icon">
-						<div class="imgContainer"><img src=<%=urpoDTO.getGifImage() %> alt="icon"></div>
-						<div class="imgTitle"><%=urpoDTO.getTitle()%></div>
-						<input type="radio" name="replyIcon" value=<%=urpoDTO.getNo() %>>
+						<input class="iconRdio" id="urcon<%=urpoDTO.getNo() %>" type="radio" name="replyIcon" value=<%=urpoDTO.getNo() %>>
+						<label class= "imgContainer" for="urcon<%=urpoDTO.getNo() %>">
+							<img src=<%=urpoDTO.getGifImage() %> alt="icon"><br>
+							<%=urpoDTO.getTitle()%>
+						</label>
 			    	</div>
 					<%
 					}
 					%>
 				</div>
-				<input class="iconBtn" type="submit" value="선택하기">
 	        </form>
+	        <script>
+	        	function radioNull() {
+	        		let iconNo = $('#iconFrm [name="replyIcon"]:checked').val()
+	        		if(iconNo==null) {
+	        			alert('아이콘을 선택해주세요.');
+	        			return false;
+	        		} else {
+	        			return true;
+	        		}
+	        	}
+	        
+	        
+	        </script>
     </div>
     
 </section>

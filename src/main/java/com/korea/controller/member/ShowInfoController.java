@@ -35,6 +35,10 @@ public class ShowInfoController implements SubController
                 MemberDTO dto = service.MemberSearch(id);
                 req.setAttribute("dto", dto);
                 
+                // 멤버가 가지고있는 아이콘 정보 불러오기
+                UrpoDTO udto = uservice.Select(dto.getIcon());
+                req.setAttribute("udto", udto);
+                
                 // 멤버 정보에 있는 아이템리스트의 아이템 정보 불러오기
                 String[] nolist = dto.getItems().split(";");
                 List<UrpoDTO> list = uservice.ShowItems(nolist);
