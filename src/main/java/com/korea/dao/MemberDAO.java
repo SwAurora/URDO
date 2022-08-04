@@ -211,4 +211,24 @@ public class MemberDAO extends DAO
         }
         return false;
     }
+    
+    // 포인트 증가
+    public boolean getPoint(int no, String id) {
+        try {
+            pstmt = conn.prepareStatement("update member_tbl set point = point + ? where id = ?");
+            pstmt.setInt(1, no);
+            pstmt.setString(2, id);
+            int result = pstmt.executeUpdate();
+            if(result > 0) {
+                return true;
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        return false;
+    }
 }
