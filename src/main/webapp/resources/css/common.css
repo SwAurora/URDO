@@ -419,6 +419,14 @@ body.dark .switch::before
     justify-content: center;
 }
 
+@media (max-height: 580px)
+{
+    #loginWrap
+    {
+        display:none;
+    }
+}
+
 .btn
 {
     position: fixed;
