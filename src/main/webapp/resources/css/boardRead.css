@@ -152,6 +152,11 @@ a
     gap: 10px;
 }
 
+.btn_board.point:hover
+{
+    background-color: var(--color-warninghover);
+}
+
 /* ----------댓글 등록하기 css 시작---------- */
 .replyWrap
 {
@@ -239,6 +244,11 @@ a
     background-color: var(--color-point);
     color: var(--color-white);
     font-size: var(--font-M);
+}
+
+.replyBtn:hover
+{
+    background-color: var(--color-pointhover);
 }
 
 /* ----------댓글 등록하기 css 끝---------- */
