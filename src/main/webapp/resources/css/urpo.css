@@ -213,7 +213,17 @@ li a {
     height: 20px;
 }
 
+
+.boardfoot
+{
+    display: flex;
+    width: calc(100% - 20px);
+    margin: 10px 0;
+
+}
+
 /* 페이지네이션 끝 */
+
 
 
 .tab1_page {

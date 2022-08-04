@@ -87,27 +87,111 @@
 			</div>
 			<%
 				}
-			%>      		
+			%>
+			
+					
       
     </div> <!-- 컨테이너 끝 -->
-    
-    
-    <!-- 페이지네이션 시작 -->
-    <div class="pointfoot">
-      <div class="page_wrap">
-          <img class="page_arrow menuIcon" id="prev" src="/resources/img/board/page-arrow-back.svg">
-          <div class="page_nation">
-              <a href="#" class="page_num on">1</a>
-              <a href="#" class="page_num">2</a>
-              <a href="#" class="page_num">3</a>
-          </div>
-          <img class="page_arrow menuIcon" id="next" src="/resources/img/board/page-arrow-forward.svg">
-      </div>
-      <div class="post">
-          <a href="/URPO/produce.do" class="addBtn">제작/등록</a>
-      </div>
- 	 </div>
+        <!-- 페이지네이션 시작 -->
+    <%
+	    int totalcount; // 총 게시물
+	    int limit = 30; // 한페이지에 보여줄 게시물 초기값
+	    int totalPage; // 총 페이지 수
+	    int nowPage = 1; // 현재 페이지
+	    int pagePerBlock = 5; // 페이지네이션 보여줄 블럭 갯수 (1~5)
+	    int totalBlock; // 총 블럭 수
+	    int nowBlock; // 현재 블럭
+	%>
+	<%
+	    if(request.getAttribute("nowPage") != null)
+	    {
+	        nowPage = Integer.parseInt((String) request.getAttribute("nowPage"));
+	    }
+	%>
+	<%
+	    if(request.getParameter("limit") != null)
+	    {
+	        limit = Integer.parseInt(request.getParameter("limit"));
+	    }
+	    totalcount = (int) request.getAttribute("tcnt");
+	    totalPage = (int) Math.ceil((double) totalcount / limit);
+	    totalBlock = (int) Math.ceil((double) totalPage / pagePerBlock);
+	    nowBlock = (int) Math.ceil((double) nowPage / pagePerBlock);
+	%>
+    <div class="boardfoot">
+            <div class="page_wrap">
+                <%
+                    if(nowBlock > 1)
+                    {
+                %>
+                <img class="page_arrow menuIcon" onclick="block(-1)" id="prev"
+                     src="/resources/img/board/page-arrow-back.svg">
+                <%
+                    }
+                %>
+                <div class="page_nation">
+                    <%
+                        int pageStart = (nowBlock - 1) * pagePerBlock + 1;
+                        int pageEnd = Math.min((pageStart + (pagePerBlock - 1)), totalPage);
+                    %>
+                    <%--페이지 번호--%>
+                    <%
+                        for(; pageStart <= pageEnd; pageStart++)
+                        {
+                            if(pageStart == nowPage)
+                            {
+                    %>
+                    <a class="page_num on"
+                       href="/URPO.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
+                    </a>
+                    <%
+                    }
+                    else
+                    {
+                    %>
+                    <a class="page_num"
+                       href="/URPO.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
+                    </a>
+                    <%
+                            }
+                        }
+                    %>
+                </div>
+                <%
+                    if(totalBlock > nowBlock)
+                    {
+                %>
+                <img class="page_arrow menuIcon" onclick="block(1)" id="next"
+                     src="/resources/img/board/page-arrow-forward.svg">
+                <%
+                    }
+                %>
+            </div>
+            <!--  페이지 숫자 끝-->
+            <!-- 게시판 내용 관련 코드  끝-->
+        </div>
+	    <script>
+	        // num = -1 이전블럭이동, num = 1 다음블럭이동
+	        function block(num)
+	        {
+	            let page;
+	            let pageBlock = <%=pagePerBlock%>;
+	            let nowBlock = <%=nowBlock%>;
+	            if(num === 1)
+	            {
+	                page = pageBlock * nowBlock + 1;
+	                location.href= "/URPO.do?limit=" + <%=limit%> + "&page=" + page;
+	            }
+	            else
+	            {
+	                page = pageBlock * (nowBlock - 2) + pageBlock;
+	                location.href= "/URPO.do?limit=" + <%=limit%> + "&page=" + page;
+	            }
+	        }
+	    </script>
     <!-- 페이지네이션 끝 -->
+    
+
 
 
   </div>

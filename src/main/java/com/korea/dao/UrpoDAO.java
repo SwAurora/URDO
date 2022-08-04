@@ -55,13 +55,15 @@ public class UrpoDAO extends DAO
 //    }
 
     // 카테고리로 아이템 불러오기
-    public List<UrpoDTO> ShowItems(String category)
+    public List<UrpoDTO> ShowItems(String category, int start, int limit)
     {
         ArrayList<UrpoDTO> list = new ArrayList<>();
         UrpoDTO dto;
         try {
-            pstmt = conn.prepareStatement("select * from urpo_tbl where category = ? order by no desc limit 30");
+            pstmt = conn.prepareStatement("select * from urpo_tbl where category = ? order by no desc limit ?, ?");
             pstmt.setString(1, category);
+            pstmt.setInt(2, start);
+            pstmt.setInt(3, limit);
             rs = pstmt.executeQuery();
 
             while(rs.next()) {
@@ -168,6 +170,24 @@ public class UrpoDAO extends DAO
             try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
         return false;
+    }
+
+    public int getTotalCount(String category)
+    {
+        int result = 0;
+        try {
+            pstmt = conn.prepareStatement("select count(*) from urpo_tbl where category = ?");
+            pstmt.setString(1, category);
+            rs = pstmt.executeQuery();
+            rs.next();
+            result = rs.getInt(1);
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        return result;
     }
     
 

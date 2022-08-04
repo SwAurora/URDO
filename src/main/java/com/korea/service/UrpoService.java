@@ -25,8 +25,8 @@ public class UrpoService {
 	*/
 	
 	// 카테고리 명으로 아이템 목록 보기
-	public List<UrpoDTO> ShowItems(String category) {
-		return dao.ShowItems(category);
+	public List<UrpoDTO> ShowItems(String category, int start, int limit) {
+		return dao.ShowItems(category, start, limit);
 	}
 	
 	// 아이템 목록 리스트로 아이템 목록 보기
@@ -43,4 +43,8 @@ public class UrpoService {
     public boolean purchase(MemberDTO dto, int price, int no) {
         return dao.purchase(dto, price, no);
     }
+
+	public int getTotalCnt(String category) {
+		return dao.getTotalCount(category);
+	}
 }
