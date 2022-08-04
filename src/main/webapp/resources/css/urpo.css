@@ -56,7 +56,6 @@ a {
   width: calc(100% - 20px);
   display: none;
   margin-top:50px;
-  border:1px solid red;
 }
 .tabContents div {
   font-size:var(--font-L);
@@ -159,7 +158,6 @@ li a {
 	display: -webkit-box;
   	-webkit-line-clamp: 1;
   	-webkit-box-orient: vertical;
-  border:1px solid red;
   overflow:hidden;
 	
 }
@@ -213,17 +211,7 @@ li a {
     height: 20px;
 }
 
-
-.boardfoot
-{
-    display: flex;
-    width: calc(100% - 20px);
-    margin: 10px 0;
-
-}
-
 /* 페이지네이션 끝 */
-
 
 
 .tab1_page {
@@ -248,10 +236,9 @@ li a {
 
 
 
-.pointfoot
+.boardfoot
 {
     display: flex;
-    justify-content: center;
     /* width:100%; */
     width: calc(100% - 20px);
     margin: 10px 0;
@@ -294,7 +281,6 @@ li a {
 	display:flex;
 	flex-direction:row;
 	gap:30px;
-	border:1px solid red;
 }
 .ud_img img{
 	width:300px;
@@ -304,7 +290,6 @@ li a {
 }
 .ud_discription {
 	height: 200px;
-	border:1px solid red;
 }
 .ud_pay {
 	display:flex;
@@ -318,7 +303,6 @@ li a {
 	border-radius:5px;
 	color:var(--color-text);
 	padding:5px;
-	border:1px solid red;
 }
 .ud_purchase {
 	height:50px; line-height:50px;

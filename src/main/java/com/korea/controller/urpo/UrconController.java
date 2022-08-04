@@ -36,6 +36,7 @@ public class UrconController implements SubController
             req.setAttribute("list", list);
             int tcnt = service.getTotalCnt(category);
             req.setAttribute("tcnt", tcnt);
+            req.setAttribute("nowPage", nowPage);
             req.getRequestDispatcher("/URPO/urcon.jsp").forward(req, resp);
         } catch(Exception e) {
             e.printStackTrace();
