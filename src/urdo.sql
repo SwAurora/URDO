@@ -124,3 +124,9 @@ drop table urpo_tbl;
 select * from member_tbl;
 
 select * from urpo_tbl;
+
+select * from board_tbl where writer='aurora';
+
+select sum(recommend) from board_tbl where writer='aurora';
+
+select count(recommend) from board_tbl where no = (select no from board_tbl where writer='aurora');

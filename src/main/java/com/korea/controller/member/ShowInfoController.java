@@ -3,9 +3,11 @@ package com.korea.controller.member;
 import com.korea.controller.SubController;
 import com.korea.dto.MemberDTO;
 import com.korea.dto.UrpoDTO;
+import com.korea.service.BoardService;
 import com.korea.service.MemberService;
 import com.korea.service.UrpoService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +18,8 @@ public class ShowInfoController implements SubController
 {
     MemberService service = MemberService.getInstance();
     UrpoService uservice = UrpoService.getInstance();
+
+    BoardService bservice = BoardService.getInstance();
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
     {
@@ -34,6 +38,17 @@ public class ShowInfoController implements SubController
             {
                 MemberDTO dto = service.MemberSearch(id);
                 req.setAttribute("dto", dto);
+
+                int myPost = bservice.getMyPost(dto.getNickname());
+                int myReply = bservice.getMyReply(dto.getId());
+                int myReceivedRec = bservice.getMyReceivedRec(dto.getNickname());
+                int myRec = bservice.getMyRec(dto.getId());
+                List<Integer> myList = new ArrayList<>();
+                myList.add(myPost);
+                myList.add(myReply);
+                myList.add(myReceivedRec);
+                myList.add(myRec);
+                req.setAttribute("mylist", myList);
                 
                 // 멤버가 가지고있는 아이콘 정보 불러오기
                 UrpoDTO udto = uservice.Select(dto.getIcon());

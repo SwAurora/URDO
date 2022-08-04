@@ -1,4 +1,4 @@
-<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.ArrayList" %>
 <%@ page import="com.korea.dto.MemberDTO" %>
 <%@ page import="com.korea.dto.UrpoDTO" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -40,7 +40,7 @@
 %>
 <script>
     alert("<%=msg%>");
-    location.href="/ShowInfo.do";
+    location.href = "/ShowInfo.do";
 </script>
 <%
     }
@@ -53,9 +53,9 @@
 <section class="Main">
     <%
         MemberDTO dto = (MemberDTO) request.getAttribute("dto");
-    	ArrayList<UrpoDTO> itemlist = (ArrayList<UrpoDTO>) request.getAttribute("itemlist");
-    	
-    	UrpoDTO udto = (UrpoDTO) request.getAttribute("udto");
+        ArrayList<UrpoDTO> itemlist = (ArrayList<UrpoDTO>) request.getAttribute("itemlist");
+        ArrayList<Integer> mylist= (ArrayList<Integer>) request.getAttribute("mylist");
+        UrpoDTO udto = (UrpoDTO) request.getAttribute("udto");
     %>
     <h1 style="margin:50px 0;">마이 페이지</h1>
 
@@ -63,29 +63,30 @@
         <div class="blueContainer">
             <img src="<%=udto.getGifImage() %>" style="background-color:white;">
             <div class="name">
-            	<%= dto.getNickname() %>
+                <%= dto.getNickname() %>
             </div>
 
         </div>
         <div class="summaryContainer">
             <div class="item">
-                <div class="number">354</div>
+                <div class="number"><%=mylist.get(0)%></div>
                 <div>내가 쓴 글</div>
             </div>
             <div class="item">
-                <div class="number">976</div>
+                <div class="number"><%=mylist.get(1)%></div>
                 <div>내가 쓴 댓글</div>
             </div>
             <div class="item">
-                <div class="number">112</div>
+                <div class="number"><%=mylist.get(2)%></div>
                 <div>받은 추천 수</div>
             </div>
             <div class="item">
-                <div class="number">1392</div>
+                <div class="number"><%=mylist.get(3)%></div>
                 <div>추천한 글</div>
             </div>
             <div class="item">
-                <div class="number"><%=dto.getPoint()%></div>
+                <div class="number"><%=dto.getPoint()%>
+                </div>
                 <div>포인트(URDO)</div>
             </div>
         </div>
@@ -255,100 +256,128 @@
                 }
             </script>
         </div>
-	    <!-- 댓글 아이콘 선택 -->
-	    <style>
-	    	.iconFrm {
-	    		background-color : var(--color-whiteToBlack);
-	    		padding:16px;
-	    		margin:10px 0 0 0;
-	    		display:flex;
-	    		flex-direction:column;
-	    		gap:10px;
-	    	}
-	    	.iconDisc {
-				display:flex;
-				gap:20px;
-	    	}
-	    	.iconContainer {
-	    		display:flex;
-	    		flex-wrap:wrap;
-	    		gap:10px;
-	    	}
+        <!-- 댓글 아이콘 선택 -->
+        <style>
+            .iconFrm
+            {
+                background-color: var(--color-whiteToBlack);
+                padding: 16px;
+                margin: 10px 0 0 0;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
 
-	    	.iconBtn {
-	    		cursor : pointer;
-	    		width:120px; height:40px;
-	    		border:none; 	
-	    		border-radius:5px;
-	    		background-color:var(--color-warning);
-	    		color:var(--color-white);
-	    	}
-	    	.iconBtn:hover {
-	    		background-color:var(--color-warninghover);
-	    	}
-	    	.iconNoticeS {
-	    		font-size:var(--font-S);
-	    	}
-	    	.icon input[type="radio"] {
-	    		display:none;
-	    	}
-	    	.icon input[type=radio]+label{
-			    display: inline-block;
-			    cursor: pointer;
-			}
-			.icon input[type=radio]:checked+.imgContainer img{
-				margin:0px;
-			    border:5px solid var(--color-point);
-			}
-	    	.imgContainer {
-  				font-size:var(--font-S);
-	    	}
-	    	.imgContainer img {
-	    		width:100px;height:100px;
-	    		margin:5px;
-	    	}
-	    	
-	    	
-	    </style>
-			<form class="iconFrm" id="iconFrm" action="/URPO/icon.do" method="post" onsubmit="return radioNull();">
-				<div class="iconDisc">
-					<div>
-				    	<div class="iconNotice">유알콘을 선택해 주세요.</div>
-				    	<div class="iconNoticeS">프로필을 개성있는 유알콘으로 꾸며보세요. 원하는 아이콘을 선택하고 선택하기 버튼을 클릭하면 아이콘이 변경됩니다.</div>
-					</div>
-			    	<input class="iconBtn" type="submit" value="선택하기">
-				</div>
-			    <div class="iconContainer">
-					<%
-				    for(UrpoDTO urpoDTO: itemlist) {
-					%>
-					<div class="icon">
-						<input class="iconRdio" id="urcon<%=urpoDTO.getNo() %>" type="radio" name="replyIcon" value=<%=urpoDTO.getNo() %>>
-						<label class= "imgContainer" for="urcon<%=urpoDTO.getNo() %>">
-							<img src=<%=urpoDTO.getGifImage() %> alt="icon" style="background-color:white"><br>
-							<%=urpoDTO.getTitle()%>
-						</label>
-			    	</div>
-					<%
-					}
-					%>
-				</div>
-	        </form>
-	        <script>
-	        	function radioNull() {
-	        		let iconNo = $('#iconFrm [name="replyIcon"]:checked').val()
-	        		if(iconNo==null) {
-	        			alert('아이콘을 선택해주세요.');
-	        			return false;
-	        		} else {
-	        			return true;
-	        		}
-	        	}
-	        
-	        
-	        </script>
+            .iconDisc
+            {
+                display: flex;
+                gap: 20px;
+            }
+
+            .iconContainer
+            {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .iconBtn
+            {
+                cursor: pointer;
+                width: 120px;
+                height: 40px;
+                border: none;
+                border-radius: 5px;
+                background-color: var(--color-warning);
+                color: var(--color-white);
+            }
+
+            .iconBtn:hover
+            {
+                background-color: var(--color-warninghover);
+            }
+
+            .iconNoticeS
+            {
+                font-size: var(--font-S);
+            }
+
+            .icon input[type="radio"]
+            {
+                display: none;
+            }
+
+            .icon input[type=radio] + label
+            {
+                display: inline-block;
+                cursor: pointer;
+            }
+
+            .icon input[type=radio]:checked + .imgContainer img
+            {
+                margin: 0px;
+                border: 5px solid var(--color-point);
+            }
+
+            .imgContainer
+            {
+                font-size: var(--font-S);
+            }
+
+            .imgContainer img
+            {
+                width: 100px;
+                height: 100px;
+                margin: 5px;
+            }
+
+
+        </style>
+        <form class="iconFrm" id="iconFrm" action="/URPO/icon.do" method="post" onsubmit="return radioNull();">
+            <div class="iconDisc">
+                <div>
+                    <div class="iconNotice">유알콘을 선택해 주세요.</div>
+                    <div class="iconNoticeS">프로필을 개성있는 유알콘으로 꾸며보세요. 원하는 아이콘을 선택하고 선택하기 버튼을 클릭하면 아이콘이 변경됩니다.</div>
+                </div>
+                <input class="iconBtn" type="submit" value="선택하기">
+            </div>
+            <div class="iconContainer">
+                <%
+                    for(UrpoDTO urpoDTO : itemlist)
+                    {
+                %>
+                <div class="icon">
+                    <input class="iconRdio" id="urcon<%=urpoDTO.getNo() %>" type="radio" name="replyIcon"
+                           value=<%=urpoDTO.getNo() %>>
+                    <label class="imgContainer" for="urcon<%=urpoDTO.getNo() %>">
+                        <img src="<%=urpoDTO.getGifImage() %>" alt="#" style="background-color:white;"><br>
+                        <%=urpoDTO.getTitle()%>
+                    </label>
+                </div>
+                <%
+                    }
+                %>
+            </div>
+        </form>
+        <script>
+            function radioNull()
+            {
+                let iconNo = $('#iconFrm [name="replyIcon"]:checked').val()
+                if(iconNo == null)
+                {
+                    alert('아이콘을 선택해주세요.');
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+
+        </script>
     </div>
-    
+
 </section>
 
 <%-- 모달 --%>
