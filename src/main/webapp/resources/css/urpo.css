@@ -12,7 +12,7 @@ a {
 #search
 {
     font-size: var(--font-XL);
-    margin-top: 28.5px;
+    margin: 28.5px 0;
     display: flex;
     align-items: center;
 }
@@ -52,10 +52,10 @@ a {
 /* 탭 컨텐츠 시작 */
 .tabContents
 {
-  height: calc(100vh - 280px);
+  height: calc(100vh - 260px);
   width: calc(100% - 20px);
   display: none;
-  margin-top:50px;
+  margin-top:30px;
 }
 .tabContents div {
   font-size:var(--font-L);
@@ -81,9 +81,6 @@ a {
     line-height: 35px;
     gap: 4px;
     flex-direction: row;
-    position: relative;
-    left: 0px;
-    top: 0px;
 }
 
 .menu-level1 > li {
@@ -108,27 +105,6 @@ a {
     
 }
 
-@keyframes moving {
-    from {top:0px; opacity:0.1;}
-    to {top:40px}
-}
-
-.menu-level2 {
-    list-style: none;
-    padding: 0px;
-    display: flex;
-    position: absolute;
-    height:40px;
-    top: 40px;
-    gap:10px;
-    border:none;
-    animation-name:moving;
-    animation-duration:1s;
-}
-
-.menu-level2.on {
-    display: flex;
-}
 
 .l2-list {
     color:var(--color-text);
