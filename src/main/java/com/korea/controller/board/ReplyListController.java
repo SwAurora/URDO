@@ -37,7 +37,7 @@ public class ReplyListController implements SubController
             	MemberDTO dto = mservice.MemberSearch(rdto.getMemberId());
             	UrpoDTO udto = uservice.Select(dto.getIcon());
                 out.print("<tr>");
-                out.print("<td class=\"replyCol1\"><img src="+udto.getGifImage()+"></td>");
+                out.print("<td class=\"replyCol1\"><img src="+udto.getGifImage()+" style=\"background-color:white\"></td>");
                 out.print("<td class=\"replyCol2\">" + rdto.getWriter() + "<br>(" + rdto.getRegdate() + ")</td>");
                 out.print("<td class=\"replyCol3\">" + rdto.getContent() + "</td>");
                 if(rdto.getWriter().equals(nickname)) {

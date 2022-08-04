@@ -142,7 +142,9 @@ li a
     height:100px;
 }
 
-
+.hov-anim {
+	background-color:white;
+}
 
 /* gif 호버 애니메이션 끝 */
 

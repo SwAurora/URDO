@@ -64,18 +64,13 @@
 			%>
 			<div class="hov-ani">
 				<a class="hov-ani-img" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
-				<img src="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
-				
-				<%-- 
-				<img src="<%=urpoDTO.getStaticImage() %>" alt="" data-animated="<%=urpoDTO.getGifImage() %>" data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
-				 --%>
-				<br><%=urpoDTO.getTitle()%>
+					<img src="<%=urpoDTO.getStaticImage() %>" alt="" data-animated="<%=urpoDTO.getGifImage() %>" data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
+					<br><%=urpoDTO.getTitle()%>
 				</a>
 			</div>
 			<%
 				}
-			%>
-			<!-- 
+			%>r
 			<script>
 			
 				$(".hov-anim").mouseover(function() {
@@ -87,7 +82,6 @@
 
 			
 			</script>
- -->			
 					
       
     </div> <!-- 컨테이너 끝 -->

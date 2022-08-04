@@ -61,7 +61,7 @@
 
     <div class="wrap">
         <div class="blueContainer">
-            <img src="<%=udto.getGifImage() %>">
+            <img src="<%=udto.getGifImage() %>" style="background-color:white;">
             <div class="name">
             	<%= dto.getNickname() %>
             </div>
@@ -325,7 +325,7 @@
 					<div class="icon">
 						<input class="iconRdio" id="urcon<%=urpoDTO.getNo() %>" type="radio" name="replyIcon" value=<%=urpoDTO.getNo() %>>
 						<label class= "imgContainer" for="urcon<%=urpoDTO.getNo() %>">
-							<img src=<%=urpoDTO.getGifImage() %> alt="icon"><br>
+							<img src=<%=urpoDTO.getGifImage() %> alt="icon" style="background-color:white"><br>
 							<%=urpoDTO.getTitle()%>
 						</label>
 			    	</div>
