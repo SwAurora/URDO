@@ -53,7 +53,7 @@
             <div id="signIn">
                 <a href="/SignUp.do" id="ss1">회원가입</a>
                 <span id="ss2">/</span>
-                <a href="#" id="ss3">비밀번호 찾기</a>
+                <a href="/PwdFinder.do" id="ss3">비밀번호 찾기</a>
             </div>
         </div>
     </form>
