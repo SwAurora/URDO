@@ -18,8 +18,25 @@ public class UrconController implements SubController
     {
     	String category = "urcon";
         try {
-        	List<UrpoDTO> list = service.ShowItems(category);
+            String tmplimit = req.getParameter("limit");
+            String nowPage = req.getParameter("page");
+            int start = 0;
+            int limit = 30;
+            if(tmplimit != null && nowPage != null)
+            {
+                limit = Integer.parseInt(tmplimit);
+                int nowpage = Integer.parseInt(nowPage);
+                start = (limit * nowpage) - limit;
+            }
+            if(tmplimit != null)
+            {
+                limit = Integer.parseInt(tmplimit);
+            }
+        	List<UrpoDTO> list = service.ShowItems(category, start, limit);
             req.setAttribute("list", list);
+            int tcnt = service.getTotalCnt(category);
+            req.setAttribute("tcnt", tcnt);
+            req.setAttribute("nowPage", nowPage);
             req.getRequestDispatcher("/URPO/urcon.jsp").forward(req, resp);
         } catch(Exception e) {
             e.printStackTrace();
