@@ -108,7 +108,6 @@ public class UrpoDAO extends DAO
             		dto.setCategory(rs.getString("category"));
             		dto.setProducer(rs.getString("producer"));
             		list.add(dto);
-            		System.out.println(list.get(i).getGifImage());
             	}
 
             }

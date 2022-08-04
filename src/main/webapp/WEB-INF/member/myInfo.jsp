@@ -264,22 +264,11 @@
 	    		gap:10px;
 	    	}
 	    	.iconContainer {
-	    		border:1px solid red;
 	    		display:flex;
 	    		flex-wrap:wrap;
 	    		gap:10px;
 	    	}
-	    	.icon {
-	    	}
-	    	.imgTitle {
-	    		font-size:var(--font-M);
-	    		color:var(--color-text);
-	    	}
-	    	.imgContainer {
-	    	}
-	    	.imgContainer img {
-	    		width:100px;height:100px;
-	    	}
+
 	    	.iconBtn {
 	    		cursor : pointer;
 	    		width:120px; height:40px;
@@ -291,18 +280,43 @@
 	    	.iconBtn:hover {
 	    		background-color:var(--color-warninghover);
 	    	}
+	    	.iconNoticeS {
+	    		font-size:var(--font-S);
+	    	}
+	    	.icon input[type="radio"] {
+	    		display:none;
+	    	}
+	    	.icon input[type=radio]+label{
+			    display: inline-block;
+			    cursor: pointer;
+			}
+			.icon input[type=radio]:checked+.imgContainer img{
+				margin:0px;
+			    border:5px solid var(--color-point);
+			}
+	    	.imgContainer {
+  				font-size:var(--font-S);
+	    	}
+	    	.imgContainer img {
+	    		width:100px;height:100px;
+	    		margin:5px;
+	    	}
+	    	
 	    	
 	    </style>
 			<form class="iconFrm" action="/URPO/Icon.do" method="post">
-		    	<div class="iconNotice">댓글 아이콘을 선택해보세요.</div>
+		    	<div class="iconNotice">유알콘을 선택해 주세요.</div>
+		    	<div class="iconNoticeS">프로필을 개성있는 유알콘으로 꾸며보세요.</div>
 			    <div class="iconContainer">
 					<%
 				    for(UrpoDTO urpoDTO: itemlist) {
 					%>
 					<div class="icon">
-						<div class="imgContainer"><img src=<%=urpoDTO.getGifImage() %> alt="icon"></div>
-						<div class="imgTitle"><%=urpoDTO.getTitle()%></div>
-						<input type="radio" name="replyIcon" value=<%=urpoDTO.getNo() %>>
+						<input class="iconRdio" id="urcon<%=urpoDTO.getNo() %>" type="radio" name="replyIcon" value=<%=urpoDTO.getNo() %>>
+						<label class= "imgContainer" for="urcon<%=urpoDTO.getNo() %>">
+							<img src=<%=urpoDTO.getGifImage() %> alt="icon"><br>
+							<%=urpoDTO.getTitle()%>
+						</label>
 			    	</div>
 					<%
 					}
