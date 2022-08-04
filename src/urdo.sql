@@ -103,17 +103,18 @@ create table urpo_tbl
 
 CREATE PROCEDURE urpoProcedure()
 BEGIN
-	DECLARE i INT;
+
+    DECLARE i INT;
     insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer)
-	values
-	('디폴트', '디폴트', 1, '/resources/img/urpo/urcon/default.png', '/resources/img/urpo/urcon/default.png', 'default', 'admin1234');
-	SET i=1;
-	while(i<=33) DO
-	insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer)
-	values
-	(concat('타이틀',i), concat(i,'번째 아이콘 설명입니다...'), 20,  concat('/resources/img/urpo/urcon/urcon',i,'.png' ), concat('/resources/img/urpo/urcon/urcon',i,'.gif' ), 'urcon', 'admin1234');
-	set i = i+1;
-	end while;
+    values
+        ('디폴트', '디폴트', 1, '/resources/img/urpo/urcon/default.jpg', '/resources/img/urpo/urcon/default.gif', 'default', 'admin1234');
+    SET i=1;
+    while(i<=33) DO
+            insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer)
+            values
+                (concat('타이틀',i), concat(i,'번째 아이콘 설명입니다...'), 20,  concat('/resources/img/urpo/urcon/urcon',i,'.jpg' ), concat('/resources/img/urpo/urcon/urcon',i,'.gif' ), 'urcon', 'admin1234');
+            set i = i+1;
+        end while;
 END;
 
 call urpoProcedure();
@@ -121,3 +122,5 @@ call urpoProcedure();
 #----------------------------------------------------------------------------------------------------------------------------------------------
 drop table urpo_tbl;
 select * from member_tbl;
+
+select * from urpo_tbl;

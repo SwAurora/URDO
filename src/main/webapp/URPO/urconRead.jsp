@@ -91,7 +91,7 @@
                 <div class="ud_title"><%=dto.getTitle()%>
                 </div>
                 <div class="urcon_detail">
-                    <div class="ud_img"><img src=<%=dto.getGifImage()%>></div>
+                    <div class="ud_img"><img src="<%=dto.getGifImage()%>" alt="#" style="background-color: white"></div>
                     <div class="ud_contents">
                         <div>제작자 : <%=dto.getProducer()%>
                         </div>
