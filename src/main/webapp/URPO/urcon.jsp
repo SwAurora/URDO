@@ -64,8 +64,10 @@
 			%>
 			<div class="hov-ani">
 				<div class="hov-ani-img">
-				<img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
-				<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
+				<a href="/Urpo/read.do?no=<%=urpoDTO.getNo()%>">
+					<img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
+					<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
+				</a>
 			  	</div>
 			  <div>
 				  <a class="imgTitle" href="/Urpo/read.do?no=<%=urpoDTO.getNo()%>"><%=urpoDTO.getTitle()%></a>
@@ -78,7 +80,7 @@
 					
       
     </div> <!-- 컨테이너 끝 -->
-        <!-- 페이지네이션 시작 -->
+       <!-- 페이지네이션 시작 -->
     <%
 	    int totalcount; // 총 게시물
 	    int limit = 30; // 한페이지에 보여줄 게시물 초기값

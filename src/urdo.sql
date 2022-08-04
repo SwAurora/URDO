@@ -115,3 +115,30 @@ values ('귀여운', '엄청귀엽습니다.', 20, '/resources/img/urpo/urcon/ur
 update member_tbl set point=9999 where id='ehddnr0528';
 select * from member_tbl;
 drop database urdo;
+
+
+
+#-------------
+drop procedure urpoProcedure;
+
+DROP PROCEDURE IF EXISTS urpoProcedure $$
+DELIMITER $$ 
+CREATE PROCEDURE urpoProcedure() 
+BEGIN
+	
+	DECLARE i INT;
+    insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer)
+	values
+	('디폴트', '디폴트', 1, '/resources/img/urpo/urcon/default.png', '/resources/img/urpo/urcon/default.png', 'default', 'admin1234');
+	SET i=1;
+	while(i<=33) DO
+	insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer)
+	values
+	(concat('타이틀',i), concat(i,'번째 아이콘 설명입니다...'), 20,  concat('/resources/img/urpo/urcon/urcon',i,'.png' ), concat('/resources/img/urpo/urcon/urcon',i,'.gif' ), 'urcon', 'admin1234');
+	set i = i+1;
+	end while;
+END$$ 
+DELIMITER ;
+
+
+call urpoProcedure();
