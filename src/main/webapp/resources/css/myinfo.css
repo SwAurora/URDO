@@ -10,10 +10,16 @@
     height: 132px;
     background-color: var(--color-point);
     display: flex;
-    align-items: flex-end;
+    flex-direction:column;
+    align-items: flex-start;
     padding: 10px;
+    gap:10px;
 }
 
+.blueContainer img {
+	width:80px; height:80px;
+	display:flex;
+}
 .blueContainer .name
 {
     font-size: 30px;
@@ -84,8 +90,8 @@
 
 .updateBtn
 {
-    background-color: #5865F2;
-    color: #FFFFFF;
+    background-color: var(--color-point);
+    color: var(--color-white);
     border-radius: 6px;
     border: 0;
     width: 50px;
@@ -94,6 +100,9 @@
     text-align: center;
     font-size: var(--font-L);
     margin-left: 5px;
+}
+.updateBtn:hover {
+	background-color:var(--color-pointhover);
 }
 
 .ipSet
@@ -246,11 +255,18 @@ button
     text-decoration: none;
 }
 
+#pwdchange:hover {
+	color:var(--color-pointhover);
+}
+
 #delAccount
 {
     color: var(--color-black);
     text-decoration: none;
     font-size: var(--font-L);
+}
+#delAccount:hover {
+	color:var(--color-logoname);
 }
 
 #submitBtn1-1,#submitBtn2-1

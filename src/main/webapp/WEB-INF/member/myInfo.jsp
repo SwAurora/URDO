@@ -54,14 +54,16 @@
     <%
         MemberDTO dto = (MemberDTO) request.getAttribute("dto");
     	ArrayList<UrpoDTO> itemlist = (ArrayList<UrpoDTO>) request.getAttribute("itemlist");
+    	
+    	UrpoDTO udto = (UrpoDTO) request.getAttribute("udto");
     %>
     <h1 style="margin:50px 0;">마이 페이지</h1>
 
     <div class="wrap">
         <div class="blueContainer">
-            <div>
-                <div class="name"><%= dto.getNickname() %>
-                </div>
+            <img src="<%=udto.getGifImage() %>">
+            <div class="name">
+            	<%= dto.getNickname() %>
             </div>
 
         </div>
@@ -263,6 +265,10 @@
 	    		flex-direction:column;
 	    		gap:10px;
 	    	}
+	    	.iconDisc {
+				display:flex;
+				gap:20px;
+	    	}
 	    	.iconContainer {
 	    		display:flex;
 	    		flex-wrap:wrap;
@@ -304,9 +310,14 @@
 	    	
 	    	
 	    </style>
-			<form class="iconFrm" action="/URPO/Icon.do" method="post">
-		    	<div class="iconNotice">유알콘을 선택해 주세요.</div>
-		    	<div class="iconNoticeS">프로필을 개성있는 유알콘으로 꾸며보세요.</div>
+			<form class="iconFrm" id="iconFrm" action="/URPO/Icon.do" method="post" onsubmit="return radioNull();">
+				<div class="iconDisc">
+					<div>
+				    	<div class="iconNotice">유알콘을 선택해 주세요.</div>
+				    	<div class="iconNoticeS">프로필을 개성있는 유알콘으로 꾸며보세요. 원하는 아이콘을 선택하고 선택하기 버튼을 클릭하면 아이콘이 변경됩니다.</div>
+					</div>
+			    	<input class="iconBtn" type="submit" value="선택하기">
+				</div>
 			    <div class="iconContainer">
 					<%
 				    for(UrpoDTO urpoDTO: itemlist) {
@@ -322,8 +333,20 @@
 					}
 					%>
 				</div>
-				<input class="iconBtn" type="submit" value="선택하기">
 	        </form>
+	        <script>
+	        	function radioNull() {
+	        		let iconNo = $('#iconFrm [name="replyIcon"]:checked').val()
+	        		if(iconNo==null) {
+	        			alert('아이콘을 선택해주세요.');
+	        			return false;
+	        		} else {
+	        			return true;
+	        		}
+	        	}
+	        
+	        
+	        </script>
     </div>
     
 </section>
