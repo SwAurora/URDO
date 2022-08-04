@@ -329,4 +329,22 @@ public class BoardService
     {
         return dao.recCount(no);
     }
+
+    // 마이페이지 정보 조회
+    public int getMyPost(String nickname)
+    {
+        return dao.getMyPost(nickname);
+    }
+    public int getMyReply(String id)
+    {
+        return dao.getMyReply(id);
+    }
+    public int getMyReceivedRec(String nickname)
+    {
+        return dao.getMyReceivedRec(nickname);
+    }
+    public int getMyRec(String id)
+    {
+        return dao.getMyRec(id);
+    }
 }

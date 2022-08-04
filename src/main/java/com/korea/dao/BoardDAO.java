@@ -530,7 +530,7 @@ public class BoardDAO extends DAO
             while(rs.next())
             {
                 count = rs.getInt(1);
-            };
+            }
         }
         catch(Exception e)
         {
@@ -556,5 +556,150 @@ public class BoardDAO extends DAO
             }
         }
         return count;
+    }
+
+    // 마이페이지 정보 조회
+    public int getMyPost(String nickname)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("select count(*) from board_tbl where writer = ?");
+            pstmt.setString(1, nickname);
+            rs = pstmt.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+    public int getMyReply(String id)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("select count(*) from reply_tbl where memberId = ?");
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+    public int getMyReceivedRec(String nickname)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("select sum(recommend) from board_tbl where writer = ?");
+            pstmt.setString(1, nickname);
+            rs = pstmt.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return 0;
+    }
+
+    public int getMyRec(String id)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("select count(*) from rec_tbl where rec_id = ?");
+            pstmt.setString(1, id);
+            rs = pstmt.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return 0;
     }
 }
