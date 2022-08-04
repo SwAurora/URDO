@@ -310,7 +310,7 @@
 	    	
 	    	
 	    </style>
-			<form class="iconFrm" id="iconFrm" action="/URPO/Icon.do" method="post" onsubmit="return radioNull();">
+			<form class="iconFrm" id="iconFrm" action="/URPO/icon.do" method="post" onsubmit="return radioNull();">
 				<div class="iconDisc">
 					<div>
 				    	<div class="iconNotice">유알콘을 선택해 주세요.</div>

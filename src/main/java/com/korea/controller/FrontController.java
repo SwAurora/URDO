@@ -79,10 +79,9 @@ public class FrontController extends HttpServlet
 
         // 유알포
         list.put("/URPO.do", new UrconController());
-        //list.put("/URPO/produce.do", new ProduceController());
-        list.put("/Urpo/read.do", new UrpoReadController()); //이거잘못함 ㅠ근데귀찮음
+        list.put("/URPO/read.do", new UrpoReadController());
         list.put("/URPO/purchase.do", new UrpoPurchaseController());
-        list.put("/URPO/Icon.do", new UrpoIconController());
+        list.put("/URPO/icon.do", new UrpoIconController());
     }
 
     @Override

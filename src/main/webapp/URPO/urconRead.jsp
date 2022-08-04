@@ -1,5 +1,6 @@
 <%@ page import="com.korea.dto.UrpoDTO" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="com.korea.dto.MemberDTO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!doctype html>
@@ -16,17 +17,16 @@
     <!--CSS 링크-->
     <link rel="stylesheet" href="../resources/css/urpo.css">
 </head>
-
-
 <body>
 <%
+    String no = request.getParameter("no");
     String msg = (String) request.getAttribute("msg");
     if(msg != null)
     {
 %>
 <script>
     alert('<%=msg%>');
-    history.back();
+    location.href="/URPO/read.do?no=<%=no%>";
 </script>
 <%
     }
@@ -62,23 +62,44 @@
         </ul>
         <%
             UrpoDTO dto = (UrpoDTO) request.getAttribute("dto");
+            HttpSession session1 = request.getSession();
+            String id = (String) session1.getAttribute("id");
+            if(id == null)
+            {
+                id = "";
+            }
         %>
+        <script>
+            function loginChk()
+            {
+                let id = '<%=id%>';
+
+                if(id === "")
+                {
+                    alert('로그인이 필요합니다.');
+                    return false;
+                }
+                else
+                {
+                    return purchaseChk();
+                }
+            }
+        </script>
         <!-- 아이템 설명 시작 ud = urcon detail -->
-        <form action="/URPO/purchase.do" method="post">
+        <form action="/URPO/purchase.do" method="post" name="form1" onsubmit="return loginChk();">
             <div class="ud_container">
-                <div class="ud_title"><%=dto.getTitle() %>
+                <div class="ud_title"><%=dto.getTitle()%>
                 </div>
                 <div class="urcon_detail">
-                    <div class="ud_img"><img src=<%=dto.getGifImage() %>></div>
+                    <div class="ud_img"><img src=<%=dto.getGifImage()%>></div>
                     <div class="ud_contents">
-                        <div>제작자 : <%=dto.getProducer() %>
+                        <div>제작자 : <%=dto.getProducer()%>
                         </div>
-                        <div class="ud_discription"><%=dto.getDiscription() %>
+                        <div class="ud_discription"><%=dto.getDiscription()%>
                         </div>
-                        <input type="hidden" name="price" value="<%=dto.getPrice() %>">
-                        <input type="hidden" name="no" value="<%=dto.getNo() %>">
-                        <input class="ud_price" type="submit" value="URPO : <%=dto.getPrice() %> 구매하기">
-                        </div>
+                        <input type="hidden" name="price" value="<%=dto.getPrice()%>">
+                        <input type="hidden" name="no" value="<%=dto.getNo()%>">
+                        <input type="submit" class="ud_price" value="URPO : <%=dto.getPrice()%> 구매하기">
                     </div>
                 </div>
                 <div class="report">
@@ -89,10 +110,50 @@
                 </div>
             </div>
         </form>
-
-
+        <script>
+            function purchaseChk()
+            {
+                <%
+                    MemberDTO mdto = (MemberDTO) request.getAttribute("mdto");
+                    int point = 0;
+                    String items;
+                    String flag=null;
+                    if(mdto != null)
+                    {
+                        point = mdto.getPoint();
+                        items = mdto.getItems();
+                        String[] item = items.split(";");
+                        flag = "";
+                        for(String i : item)
+                        {
+                            if(Integer.parseInt(i) == dto.getNo())
+                            {
+                                flag = flag + i;
+                            }
+                        }
+                    }
+                %>
+                let flag = "<%=flag%>";
+                let point = "<%=point%>";
+                let price = "<%=dto.getPrice()%>";
+                console.log(flag);
+                if(flag !== "")
+                {
+                    alert("이미 보유한 아이콘 입니다.");
+                    return false;
+                }
+                else if(point < price)
+                {
+                    alert("포인트가 부족합니다. (현재 보유 포인트 : " + point + ")");
+                    return false;
+                }
+                else if(flag === "")
+                {
+                    return confirm("<%=dto.getPrice()%>포인트가 차감됩니다. 구매하시겠습니까? (현재 보유 포인트 : " + point + ")");
+                }
+            }
+        </script>
         <!-- 아이템 설명 끝 -->
-
     </div>
 </section>
 

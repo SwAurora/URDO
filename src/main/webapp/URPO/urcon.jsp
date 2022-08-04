@@ -64,13 +64,13 @@
 			%>
 			<div class="hov-ani">
 				<div class="hov-ani-img">
-				<a href="/Urpo/read.do?no=<%=urpoDTO.getNo()%>">
+				<a href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
 					<img src=<%=urpoDTO.getStaticImage() %> alt="" class="static">
 					<img src=<%=urpoDTO.getGifImage() %> alt="" class="animated">
 				</a>
 			  	</div>
 			  <div>
-				  <a class="imgTitle" href="/Urpo/read.do?no=<%=urpoDTO.getNo()%>"><%=urpoDTO.getTitle()%></a>
+				  <a class="imgTitle" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>"><%=urpoDTO.getTitle()%></a>
 			  </div>
 			</div>
 			<%
