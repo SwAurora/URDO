@@ -133,40 +133,16 @@ li a
 .hov-ani
 {
     scroll: hidden;
+    text-align:center;
 }
 
-.hov-ani img
+.hov-ani-img img
 {
-    width: 100%;
+    width: 100px;
+    height:100px;
 }
 
-.hov-ani .imgTitle
-{
-    font-size: var(--font-M);
-    margin: 0px;
-    text-decoration: none;
-    color: var(--color-blackToWhite);
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 
-}
-
-.hov-ani-img .animated
-{
-    display: none;
-}
-
-.hov-ani-img:hover .animated
-{
-    display: inline;
-}
-
-.hov-ani-img:hover .static
-{
-    display: none;
-}
 
 /* gif 호버 애니메이션 끝 */
 
