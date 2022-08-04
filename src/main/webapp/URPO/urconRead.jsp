@@ -75,12 +75,9 @@
                         </div>
                         <div class="ud_discription"><%=dto.getDiscription() %>
                         </div>
-                        <div class="ud_pay">
-                            <div class="ud_price">URPO :  <b><%=dto.getPrice() %>
-                            </b> 구매하기
-                            </div>
-                            <input type="hidden" name="price" value="<%=dto.getPrice() %>">
-                            <input type="hidden" name="no" value="<%=dto.getNo() %>">
+                        <input type="hidden" name="price" value="<%=dto.getPrice() %>">
+                        <input type="hidden" name="no" value="<%=dto.getNo() %>">
+                        <input class="ud_price" type="submit" value="URPO : <%=dto.getPrice() %> 구매하기">
                         </div>
                     </div>
                 </div>
