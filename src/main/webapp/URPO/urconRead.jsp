@@ -76,18 +76,19 @@
                         <div class="ud_discription"><%=dto.getDiscription() %>
                         </div>
                         <div class="ud_pay">
-                            <div class="ud_price">가격 : <b><%=dto.getPrice() %>
-                            </b> URPO
+                            <div class="ud_price">URPO :  <b><%=dto.getPrice() %>
+                            </b> 구매하기
                             </div>
-                            <input type="submit" class="ud_purchase" value="구매하기">
                             <input type="hidden" name="price" value="<%=dto.getPrice() %>">
                             <input type="hidden" name="no" value="<%=dto.getNo() %>">
                         </div>
                     </div>
-                    <button type="button" class="btn_cont_report btn_report">신고하기</button>
-                </div>  <!-- //dccon_list_wrap -->
-                <div class="dccon_infobox"><p>음란물을 디시콘으로 등록하는 경우 사이버수사대에 즉각 신고합니다.</p>
-                    <p>서비스 이용에 부적절하거나, 저작권에 위반된 저작물일 경우 별도 통보 없이 판매중지될 수 있습니다.</p></div>
+                </div>
+                <div class="report">
+                    <div class="urcon_infobox">
+                        <p>음란물을 유알콘으로 등록하는 경우 사이버수사대에 즉각 신고합니다.</p>
+                        <p>서비스 이용에 부적절하거나, 저작권에 위반된 저작물일 경우 별도 통보 없이 판매중지될 수 있습니다.</p>
+                    </div>
                 </div>
             </div>
         </form>
