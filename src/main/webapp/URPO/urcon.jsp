@@ -46,23 +46,9 @@
       <ul class="menu-level1">
         <li class="level1 on">
           <a href="pointShop.html" class="on">유알콘</a>
-          <ul class="menu-level2">
-            <li><a href="#" class="l2-list">모든 아이템</a></li>
-            <li><a href="#" class="l2-list">실시간 인기</a></li>
-            <li><a href="#" class="l2-list">월간 인기</a></li>
-          </ul>
         </li>
-        <li class="level1">
-          <a href="pointShopRoom.html" class="">방꾸미기</a>
-          <ul class="menu-level2">
-          </ul>
-        </li>
-        
         <li class="level1">
           <a href="pointShopGuide.html">가이드</a>
-          <ul class="menu-level2 ">
-
-          </ul>
         </li>
       </ul>
 
