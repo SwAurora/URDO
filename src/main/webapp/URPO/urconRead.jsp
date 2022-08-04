@@ -55,9 +55,6 @@
             <li class="level1 on">
                 <a href="pointShop.html" class="on">유알콘</a>
             </li>
-            <li class="level1">
-                <a href="pointShopRoom.html" class="">방꾸미기</a>
-            </li>
 
             <li class="level1">
                 <a href="pointShopGuide.html">가이드</a>
