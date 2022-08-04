@@ -283,12 +283,13 @@
 	    	.iconBtn {
 	    		cursor : pointer;
 	    		width:120px; height:40px;
+	    		border:none; 	
 	    		border-radius:5px;
 	    		background-color:var(--color-warning);
 	    		color:var(--color-white);
 	    	}
 	    	.iconBtn:hover {
-	    		background-color:var(--color-warnin)
+	    		background-color:var(--color-warninghover);
 	    	}
 	    	
 	    </style>
@@ -307,7 +308,7 @@
 					}
 					%>
 				</div>
-				<input class="iconBtn" type="submit" value="고르기">
+				<input class="iconBtn" type="submit" value="선택하기">
 	        </form>
     </div>
     

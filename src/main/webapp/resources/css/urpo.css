@@ -307,12 +307,6 @@ li a
     padding-top: 6%;
 }
 
-.ud_pay
-{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
 
 .ud_price
 {
