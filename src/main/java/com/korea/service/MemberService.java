@@ -60,4 +60,11 @@ public class MemberService
     public boolean replyIcon(int no, String id) {
     	return dao.replyIcon(no, id);
     }
+    
+    // 포인트 증가
+    public boolean getPoint(int no, String id) {
+    	return dao.getPoint(no, id);
+    }
+    
+    
 }

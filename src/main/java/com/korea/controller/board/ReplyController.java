@@ -8,9 +8,11 @@ import com.korea.controller.SubController;
 import com.korea.dto.BoardDTO;
 import com.korea.dto.ReplyDTO;
 import com.korea.service.BoardService;
+import com.korea.service.MemberService;
 
 public class ReplyController implements SubController{
 	BoardService service = BoardService.getInstance();
+	MemberService mservice = MemberService.getInstance();
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		HttpSession session = req.getSession();
@@ -26,8 +28,11 @@ public class ReplyController implements SubController{
 		rdto.setWriter(nickname);
 		rdto.setContent(comment);
 
-		// 서비스 실행
+		// 댓글 등록
 		service.reply(rdto);
+		
+		// 포인트 증가
+		mservice.getPoint(1, id);
 	}
 
 }

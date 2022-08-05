@@ -216,6 +216,7 @@
                 },
                 success: function()
                 {
+                	alert('댓글이 성공적으로 작성되었습니다. 1URPO를 얻었습니다.');
                     listreply();
                     $('#comment').val("");
                 }

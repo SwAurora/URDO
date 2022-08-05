@@ -3,6 +3,7 @@ package com.korea.controller.board;
 import com.korea.controller.SubController;
 import com.korea.dto.RecDTO;
 import com.korea.service.BoardService;
+import com.korea.service.MemberService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import java.io.PrintWriter;
 public class RecController implements SubController
 {
     BoardService service = BoardService.getInstance();
+    MemberService mservice = MemberService.getInstance();
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
@@ -32,6 +34,8 @@ public class RecController implements SubController
                 // 추천하지 않았다면 추천 추가
                 service.recUpdate(dto);
                 service.recUp(Integer.parseInt(no));
+                // 추천됐으니까 포인트도 증가
+                mservice.getPoint(2, id);
                 out.print("<script>modal_open();</script>");
             }
             else
