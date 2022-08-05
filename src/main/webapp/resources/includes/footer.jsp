@@ -16,10 +16,8 @@
         <img src="/resources/img/index/twitter-square-brands.svg" alt="트위터">
         <img src="/resources/img/index/instagram-square-brands.svg" alt="인스타">
       </div>
-      <div>
-        <select>
-          <option>부가 메뉴</option>
-        </select>
+      <div id="managementLink">
+        <a href="/admin.do">관리 페이지 이동</a>
       </div>
     </div>
 

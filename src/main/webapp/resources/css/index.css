@@ -472,3 +472,16 @@ footer {
     color: var(--color-logoname);
     width: 130px;
 }
+
+#managementLink
+{
+    display:flex;
+    justify-content: end;
+    margin-top:8px;
+}
+
+#managementLink a
+{
+    text-decoration: none;
+    color : var(--color-blackToWhite);
+}

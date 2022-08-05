@@ -128,12 +128,12 @@
         <div id="contents-bottom">
             <!-- 실시간 유머 등 게시판 -->
             <div id="realTimeBoard">
-                <h2 class="mainTitle"> 실시간 </h2>
+                <h2 class="mainTitle"> 베스트 </h2>
 
                 <div id="tabUI">
                     <ul id="Board-menu">
-                        <li class="change-borad">실시간 유머</li>
-                        <li>실시간 뉴스</li>
+                        <li class="change-borad">실시간 베스트</li>
+                        <li>월간 베스트</li>
                     </ul>
                     <div id="buttonbox">
                         <span>1/3</span>
