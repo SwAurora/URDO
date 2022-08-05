@@ -157,14 +157,13 @@
                 // 수정
                 function sujung(num)
                 {
-    			    
                     if(num === 1)
                     {
                         if($('#submitBtn1').html() === '저장')
                         {
                             let frm1 = document.frm1;
                             frm1.email.value = $('#email').val();
-                            if($('#noticeEmail').text() == "이메일이 이미 존재합니다.") {
+                            if($('#noticeEmail').text() == "이메일이 이미 존재합니다." || $('#noticeEmail').text() == "") {
                             	alert('이메일이 이미 존재합니다.');
                             } else {
                             	frm1.submit();
@@ -184,7 +183,7 @@
                         	
                             let frm1 = document.frm1;
                             frm1.nickname.value = $('#nickname').val();
-                            if($('#noticeNickname').text() == "닉네임 이미 존재합니다.") {
+                            if($('#noticeNickname').text() == "닉네임 이미 존재합니다." || $('#noticeNickname').text() == "") {
                             	alert('닉네임이 이미 존재합니다.');
                             } else {
                             	frm1.submit();
