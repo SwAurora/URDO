@@ -68,8 +68,8 @@ public class PostController implements SubController
                 if(result)
                 {
                 	// 포인트 증가
-                	mservice.getPoint(10, id);
-                    req.setAttribute("msg", "작성을 완료했습니다. 10URPO를 얻었습니다.");
+                	mservice.getPoint(4, id);
+                    req.setAttribute("msg", "작성을 완료했습니다. 4URPO를 얻었습니다.");
                     req.getRequestDispatcher("/Board/" + subject + ".do").forward(req, resp);
                 }
                 else

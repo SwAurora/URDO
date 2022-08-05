@@ -28,6 +28,7 @@ public class RecController implements SubController
             dto.setRec_id(id);
             // 동일 게시글에 대한 이전 추천 여부 검색
             int result = service.recCheck(dto);
+            
 
             if(result < 1)
             {
