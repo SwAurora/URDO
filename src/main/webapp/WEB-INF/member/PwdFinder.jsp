@@ -38,7 +38,7 @@
             </div>
 
             <button type="submit" class="loginA" style="border:0; cursor:pointer">
-                <span>비밀번호 변경</span>
+                <span>임시 비밀번호 발송</span>
                 <i></i>
             </button>
             <input type="hidden" name="flag" value="true">
