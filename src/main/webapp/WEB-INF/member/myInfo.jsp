@@ -217,7 +217,7 @@
                         $("#nickname").attr("disabled", true);
                         $('#nickname').val("<%=dto.getNickname()%>");
                         $('#submitBtn2-1').css("display", "none");
-                        $('#noticeNickname').empty();
+                        $('#noticeEmail').empty();
                     }
                 }
 

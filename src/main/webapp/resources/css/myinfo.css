@@ -122,8 +122,11 @@
 #noticeEmail, #noticeNickname {
 	font-size : var(--font-S);
 	color : var(--color-warning);
-	margin : 0 0 0 20px;
-	
+	margin:0 0 0 80px;
+
+}
+.usable { 
+	color:var(--color-right);
 }
 
 

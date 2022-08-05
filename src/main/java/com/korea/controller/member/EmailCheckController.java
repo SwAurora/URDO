@@ -27,7 +27,7 @@ public class EmailCheckController implements SubController{
 		} else {
 			try {
 				out = resp.getWriter();
-				out.print("사용할 수 있는 이메일입니다.");
+				out.print("<div class=\"usable\">사용할 수 있는 이메일입니다.</div>");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

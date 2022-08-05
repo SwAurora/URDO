@@ -28,7 +28,7 @@ public class NicknameCneckController implements SubController{
 		} else {
 			try {
 				out = resp.getWriter();
-				out.print("사용할 수 있는 닉네임입니다.");
+				out.print("<div class=\"usable\">사용할 수 있는 닉네임입니다.</div>");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
