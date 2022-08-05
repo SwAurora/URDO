@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>URDO ADMIN</title>
 
 <link rel="stylesheet" href="/resources/css/admin/common.css">
 <link rel="stylesheet" href="/resources/css/admin/dashBoard.css">
