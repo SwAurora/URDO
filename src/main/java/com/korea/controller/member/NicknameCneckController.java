@@ -9,25 +9,26 @@ import javax.servlet.http.HttpServletResponse;
 import com.korea.controller.SubController;
 import com.korea.service.MemberService;
 
-public class EmailCheckController implements SubController{
+public class NicknameCneckController implements SubController{
+
 	MemberService service = MemberService.getInstance();
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
-		String email = req.getParameter("email");
+		String nickname = req.getParameter("nickname");
 		
 		PrintWriter out;
 		
-		if(service.checkEmail(email) != "") {
+		if(service.checkNickname(nickname) == 1) {
 			try {
 				out = resp.getWriter();
-				out.print("이메일이 이미 존재합니다.");
+				out.print("닉네임 이미 존재합니다.");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
 			try {
 				out = resp.getWriter();
-				out.print("사용할 수 있는 이메일입니다.");
+				out.print("사용할 수 있는 닉네임입니다.");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

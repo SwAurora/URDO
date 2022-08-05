@@ -254,7 +254,7 @@ public class MemberDAO extends DAO
     
     // 닉네임 중복체크
     public int checkNickname(String nickname) {
-    	int i = 0; // 아이디 개수 초기화
+    	int i = 0; // 닉네임 개수 초기화
     	try {
 			pstmt = conn.prepareStatement("SELECT COUNT(*) FROM member_tbl where nickname = ?");
 			pstmt.setString(1, nickname);
@@ -271,26 +271,8 @@ public class MemberDAO extends DAO
             try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         } return 0;
     }
-    /*
-	public int checkEmail(String email) {
-    	int i = 0; // 이메일 개수 초기화
-    	try {
-			pstmt = conn.prepareStatement("SELECT COUNT(*) FROM member_tbl where email = ?");
-			pstmt.setString(1, email);
-			rs = pstmt.executeQuery();
-            if(rs.next()) {
-            	i = rs.getInt(1);
-                return i;
-            }
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
-        } return 0;
-	}
-	*/
 	
+    // 이메일 중복체크
     public String checkEmail(String email)
     {
         String result = "";

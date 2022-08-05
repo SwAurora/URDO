@@ -111,6 +111,7 @@
                 </div>
                 <a class="updateBtn" id="submitBtn2" href="javascript:sujung(2)">수정</a>
                 <a class="updateBtn" id="submitBtn2-1" href="javascript:cancel(2)">취소</a>
+                <div id="noticeNickname"></div>
             </div>
             <div class="item">
                 <a href="javascript:modal()" id="pwdchange">비밀번호 재설정</a>
@@ -135,6 +136,19 @@
     			            }, error: function()
     			            {
     			                alert('이메일 중복확인 에러!');
+    			            }
+    			        });
+    			    });
+    			    $('#nickname').keyup ( function() {
+    			        $.ajax({
+    			            url: '/NicknameCheck.do', 
+    			            type: 'POST', 
+    			            data: { "nickname" : $('#nickname').val() }, 
+    			            success: function(result) {
+    			                $('#noticeNickname').html(result);
+    			            }, error: function()
+    			            {
+    			                alert('닉네임 중복확인 에러!');
     			            }
     			        });
     			    });
@@ -170,7 +184,11 @@
                         	
                             let frm1 = document.frm1;
                             frm1.nickname.value = $('#nickname').val();
-                            frm1.submit();
+                            if($('#noticeNickname').text() == "닉네임 이미 존재합니다.") {
+                            	alert('닉네임이 이미 존재합니다.');
+                            } else {
+                            	frm1.submit();
+                            }
                         }
                         else
                         {
