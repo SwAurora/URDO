@@ -146,11 +146,23 @@
     </form>
 </section>
 <script>
+	// 체크박스 전체선택 디테일
+	$('input[name="chk"]').on('click', function(){
+		if ($('input[name="chk"]:checked').length == 4) {
+			$('#chk').prop('checked', true);
+		} else {
+			$('#chk').prop('checked', false);
+		}
+	});
+	
+	
     function check()
     {
         let form = document.form1;
         let chk1 = document.getElementById('chk1');
         let chk2 = document.getElementById('chk2');
+        let chk3 = document.getElementById('chk3');
+        let chk4 = document.getElementById('chk4');
         if(form.id.value === "" || form.pw.value === "" || form.pwchk.value === "" || form.email.value === "" || form.nickname.value === "")
         {
             alert("입력되지 않은 항목이 있습니다.");
