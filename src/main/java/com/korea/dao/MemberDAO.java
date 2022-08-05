@@ -231,4 +231,44 @@ public class MemberDAO extends DAO
         }
         return false;
     }
+    
+    // 아이디 중복 체크
+    public int checkId(String id) {
+    	int i = 0; // 아이디 개수 초기화
+    	try {
+			pstmt = conn.prepareStatement("SELECT COUNT(*) FROM member_tbl where id = ?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+            if(rs.next())
+            {
+            	i = rs.getInt(1);
+                return i;
+            }
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        } return 0;
+    }
+    
+    // 닉네임 중복체크
+    public int checkNickname(String nickname) {
+    	int i = 0; // 아이디 개수 초기화
+    	try {
+			pstmt = conn.prepareStatement("SELECT COUNT(*) FROM member_tbl where nickname = ?");
+			pstmt.setString(1, nickname);
+			rs = pstmt.executeQuery();
+            if(rs.next())
+            {
+            	i = rs.getInt(1);
+                return i;
+            }
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        } return 0;
+    }
 }
