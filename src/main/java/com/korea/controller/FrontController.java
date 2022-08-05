@@ -29,7 +29,12 @@ import com.korea.controller.board.ReplyListController;
 import com.korea.controller.board.ThemeGameController;
 import com.korea.controller.board.ThemeMusicController;
 import com.korea.controller.board.ThemeSportsController;
-import com.korea.controller.member.*;
+import com.korea.controller.member.DeleteMemberController;
+import com.korea.controller.member.EmailCheckController;
+import com.korea.controller.member.PwdUpdateController;
+import com.korea.controller.member.ShowInfoController;
+import com.korea.controller.member.SignUpController;
+import com.korea.controller.member.UpdateController;
 import com.korea.controller.urpo.UrconController;
 import com.korea.controller.urpo.UrpoIconController;
 import com.korea.controller.urpo.UrpoPurchaseController;
@@ -59,6 +64,7 @@ public class FrontController extends HttpServlet
         list.put("/Update.do", new UpdateController());
         list.put("/PwdUpdate.do", new PwdUpdateController());
         list.put("/Delete.do", new DeleteMemberController());
+        list.put("/EmailCheck.do", new EmailCheckController());
 
         // 게시판
         list.put("/Board/humor.do", new HumorController());

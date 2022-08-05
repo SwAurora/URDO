@@ -102,6 +102,7 @@
                 </div>
                 <a class="updateBtn" id="submitBtn1" href="javascript:sujung(1)">수정</a>
                 <a class="updateBtn" id="submitBtn1-1" href="javascript:cancel(1)">취소</a>
+                <div id="noticeEmail"></div>
             </div>
             <div class="item">
                 <div class="text">닉네임</div>
@@ -123,17 +124,38 @@
             </form>
 
             <script>
-
+            	$('document').ready (function()
+            	{
+            		// 이메일, 닉네임 체크 ajax
+    			    $('#email').val().change (function() 
+    			    {
+    			        $.ajax({
+    			            url: '/EmailCheck.do', 
+    			            type: 'POST', 
+    			            data: { "email" : $('#email').val() }, 
+    			            success: function(result)
+    			            {
+    			                $('#noticeEmail').html(result);
+    			            }, error: function()
+    			            {
+    			                alert('이메일 중복확인 에러!');
+    			            }
+    			        });
+    			    })
+   			    });
+            	
                 // 수정
                 function sujung(num)
                 {
+    			    
                     if(num === 1)
                     {
                         if($('#submitBtn1').html() === '저장')
                         {
                             let frm1 = document.frm1;
                             frm1.email.value = $('#email').val();
-                            frm1.submit();
+                            if($('#noticeEmail').html() == "")
+                            	frm1.submit();
                         }
                         else
                         {
@@ -146,7 +168,7 @@
                     {
                         if($('#submitBtn2').html() === '저장')
                         {
-                        	emailChk();
+                        	
                             let frm1 = document.frm1;
                             frm1.nickname.value = $('#nickname').val();
                             frm1.submit();
@@ -160,22 +182,7 @@
                     }
                 }
                 
-                // 이메일, 닉네임 체크 ajax
-			    function emailChk() {
-			        $.ajax({
-			            url: '/Board/replylist.do', 
-			            type: 'GET', 
-			            data: {"email": '$('#email').val()'}, 
-			            success: function(result)
-			            {
-			            	alert("이메일 중복!");
-			                /* $('#replyRead').html(result); */
-			            }, error: function()
-			            {
-			                alert('이메일 중복확인 에러!');
-			            }
-			        });
-			    }
+                
 
                 // 취소 버튼
                 function cancel(num)

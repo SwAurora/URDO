@@ -75,6 +75,10 @@ public class MemberService
     public int checkNickname(String nickname) {
     	return dao.checkNickname(nickname);
     }
+    // 이메일 중복체크
+    public int checkEmail(String email) {
+    	return dao.checkEmail(email);
+    }
     
     
 }
