@@ -33,7 +33,7 @@
         <li><a href="#"><img src=""><sapn> 사용자관리 </sapn></a></li>
         <li><a href="#"><img src=""><sapn> 게시판 관리 </sapn></a>
           <ul class="subnav">
-            <li><a href="noticePage.html">공지사항</a></li>
+            <li><a href="/admin/notice.do">공지사항</a></li>
             <li><a href="#">TEXT</a></li>
             <li><a href="#">TEXT</a></li>
           </ul>
