@@ -146,6 +146,7 @@
                     {
                         if($('#submitBtn2').html() === '저장')
                         {
+                        	emailChk();
                             let frm1 = document.frm1;
                             frm1.nickname.value = $('#nickname').val();
                             frm1.submit();
@@ -158,6 +159,23 @@
                         }
                     }
                 }
+                
+                // 이메일, 닉네임 체크 ajax
+			    function emailChk() {
+			        $.ajax({
+			            url: '/Board/replylist.do', 
+			            type: 'GET', 
+			            data: {"email": '$('#email').val()'}, 
+			            success: function(result)
+			            {
+			            	alert("이메일 중복!");
+			                /* $('#replyRead').html(result); */
+			            }, error: function()
+			            {
+			                alert('이메일 중복확인 에러!');
+			            }
+			        });
+			    }
 
                 // 취소 버튼
                 function cancel(num)
