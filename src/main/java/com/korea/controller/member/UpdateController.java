@@ -38,6 +38,7 @@ public class UpdateController implements SubController
             try
             {
                 boolean result = service.UpdateNickName(id, nickname);
+                session.setAttribute("nickname", nickname);
                 resp.sendRedirect("/ShowInfo.do?result=" + result);
             }
             catch(Exception e)

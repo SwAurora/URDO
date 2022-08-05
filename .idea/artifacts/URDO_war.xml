@@ -9,13 +9,6 @@
     </properties>
     <root id="archive" name="URDO-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="URDO:war exploded" />
-      <element id="javaee-facet-resources" facet="URDO/web/웹" />
-      <element id="directory" name="WEB-INF">
-        <element id="directory" name="classes">
-          <element id="module-output" name="URDO" />
-        </element>
-      </element>
-      <element id="javaee-facet-resources" facet="URDO/web/Web" />
     </root>
   </artifact>
 </component>
