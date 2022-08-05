@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link rel="stylesheet" href="resources/css/common.css">
-<link rel="stylesheet" href="resources/css/dashBoard.css">
-
-<link rel="stylesheet" href="resources/css/nav.css">
-<link rel="stylesheet" href="resources/css/footer.css">
+<link rel="stylesheet" href="/resources/css/admin/common.css">
+<link rel="stylesheet" href="/resources/css/admin/notice.css">
+<link rel="stylesheet" href="/resources/css/admin/nav.css">
+<link rel="stylesheet" href="/resources/css/admin/dashBoard.css">
+<link rel="stylesheet" href="/resources/css/admin/footer.css">
 
 <!-- 차트 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
