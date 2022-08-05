@@ -80,5 +80,8 @@ public class MemberService
     	return dao.checkEmail(email);
     }
     
-    
+    public String checkEmail(String email)
+    {
+        return dao.checkEmail(email);
+    }
 }

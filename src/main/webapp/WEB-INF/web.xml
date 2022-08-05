@@ -18,6 +18,16 @@
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
 
+    <!--AdminController URL Mapping-->
+    <servlet>
+        <servlet-name>AdminController</servlet-name>
+        <servlet-class>com.korea.controller.admin.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+
     <!--Filter URL Mapping-->
     <filter>
         <filter-name>Filter</filter-name>
@@ -26,6 +36,10 @@
     <filter-mapping>
         <filter-name>Filter</filter-name>
         <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Filter</filter-name>
+        <url-pattern>/admin</url-pattern>
     </filter-mapping>
     
 </web-app>

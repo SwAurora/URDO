@@ -15,7 +15,7 @@
     // 받아온 변수...
     String sResult = "메일전송성공";
 
-    String imsinum = "36987456321"; //인증번호  입력하기
+    String imsinum = "a36987456321"; //인증번호  입력하기
     try
     {
         String to = "eee1717test@naver.com";    // 받는 사람(to)

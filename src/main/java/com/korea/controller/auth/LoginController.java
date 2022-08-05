@@ -22,7 +22,7 @@ public class LoginController implements SubController
         {
             if(id == null || pw == null)
             {
-                resp.sendRedirect("/login.jsp");
+                resp.sendRedirect("login.jsp");
             }
 
             MemberDTO dto = service.MemberSearch(id);
@@ -36,7 +36,7 @@ public class LoginController implements SubController
                     session.setAttribute("grade", dto.getGrade());
                     session.setMaxInactiveInterval(60*60); // 세션 유지 시간 60분
                     // View로 이동
-                    resp.sendRedirect("/");
+                    resp.sendRedirect("/main.do");
                 }
                 else
                 {

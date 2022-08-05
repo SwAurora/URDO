@@ -3,8 +3,6 @@ let leftArrow = document.querySelector('#arrow img');
 let cnt = 0;
 let common = document.querySelector(".Main");
 
-
-
 function moving_sidebar()
 {
     if(cnt === 0)
@@ -31,7 +29,7 @@ function moving_sidebar()
 
 function GoHome()
 {
-    location.href = "/";
+    location.href = "/main.do";
 }
 
 function MiniHomePage()

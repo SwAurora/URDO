@@ -271,7 +271,7 @@ public class MemberDAO extends DAO
             try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         } return 0;
     }
-
+    /*
 	public int checkEmail(String email) {
     	int i = 0; // 이메일 개수 초기화
     	try {
@@ -290,4 +290,23 @@ public class MemberDAO extends DAO
             try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         } return 0;
 	}
+	*/
+	
+    public String checkEmail(String email)
+    {
+        String result = "";
+        try
+        {
+            pstmt = conn.prepareStatement("select email from member_tbl where email = ?");
+            pstmt.setString(1, email);
+            rs = pstmt.executeQuery();
+            rs.next();
+            result = rs.getString(1);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
