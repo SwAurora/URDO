@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.korea.controller.admin.AdminController;
 import com.korea.controller.admin.NoticeController;
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
@@ -49,6 +48,10 @@ public class FrontController extends HttpServlet
     public void init()
     {
         list = new HashMap<>();
+
+        // 메인
+        list.put("/main.do", new MainController());
+
         // 인증
         list.put("/Login.do", new LoginController());
         list.put("/Logout.do", new LogoutController());

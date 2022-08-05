@@ -31,7 +31,7 @@ public class DeleteMemberController implements SubController
                 {
                     session.invalidate();
                     req.setAttribute("msg", "그 동안 이용해주셔서 감사합니다.");
-                    req.getRequestDispatcher("/").forward(req, resp);
+                    req.getRequestDispatcher("/main.do").forward(req, resp);
                 }
             }
             catch(Exception e)

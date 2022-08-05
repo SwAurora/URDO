@@ -16,7 +16,7 @@ public class LogoutController implements SubController
         try
         {
             req.setAttribute("msg", "로그아웃 되었습니다.");
-            req.getRequestDispatcher("/").forward(req, resp);
+            req.getRequestDispatcher("/main.do").forward(req, resp);
         }
         catch(Exception e)
         {
