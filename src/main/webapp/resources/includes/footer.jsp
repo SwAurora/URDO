@@ -17,7 +17,7 @@
         <img src="/resources/img/index/instagram-square-brands.svg" alt="인스타">
       </div>
       <div id="managementLink">
-        <a href="/admin.do">관리 페이지 이동</a>
+        <a href="/admin">관리 페이지 이동</a>
       </div>
     </div>
 

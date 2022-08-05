@@ -86,8 +86,7 @@ public class FrontController extends HttpServlet
         list.put("/URPO/icon.do", new UrpoIconController());
 
         // 관리자
-        list.put("/admin.do", new AdminController());
-        list.put("/admin/notice.do", new NoticeController());
+         list.put("/admin/notice.do", new NoticeController());
     }
 
     @Override

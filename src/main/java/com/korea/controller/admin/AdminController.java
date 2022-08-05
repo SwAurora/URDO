@@ -1,22 +1,16 @@
 package com.korea.controller.admin;
 
-import com.korea.controller.SubController;
-
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-public class AdminController implements SubController
+public class AdminController extends HttpServlet
 {
     @Override
-    public void execute(HttpServletRequest req, HttpServletResponse resp)
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        try
-        {
-            req.getRequestDispatcher("/dashBoard.jsp").forward(req, resp);
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
+        req.getRequestDispatcher("/dashBoard.jsp").forward(req, resp);
     }
 }
