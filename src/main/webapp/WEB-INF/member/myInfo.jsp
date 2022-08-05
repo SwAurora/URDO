@@ -54,7 +54,7 @@
     <%
         MemberDTO dto = (MemberDTO) request.getAttribute("dto");
         ArrayList<UrpoDTO> itemlist = (ArrayList<UrpoDTO>) request.getAttribute("itemlist");
-        ArrayList<Integer> mylist= (ArrayList<Integer>) request.getAttribute("mylist");
+        ArrayList<Integer> mylist = (ArrayList<Integer>) request.getAttribute("mylist");
         UrpoDTO udto = (UrpoDTO) request.getAttribute("udto");
     %>
     <h1 style="margin:50px 0;">마이 페이지</h1>
@@ -69,19 +69,23 @@
         </div>
         <div class="summaryContainer">
             <div class="item">
-                <div class="number"><%=mylist.get(0)%></div>
+                <div class="number"><%=mylist.get(0)%>
+                </div>
                 <div>내가 쓴 글</div>
             </div>
             <div class="item">
-                <div class="number"><%=mylist.get(1)%></div>
+                <div class="number"><%=mylist.get(1)%>
+                </div>
                 <div>내가 쓴 댓글</div>
             </div>
             <div class="item">
-                <div class="number"><%=mylist.get(2)%></div>
+                <div class="number"><%=mylist.get(2)%>
+                </div>
                 <div>받은 추천 수</div>
             </div>
             <div class="item">
-                <div class="number"><%=mylist.get(3)%></div>
+                <div class="number"><%=mylist.get(3)%>
+                </div>
                 <div>추천한 글</div>
             </div>
             <div class="item">
@@ -125,35 +129,42 @@
             </form>
 
             <script>
-            	$('document').ready ( function() {
-    			    $('#email').keyup ( function() {
-    			        $.ajax({
-    			            url: '/EmailCheck.do', 
-    			            type: 'POST', 
-    			            data: { "email" : $('#email').val() }, 
-    			            success: function(result) {
-    			                $('#noticeEmail').html(result);
-    			            }, error: function()
-    			            {
-    			                alert('이메일 중복확인 에러!');
-    			            }
-    			        });
-    			    });
-    			    $('#nickname').keyup ( function() {
-    			        $.ajax({
-    			            url: '/NicknameCheck.do', 
-    			            type: 'POST', 
-    			            data: { "nickname" : $('#nickname').val() }, 
-    			            success: function(result) {
-    			                $('#noticeNickname').html(result);
-    			            }, error: function()
-    			            {
-    			                alert('닉네임 중복확인 에러!');
-    			            }
-    			        });
-    			    });
-   			    });
-            	
+                $('document').ready(function()
+                {
+                    $('#email').keyup(function()
+                    {
+                        $.ajax({
+                            url: '/EmailCheck.do',
+                            type: 'POST',
+                            data: {"email": $('#email').val()},
+                            success: function(result)
+                            {
+                                $('#noticeEmail').html(result);
+                            },
+                            error: function()
+                            {
+                                alert('이메일 중복확인 에러!');
+                            }
+                        });
+                    });
+                    $('#nickname').keyup(function()
+                    {
+                        $.ajax({
+                            url: '/NicknameCheck.do',
+                            type: 'POST',
+                            data: {"nickname": $('#nickname').val()},
+                            success: function(result)
+                            {
+                                $('#noticeNickname').html(result);
+                            },
+                            error: function()
+                            {
+                                alert('닉네임 중복확인 에러!');
+                            }
+                        });
+                    });
+                });
+
                 // 수정
                 function sujung(num)
                 {
@@ -163,10 +174,13 @@
                         {
                             let frm1 = document.frm1;
                             frm1.email.value = $('#email').val();
-                            if($('#noticeEmail').text() == "이메일이 이미 존재합니다." || $('#noticeEmail').text() == "") {
-                            	alert('이메일이 이미 존재합니다.');
-                            } else {
-                            	frm1.submit();
+                            if($('#noticeEmail').text() == "이메일이 이미 존재합니다." || $('#noticeEmail').text() == "")
+                            {
+                                alert('이메일이 이미 존재합니다.');
+                            }
+                            else
+                            {
+                                frm1.submit();
                             }
                         }
                         else
@@ -180,13 +194,16 @@
                     {
                         if($('#submitBtn2').html() === '저장')
                         {
-                        	
+
                             let frm1 = document.frm1;
                             frm1.nickname.value = $('#nickname').val();
-                            if($('#noticeNickname').text() == "닉네임 이미 존재합니다." || $('#noticeNickname').text() == "") {
-                            	alert('닉네임이 이미 존재합니다.');
-                            } else {
-                            	frm1.submit();
+                            if($('#noticeNickname').text() == "닉네임 이미 존재합니다." || $('#noticeNickname').text() == "")
+                            {
+                                alert('닉네임이 이미 존재합니다.');
+                            }
+                            else
+                            {
+                                frm1.submit();
                             }
                         }
                         else
@@ -197,8 +214,7 @@
                         }
                     }
                 }
-                
-                
+
 
                 // 취소 버튼
                 function cancel(num)
