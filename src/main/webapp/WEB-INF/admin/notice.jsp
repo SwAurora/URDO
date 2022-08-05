@@ -19,13 +19,11 @@
 
 
 <!-- 사이드 네비게이션  -->
-<%@include file ="../../resources/includes/nav.jsp" %>
+<%@include file ="/resources/includes/admin/nav.jsp" %>
 
 <div id="main">
 	<!-- 헤더 -->
-	<!-- 오류 뜸 -->
-<%-- <%@include file="../../resources/includes/header.jsp" %>
- --%>
+<%@include file="../../resources/includes/admin/header.jsp" %>
 
 
     <section>
@@ -153,7 +151,7 @@
 
 	<!-- 푸터  -->
 
-    <%@include file="../../resources/includes/footer.jsp" %>
+    <%@include file="/resources/includes/admin/footer.jsp" %>
 
 </div>
 

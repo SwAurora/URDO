@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" href="/resources/css/admin/common.css">
-<link rel="stylesheet" href="/resources/css/admin/notice.css">
-<link rel="stylesheet" href="/resources/css/admin/nav.css">
 <link rel="stylesheet" href="/resources/css/admin/dashBoard.css">
+
+<link rel="stylesheet" href="/resources/css/admin/nav.css">
 <link rel="stylesheet" href="/resources/css/admin/footer.css">
 
 <!-- 차트 -->
@@ -21,7 +21,7 @@
   
 
 <!-- 사이드 네비게이션  -->
-<%@include file ="resources/includes/admin/nav.jsp" %>
+<%@include file ="/resources/includes/admin/nav.jsp" %>
 
 
 
@@ -101,7 +101,7 @@
         <table class="Board-table notice">
         <caption> 
           <span class="captionTag">공지사항</span> 
-          <span class="link"><a href="notice.jsp">상세보기</a></span>
+          <span class="link"><a href="/admin/notice.do">상세보기</a></span>
         </caption>
           <tr>		      
               <td>분류</td>
@@ -210,8 +210,6 @@
 
 
 <script src="/resources/js/adminDashboard.js"></script>
-
-</script>
 
 
 </body>
