@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+
+      header {
+		  position: relative;
+		  top: 0px;
+		  left: calc(100%-200px);
+		  height: auto;
+		  width: 100%;
+		}
+		
+		#headerTop {
+		  display: flex;
+		  height: 80px;
+		  background-color: rgb(255, 255, 255);
+		}
+		
+		#headernav {
+		  margin-left: auto;
+		  display: flex;
+		
+		}
+		
+		#headernav li {
+		  width: 80px;
+		  height: 40px;
+		  font-size: 1.1rem;
+		  margin: 20px 10px 0px 0px;
+		  line-height: 40px;  
+		}
+		
+		#todobtn a {
+		  color: black;
+		}
+		
+
+      #headerBottom {
+        background-color: black;
+        height: 150px;
+        color: white;
+        text-align: center;
+        line-height: 150px;
+      
+      }
+
+      

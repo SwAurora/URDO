@@ -243,7 +243,7 @@
                 <div id="pointshop-table">
                     <table class="item">
                         <tr>
-                            <td><img src="resources/img/pointShop/pointshop.gif"><label>로켓</label></td>
+                            <td><img src="resources/img/index/pointshop-icon5.gif" alt="노이즈 아이콘"><label>노이즈</label></td>
                             <td><img src="resources/img/index/pointshop-icon1.gif" alt="비 아이콘"><label>비</label></td>
                             <td><img src="resources/img/index/pointshop-icon2.gif" alt="종이 아이콘"><label>종이</label></td>
                             <td><img src="resources/img/index/pointshop-icon3.gif" alt="방울 아이콘"><label>방울</label></td>

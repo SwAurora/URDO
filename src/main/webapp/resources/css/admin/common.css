@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+/* Google-font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+
+
+:root {
+	 /* ====== font-size ====== */
+    --font-XL: 18px;
+    --font-L: 15px;
+    --font-M: 14px;
+    --font-S: 12px;
+    
+    /* ====== font-weight ====== */
+    --font-weight-bold: bold;
+    --font-weight-regular: normal;
+    --font-weight-light: 100;
+    
+    /* ====== Color ====== */
+    --color-darkgray: #34383e;
+    --color-textField: #e3e6e8;
+    --color-point: #5865F2;
+    --color-pointhover: #4752C4;
+}
+
+
+
+* {
+    margin: 0px; 
+    padding: 0px;
+    font-family: Noto Sans KR;
+}
+
+body {
+  background-color: var(--color-textField);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: 0;
+}
+
+#main {
+	position: absolute;
+	left: 200px;
+	top: 0px;
+    width: 90%;
+}
+
