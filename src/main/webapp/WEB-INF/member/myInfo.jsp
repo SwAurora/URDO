@@ -102,8 +102,8 @@
                 </div>
                 <a class="updateBtn" id="submitBtn1" href="javascript:sujung(1)">수정</a>
                 <a class="updateBtn" id="submitBtn1-1" href="javascript:cancel(1)">취소</a>
-                <div id="noticeEmail"></div>
             </div>
+            <div id="noticeEmail"></div>
             <div class="item">
                 <div class="text">닉네임</div>
                 <div class="text"><input type="text" id="nickname" class="ipSet" value="<%=dto.getNickname()%>"
@@ -111,8 +111,8 @@
                 </div>
                 <a class="updateBtn" id="submitBtn2" href="javascript:sujung(2)">수정</a>
                 <a class="updateBtn" id="submitBtn2-1" href="javascript:cancel(2)">취소</a>
-                <div id="noticeNickname"></div>
             </div>
+            <div id="noticeNickname"></div>
             <div class="item">
                 <a href="javascript:modal()" id="pwdchange">비밀번호 재설정</a>
             </div>
@@ -209,6 +209,7 @@
                         $("#email").attr("disabled", true);
                         $('#email').val("<%=dto.getEmail()%>");
                         $('#submitBtn1-1').css("display", "none");
+                        $('#noticeEmail').empty();
                     }
                     else
                     {
@@ -216,6 +217,7 @@
                         $("#nickname").attr("disabled", true);
                         $('#nickname').val("<%=dto.getNickname()%>");
                         $('#submitBtn2-1').css("display", "none");
+                        $('#noticeNickname').empty();
                     }
                 }
 

@@ -119,6 +119,14 @@
     outline: none;
 }
 
+#noticeEmail, #noticeNickname {
+	font-size : var(--font-S);
+	color : var(--color-warning);
+	margin : 0 0 0 20px;
+	
+}
+
+
 /* 모달 */
 .modal
 {
