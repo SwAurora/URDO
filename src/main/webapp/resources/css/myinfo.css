@@ -123,7 +123,10 @@
 	font-size : var(--font-S);
 	color : var(--color-warning);
 	margin : 0 0 0 20px;
-	
+
+}
+.usable { 
+	color:var(--color-right);
 }
 
 
