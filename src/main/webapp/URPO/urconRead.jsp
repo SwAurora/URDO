@@ -134,9 +134,9 @@
                     }
                 %>
                 let flag = "<%=flag%>";
-                let point = "<%=point%>";
-                let price = "<%=dto.getPrice()%>";
-                console.log(flag);
+                let point = parseInt("<%=point%>");
+                let price = parseInt("<%=dto.getPrice()%>");
+                console.log("flag : " + flag + ", point : " + point + ", price : " + price);
                 if(flag !== "")
                 {
                     alert("이미 보유한 아이콘 입니다.");
