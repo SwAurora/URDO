@@ -18,7 +18,7 @@
 
 </head>
 <body>
-
+  
 
 <!-- 사이드 네비게이션  -->
 <%@include file ="resources/includes/admin/nav.jsp" %>
