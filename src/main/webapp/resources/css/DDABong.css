@@ -46,6 +46,19 @@
     }
 }
 
+/* 2URPO */
+
+#ddabongurpo
+{
+    display: block;
+    position: fixed;
+    left: calc(50vw - 86px);
+    top: calc(50vh + 96px);
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Jua', sans-serif;
+}
+
 /* 폭죽 */
 @keyframes firework
 {

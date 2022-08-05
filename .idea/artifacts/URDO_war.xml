@@ -15,6 +15,7 @@
           <element id="module-output" name="URDO" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="URDO/web/Web" />
     </root>
   </artifact>
 </component>
