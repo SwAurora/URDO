@@ -17,7 +17,7 @@ public class EmailCheckController implements SubController{
 		
 		PrintWriter out;
 		
-		if(service.checkEmail(email) == 1) {
+		if(service.checkEmail(email) != "") {
 			try {
 				out = resp.getWriter();
 				out.print("이메일이 이미 존재합니다.");
@@ -27,7 +27,7 @@ public class EmailCheckController implements SubController{
 		} else {
 			try {
 				out = resp.getWriter();
-				out.print("");
+				out.print("사용할 수 있는 이메일입니다.");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

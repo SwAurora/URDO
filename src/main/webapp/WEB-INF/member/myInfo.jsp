@@ -124,24 +124,20 @@
             </form>
 
             <script>
-            	$('document').ready (function()
-            	{
-            		// 이메일, 닉네임 체크 ajax
-    			    $('#email').val().change (function() 
-    			    {
+            	$('document').ready ( function() {
+    			    $('#email').keyup ( function() {
     			        $.ajax({
     			            url: '/EmailCheck.do', 
     			            type: 'POST', 
     			            data: { "email" : $('#email').val() }, 
-    			            success: function(result)
-    			            {
+    			            success: function(result) {
     			                $('#noticeEmail').html(result);
     			            }, error: function()
     			            {
     			                alert('이메일 중복확인 에러!');
     			            }
     			        });
-    			    })
+    			    });
    			    });
             	
                 // 수정
@@ -154,8 +150,11 @@
                         {
                             let frm1 = document.frm1;
                             frm1.email.value = $('#email').val();
-                            if($('#noticeEmail').html() == "")
+                            if($('#noticeEmail').text() == "이메일이 이미 존재합니다.") {
+                            	alert('이메일이 이미 존재합니다.');
+                            } else {
                             	frm1.submit();
+                            }
                         }
                         else
                         {

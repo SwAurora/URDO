@@ -278,8 +278,7 @@ public class MemberDAO extends DAO
 			pstmt = conn.prepareStatement("SELECT COUNT(*) FROM member_tbl where email = ?");
 			pstmt.setString(1, email);
 			rs = pstmt.executeQuery();
-            if(rs.next())
-            {
+            if(rs.next()) {
             	i = rs.getInt(1);
                 return i;
             }
@@ -295,17 +294,16 @@ public class MemberDAO extends DAO
     public String checkEmail(String email)
     {
         String result = "";
-        try
-        {
+        try {
             pstmt = conn.prepareStatement("select email from member_tbl where email = ?");
             pstmt.setString(1, email);
             rs = pstmt.executeQuery();
-            rs.next();
-            result = rs.getString(1);
-        }
-        catch(Exception e)
-        {
+            while (rs.next()) result = rs.getString(1);
+        } catch(Exception e) {
             e.printStackTrace();
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
         return result;
     }
