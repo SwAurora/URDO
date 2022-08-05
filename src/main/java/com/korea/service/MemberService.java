@@ -71,11 +71,12 @@ public class MemberService
     	return dao.checkId(id);
     }
     
-    // 닉네임 중복체크
+    // 닉네임 중복체크 ** 리턴이 int인것에 주의 **
     public int checkNickname(String nickname) {
     	return dao.checkNickname(nickname);
     }
     
+    // 이메일 중복체크
     public String checkEmail(String email)
     {
         return dao.checkEmail(email);

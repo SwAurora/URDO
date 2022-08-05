@@ -103,6 +103,7 @@
                 <a class="updateBtn" id="submitBtn1" href="javascript:sujung(1)">수정</a>
                 <a class="updateBtn" id="submitBtn1-1" href="javascript:cancel(1)">취소</a>
             </div>
+            <div id="noticeEmail"></div>
             <div class="item">
                 <div class="text">닉네임</div>
                 <div class="text"><input type="text" id="nickname" class="ipSet" value="<%=dto.getNickname()%>"
@@ -111,6 +112,7 @@
                 <a class="updateBtn" id="submitBtn2" href="javascript:sujung(2)">수정</a>
                 <a class="updateBtn" id="submitBtn2-1" href="javascript:cancel(2)">취소</a>
             </div>
+            <div id="noticeNickname"></div>
             <div class="item">
                 <a href="javascript:modal()" id="pwdchange">비밀번호 재설정</a>
             </div>
@@ -123,7 +125,35 @@
             </form>
 
             <script>
-
+            	$('document').ready ( function() {
+    			    $('#email').keyup ( function() {
+    			        $.ajax({
+    			            url: '/EmailCheck.do', 
+    			            type: 'POST', 
+    			            data: { "email" : $('#email').val() }, 
+    			            success: function(result) {
+    			                $('#noticeEmail').html(result);
+    			            }, error: function()
+    			            {
+    			                alert('이메일 중복확인 에러!');
+    			            }
+    			        });
+    			    });
+    			    $('#nickname').keyup ( function() {
+    			        $.ajax({
+    			            url: '/NicknameCheck.do', 
+    			            type: 'POST', 
+    			            data: { "nickname" : $('#nickname').val() }, 
+    			            success: function(result) {
+    			                $('#noticeNickname').html(result);
+    			            }, error: function()
+    			            {
+    			                alert('닉네임 중복확인 에러!');
+    			            }
+    			        });
+    			    });
+   			    });
+            	
                 // 수정
                 function sujung(num)
                 {
@@ -133,7 +163,11 @@
                         {
                             let frm1 = document.frm1;
                             frm1.email.value = $('#email').val();
-                            frm1.submit();
+                            if($('#noticeEmail').text() == "이메일이 이미 존재합니다." || $('#noticeEmail').text() == "") {
+                            	alert('이메일이 이미 존재합니다.');
+                            } else {
+                            	frm1.submit();
+                            }
                         }
                         else
                         {
@@ -146,10 +180,14 @@
                     {
                         if($('#submitBtn2').html() === '저장')
                         {
-                        	emailChk();
+                        	
                             let frm1 = document.frm1;
                             frm1.nickname.value = $('#nickname').val();
-                            frm1.submit();
+                            if($('#noticeNickname').text() == "닉네임 이미 존재합니다." || $('#noticeNickname').text() == "") {
+                            	alert('닉네임이 이미 존재합니다.');
+                            } else {
+                            	frm1.submit();
+                            }
                         }
                         else
                         {
@@ -160,22 +198,7 @@
                     }
                 }
                 
-                // 이메일, 닉네임 체크 ajax
-			    function emailChk() {
-			        $.ajax({
-			            url: '/Board/replylist.do', 
-			            type: 'GET', 
-			            data: {"email": '$('#email').val()'}, 
-			            success: function(result)
-			            {
-			            	alert("이메일 중복!");
-			                /* $('#replyRead').html(result); */
-			            }, error: function()
-			            {
-			                alert('이메일 중복확인 에러!');
-			            }
-			        });
-			    }
+                
 
                 // 취소 버튼
                 function cancel(num)
@@ -186,6 +209,7 @@
                         $("#email").attr("disabled", true);
                         $('#email').val("<%=dto.getEmail()%>");
                         $('#submitBtn1-1').css("display", "none");
+                        $('#noticeEmail').empty();
                     }
                     else
                     {
@@ -193,6 +217,7 @@
                         $("#nickname").attr("disabled", true);
                         $('#nickname').val("<%=dto.getNickname()%>");
                         $('#submitBtn2-1').css("display", "none");
+                        $('#noticeNickname').empty();
                     }
                 }
 
