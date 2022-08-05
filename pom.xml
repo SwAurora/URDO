@@ -71,7 +71,17 @@
             <artifactId>activation</artifactId>
             <version>1.1.1</version>
         </dependency>
+        
+        <!-- 추가됨 -->
+		<dependency>
+				<groupId>com.sun.mail</groupId>
+				<artifactId>javax.mail</artifactId>
+				<version>1.6.1</version>
+		</dependency>
 
+        
+        
+        
     </dependencies>
 
     <build>
