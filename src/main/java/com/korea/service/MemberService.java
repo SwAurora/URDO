@@ -66,5 +66,15 @@ public class MemberService
     	return dao.getPoint(no, id);
     }
     
+    // 아이디 중복체크
+    public int checkId(String id) {
+    	return dao.checkId(id);
+    }
+    
+    // 닉네임 중복체크
+    public int checkNickname(String nickname) {
+    	return dao.checkNickname(nickname);
+    }
+    
     
 }
