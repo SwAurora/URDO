@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+#side_nav {
+  display: block;
+  left: 0;
+  top: 0;
+  margin-left: 0;
+  flex-direction: column;
+  position: fixed;
+  height: 100%;
+  width: 200px;
+  background-color: var(--color-darkgray);
+  color: white; 
+  z-index: 99;
+}
+
+#side_nav a {
+  color: white;
+}
+
+#side_nav h1 {
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+  }
+
+#side_nav hr {
+    width: 90%;
+    margin: 0 auto;
+    /* border: 0.1px solid white; */
+}
+
+/* 아이콘 넣고 지워주기 */
+.sidemenu {
+  margin-left: 20px;
+}
+
+.sidemenuTop {
+  height: 100px;
+  margin-top: 12px;
+}
+
+.sidemenuBottom {
+  height: auto;
+  margin-top: 20px;
+}
+
+#side_nav li {
+  margin: 6px 0px;
+}
+
+.sidemenuBottom>li {
+    padding: 5px 0px;
+}
+
+.subnav {
+  font-size: 14px;
+  margin-left: 32px;
+}

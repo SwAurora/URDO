@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+  footer {
+  position: relative;
+  top: 60px;
+  left: 200;
+  height: 220px;
+  text-align: center;
+  background-color: rgb(23, 23, 24);
+  color: white;
+}
+
+#footer-terms {
+  padding-top: 40px;
+}
