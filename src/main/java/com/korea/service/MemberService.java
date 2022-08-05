@@ -76,5 +76,8 @@ public class MemberService
     	return dao.checkNickname(nickname);
     }
     
-    
+    public String checkEmail(String email)
+    {
+        return dao.checkEmail(email);
+    }
 }

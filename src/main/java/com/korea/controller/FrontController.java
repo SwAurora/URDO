@@ -59,6 +59,7 @@ public class FrontController extends HttpServlet
         list.put("/Update.do", new UpdateController());
         list.put("/PwdUpdate.do", new PwdUpdateController());
         list.put("/Delete.do", new DeleteMemberController());
+        list.put("/PwdFinder.do", new PwdFinderController());
 
         // 게시판
         list.put("/Board/humor.do", new HumorController());
@@ -86,7 +87,7 @@ public class FrontController extends HttpServlet
         list.put("/URPO/icon.do", new UrpoIconController());
 
         // 관리자
-         list.put("/admin/notice.do", new NoticeController());
+        list.put("/admin/notice.do", new NoticeController());
     }
 
     @Override
