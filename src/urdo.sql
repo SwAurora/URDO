@@ -46,25 +46,39 @@ create table board_tbl
     foreign key(subject) references subject_tbl(subject) on update cascade on delete cascade,
     foreign key(writer) references member_tbl(nickname) on update cascade on delete cascade
 );
+
 create procedure board()
 BEGIN
     DECLARE i INT DEFAULT 1;
-while(i<=100) DO
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('bestNow', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('bestMonth', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('humor', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('creArt', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('creCook', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('regionRestaurant', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('regionLandmark', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeGame', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeSports', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
-insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeMusic', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
-set i = i+1;
-end while;
+    while(i<=100) DO
+            insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('bestNow', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('bestMonth', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('humor', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('creArt', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('creCook', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('regionRestaurant', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('regionLandmark', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeGame', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeSports', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend) values ('themeMusic', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0);
+            set i = i+1;
+        end while;
 END;
 
 CALL board();
+
+create table bestNow
+(
+    board_no int,
+    foreign key (board_no) references board_tbl(no)
+);
+
+create table bestMonth
+(
+    board_no int,
+    foreign key (board_no) references board_tbl(no)
+);
+
 #------------------------------------------------- 댓글 테이블
 create table reply_tbl
 (
@@ -79,7 +93,9 @@ create table reply_tbl
   foreign key(memberId) references member_tbl(id) on delete cascade
 );
 select * from reply_tbl order by no desc;
+
 #------------------------------------------------ 추천 테이블
+
 create table rec_tbl
 (
     board_no int,
@@ -88,7 +104,22 @@ create table rec_tbl
     foreign key(rec_id) references member_tbl(id) on update cascade on delete cascade
 );
 
+create table dayrec_tbl
+(
+    board_no int,
+    date varchar(45) not null,
+    foreign key (board_no) references board_tbl(no)
+);
+
+create table monthrec_tbl
+(
+    board_no int,
+    date varchar(45) not null,
+    foreign key (board_no) references board_tbl(no)
+);
+
 #------------------------------------------------- 포인트샵 테이블
+
 create table urpo_tbl
 (
     no int primary key auto_increment,
@@ -118,15 +149,6 @@ BEGIN
 END;
 
 call urpoProcedure();
+
 #----------------------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------------------------------------------------------------
-drop table urpo_tbl;
-select * from member_tbl;
-
-select * from urpo_tbl;
-
-select * from board_tbl where writer='aurora';
-
-select sum(recommend) from board_tbl where writer='aurora';
-
-select count(recommend) from board_tbl where no = (select no from board_tbl where writer='aurora');
