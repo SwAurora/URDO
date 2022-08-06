@@ -10,16 +10,19 @@
     height: 132px;
     background-color: var(--color-point);
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: flex-start;
     padding: 10px;
-    gap:10px;
+    gap: 10px;
 }
 
-.blueContainer img {
-	width:80px; height:80px;
-	display:flex;
+.blueContainer img
+{
+    width: 80px;
+    height: 80px;
+    display: flex;
 }
+
 .blueContainer .name
 {
     font-size: 30px;
@@ -64,11 +67,16 @@
 {
     display: flex;
     align-items: center;
-    padding: 16px;
+    padding: 8px;
     color: black;
     text-decoration: none;
     height: 56px;
     box-sizing: border-box;
+}
+
+.listContainer .item:first-child
+{
+    margin: 8px 0;
 }
 
 .text
@@ -101,8 +109,10 @@
     font-size: var(--font-L);
     margin-left: 5px;
 }
-.updateBtn:hover {
-	background-color:var(--color-pointhover);
+
+.updateBtn:hover
+{
+    background-color: var(--color-pointhover);
 }
 
 .ipSet
@@ -119,16 +129,20 @@
     outline: none;
 }
 
-#noticeEmail, #noticeNickname {
-	font-size : var(--font-S);
-	color : var(--color-warning);
-	margin:0 0 0 80px;
-
+#noticeEmail, #noticeNickname
+{
+    width: 170px;
+    height: 20px;
+    font-size: var(--font-S);
+    color: var(--color-warning);
+    margin-left: 72px;
+    margin-top: -10px;
 }
-.usable { 
-	color:var(--color-right);
-}
 
+.usable
+{
+    color: var(--color-right);
+}
 
 /* 모달 */
 .modal
@@ -266,8 +280,9 @@ button
     text-decoration: none;
 }
 
-#pwdchange:hover {
-	color:var(--color-pointhover);
+#pwdchange:hover
+{
+    color: var(--color-pointhover);
 }
 
 #delAccount
@@ -276,11 +291,13 @@ button
     text-decoration: none;
     font-size: var(--font-L);
 }
-#delAccount:hover {
-	color:var(--color-logoname);
+
+#delAccount:hover
+{
+    color: var(--color-logoname);
 }
 
-#submitBtn1-1,#submitBtn2-1
+#submitBtn1-1, #submitBtn2-1
 {
     background-color: var(--color-darkgray);
     display: none;
