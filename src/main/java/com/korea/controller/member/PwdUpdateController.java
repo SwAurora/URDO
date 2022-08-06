@@ -16,21 +16,37 @@ public class PwdUpdateController implements SubController
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
     {
+        String now_pw = req.getParameter("now_pw");
         String new_pw = req.getParameter("new_pw");
         HttpSession session = req.getSession();
         String id = (String) session.getAttribute("id");
 
-        new_pw = BCrypt.hashpw(new_pw, BCrypt.gensalt());
-        boolean result = service.UpdatePassword(id, new_pw);
+        MemberDTO dto = service.MemberSearch(id);
 
-        try
+        if(BCrypt.checkpw(now_pw, dto.getPw()))
         {
-            resp.sendRedirect("/ShowInfo.do?result=" + result);
+            new_pw = BCrypt.hashpw(new_pw, BCrypt.gensalt());
+            boolean result = service.UpdatePassword(id, new_pw);
+            try
+            {
+                resp.sendRedirect("/ShowInfo.do?result=" + result);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
-        catch(Exception e)
+        else
         {
-            e.printStackTrace();
+            try
+            {
+                req.setAttribute("msg", "현재 비밀번호가 맞지않습니다.");
+                req.getRequestDispatcher("/ShowInfo.do").forward(req, resp);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
-
     }
 }
