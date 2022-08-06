@@ -292,7 +292,7 @@
 
                     if(now_pw.value === "" || new_pw.value === "" || conf_pw.value === "")
                     {
-                        alert("비어있는 항목이 있습니다.");
+                        alert("비어있는 항목이 있습니다 입력부탁드립니다.");
                     }
                     else if(new_pw.value !== conf_pw.value)
                     {
@@ -301,6 +301,12 @@
                     else
                     {
                         fm.submit();
+                    }
+
+                    if(new_pw.length < 6)
+                    {
+                        alert('입력한 글자가 6글자 이상이어야 합니다.');
+                        return false;
                     }
                 }
 
@@ -374,7 +380,7 @@
 
             .icon input[type=radio]:checked + .imgContainer img
             {
-                margin: 0px;
+                margin: 0;
                 border: 5px solid var(--color-point);
             }
 
@@ -458,14 +464,15 @@
                     <input type="password" id="conf_pw" maxlength="20" placeholder="새 비밀번호 확인">
 
                     <p class="btn_area_btm">
-                        <button id="changeSubmit" onclick="pwChk();return false;">확인</button>
-                        <button type="button" onclick="closeModal();return false;">취소</button>
+                        <button id="changeSubmit" onclick="pwChk(); return false;">확인</button>
+                        <button type="button" onclick="closeModal(); return false;">취소</button>
                     </p>
                 </fieldset>
             </forM>
         </div>
     </div>
 </div>
+
 <%---------------------------------------------- 모달 2 -----------------------------------------------------%>
 
 <div class="modal_2">
