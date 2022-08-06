@@ -140,7 +140,7 @@
                             }
                         %>
                     </td>
-                    <td><a href="/Board/read.do?no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%>
+                    <td><a href="/Board/read.do?board=bestMonth&no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%>
                     </a>
                     </td>
                     <td><%=boardDTO.getViews()%>
