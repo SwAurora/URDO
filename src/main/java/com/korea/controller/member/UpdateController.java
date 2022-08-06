@@ -16,7 +16,6 @@ public class UpdateController implements SubController
     {
         String email = req.getParameter("email");
         String nickname = req.getParameter("nickname");
-        String password = req.getParameter("password");
         HttpSession session = req.getSession();
         String id = (String) session.getAttribute("id");
 
@@ -47,19 +46,5 @@ public class UpdateController implements SubController
             }
             
         }
-
-//        if(!password.equals(""))
-//        {
-//            try
-//            {
-//                boolean result = service.UpdatePassword(id, password);
-//                resp.sendRedirect("/ShowInfo.do?result=" + result);
-//            }
-//            catch(Exception e)
-//            {
-//                e.printStackTrace();
-//            }
-//
-//        }
     }
 }
