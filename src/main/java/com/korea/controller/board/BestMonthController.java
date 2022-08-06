@@ -12,7 +12,6 @@ import java.util.List;
 public class BestMonthController implements SubController
 {
     BoardService service = BoardService.getInstance();
-    String subject = "bestMonth"; // DB 테이블명
 
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
