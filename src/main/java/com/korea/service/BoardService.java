@@ -37,6 +37,16 @@ public class BoardService
         return dao.Select(subject, start, limit);
     }
 
+    public List<BoardDTO> getBestNow(int start, int limit)
+    {
+        return dao.SelectBestNow(start, limit);
+    }
+
+    public List<BoardDTO> getBestMonth(int start, int limit)
+    {
+        return dao.SelectBestMonth(start, limit);
+    }
+
     public int getTotalCnt(String table)
     {
         return dao.getTotalCount(table);
@@ -324,10 +334,26 @@ public class BoardService
     {
         dao.recUp(bno);
     }
+    public void dayRecUp(int bno)
+    {
+        dao.dayRecUp(bno);
+    }
+    public void monthRecUp(int bno)
+    {
+        dao.monthRecUp(bno);
+    }
 
     public int recCount(int no)
     {
         return dao.recCount(no);
+    }
+    public int getDayRec(int bno)
+    {
+        return dao.getDayRec(bno);
+    }
+    public int getMonthRec(int bno)
+    {
+        return dao.getMonthRec(bno);
     }
 
     // 마이페이지 정보 조회
@@ -346,5 +372,24 @@ public class BoardService
     public int getMyRec(String id)
     {
         return dao.getMyRec(id);
+    }
+
+    public void bestNowUp(int bno)
+    {
+        dao.bestNowUp(bno);
+    }
+    public void bestMonthUp(int bno)
+    {
+        dao.bestMonthUp(bno);
+    }
+
+    public int getBestNowTotalCount()
+    {
+        return dao.getBestNowTotalCount();
+    }
+
+    public int getBestMonthTotalCount()
+    {
+        return dao.getBestMonthTotalCount();
     }
 }

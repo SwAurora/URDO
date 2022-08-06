@@ -34,8 +34,8 @@ public class BestNowController implements SubController
                 limit = Integer.parseInt(tmplimit);
             }
 
-            List<BoardDTO> list = service.getBoardList(subject, start, limit);
-            int tcnt = service.getTotalCnt(subject);
+            List<BoardDTO> list = service.getBestNow(start, limit);
+            int tcnt = service.getBestNowTotalCount();
 
             req.setAttribute("tcnt", tcnt);
             req.setAttribute("list", list);
