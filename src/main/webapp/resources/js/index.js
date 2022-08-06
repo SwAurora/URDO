@@ -59,5 +59,5 @@ $('#pointshop>ul li').on('click', function()
 
 function goDeveloper()
 {
-    location.href = 'developer.jsp';
+    location.href = '/footer/developer.jsp';
 }

@@ -11,23 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.korea.controller.admin.NoticeController;
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
-import com.korea.controller.board.CreArtController;
-import com.korea.controller.board.CreCookController;
-import com.korea.controller.board.DeleteController;
-import com.korea.controller.board.HumorController;
-import com.korea.controller.board.PostController;
-import com.korea.controller.board.PostUpdateController;
-import com.korea.controller.board.ReadController;
-import com.korea.controller.board.RecController;
-import com.korea.controller.board.RecCountController;
-import com.korea.controller.board.RegionLandmarkController;
-import com.korea.controller.board.RegionRestaurantController;
-import com.korea.controller.board.ReplyController;
-import com.korea.controller.board.ReplyDeleteController;
-import com.korea.controller.board.ReplyListController;
-import com.korea.controller.board.ThemeGameController;
-import com.korea.controller.board.ThemeMusicController;
-import com.korea.controller.board.ThemeSportsController;
+import com.korea.controller.board.*;
 import com.korea.controller.member.DeleteMemberController;
 import com.korea.controller.member.EmailCheckController;
 import com.korea.controller.member.NicknameCneckController;
@@ -74,6 +58,8 @@ public class FrontController extends HttpServlet
         list.put("/PwdFinder.do", new PwdFinderController());
 
         // 게시판
+        list.put("/Board/bestNow.do", new BestNowController());
+        list.put("/Board/bestMonth.do", new BestMonthController());
         list.put("/Board/humor.do", new HumorController());
         list.put("/Board/creArt.do", new CreArtController());
         list.put("/Board/creCook.do", new CreCookController());
@@ -82,8 +68,8 @@ public class FrontController extends HttpServlet
         list.put("/Board/themeGame.do", new ThemeGameController());
         list.put("/Board/themeSports.do", new ThemeSportsController());
         list.put("/Board/themeMusic.do", new ThemeMusicController());
-        list.put("/Board/post.do", new PostController());
         list.put("/Board/read.do", new ReadController());
+        list.put("/Board/post.do", new PostController());
         list.put("/Board/postUpdate.do", new PostUpdateController());
         list.put("/Board/delete.do", new DeleteController());
         list.put("/Board/reply.do", new ReplyController());
