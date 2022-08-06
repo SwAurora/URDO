@@ -163,10 +163,3 @@ CREATE EVENT monthRecReset
     call monthRecReset();
 #----------------------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------------------------------------------------------------
-
-select * from board_tbl where writer='aurora';
-
-select board_no from bestnow_tbl order by bestNow_no desc;
-select * from bestmonth_tbl;
-select * from board_tbl where no in (select board_no from bestnow_tbl order by bestNow_no desc) order by field(no,1000,1001,993,995,992) limit 0, 6;
-
