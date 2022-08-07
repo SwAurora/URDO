@@ -43,13 +43,26 @@ a
 #weather
 {
     margin-top: 35px;
+    margin-right: 20px;
 
 }
 
-#weather img
-{
-    width: 60px;
+.container h1 {
+    font-size: 20px;
+    display: inline;
+    
+    
 }
+.weatherInfo {
+    font-size: 16px;
+}
+
+.weatherIcon {
+	height: 40px;
+	width: auto;
+}
+
+
 
 .searchBarIcon
 {

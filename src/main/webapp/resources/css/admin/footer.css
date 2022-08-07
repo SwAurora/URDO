@@ -11,5 +11,18 @@
 }
 
 #footer-terms {
-  padding-top: 40px;
+  padding-top: 50px;
+  font-size: 1.2rem;
+  font-weight:800;
+  display: flex;
+  width: 300px;
+  margin-left: 44%;
+}
+
+#logo {
+	margin-right: 10px;
+}
+
+.footertxt {
+	margin-top: 15px;
 }
