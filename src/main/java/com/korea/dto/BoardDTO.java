@@ -13,5 +13,7 @@ public class BoardDTO
     private String date;
     private int views;
     private int recommend;
+    private int day_rec;
+    private int month_rec;
     private String filename;
 }

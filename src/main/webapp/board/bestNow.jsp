@@ -20,19 +20,19 @@
     if(msg != null)
     {
         out.println("<script>alert('" + msg + "')</script>");
-        out.println("<script>location.href='/Board/regionLandmark.do'</script>");
+        out.println("<script>location.href='/Board/humor.do'</script>");
     }
 %>
 <script>
     window.onpageshow = function(event)
     {
         let span = document.querySelectorAll('.depth1 span');
-        $('#check4').prop('checked', true);
-        span[6].innerHTML = '&#65293';
-        span[7].style.color = getColor('--color-point');
-        span[7].style.fontWeight = 'bold';
+        $('#check1').prop('checked', true);
+        span[0].innerHTML = '&#65293';
+        span[1].style.color = getColor('--color-point');
+        span[1].style.fontWeight = 'bold';
         let activeAdd = document.querySelectorAll(".depth2 > li > a");
-        activeAdd[6].id = "active";
+        activeAdd[0].id = "active";
         $('#active').css('color', getColor('--color-active')).css('font-weight', 'bold');
     };
 </script>
@@ -68,10 +68,10 @@
 <section class="Main">
     <div class="container">
         <div id="container_Title">
-            게시판 > 지역 > 명소
+            게시판 > 베스트 게시글 > 실시간 베스트
         </div>
         <div id="search">
-            <div>명소</div>
+            <div>실시간 베스트</div>
             <div>|</div>
             <input type="text" class="searchBar" placeholder="검색어를 입력하세요">
             <img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
@@ -80,7 +80,7 @@
         <!-- 게시판 내용 관련 코드 -->
         <!-- 게시판윗부분 시작 -->
         <div class="board_list_wrap">
-            <form action="/Board/regionLandmark.do" method="get">
+            <form action="/Board/bestNow.do" method="get">
                 <select class="sel" onchange="this.form.submit()" name="limit" id="sel1">
                     <option value="10">10개</option>
                     <option value="20">20개</option>
@@ -129,18 +129,18 @@
                             if(boardDTO.getFilename() != null)
                             {
                         %>
-                        <img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" class="pic">
+                                <img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" class="pic">
                         <%
-                        }
-                        else
-                        {
+                            }
+                            else
+                            {
                         %>
-                        <img src="../resources/img/board/thumbLogo.svg" class="pic">
+                                <img src="../resources/img/board/thumbLogo.svg" class="pic">
                         <%
                             }
                         %>
                     </td>
-                    <td><a href="/Board/read.do?board=regionLandmark&no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%>
+                    <td><a href="/Board/read.do?board=bestNow&no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%>
                     </a>
                     </td>
                     <td><%=boardDTO.getViews()%>
@@ -183,7 +183,7 @@
                             {
                     %>
                     <a class="page_num on"
-                       href="/Board/regionLandmark.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
+                       href="/Board/bestNow.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
                     </a>
                     <%
                     }
@@ -191,7 +191,7 @@
                     {
                     %>
                     <a class="page_num"
-                       href="/Board/regionLandmark.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
+                       href="/Board/bestNow.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
                     </a>
                     <%
                             }
@@ -208,32 +208,7 @@
                     }
                 %>
             </div>
-            <div class="post">
-                <input type='button' value='게시글 작성' onclick="loginchk()" class="pagebtn"
-                       id="add">
-            </div>
-            <script>
-                function loginchk()
-                {
-                    <%
-                            HttpSession session1 = request.getSession();
-                            String id = (String) session1.getAttribute("id");
-                            if(id != null)
-                            {
-                    %>
-                    location.href = "/Board/post.do?subject=regionLandmark";
-                    <%
-                            }
-                            else
-                            {
-                    %>
-                    alert("로그인이 필요합니다.");
-                    location.href = "/login.jsp";
-                    <%
-                            }
-                    %>
-                }
-            </script>
+            <div class="post"></div>
             <!--  페이지 숫자 끝-->
             <!-- 게시판 내용 관련 코드  끝-->
         </div>
@@ -248,12 +223,12 @@
             if(num === 1)
             {
                 page = pageBlock * nowBlock + 1;
-                location.href= "/Board/regionLandmark.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href= "/Board/bestNow.do?limit=" + <%=limit%> + "&page=" + page;
             }
             else
             {
                 page = pageBlock * (nowBlock - 2) + pageBlock;
-                location.href= "/Board/regionLandmark.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href= "/Board/bestNow.do?limit=" + <%=limit%> + "&page=" + page;
             }
         }
     </script>

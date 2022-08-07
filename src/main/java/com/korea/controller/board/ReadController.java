@@ -40,7 +40,6 @@ public class ReadController implements SubController
 			dto = service.Select(Integer.parseInt(no));
 
 			req.setAttribute("dto", dto);
-			
             req.getRequestDispatcher("/WEB-INF/board/read.jsp").forward(req, resp);
         }
         catch(Exception e)

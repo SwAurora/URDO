@@ -35,11 +35,19 @@
 %>
 <%
     BoardDTO dto = (BoardDTO) request.getAttribute("dto");
-    String subject = dto.getSubject();
+    String board = request.getParameter("board");
     String depth1;
     String depth2;
-    switch(subject)
+    switch(board)
     {
+        case "bestNow":
+            depth1 = "베스트 게시글";
+            depth2 = "실시간 베스트";
+            break;
+        case "bestMonth":
+            depth1 = "베스트 게시글";
+            depth2 = "월간 베스트";
+            break;
         case "humor":
             depth1 = "유머";
             depth2 = "웃긴 자료";
