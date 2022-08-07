@@ -51,7 +51,7 @@
 	           
 			        <h1>현재 날씨는</h1><br>			        
 			        <span class="weatherInfo"></span>
-			        <img class="weatherIcon">
+			        <img class="weatherIcon"> 
 			   
 			   
             </div>
