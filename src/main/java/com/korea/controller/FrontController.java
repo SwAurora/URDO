@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.korea.controller.admin.AdminLoginController;
+import com.korea.controller.admin.BannerController;
+import com.korea.controller.admin.BoardController;
 import com.korea.controller.admin.NoticeController;
 import com.korea.controller.auth.LoginController;
 import com.korea.controller.auth.LogoutController;
@@ -99,7 +102,10 @@ public class FrontController extends HttpServlet
         list.put("/URPO/icon.do", new UrpoIconController());
 
         // 관리자
+        list.put("/adminLogin.do", new AdminLoginController());
         list.put("/admin/notice.do", new NoticeController());
+        list.put("/admin/banner.do", new BannerController());
+        list.put("/admin/board.do", new BoardController());
     }
 
     @Override

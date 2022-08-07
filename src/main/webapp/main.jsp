@@ -48,7 +48,12 @@
 
 
             <div id="weather">
-                <img src="resources/img/index/cloud-sun.svg" class="menuIcon">
+	           
+			        <h1>현재 날씨는</h1><br>			        
+			        <span class="weatherInfo"></span>
+			        <img class="weatherIcon">
+			   
+			   
             </div>
 
         </div>

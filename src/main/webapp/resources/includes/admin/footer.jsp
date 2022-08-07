@@ -4,7 +4,8 @@
     <footer>
 
     <div id="footer-terms">
-      <p>LOGO</p>
+      <div><img src="/resources/img/sidebar/logo.svg" alt="LOGO" id="logo" width="50px;"></div>
+      <div class="footertxt">URDO</div>
    
     </div>
   
