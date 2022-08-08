@@ -393,7 +393,7 @@ public class BoardDAO extends DAO
         int result = 0;
         try
         {
-            pstmt = conn.prepareStatement("select count(*) from board_tbl title like ?");
+            pstmt = conn.prepareStatement("select count(*) from board_tbl where title like ?");
             pstmt.setString(1, "%" + keyword + "%");
             rs = pstmt.executeQuery();
             rs.next();

@@ -15,8 +15,8 @@ public class SearchController implements SubController{
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
     {
-    	String subject = req.getParameter("subject");
         try {
+        	String subject = req.getParameter("subject");
             String tmplimit = req.getParameter("limit");
             String nowPage = req.getParameter("page");
             String keyword = req.getParameter("keyword");
@@ -31,7 +31,7 @@ public class SearchController implements SubController{
                 limit = Integer.parseInt(tmplimit);
             }
 
-            if(subject == "searchMain") {
+            if(subject.equals("searchMain")) {
             	List<BoardDTO> list = service.getBoardListMain(keyword ,start, limit);
                 int tcnt = service.getTotalCntMain(keyword);
                 
