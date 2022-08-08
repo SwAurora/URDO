@@ -35,6 +35,8 @@ public class SearchController implements SubController{
             
             if(list.isEmpty()) {
             	req.setAttribute("listNullMsg", "검색결과가 존재하지 않습니다.");
+            } else {
+            	req.setAttribute("listNullMsg", null);
             }
             
             int tcnt = service.getTotalCnt(subject, keyword);
