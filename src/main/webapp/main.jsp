@@ -188,6 +188,7 @@
                 </div>
                 <%
                     ArrayList<BoardDTO> list2 = (ArrayList<BoardDTO>) request.getAttribute("list2");
+                	System.out.println(list2.toString());
                 %>
                 <div id="Board-table">
                     <table class="change-board">
@@ -200,6 +201,7 @@
                             <td>날짜</td>
                         </tr>
                         <%
+                        
                             for(BoardDTO boardDTO : list2)
                             {
                                 out.println("<tr>");
@@ -225,6 +227,7 @@
                                 out.println("</tr>");
                             }
                         %>
+
                     </table>
                     <table>
                         <tr>
