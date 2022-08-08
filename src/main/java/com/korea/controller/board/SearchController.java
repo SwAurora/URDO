@@ -32,6 +32,11 @@ public class SearchController implements SubController{
             }
 
             List<BoardDTO> list = service.getBoardList(subject, keyword ,start, limit);
+            
+            if(list.isEmpty()) {
+            	req.setAttribute("listNullMsg", "검색결과가 존재하지 않습니다.");
+            }
+            
             int tcnt = service.getTotalCnt(subject, keyword);
 
             req.setAttribute("tcnt", tcnt);

@@ -61,6 +61,12 @@
     totalBlock = (int) Math.ceil((double) totalPage / pagePerBlock);
     nowBlock = (int) Math.ceil((double) nowPage / pagePerBlock);
 %>
+<%
+	String listNullMsg = (String) request.getAttribute("listNullMsg");
+	if(listNullMsg==null) {
+		listNullMsg = "";
+	}
+%>
 <!--네비게이션 시작-->
 <jsp:include page="/resources/includes/nav.jsp"/>
 
@@ -132,6 +138,9 @@
                     <col id="boardCol5">
                     <col id="boardCol6">
                 </colgroup>
+            <%
+            if(listNullMsg.equals("null")) {
+            	%>
                 <tr class="titlename">
                     <td class="tname">썸네일</td>
                     <td class="tname" id="titleboard">글제목</td>
@@ -140,6 +149,10 @@
                     <td class="tname">글쓴이</td>
                     <td class="tname">날짜</td>
                 </tr>
+                <%
+            }
+            %>
+            <%=listNullMsg %>
                 <!-- 게시판 내용물 시작 -->
                 <%
                     ArrayList<BoardDTO> list = (ArrayList<BoardDTO>) request.getAttribute("list");
