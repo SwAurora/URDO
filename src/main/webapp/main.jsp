@@ -101,7 +101,7 @@
 
         <div id="contents-top">
             <!-- 베스트 유머 게시판 -->
-            <div id="best-humour">
+            <div id="best-humor">
                 <table>
                     <caption class="mainTitle">베스트 유머</caption>
                     <%
@@ -114,13 +114,13 @@
                             if(boardDTO.getFilename() != null)
                             {
                     %>
-                                <td><img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" class="pic"></td>
+                                <td><a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" class="pic"></a></td>
                     <%
                             }
                             else
                             {
                     %>
-                                <td><img src="/resources/img/board/thumbLogo.svg" class="pic"></td>
+                                <td><a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><img src="/resources/img/board/thumbLogo.svg" class="pic"></a></td>
                     <%
                             }
                         }
@@ -177,7 +177,7 @@
 
                 <div id="tabUI">
                     <ul id="Board-menu">
-                        <li class="change-borad">실시간 베스트</li>
+                        <li class="change-board">실시간 베스트</li>
                         <li>월간 베스트</li>
                     </ul>
                     <div id="buttonbox">
@@ -186,9 +186,11 @@
                         <button id="next">▶</button>
                     </div>
                 </div>
-
+                <%
+                    ArrayList<BoardDTO> list2 = (ArrayList<BoardDTO>) request.getAttribute("list2");
+                %>
                 <div id="Board-table">
-                    <table class="change-borad">
+                    <table class="change-board">
                         <tr>
                             <td>썸네일</td>
                             <td class="name">글제목</td>
@@ -197,38 +199,32 @@
                             <td>글쓴이</td>
                             <td>날짜</td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>실시간 유머 TEXT1</td>
-                            <td>15</td>
-                            <td>1</td>
-                            <td>홍길동</td>
-                            <td>2022-06-22</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>실시간 유머 TEXT2</td>
-                            <td>15</td>
-                            <td>1</td>
-                            <td>홍길동</td>
-                            <td>2022-06-22</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>실시간 유머 TEXT3</td>
-                            <td>15</td>
-                            <td>1</td>
-                            <td>홍길동</td>
-                            <td>2022-06-22</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>실시간 유머 TEXT4</td>
-                            <td>15</td>
-                            <td>1</td>
-                            <td>홍길동</td>
-                            <td>2022-06-22</td>
-                        </tr>
+                        <%
+                            for(BoardDTO boardDTO : list2)
+                            {
+                                out.println("<tr>");
+                                if(boardDTO.getFilename() != null)
+                                {
+                        %>
+                                    <td><img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" alt="#" class="bestThumb"></td>
+                        <%
+                                }
+                                else
+                                {
+                        %>
+                                    <td><img src="/resources/img/board/thumbLogo.svg" alt="#" class="bestThumb"></td>
+                        <%
+                                }
+                        %>
+                                <td class="name"><a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%></a></td>
+                                <td><%=boardDTO.getViews()%></td>
+                                <td><%=boardDTO.getRecommend()%></td>
+                                <td><%=boardDTO.getWriter()%></td>
+                                <td><%=boardDTO.getDate()%></td>
+                        <%
+                                out.println("</tr>");
+                            }
+                        %>
                     </table>
                     <table>
                         <tr>

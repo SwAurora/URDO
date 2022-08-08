@@ -164,3 +164,7 @@ CREATE EVENT monthRecReset
 #----------------------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------------------------------------------------------------
 select * from board_tbl order by recommend desc limit 6;
+
+select * from bestNow_tbl;
+
+select * from board_tbl where no in (select board_no from bestnow_tbl order by bestNow_no desc) limit 12;

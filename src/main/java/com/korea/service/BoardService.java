@@ -51,6 +51,11 @@ public class BoardService
     {
         return dao.SelectBestNow(start, limit);
     }
+
+    public List<BoardDTO> getBestNow()
+    {
+        return dao.SelectBestNow();
+    }
     
     // bestNow검색
     public List<BoardDTO> getBestNow(String keyword, int start, int limit)
@@ -62,7 +67,12 @@ public class BoardService
     {
         return dao.SelectBestMonth(start, limit);
     }
-    
+
+    public List<BoardDTO> getBestMonth()
+    {
+        return dao.SelectBestMonth();
+    }
+
     // bestMonth 검색
     public List<BoardDTO> getBestMonth(String keyword, int start, int limit)
     {
