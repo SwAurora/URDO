@@ -48,7 +48,7 @@ public class SearchController implements SubController{
             resp.addCookie(views);
 
             req.setAttribute("nowPage", nowPage);
-            req.getRequestDispatcher("/board/humor.jsp").forward(req, resp);
+            req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
         }
         catch(Exception e)
         {
