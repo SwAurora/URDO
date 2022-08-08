@@ -40,11 +40,47 @@ $('#tabUI>ul li').on('click', function()
 
     $('#Board-table>table').hide();
     $('#Board-table>table').removeClass('change-board');
-    $('#Board-table>table').eq(idx).addClass('change-board').show();
 
+    if(idx === 0)
+    {
+        $('#table1').addClass('change-board').show();
+    }
+    else
+    {
+        $('#table4').addClass('change-board').show();
+    }
+    $('#pageNum').html("1/3");
 
 })
 
+let prev = document.getElementById('prev');
+let next = document.getElementById('next');
+let pageNum = document.getElementById("pageNum");
+let bestNow = document.getElementById("bestNow");
+
+function goPrev()
+{
+    if(pageNum.innerText !== "1/3") pageNum.innerText = parseInt(pageNum.innerText) - 1 + "/3";
+    switchBest();
+}
+
+function goNext()
+{
+    if(pageNum.innerText !== "3/3") pageNum.innerText = parseInt(pageNum.innerText) + 1 + "/3";
+    switchBest();
+}
+
+function switchBest()
+{
+    let page = parseInt(pageNum.innerText);
+    if($('#tabUI>ul li').eq(1).hasClass('change-board'))
+    {
+        page += 3;
+    }
+    $('#Board-table>table').hide();
+    $('#Board-table>table').removeClass('change-board');
+    $('#table' + page).addClass('change-board').show();
+}
 
 $('#pointshop>ul li').on('click', function()
 {
