@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.korea.dto.BoardDTO" %>
+<%@ page import="com.korea.dto.UrpoDTO" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!doctype html>
 <html lang="en">
@@ -285,62 +286,56 @@
                     <li>아이템5</li>
                 </ul>
                 <div id="pointshop-table">
-                    <table class="item">
-                        <tr>
-                            <td><img src="resources/img/index/pointshop-icon5.gif" alt="노이즈 아이콘"><label>노이즈</label></td>
-                            <td><img src="resources/img/index/pointshop-icon1.gif" alt="비 아이콘"><label>비</label></td>
-                            <td><img src="resources/img/index/pointshop-icon2.gif" alt="종이 아이콘"><label>종이</label></td>
-                            <td><img src="resources/img/index/pointshop-icon3.gif" alt="방울 아이콘"><label>방울</label></td>
-                        </tr>
-                        <tr>
-                            <td><img src="resources/img/index/pointshop-icon4.gif" alt="별 아이콘"><label>별</label></td>
-                            <td><img src="resources/img/index/pointshop-icon5.gif" alt="노이즈 아이콘"><label>노이즈</label></td>
-                            <td><img src="resources/img/index/pointshop-icon6.gif" alt="비 아이콘"><label>비</label></td>
-                            <td><img src="resources/img/index/pointshop-icon7.gif" alt="포켓몬 아이콘"><label>포켓몬</label></td>
-                        </tr>
-                        <tr>
-                            <td><img src="resources/img/index/pointshop-icon3.gif" alt="방울 아이콘"><label>방울</label></td>
-                            <td><img src="resources/img/index/pointshop-icon2.gif" alt="종이 아이콘"><label>종이</label></td>
-                            <td><img src="resources/img/index/pointshop-icon7.gif" alt="포켓몬 아이콘"><label>포켓몬</label></td>
-                            <td><img src="resources/img/index/pointshop-icon1.gif" alt="비 아이콘"><label>비</label></td>
-                        </tr>
-                    </table>
+                    <div class="item">
+			            <%
+			                ArrayList<UrpoDTO> urconList = (ArrayList<UrpoDTO>) request.getAttribute("urconList");
+			                for(UrpoDTO urpoDTO : urconList)
+			                {
+			            %>
+			            <div class="hov-ani">
+			                <a class="hov-ani-box" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
+			                    <img src="<%=urpoDTO.getStaticImage() %>" alt="" data-animated="<%=urpoDTO.getGifImage() %>"
+			                         data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
+			                    <div class="hov-ani-title"><%=urpoDTO.getTitle()%></div>
+			                </a>
+			            </div>
+			            <%
+			                }
+			            %>               
+                    </div>
 
-                    <table>
-                        <tr>
-                            <td><img src="resources/img/index/stop.png"></td>
-                        </tr>
-                        <tr>
-                            <td>준비중입니다.</td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td><img src="resources/img/index/stop.png"></td>
-                        </tr>
-                        <tr>
-                            <td>준비중입니다.</td>
-                        </tr>
+                    <div>
+			            <%
+			                ArrayList<UrpoDTO> urconList2 = (ArrayList<UrpoDTO>) request.getAttribute("urconList2");
+			                for(UrpoDTO urpoDTO : urconList2)
+			                {
+			            %>
+			            <div class="hov-ani">
+			                <a class="hov-ani-box" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
+			                    <img src="<%=urpoDTO.getStaticImage() %>" alt="" data-animated="<%=urpoDTO.getGifImage() %>"
+			                         data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
+			                    <div class="hov-ani-title"><%=urpoDTO.getTitle()%></div>
+			                </a>
+			            </div>
+			            <%
+			                }
+			            %>               
+                    </div>
+                    
+                    <div>
+                        <img src="resources/img/index/stop.png">
+                        준비중입니다.
 
-                    </table>
+                    </div>
 
-                    <table>
-                        <tr>
-                            <td><img src="resources/img/index/stop.png"></td>
-                        </tr>
-                        <tr>
-
-                            <td>준비중입니다.</td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td><img src="resources/img/index/stop.png"></td>
-                        </tr>
-                        <tr>
-                            <td>준비중입니다.</td>
-                        </tr>
-                    </table>
+                    <div>
+                        <img src="resources/img/index/stop.png">
+                        준비중입니다.
+                    </div>
+                    <div>
+                        <img src="resources/img/index/stop.png">
+                        준비중입니다.
+                    </div>
 
                 </div>
             </div>

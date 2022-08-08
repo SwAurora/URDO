@@ -427,7 +427,7 @@ caption
     margin-top: 10px;
 }
 
-#pointshop-table table
+#pointshop-table div
 {
     /* border-collapse: separate; */
     /* border-spacing: 20px 10px; */
@@ -454,14 +454,25 @@ caption
     font-weight: 800;
 }
 
-#pointshop-table > table
+#pointshop-table > div
 {
     display: none;
 }
 
 #pointshop-table .item
 {
-    display: table;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:10px;
+}
+.hov-ani {
+	width:100%;
+}
+.hov-ani-box {
+	width:100%;
+}
+.hov-ani-box img {
+	border:1px solid blue;
 }
 
 /* footer */
