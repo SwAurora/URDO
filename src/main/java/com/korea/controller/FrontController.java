@@ -99,7 +99,7 @@ public class FrontController extends HttpServlet
         list.put("/Board/replydelete.do", new ReplyDeleteController());
         list.put("/Board/rec.do", new RecController());
         list.put("/Board/recCount.do", new RecCountController());
-        list.put("Board/search.do", new SearchController());
+        list.put("/Board/search.do", new SearchController());
 
         // 유알포
         list.put("/URPO.do", new UrconController());
