@@ -143,51 +143,22 @@
       </div>
       
       <div class="board">
-      <table class="Board-table QnA">
+      <table class="Board-table banner">
         <caption>
-          <span class="captionTag">QnA</span>
-          <span class="link"><a href="noticePage.html">상세보기</a></span>
+          <span class="captionTag">광고 수정</span>
+          <span class="link"><a href="/admin/banner.do">상세보기</a></span>
         </caption>
-          <tr>		      
-              <td>분류</td>
-              <td>제목</td>		   
-              <td>날짜</td>
-            </tr>
-            <tr>	         
-              <td>1</td>
-              <td class="name"> 질문1 </td>
-              <td>20220708</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td class="name">[문의합니다] 어쩌구저쩌구</td>
-              <td>20220708</td>
-            </tr>      
-        
+          
         </table>
       </div>
 
         <div class="board">
-          <table class="Board-table notice">
+          <table class="Board-table URDOboard">
           <caption> 
-            <span class="captionTag">TMP</span> 
-            <span class="link"><a href="#">상세보기</a></span>
+            <span class="captionTag">게시글 수정</span> 
+            <span class="link"><a href="/admin/board.do">상세보기</a></span>
           </caption>
-            <tr>		      
-                <td>분류</td>
-                <td>제목</td>		   
-                <td>날짜</td>
-              </tr>
-              <tr>	         
-                <td>임시점검</td>
-                <td class="name">06:00 ~ 18:00</td>
-                <td>20220708</td>
-              </tr>
-              <tr>
-                <td>게시판</td>
-                <td class="name">선정적인 이미지 게시 금지 </td>
-                <td>20220708</td>
-              </tr>      
+               
           
           </table>
         </div>
@@ -206,7 +177,7 @@
 
 
 <!-- 푸터  -->
-<%@include file="resources/includes/admin/footer.jsp" %>
+<%@include file="/resources/includes/admin/footer.jsp" %>
 
 
 <script src="/resources/js/adminDashboard.js"></script>

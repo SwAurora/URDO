@@ -11,6 +11,6 @@ public class AdminController extends HttpServlet
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
     {
-        req.getRequestDispatcher("/dashBoard.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/admin/dashBoard.jsp").forward(req, resp);
     }
 }

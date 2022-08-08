@@ -32,9 +32,18 @@
     <form action="/PwdFinder.do" method="post">
         <div id="LoginBox">
             <!-- Login용 input -->
-            <div class="inputBox">
+           
+           <div class="inputBox">          
+                
+                <input type="text" name="id" required="required" id="id">
+                <span>아이디 입력</span><br>
+             
+            </div>    
+           
+            <div class="inputBox">          
                 <input type="email" name="email" required="required" id="email">
-                <span>이메일 입력</span>
+                <span>이메일 입력</span><br>
+             
             </div>
 
             <button type="submit" class="loginA" style="border:0; cursor:pointer">

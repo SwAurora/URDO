@@ -14,25 +14,36 @@
   z-index: 99;
 }
 
+#nav-header
+{
+
+    display: flex;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+#nav-header #logo-name
+{
+    display: flex;
+    flex-direction: column;
+    margin-left: 8px;
+    padding: 2px;
+    color: var(--color-text);
+}
+
+
 #side_nav a {
   color: white;
 }
 
 #side_nav h1 {
     text-align: center;
-    height: 80px;
     line-height: 80px;
-  }
-
-#side_nav hr {
-    width: 90%;
-    margin: 0 auto;
-    /* border: 0.1px solid white; */
 }
 
-/* 아이콘 넣고 지워주기 */
+
 .sidemenu {
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 .sidemenuTop {
