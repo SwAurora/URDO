@@ -73,8 +73,10 @@
         <div id="search">
             <div>웃긴 자료</div>
             <div>|</div>
-            <input type="text" class="searchBar" placeholder="검색어를 입력하세요">
-            <img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
+            <form action="/Board/">
+	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요">
+	            <img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
+            </form>
         </div>
 
         <!-- 게시판 내용 관련 코드 -->
