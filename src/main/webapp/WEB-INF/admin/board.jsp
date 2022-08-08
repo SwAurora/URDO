@@ -163,7 +163,7 @@
 </div>
 
 
-<script src="/resources/js/adminDashboard.js"></script>
+<script src="/resources/js/adminMain.js"></script>
 
 </body>
 </html>

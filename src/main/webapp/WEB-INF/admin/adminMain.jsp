@@ -7,7 +7,7 @@
 <title>URDO ADMIN</title>
 
 <link rel="stylesheet" href="/resources/css/admin/common.css">
-<link rel="stylesheet" href="/resources/css/admin/dashBoard.css">
+<link rel="stylesheet" href="/resources/css/admin/adminMain.css">
 
 <link rel="stylesheet" href="/resources/css/admin/nav.css">
 <link rel="stylesheet" href="/resources/css/admin/footer.css">
@@ -180,7 +180,7 @@
 <%@include file="/resources/includes/admin/footer.jsp" %>
 
 
-<script src="/resources/js/adminDashboard.js"></script>
+<script src="/resources/js/adminMain.js"></script>
 
 
 </body>
