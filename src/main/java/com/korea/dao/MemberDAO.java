@@ -289,4 +289,30 @@ public class MemberDAO extends DAO
         }
         return result;
     }
+
+    public void temporaryPw(String id, String pw)
+    {
+        try
+        {
+            pstmt = conn.prepareStatement("update member_tbl set pw = ? where id = ?");
+            pstmt.setString(1, pw);
+            pstmt.setString(2, id);
+            pstmt.executeUpdate();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
 }
