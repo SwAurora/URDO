@@ -199,33 +199,14 @@
                             <td>글쓴이</td>
                             <td>날짜</td>
                         </tr>
-                        <%
-                            for(BoardDTO boardDTO : list2)
-                            {
-                                out.println("<tr>");
-                                if(boardDTO.getFilename() != null)
-                                {
-                        %>
-                                    <td><img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" alt="#" class="bestThumb"></td>
-                        <%
-                                }
-                                else
-                                {
-                        %>
-                                    <td><img src="/resources/img/board/thumbLogo.svg" alt="#" class="bestThumb"></td>
-                        <%
-                                }
-                        %>
-                                <td class="name"><a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%></a></td>
-                                <td><%=boardDTO.getViews()%></td>
-                                <td><%=boardDTO.getRecommend()%></td>
-                                <td><%=boardDTO.getWriter()%></td>
-                                <td><%=boardDTO.getDate()%></td>
-                        <%
-                                out.println("</tr>");
-                            }
-                        %>
+                        <tbody>
+                        </tbody>
                     </table>
+                    <script>
+                        let pageCount = 4;
+                        let totalPage = 3;
+
+                    </script>
                     <table>
                         <tr>
                             <td>썸네일</td>

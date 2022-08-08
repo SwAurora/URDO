@@ -20,7 +20,7 @@ public class MainController implements SubController
             List<BoardDTO> list3 = service.getBestMonth();
             req.setAttribute("list", list);
             req.setAttribute("list2", list2);
-            req.setAttribute("list2", list3);
+            req.setAttribute("list3", list3);
             req.getRequestDispatcher("main.jsp").forward(req, resp);
         }
         catch(Exception e)
