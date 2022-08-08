@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>URDO ADMIN</title>
+<title>Insert title here</title>
 
 
 <link rel="stylesheet" href="/resources/css/admin/common.css">
-<link rel="stylesheet" href="/resources/css/admin/notice.css">
+<link rel="stylesheet" href="/resources/css/admin/board.css">
 <link rel="stylesheet" href="/resources/css/admin/nav.css">
 <link rel="stylesheet" href="/resources/css/admin/header.css">
 <link rel="stylesheet" href="/resources/css/admin/footer.css">
@@ -26,15 +26,21 @@
 <%@include file="../../resources/includes/admin/header.jsp" %>
 
 
+ 
     <section>
 
       <div id="sc_top">
         <h1>공지사항</h1>
-        <div>
+        
+        <div class="category">
+        <select>
+        	<option> 1 </option>
+        	<option> 2 </option>
+        	<option> 3 </option>
+        </select> 
          
 
         </div>
-
        
       </div>
 
@@ -147,6 +153,7 @@
       
 
     </section>
+
 
 
 	<!-- 푸터  -->

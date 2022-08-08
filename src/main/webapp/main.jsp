@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+ <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -69,12 +69,12 @@
 
 
             <div id="weather">
-	           
-			        <h1>현재 날씨는</h1><br>			        
-			        <span class="weatherInfo"></span>
-			        <img class="weatherIcon"> 
-			   
-			   
+	            <div><img class="weatherIcon"></div>	        
+				<div>			
+					<span class="place"></span><br>
+					<span class="temperature"></span><br>
+				    <span class="weatherDescription"></span><br>
+			    </div>
             </div>
 
         </div>

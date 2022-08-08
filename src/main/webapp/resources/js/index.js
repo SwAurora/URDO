@@ -68,6 +68,11 @@ const API_KEY = "1f9c4e9d7cd3037c0d63775a0f6aced9"; //내 키
 const COORDS = 'coords'; //좌표를 받을 변수 
 
 //DOM객체들 
+
+const Htemperature = document.querySelector('.temperature');
+const Hplace = document.querySelector('.place');
+const HweatherDescription = document.querySelector('.weatherDescription');
+
 const weatherInfo = document.querySelector('.weatherInfo');
 const weatherIconImg = document.querySelector('.weatherIcon');
 
@@ -93,7 +98,10 @@ function handleSuccess(position) {
 }
 //좌표를 얻는데 실패했을 때 쓰이는 함수 
 function handleError() {
-    console.log("can't not access to location");
+    const latitude = '37.541';
+    const longitude = '126.986'; 
+
+    getWeather(latitude, longitude);
 }
 
 //날씨 api를 통해 날씨에 관련된 정보들을 받아온다. 
@@ -108,12 +116,13 @@ function getWeather(lat, lon) {
         const weatherDescription = json.weather[0].description;
         const weatherIcon = json.weather[0].icon;
         const weatherIconAdrs = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
-      
-        
-    
+
         //받아온 정보들을 표현한다. 
-        weatherInfo.innerText = `${temperature} °C / @${place} / ${weatherDescription}`;
+        Htemperature.innerText= `${Math.round(temperature * 10) / 10} °C`;
+        Hplace.innerText = `${place}`;
+        HweatherDescription.innerText = `${weatherDescription}`;
         weatherIconImg.setAttribute('src', weatherIconAdrs);
+        
     })
     .catch((error) => console.log("error:", error));
 }

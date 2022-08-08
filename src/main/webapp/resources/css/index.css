@@ -9,7 +9,6 @@ a
     text-decoration: none;
 }
 
-
 #container_Title
 {
     margin-top: 10px;
@@ -44,24 +43,20 @@ a
 {
     margin-top: 35px;
     margin-right: 20px;
+    display: flex;
 
 }
 
-.container h1 {
-    font-size: 20px;
-    display: inline;   
-    
-}
-.weatherInfo {
-    font-size: 16px;
+#weather span
+{
+    font-size: 14px;
 }
 
-.weatherIcon {
-	height: 40px;
-	width: auto;
+.weatherIcon
+{
+    height: auto;
+    width: 100px;
 }
-
-
 
 .searchBarIcon
 {
@@ -79,9 +74,9 @@ a
     background: none;
     border: 1px solid var(--color-text);
     border-radius: 4px;
-    color:var(--color-blackToWhite);
-    padding-left:10px;
-    cursor:pointer;
+    color: var(--color-blackToWhite);
+    padding-left: 10px;
+    cursor: pointer;
 }
 
 .searchBar::placeholder
@@ -99,7 +94,7 @@ a
     border: 1px solid var(--color-lightgray);
     border-radius: 10px;
     font-size: 15px;
-    margin-top: 20px;
+    margin-top: 0px;
     user-select: none;
 }
 
@@ -434,20 +429,20 @@ caption
 
 /* footer */
 
-footer {
+footer
+{
     margin: 10px 0px;
     border-top: 1px solid var(--color-lightgray);
 }
 
-#footer-bottom {
-    display:flex;
+#footer-bottom
+{
+    display: flex;
     font-size: var(--font-S);
     margin-top: 15px;
     width: 97%;
-    align-items:center;
+    align-items: center;
 }
-
-
 
 #footer-logo
 {
@@ -463,13 +458,14 @@ footer {
 #footer-terms
 {
     line-height: 20px;
-    margin-left:20px;
+    margin-left: 20px;
 }
 
-#footer-right {
+#footer-right
+{
     display: grid;
-    align-items:center;
-    margin-left:auto;
+    align-items: center;
+    margin-left: auto;
 }
 
 #sns img
@@ -487,13 +483,13 @@ footer {
 
 #managementLink
 {
-    display:flex;
+    display: flex;
     justify-content: end;
-    margin-top:8px;
+    margin-top: 8px;
 }
 
 #managementLink a
 {
     text-decoration: none;
-    color : var(--color-blackToWhite);
+    color: var(--color-blackToWhite);
 }
