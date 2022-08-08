@@ -48,7 +48,7 @@ public class AdminController extends HttpServlet
     		}
     		else
     		{
-    			req.getRequestDispatcher("/WEB-INF/admin/dashBoard.jsp").forward(req, resp);
+    			req.getRequestDispatcher("/WEB-INF/admin/adminMain.jsp").forward(req, resp);
     		}
     	}
     }
