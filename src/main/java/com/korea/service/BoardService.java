@@ -62,6 +62,12 @@ public class BoardService
     {
         return dao.SelectBestMonth(start, limit);
     }
+    
+    // bestMonth 검색
+    public List<BoardDTO> getBestMonth(String keyword, int start, int limit)
+    {
+        return dao.SelectBestMonth(keyword, start, limit);
+    }
 
     public int getTotalCnt(String table)
     {
@@ -425,5 +431,10 @@ public class BoardService
     public int getBestMonthTotalCount()
     {
         return dao.getBestMonthTotalCount();
+    }
+    
+    public int getBestMonthTotalCount(String keyword)
+    {
+        return dao.getBestMonthTotalCount(keyword);
     }
 }

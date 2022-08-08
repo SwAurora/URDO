@@ -63,6 +63,21 @@ public class SearchController implements SubController{
 
                 req.setAttribute("nowPage", nowPage);
                 req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
+            } else if(subject.equals("bestMonth")) {
+            	List<BoardDTO> list = service.getBestMonth(keyword ,start, limit);
+                int tcnt = service.getBestMonthTotalCount(keyword);
+                
+                if(list.isEmpty()) {
+                	req.setAttribute("listNullMsg", "검색결과가 존재하지 않습니다.");
+                } else {
+                	req.setAttribute("listNullMsg", null);
+                }
+
+                req.setAttribute("tcnt", tcnt);
+                req.setAttribute("list", list);
+
+                req.setAttribute("nowPage", nowPage);
+                req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
             } else {
             	List<BoardDTO> list = service.getBoardList(subject, keyword ,start, limit);
                 int tcnt = service.getTotalCnt(subject, keyword);

@@ -264,28 +264,11 @@ public class BoardDAO extends DAO
                 list.add(dto);
             }
         }
-        catch(Exception e)
-        {
+        catch(Exception e) {
             e.printStackTrace();
-        }
-        finally
-        {
-            try
-            {
-                rs.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
-            try
-            {
-                pstmt.close();
-            }
-            catch(Exception e)
-            {
-                e.printStackTrace();
-            }
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
         return list;
     }
@@ -352,6 +335,58 @@ public class BoardDAO extends DAO
             {
                 e.printStackTrace();
             }
+        }
+        return list;
+    }
+    
+    // bestMonth 검색
+    public List<BoardDTO> SelectBestMonth(String keyword, int start, int limit)
+    {
+        ArrayList<BoardDTO> list = new ArrayList<>();
+        BoardDTO dto;
+        try
+        {
+            Connection conn2 = pool.getConnection();
+            PreparedStatement pstmt2;
+            ResultSet rs2;
+
+            StringBuilder s = new StringBuilder();
+            pstmt2 = conn2.prepareStatement("select board_no from bestmonth_tbl order by bestMonth_no desc");
+            rs2 = pstmt2.executeQuery();
+            while(rs2.next())
+            {
+                s.append(",").append(rs2.getString("board_no"));
+            }
+
+            String sql = "select * from board_tbl where no in (select board_no from bestmonth_tbl order by bestMonth_no desc) and title like ? order by field(no "+ s +") limit ?,?";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,  "%" + keyword + "%");
+            pstmt.setInt(2, start);
+            pstmt.setInt(3, limit);
+            rs = pstmt.executeQuery();
+            while(rs.next())
+            {
+                dto = new BoardDTO();
+                dto.setNo(rs.getInt("no"));
+                dto.setSubject(rs.getString("subject"));
+                dto.setTitle(rs.getString("title"));
+                dto.setContent(rs.getString("content"));
+                dto.setWriter(rs.getString("writer"));
+                dto.setDate(rs.getString("date"));
+                dto.setViews(rs.getInt("views"));
+                dto.setRecommend(rs.getInt("recommend"));
+                dto.setDay_rec(rs.getInt("day_rec"));
+                dto.setMonth_rec(rs.getInt("month_rec"));
+                dto.setFilename(rs.getString("filename"));
+                list.add(dto);
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
         return list;
     }
@@ -1284,6 +1319,44 @@ public class BoardDAO extends DAO
         try
         {
             pstmt = conn.prepareStatement("select count(*) from bestmonth_tbl");
+            rs = pstmt.executeQuery();
+            rs.next();
+            result = rs.getInt(1);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+    
+    // bestMonth 검색 cnt
+    public int getBestMonthTotalCount(String keyword)
+    {
+        int result = 0;
+        try
+        {
+            pstmt = conn.prepareStatement("SELECT count(*) FROM board_tbl WHERE no = (SELECT board_no FROM bestmonth_tbl) and title like ?");
+            pstmt.setString(1, "%" + keyword + "%");
             rs = pstmt.executeQuery();
             rs.next();
             result = rs.getInt(1);
