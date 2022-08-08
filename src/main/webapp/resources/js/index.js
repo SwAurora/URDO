@@ -35,12 +35,12 @@ $('#tabUI>ul li').on('click', function()
 {
     idx = $(this).index();
 
-    $('#tabUI>ul li').removeClass('change-borad');
-    $('#tabUI>ul li').eq(idx).addClass('change-borad');
+    $('#tabUI>ul li').removeClass('change-board');
+    $('#tabUI>ul li').eq(idx).addClass('change-board');
 
     $('#Board-table>table').hide();
-    $('#Board-table>table').removeClass('change-borad');
-    $('#Board-table>table').eq(idx).addClass('change-borad').show();
+    $('#Board-table>table').removeClass('change-board');
+    $('#Board-table>table').eq(idx).addClass('change-board').show();
 
 
 })

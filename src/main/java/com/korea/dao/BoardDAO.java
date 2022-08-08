@@ -260,6 +260,71 @@ public class BoardDAO extends DAO
         return list;
     }
 
+    // 메인 실시간 베스트
+    public List<BoardDTO> SelectBestNow()
+    {
+        ArrayList<BoardDTO> list = new ArrayList<>();
+        BoardDTO dto;
+        try
+        {
+            Connection conn2 = pool.getConnection();
+            PreparedStatement pstmt2;
+            ResultSet rs2;
+
+            StringBuilder s = new StringBuilder();
+            pstmt2 = conn2.prepareStatement("select board_no from bestnow_tbl order by bestNow_no desc");
+            rs2 = pstmt2.executeQuery();
+            while(rs2.next())
+            {
+                s.append(",").append(rs2.getString("board_no"));
+            }
+
+            String sql = "select * from board_tbl where no in (select board_no from bestnow_tbl order by bestNow_no desc) order by field(no " + s + ") limit 12";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            while(rs.next())
+            {
+                dto = new BoardDTO();
+                dto.setNo(rs.getInt("no"));
+                dto.setSubject(rs.getString("subject"));
+                dto.setTitle(rs.getString("title"));
+                dto.setContent(rs.getString("content"));
+                dto.setWriter(rs.getString("writer"));
+                dto.setDate(rs.getString("date"));
+                dto.setViews(rs.getInt("views"));
+                dto.setRecommend(rs.getInt("recommend"));
+                dto.setDay_rec(rs.getInt("day_rec"));
+                dto.setMonth_rec(rs.getInt("month_rec"));
+                dto.setFilename(rs.getString("filename"));
+                list.add(dto);
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
+
     // bestNow 검색
     public List<BoardDTO> SelectBestNow(String keyword, int start, int limit)
     {
@@ -350,6 +415,71 @@ public class BoardDAO extends DAO
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, start);
             pstmt.setInt(2, limit);
+            rs = pstmt.executeQuery();
+            while(rs.next())
+            {
+                dto = new BoardDTO();
+                dto.setNo(rs.getInt("no"));
+                dto.setSubject(rs.getString("subject"));
+                dto.setTitle(rs.getString("title"));
+                dto.setContent(rs.getString("content"));
+                dto.setWriter(rs.getString("writer"));
+                dto.setDate(rs.getString("date"));
+                dto.setViews(rs.getInt("views"));
+                dto.setRecommend(rs.getInt("recommend"));
+                dto.setDay_rec(rs.getInt("day_rec"));
+                dto.setMonth_rec(rs.getInt("month_rec"));
+                dto.setFilename(rs.getString("filename"));
+                list.add(dto);
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
+
+    // 메인 월간 베스트
+    public List<BoardDTO> SelectBestMonth()
+    {
+        ArrayList<BoardDTO> list = new ArrayList<>();
+        BoardDTO dto;
+        try
+        {
+            Connection conn2 = pool.getConnection();
+            PreparedStatement pstmt2;
+            ResultSet rs2;
+
+            StringBuilder s = new StringBuilder();
+            pstmt2 = conn2.prepareStatement("select board_no from bestmonth_tbl order by bestMonth_no desc");
+            rs2 = pstmt2.executeQuery();
+            while(rs2.next())
+            {
+                s.append(",").append(rs2.getString("board_no"));
+            }
+
+            String sql = "select * from board_tbl where no in (select board_no from bestmonth_tbl order by bestMonth_no desc) order by field(no " + s + ") limit 12";
+            pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
             while(rs.next())
             {
