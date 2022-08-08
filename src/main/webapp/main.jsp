@@ -1,4 +1,6 @@
- <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.korea.dto.BoardDTO" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -41,40 +43,45 @@
                     <div>홈</div>
                     <div>|</div>
                     <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
-	                    <input type="text" class="searchBar" placeholder="검색어를 입력하세요" id="searchBar">
-	                    <input type="hidden" name="subject" value="searchMain">
-	                    <a href="javascript:search()" class="searchBtn">
-	                    	<img src="resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon"
-	                         id="searchBarIcon">
+                        <input type="text" class="searchBar" placeholder="검색어를 입력하세요" id="searchBar">
+                        <input type="hidden" name="subject" value="searchMain">
+                        <a href="javascript:search()" class="searchBtn">
+                            <img src="resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon"
+                                 id="searchBarIcon">
                         </a>
                     </form>
                 </div>
             </div>
             <script>
-	        	$('document').ready(function() {
-		            $("#searchBar").on("keyup",function(key){
-						if(key.keyCode==13) { 
-							search();
-						}
-					});
-	        	});
-	        	
-	        	function search() {
-	        		if($('#searchBar').val() === "") {
-	        			alert("검색어를 입력해주세요.");
-	        		}
-	        		document.getElementById("searchFrm").submit();
-	        	}
-        	</script>
+                $('document').ready(function()
+                {
+                    $("#searchBar").on("keyup", function(key)
+                    {
+                        if(key.keyCode === 13)
+                        {
+                            search();
+                        }
+                    });
+                });
+
+                function search()
+                {
+                    if($('#searchBar').val() === "")
+                    {
+                        alert("검색어를 입력해주세요.");
+                    }
+                    document.getElementById("searchFrm").submit();
+                }
+            </script>
 
 
             <div id="weather">
-	            <div><img class="weatherIcon"></div>	        
-				<div>			
-					<span class="place"></span><br>
-					<span class="temperature"></span><br>
-				    <span class="weatherDescription"></span><br>
-			    </div>
+                <div><img class="weatherIcon"></div>
+                <div>
+                    <span class="place"></span><br>
+                    <span class="temperature"></span><br>
+                    <span class="weatherDescription"></span><br>
+                </div>
             </div>
 
         </div>
@@ -99,29 +106,43 @@
             <div id="best-humour">
                 <table>
                     <caption class="mainTitle">베스트 유머</caption>
+                    <%
+                        ArrayList<BoardDTO> list = (ArrayList<BoardDTO>) request.getAttribute("list");
+                    %>
                     <tr id="humor-img">
-                        <td><img src="resources/img/index/cat1.jpg" alt="베스트유머1"></td>
-                        <td><img src="resources/img/index/dog1.jpg" alt="베스트유머2"></td>
-                        <td><img src="resources/img/index/cat2.jpg" alt="베스트유머3"></td>
-                        <td><img src="resources/img/index/dog2.jpg" alt="베스트유머4"></td>
-                        <td><img src="resources/img/index/cat3.jpg" alt="베스트유머5"></td>
-                        <td><img src="resources/img/index/dog3.jpg" alt="베스트유머6"></td>
+                    <%
+                        for(BoardDTO boardDTO : list)
+                        {
+                            if(boardDTO.getFilename() != null)
+                            {
+                    %>
+                                <td><img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" class="pic"></td>
+                    <%
+                            }
+                            else
+                            {
+                    %>
+                                <td><img src="/resources/img/board/thumbLogo.svg" class="pic"></td>
+                    <%
+                            }
+                        }
+                    %>
                     </tr>
                     <tr class="best-humor-row2">
-                        <td>제목</td>
-                        <td>제목</td>
-                        <td>제목</td>
-                        <td>제목</td>
-                        <td>제목</td>
-                        <td>제목</td>
+                        <%
+                            for(BoardDTO boardDTO : list)
+                            {
+                                out.println("<td>" + boardDTO.getTitle() + "</td>");
+                            }
+                        %>
                     </tr>
                     <tr class="best-humor-row3">
-                        <td>소제목</td>
-                        <td>소제목</td>
-                        <td>소제목</td>
-                        <td>소제목</td>
-                        <td>소제목</td>
-                        <td>소제목</td>
+                        <%
+                            for(BoardDTO boardDTO : list)
+                            {
+                                out.println("<td>" + boardDTO.getRecommend() + "</td>");
+                            }
+                        %>
                     </tr>
                 </table>
             </div>

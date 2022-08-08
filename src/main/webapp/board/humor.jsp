@@ -62,7 +62,7 @@
     nowBlock = (int) Math.ceil((double) nowPage / pagePerBlock);
 %>
 <%
-	String listNullMsg = (String) request.getAttribute("listNullMsg");
+    String listNullMsg = (String) request.getAttribute("listNullMsg");
 %>
 <!--네비게이션 시작-->
 <jsp:include page="/resources/includes/nav.jsp"/>
@@ -77,30 +77,36 @@
             <div>웃긴 자료</div>
             <div>|</div>
             <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
-	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
-	        	<input type="hidden" name="subject" value="humor">
-	        	<a href="javascript:search()" class="searchBtn">
-	        		<img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
-	        	</a>
-           	</form>
+                <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
+                <input type="hidden" name="subject" value="humor">
+                <a href="javascript:search()" class="searchBtn">
+                    <img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon"
+                         id="searchBarIcon">
+                </a>
+            </form>
         </div>
-        
+
         <script>
-        	$('document').ready(function() {
-	            $("#searchBar").on("keyup",function(key){
-					if(key.keyCode==13) { 
-						search();
-					}
-				});
-        	});
-        	
-        	function search() {
-        		if($('#searchBar').val() === "") {
-        			alert("검색어를 입력해주세요.");
-        		}
-        		document.getElementById("searchFrm").submit();
-        	}
-        
+            $('document').ready(function()
+            {
+                $("#searchBar").on("keyup", function(key)
+                {
+                    if(key.keyCode == 13)
+                    {
+                        search();
+                    }
+                });
+            });
+
+            function search()
+            {
+                if($('#searchBar').val() === "")
+                {
+                    alert("검색어를 입력해주세요.");
+                }
+                document.getElementById("searchFrm").submit();
+            }
+
         </script>
 
         <!-- 게시판 내용 관련 코드 -->
@@ -136,7 +142,8 @@
                     <col id="boardCol6">
                 </colgroup>
                 <%
-                if(listNullMsg == null) {
+                    if(listNullMsg == null)
+                    {
                 %>
                 <tr class="titlename">
                     <td class="tname">썸네일</td>
@@ -147,11 +154,13 @@
                     <td class="tname">날짜</td>
                 </tr>
                 <%
-                } else {
+                }
+                else
+                {
                 %>
                 <%=listNullMsg %>
-                <%	
-                }
+                <%
+                    }
                 %>
                 <!-- 게시판 내용물 시작 -->
                 <%
@@ -165,7 +174,8 @@
                             if(boardDTO.getFilename() != null)
                             {
                         %>
-                        <img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" class="pic">
+                        <img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>"
+                             class="pic">
                         <%
                         }
                         else
@@ -257,14 +267,14 @@
                             if(id != null)
                             {
                     %>
-                                location.href = "/Board/post.do?subject=humor";
+                    location.href = "/Board/post.do?subject=humor";
                     <%
                             }
                             else
                             {
                     %>
-                                alert("로그인이 필요합니다.");
-                                location.href = "/login.jsp";
+                    alert("로그인이 필요합니다.");
+                    location.href = "/login.jsp";
                     <%
                             }
                     %>
@@ -284,12 +294,12 @@
             if(num === 1)
             {
                 page = pageBlock * nowBlock + 1;
-                location.href= "/Board/humor.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href = "/Board/humor.do?limit=" + <%=limit%> +"&page=" + page;
             }
             else
             {
                 page = pageBlock * (nowBlock - 2) + pageBlock;
-                location.href= "/Board/humor.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href = "/Board/humor.do?limit=" + <%=limit%> +"&page=" + page;
             }
         }
     </script>

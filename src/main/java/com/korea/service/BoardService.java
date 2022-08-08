@@ -415,4 +415,9 @@ public class BoardService
     {
         return dao.getBestMonthTotalCount();
     }
+
+    public List<BoardDTO> SelectBestHumor()
+    {
+        return dao.SelectBestHumor();
+    }
 }

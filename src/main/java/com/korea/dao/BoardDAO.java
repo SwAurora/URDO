@@ -393,7 +393,7 @@ public class BoardDAO extends DAO
         int result = 0;
         try
         {
-            pstmt = conn.prepareStatement("select count(*) from board_tbl title like ?");
+            pstmt = conn.prepareStatement("select count(*) from board_tbl where title like ?");
             pstmt.setString(1, "%" + keyword + "%");
             rs = pstmt.executeQuery();
             rs.next();
@@ -1206,5 +1206,56 @@ public class BoardDAO extends DAO
             }
         }
         return result;
+    }
+
+    public List<BoardDTO> SelectBestHumor()
+    {
+        ArrayList<BoardDTO> list = new ArrayList<>();
+        BoardDTO dto;
+        try
+        {
+            pstmt = conn.prepareStatement("select * from board_tbl order by recommend desc limit 6");
+            rs = pstmt.executeQuery();
+            while(rs.next())
+            {
+                dto = new BoardDTO();
+                dto.setNo(rs.getInt("no"));
+                dto.setSubject(rs.getString("subject"));
+                dto.setTitle(rs.getString("title"));
+                dto.setContent(rs.getString("content"));
+                dto.setWriter(rs.getString("writer"));
+                dto.setDate(rs.getString("date"));
+                dto.setViews(rs.getInt("views"));
+                dto.setRecommend(rs.getInt("recommend"));
+                dto.setDay_rec(rs.getInt("day_rec"));
+                dto.setMonth_rec(rs.getInt("month_rec"));
+                dto.setFilename(rs.getString("filename"));
+                list.add(dto);
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        return list;
     }
 }
