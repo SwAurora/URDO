@@ -48,11 +48,12 @@
 
 
             <div id="weather">
-	           		        
-			        <span class="weatherInfo"></span>
-				       <img class="weatherIcon"> 
-			   
-			   
+	            <div><img class="weatherIcon"></div>	        
+				<div>			
+					<span class="place"></span><br>
+					<span class="temperature"></span><br>
+				    <span class="weatherDescription"></span><br>
+			    </div>
             </div>
 
         </div>

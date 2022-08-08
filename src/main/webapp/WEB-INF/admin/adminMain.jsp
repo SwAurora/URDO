@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>URDO ADMIN</title>
+<title> URDO 관리페이지 </title>
 
 <link rel="stylesheet" href="/resources/css/admin/common.css">
 <link rel="stylesheet" href="/resources/css/admin/adminMain.css">
@@ -31,7 +31,7 @@
       <ul id="headernav">
         <li id="todobtn"><a href="javascript:showTodolist()">TODO </a></li>
         <!-- 클릭시 todo -->
-        <li> LOGOUT </li>
+         <li><a href="/main.do"> 메인이동 </a></li>
       </ul>
   </div>
 
