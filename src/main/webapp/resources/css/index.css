@@ -44,21 +44,17 @@ a
 {
     margin-top: 35px;
     margin-right: 20px;
+    display: flex;
 
 }
 
-.container h1 {
-    font-size: 20px;
-    display: inline;   
-    
-}
-.weatherInfo {
-    font-size: 16px;
+#weather span {
+    font-size: 14px;
 }
 
 .weatherIcon {
-	height: 40px;
-	width: auto;
+	height: auto;
+	width: 100px;
 }
 
 
@@ -99,7 +95,7 @@ a
     border: 1px solid var(--color-lightgray);
     border-radius: 10px;
     font-size: 15px;
-    margin-top: 20px;
+    margin-top: 0px;
     user-select: none;
 }
 
