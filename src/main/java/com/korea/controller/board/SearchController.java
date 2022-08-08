@@ -31,24 +31,44 @@ public class SearchController implements SubController{
                 limit = Integer.parseInt(tmplimit);
             }
 
-            List<BoardDTO> list = service.getBoardList(subject, keyword ,start, limit);
-            
-            if(list.isEmpty()) {
-            	req.setAttribute("listNullMsg", "검색결과가 존재하지 않습니다.");
+            if(subject == "searchMain") {
+            	List<BoardDTO> list = service.getBoardListMain(keyword ,start, limit);
+                int tcnt = service.getTotalCntMain(keyword);
+                
+                if(list.isEmpty()) {
+                	req.setAttribute("listNullMsg", "검색결과가 존재하지 않습니다.");
+                } else {
+                	req.setAttribute("listNullMsg", null);
+                }
+
+                req.setAttribute("tcnt", tcnt);
+                req.setAttribute("list", list);
+
+
+                req.setAttribute("nowPage", nowPage);
+                req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
+                
             } else {
-            	req.setAttribute("listNullMsg", null);
+            	List<BoardDTO> list = service.getBoardList(subject, keyword ,start, limit);
+                int tcnt = service.getTotalCnt(subject, keyword);
+                
+                if(list.isEmpty()) {
+                	req.setAttribute("listNullMsg", "검색결과가 존재하지 않습니다.");
+                } else {
+                	req.setAttribute("listNullMsg", null);
+                }
+
+                req.setAttribute("tcnt", tcnt);
+                req.setAttribute("list", list);
+
+
+                req.setAttribute("nowPage", nowPage);
+                req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
             }
             
-            int tcnt = service.getTotalCnt(subject, keyword);
-
-            req.setAttribute("tcnt", tcnt);
-            req.setAttribute("list", list);
-
             Cookie views = new Cookie("views", "true");
             resp.addCookie(views);
-
-            req.setAttribute("nowPage", nowPage);
-            req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
+            
         }
         catch(Exception e)
         {
