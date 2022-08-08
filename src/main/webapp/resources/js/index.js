@@ -112,8 +112,8 @@ function getWeather(lat, lon) {
         
     
         //받아온 정보들을 표현한다. 
-        weatherInfo.innerText = `${temperature} °C / @${place} / ${weatherDescription}`;
         weatherIconImg.setAttribute('src', weatherIconAdrs);
+        weatherInfo.innerText = `${temperature} °C / ${place} / ${weatherDescription}`;
     })
     .catch((error) => console.log("error:", error));
 }
