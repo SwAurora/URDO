@@ -36,6 +36,16 @@ public class BoardService
     {
         return dao.Select(subject, start, limit);
     }
+    
+    // 키워드 검색
+    public List<BoardDTO> getBoardList(String subject, String keyword, int start, int limit) {
+        return dao.Select(subject, keyword, start, limit);
+    }
+    
+    // 메인페이지-키워드검색
+    public List<BoardDTO> getBoardListMain(String keyword, int start, int limit) {
+        return dao.SelectMain(keyword, start, limit);
+    }
 
     public List<BoardDTO> getBestNow(int start, int limit)
     {
@@ -50,6 +60,19 @@ public class BoardService
     public int getTotalCnt(String table)
     {
         return dao.getTotalCount(table);
+    }
+    
+    
+    // 페이징처리 - 키워드검색
+    public int getTotalCnt(String table, String keyword)
+    {
+        return dao.getTotalCount(table, keyword);
+    }
+    
+    // 페이징처리 - 메인페이지 검색
+    public int getTotalCntMain(String keyword)
+    {
+    	return dao.getTotalCountMain(keyword);
     }
 
     public boolean PostBoard(BoardDTO dto)

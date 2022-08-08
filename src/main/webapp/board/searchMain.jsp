@@ -20,22 +20,9 @@
     if(msg != null)
     {
         out.println("<script>alert('" + msg + "')</script>");
-        out.println("<script>location.href='/Board/humor.do'</script>");
+        out.println("<script>location.href='/Board/themeGame.do'</script>");
     }
 %>
-<script>
-    window.onpageshow = function(event)
-    {
-        let span = document.querySelectorAll('.depth1 span');
-        $('#check2').prop('checked', true);
-        span[2].innerHTML = '&#65293';
-        span[3].style.color = getColor('--color-point');
-        span[3].style.fontWeight = 'bold';
-        let activeAdd = document.querySelectorAll(".depth2 > li > a");
-        activeAdd[2].id = "active";
-        $('#active').css('color', getColor('--color-active')).css('font-weight', 'bold');
-    };
-</script>
 <%
     int totalcount; // 총 게시물
     int limit = 10; // 한페이지에 보여줄 게시물 초기값
@@ -71,14 +58,14 @@
 <section class="Main">
     <div class="container">
         <div id="container_Title">
-            게시판 > 유머 > 웃긴자료
+            게시판 > 전체 게시물 검색
         </div>
         <div id="search">
-            <div>웃긴 자료</div>
+            <div>전체 게시물 검색</div>
             <div>|</div>
             <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
 	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
-	        	<input type="hidden" name="subject" value="humor">
+	        	<input type="hidden" name="subject" value="searchMain">
 	        	<a href="javascript:search()" class="searchBtn">
 	        		<img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
 	        	</a>
@@ -106,7 +93,7 @@
         <!-- 게시판 내용 관련 코드 -->
         <!-- 게시판윗부분 시작 -->
         <div class="board_list_wrap">
-            <form action="/Board/humor.do" method="get">
+            <form action="/Board/themeGame.do" method="get">
                 <select class="sel" onchange="this.form.submit()" name="limit" id="sel1">
                     <option value="10">10개</option>
                     <option value="20">20개</option>
@@ -176,7 +163,7 @@
                             }
                         %>
                     </td>
-                    <td><a href="/Board/read.do?board=humor&no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%>
+                    <td><a href="/Board/read.do?board=themeGame&no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%>
                     </a>
                     </td>
                     <td><%=boardDTO.getViews()%>
@@ -219,7 +206,7 @@
                             {
                     %>
                     <a class="page_num on"
-                       href="/Board/humor.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
+                       href="/Board/themeGame.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
                     </a>
                     <%
                     }
@@ -227,7 +214,7 @@
                     {
                     %>
                     <a class="page_num"
-                       href="/Board/humor.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
+                       href="/Board/themeGame.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
                     </a>
                     <%
                             }
@@ -257,14 +244,14 @@
                             if(id != null)
                             {
                     %>
-                                location.href = "/Board/post.do?subject=humor";
+                    location.href = "/Board/post.do?subject=themeGame";
                     <%
                             }
                             else
                             {
                     %>
-                                alert("로그인이 필요합니다.");
-                                location.href = "/login.jsp";
+                    alert("로그인이 필요합니다.");
+                    location.href = "/login.jsp";
                     <%
                             }
                     %>
@@ -284,12 +271,12 @@
             if(num === 1)
             {
                 page = pageBlock * nowBlock + 1;
-                location.href= "/Board/humor.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href= "/Board/themeGame.do?limit=" + <%=limit%> + "&page=" + page;
             }
             else
             {
                 page = pageBlock * (nowBlock - 2) + pageBlock;
-                location.href= "/Board/humor.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href= "/Board/themeGame.do?limit=" + <%=limit%> + "&page=" + page;
             }
         }
     </script>

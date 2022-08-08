@@ -39,6 +39,8 @@ public class CreCookController implements SubController
 
             req.setAttribute("tcnt", tcnt);
             req.setAttribute("list", list);
+            
+            req.setAttribute("listNullMsg", null);
 
             Cookie views = new Cookie("views", "true");
             resp.addCookie(views);
