@@ -12,25 +12,22 @@ import com.korea.service.BoardService;
 
 public class SearchController implements SubController{
     BoardService service = BoardService.getInstance();
-    String subject = "humor"; // DB 테이블명
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
     {
-        try
-        {
+    	String subject = req.getParameter("subject");
+        try {
             String tmplimit = req.getParameter("limit");
             String nowPage = req.getParameter("page");
             String keyword = req.getParameter("keyword");
             int start = 0;
             int limit = 10;
-            if(tmplimit != null && nowPage != null)
-            {
+            if(tmplimit != null && nowPage != null) {
                 limit = Integer.parseInt(tmplimit);
                 int nowpage = Integer.parseInt(nowPage);
                 start = (limit * nowpage) - limit;
             }
-            if(tmplimit != null)
-            {
+            if(tmplimit != null) {
                 limit = Integer.parseInt(tmplimit);
             }
 
