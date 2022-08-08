@@ -82,9 +82,10 @@ public class BoardDAO extends DAO
         }
         return list;
     }
-    
+
     // 검색 키워드 포함 boardList
-    public List<BoardDTO> Select(String subject, String keyword, int start, int limit) {
+    public List<BoardDTO> Select(String subject, String keyword, int start, int limit)
+    {
         ArrayList<BoardDTO> list = new ArrayList<>();
         BoardDTO dto;
         try
@@ -111,17 +112,36 @@ public class BoardDAO extends DAO
                 dto.setFilename(rs.getString("filename"));
                 list.add(dto);
             }
-        } catch(Exception e) {
+        }
+        catch(Exception e)
+        {
             e.printStackTrace();
-        } finally {
-            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
         return list;
     }
-    
+
     // 메인페이지에서 검색
-    public List<BoardDTO> SelectMain(String keyword, int start, int limit) {
+    public List<BoardDTO> SelectMain(String keyword, int start, int limit)
+    {
         ArrayList<BoardDTO> list = new ArrayList<>();
         BoardDTO dto;
         try
@@ -147,11 +167,29 @@ public class BoardDAO extends DAO
                 dto.setFilename(rs.getString("filename"));
                 list.add(dto);
             }
-        } catch(Exception e) {
+        }
+        catch(Exception e)
+        {
             e.printStackTrace();
-        } finally {
-            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
         return list;
     }
@@ -174,7 +212,7 @@ public class BoardDAO extends DAO
                 s.append(",").append(rs2.getString("board_no"));
             }
 
-            String sql = "select * from board_tbl where no in (select board_no from bestnow_tbl order by bestNow_no desc) order by field(no "+ s +") limit ?,?";
+            String sql = "select * from board_tbl where no in (select board_no from bestnow_tbl order by bestNow_no desc) order by field(no " + s + ") limit ?,?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, start);
             pstmt.setInt(2, limit);
@@ -221,7 +259,7 @@ public class BoardDAO extends DAO
         }
         return list;
     }
-    
+
     // bestNow 검색
     public List<BoardDTO> SelectBestNow(String keyword, int start, int limit)
     {
@@ -241,7 +279,7 @@ public class BoardDAO extends DAO
                 s.append(",").append(rs2.getString("board_no"));
             }
 
-            String sql = "select * from board_tbl where no in (select board_no from bestnow_tbl order by bestNow_no desc) and title like ? order by field(no "+ s +") limit ?,?";
+            String sql = "select * from board_tbl where no in (select board_no from bestnow_tbl order by bestNow_no desc) and title like ? order by field(no " + s + ") limit ?,?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, "%" + keyword + "%");
             pstmt.setInt(2, start);
@@ -264,11 +302,28 @@ public class BoardDAO extends DAO
                 list.add(dto);
             }
         }
-        catch(Exception e) {
+        catch(Exception e)
+        {
             e.printStackTrace();
-        } finally {
-            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
         return list;
     }
@@ -291,7 +346,7 @@ public class BoardDAO extends DAO
                 s.append(",").append(rs2.getString("board_no"));
             }
 
-            String sql = "select * from board_tbl where no in (select board_no from bestmonth_tbl order by bestMonth_no desc) order by field(no "+ s +") limit ?,?";
+            String sql = "select * from board_tbl where no in (select board_no from bestmonth_tbl order by bestMonth_no desc) order by field(no " + s + ") limit ?,?";
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, start);
             pstmt.setInt(2, limit);
@@ -338,7 +393,7 @@ public class BoardDAO extends DAO
         }
         return list;
     }
-    
+
     // bestMonth 검색
     public List<BoardDTO> SelectBestMonth(String keyword, int start, int limit)
     {
@@ -358,9 +413,9 @@ public class BoardDAO extends DAO
                 s.append(",").append(rs2.getString("board_no"));
             }
 
-            String sql = "select * from board_tbl where no in (select board_no from bestmonth_tbl order by bestMonth_no desc) and title like ? order by field(no "+ s +") limit ?,?";
+            String sql = "select * from board_tbl where no in (select board_no from bestmonth_tbl order by bestMonth_no desc) and title like ? order by field(no " + s + ") limit ?,?";
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1,  "%" + keyword + "%");
+            pstmt.setString(1, "%" + keyword + "%");
             pstmt.setInt(2, start);
             pstmt.setInt(3, limit);
             rs = pstmt.executeQuery();
@@ -384,9 +439,25 @@ public class BoardDAO extends DAO
         catch(Exception e)
         {
             e.printStackTrace();
-        } finally {
-            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        finally
+        {
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
         return list;
     }
@@ -465,7 +536,7 @@ public class BoardDAO extends DAO
         }
         return result;
     }
-    
+
     public int getTotalCount(String subject, String keyword)
     {
         int result = 0;
@@ -484,12 +555,26 @@ public class BoardDAO extends DAO
         }
         finally
         {
-            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
         return result;
     }
-    
+
     // 전체검색
     public int getTotalCountMain(String keyword)
     {
@@ -508,13 +593,26 @@ public class BoardDAO extends DAO
         }
         finally
         {
-            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
-            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+            try
+            {
+                rs.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+            try
+            {
+                pstmt.close();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
         }
         return result;
     }
-    
-    
+
 
     public boolean insert(BoardDTO dto)
     {
@@ -1274,7 +1372,7 @@ public class BoardDAO extends DAO
         }
         return result;
     }
-    
+
     // BestNow 검색 Count
     public int getBestNowTotalCount(String keyword)
     {
@@ -1348,7 +1446,7 @@ public class BoardDAO extends DAO
         }
         return result;
     }
-    
+
     // bestMonth 검색 cnt
     public int getBestMonthTotalCount(String keyword)
     {
@@ -1360,6 +1458,7 @@ public class BoardDAO extends DAO
             rs = pstmt.executeQuery();
             rs.next();
             result = rs.getInt(1);
+        }
         catch(Exception e)
         {
             e.printStackTrace();
