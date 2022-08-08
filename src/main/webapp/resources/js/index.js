@@ -116,9 +116,9 @@ function getWeather(lat, lon) {
         const weatherDescription = json.weather[0].description;
         const weatherIcon = json.weather[0].icon;
         const weatherIconAdrs = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
-      
+
         //받아온 정보들을 표현한다. 
-        Htemperature.innerText= `${temperature} °C`;
+        Htemperature.innerText= `${Math.round(temperature * 10) / 10} °C`;
         Hplace.innerText = `${place}`;
         HweatherDescription.innerText = `${weatherDescription}`;
         weatherIconImg.setAttribute('src', weatherIconAdrs);
