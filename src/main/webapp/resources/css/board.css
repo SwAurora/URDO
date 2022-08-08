@@ -10,17 +10,25 @@
     margin-top: 28.5px;
     display: flex;
     align-items: center;
+	gap:40px;
 }
 
 #search div
 {
-    margin-right: 40px;
+}
+.searchBtn {
+	display:flex;
+	align-items:center;
+}
+#searchFrm {
+	display:flex;
+	align-items:center;
+	gap:40px;
 }
 .searchBarIcon
 {
     width: 30px;
     height: 30px;
-    margin-left: 30px;
     cursor: pointer;
     user-select: none;
 }

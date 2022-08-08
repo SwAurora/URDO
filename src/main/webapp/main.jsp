@@ -43,11 +43,11 @@
                     <div>홈</div>
                     <div>|</div>
                     <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
-                        <input type="text" class="searchBar" placeholder="검색어를 입력하세요" id="searchBar">
-                        <input type="hidden" name="subject" value="searchMain">
-                        <a href="javascript:search()" class="searchBtn">
-                            <img src="resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon"
-                                 id="searchBarIcon">
+	                    <input type="text" class="searchBar" placeholder="검색어를 입력하세요" id="searchBar" name="keyword">
+	                    <input type="hidden" name="subject" value="searchMain">
+	                    <a href="javascript:search()" class="searchBtn">
+	                    	<img src="resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon"
+	                         id="searchBarIcon">
                         </a>
                     </form>
                 </div>
@@ -73,8 +73,6 @@
                     document.getElementById("searchFrm").submit();
                 }
             </script>
-
-
             <div id="weather">
                 <div><img class="weatherIcon"></div>
                 <div>

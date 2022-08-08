@@ -77,13 +77,12 @@
             <div>웃긴 자료</div>
             <div>|</div>
             <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
-                <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
-                <input type="hidden" name="subject" value="humor">
-                <a href="javascript:search()" class="searchBtn">
-                    <img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon"
-                         id="searchBarIcon">
-                </a>
-            </form>
+	        	<input type="hidden" name="subject" value="humor">
+	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
+	        	<a href="javascript:search()" class="searchBtn">
+	        		<img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
+	        	</a>
+           	</form>
         </div>
 
         <script>
@@ -106,7 +105,6 @@
                 }
                 document.getElementById("searchFrm").submit();
             }
-
         </script>
 
         <!-- 게시판 내용 관련 코드 -->

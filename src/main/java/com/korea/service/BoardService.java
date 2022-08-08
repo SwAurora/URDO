@@ -51,10 +51,22 @@ public class BoardService
     {
         return dao.SelectBestNow(start, limit);
     }
+    
+    // bestNow검색
+    public List<BoardDTO> getBestNow(String keyword, int start, int limit)
+    {
+        return dao.SelectBestNow(keyword, start, limit);
+    }
 
     public List<BoardDTO> getBestMonth(int start, int limit)
     {
         return dao.SelectBestMonth(start, limit);
+    }
+    
+    // bestMonth 검색
+    public List<BoardDTO> getBestMonth(String keyword, int start, int limit)
+    {
+        return dao.SelectBestMonth(keyword, start, limit);
     }
 
     public int getTotalCnt(String table)
@@ -410,10 +422,20 @@ public class BoardService
     {
         return dao.getBestNowTotalCount();
     }
+    
+    public int getBestNowTotalCount(String keyword)
+    {
+        return dao.getBestNowTotalCount(keyword);
+    }
 
     public int getBestMonthTotalCount()
     {
         return dao.getBestMonthTotalCount();
+    }
+    
+    public int getBestMonthTotalCount(String keyword)
+    {
+        return dao.getBestMonthTotalCount(keyword);
     }
 
     public List<BoardDTO> SelectBestHumor()

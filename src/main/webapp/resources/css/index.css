@@ -28,16 +28,13 @@ a
     margin-top: 28.5px;
     display: flex;
     align-items: center;
+    gap:40px;
 }
 
 #search div
 {
-    margin-right: 40px;
 }
 
-/* #main-header-left {
-    width: 60%;
-} */
 
 #weather
 {
@@ -58,11 +55,18 @@ a
     width: 100px;
 }
 
+#searchFrm {
+	display:flex;
+	align-items:center;
+	gap:40px;
+}
+
 .searchBarIcon
 {
     width: 30px;
     height: 30px;
-    margin-left: 30px;
+    cursor: pointer;
+    user-select: none;
 }
 
 .searchBar
@@ -76,12 +80,15 @@ a
     border-radius: 4px;
     color: var(--color-blackToWhite);
     padding-left: 10px;
-    cursor: pointer;
 }
 
 .searchBar::placeholder
 {
     color: var(--color-placeholder);
+}
+.searchBtn {
+	display:flex;
+	align-items:center;
 }
 
 /* 공지사항 */

@@ -50,6 +50,7 @@
 %>
 <%
 	String listNullMsg = (String) request.getAttribute("listNullMsg");
+
 %>
 <!--네비게이션 시작-->
 <jsp:include page="/resources/includes/nav.jsp"/>
@@ -64,8 +65,8 @@
             <div>전체 게시물 검색</div>
             <div>|</div>
             <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
-	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
 	        	<input type="hidden" name="subject" value="searchMain">
+	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
 	        	<a href="javascript:search()" class="searchBtn">
 	        		<img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
 	        	</a>
@@ -116,6 +117,7 @@
             <table class="board_list" id="t1">
                 <colgroup>
                     <col id="boardCol1">
+                    <col id="boardCol7">
                     <col id="boardCol2">
                     <col id="boardCol3">
                     <col id="boardCol4">
@@ -127,6 +129,7 @@
                 %>
                 <tr class="titlename">
                     <td class="tname">썸네일</td>
+                    <td class="tname">게시판</td>
                     <td class="tname" id="titleboard">글제목</td>
                     <td class="tname">조회</td>
                     <td class="tname">추천</td>
@@ -162,6 +165,52 @@
                         <%
                             }
                         %>
+                    </td>
+                    <td>
+                    <%
+                    String depth2;
+                    String board = boardDTO.getSubject();
+                    switch(board)
+                    {
+                        case "bestNow":
+                            depth2 = "실시간 베스트";
+                            break;
+                        case "bestMonth":
+                            depth2 = "월간 베스트";
+                            break;
+                        case "humor":
+                            depth2 = "웃긴 자료";
+                            break;
+                        case "creArt":
+                            depth2 = "그림";
+                            break;
+                        case "creCook":
+                            depth2 = "요리";
+                            break;
+                        case "regionRestaurant":
+                            depth2 = "맛집";
+                            break;
+                        case "regionLandmark":
+                            depth2 = "명소";
+                            break;
+                        case "themeGame":
+                            depth2 = "게임";
+                            break;
+                        case "themeSports":
+                            depth2 = "스포츠";
+                            break;
+                        case "themeMusic":
+                            depth2 = "음악";
+                            break;
+                        default:
+                            depth2 = "웃긴자료";
+                    }
+                    
+                    
+                    %>
+                    <%=depth2 %>
+                    
+                    
                     </td>
                     <td><a href="/Board/read.do?board=themeGame&no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%>
                     </a>

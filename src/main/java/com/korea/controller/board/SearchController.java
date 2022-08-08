@@ -15,8 +15,8 @@ public class SearchController implements SubController{
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
     {
-    	String subject = req.getParameter("subject");
         try {
+        	String subject = req.getParameter("subject");
             String tmplimit = req.getParameter("limit");
             String nowPage = req.getParameter("page");
             String keyword = req.getParameter("keyword");
@@ -31,7 +31,7 @@ public class SearchController implements SubController{
                 limit = Integer.parseInt(tmplimit);
             }
 
-            if(subject == "searchMain") {
+            if(subject.equals("searchMain")) {
             	List<BoardDTO> list = service.getBoardListMain(keyword ,start, limit);
                 int tcnt = service.getTotalCntMain(keyword);
                 
@@ -48,6 +48,36 @@ public class SearchController implements SubController{
                 req.setAttribute("nowPage", nowPage);
                 req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
                 
+            } else if(subject.equals("bestNow")) {
+            	List<BoardDTO> list = service.getBestNow(keyword ,start, limit);
+                int tcnt = service.getBestNowTotalCount(keyword);
+                
+                if(list.isEmpty()) {
+                	req.setAttribute("listNullMsg", "검색결과가 존재하지 않습니다.");
+                } else {
+                	req.setAttribute("listNullMsg", null);
+                }
+
+                req.setAttribute("tcnt", tcnt);
+                req.setAttribute("list", list);
+
+                req.setAttribute("nowPage", nowPage);
+                req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
+            } else if(subject.equals("bestMonth")) {
+            	List<BoardDTO> list = service.getBestMonth(keyword ,start, limit);
+                int tcnt = service.getBestMonthTotalCount(keyword);
+                
+                if(list.isEmpty()) {
+                	req.setAttribute("listNullMsg", "검색결과가 존재하지 않습니다.");
+                } else {
+                	req.setAttribute("listNullMsg", null);
+                }
+
+                req.setAttribute("tcnt", tcnt);
+                req.setAttribute("list", list);
+
+                req.setAttribute("nowPage", nowPage);
+                req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
             } else {
             	List<BoardDTO> list = service.getBoardList(subject, keyword ,start, limit);
                 int tcnt = service.getTotalCnt(subject, keyword);

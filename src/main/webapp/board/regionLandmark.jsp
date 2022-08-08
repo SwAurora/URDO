@@ -77,8 +77,8 @@
             <div>명소</div>
             <div>|</div>
             <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
-	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
 	        	<input type="hidden" name="subject" value="regionLandmark">
+	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
 	        	<a href="javascript:search()" class="searchBtn">
 	        		<img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
 	        	</a>

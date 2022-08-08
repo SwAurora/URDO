@@ -226,7 +226,6 @@ public class MemberDAO extends DAO
         catch(Exception e) {
             e.printStackTrace();
         } finally {
-            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
             try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
         }
         return false;
