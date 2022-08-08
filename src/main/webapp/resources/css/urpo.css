@@ -50,30 +50,7 @@ a
     color: var(--color-text);
 }
 
-/* 탭 컨텐츠 시작 */
-.tabContents
-{
-    height: calc(100vh - 260px);
-    width: calc(100% - 20px);
-    display: none;
-    margin-top: 30px;
-}
 
-.tabContents div
-{
-    font-size: var(--font-L);
-}
-
-.tabContents.on
-{
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 10px;
-    color: var(--color-white);
-}
-
-/* 탭 컨텐츠 끝 */
 
 /* 탭메뉴선택관련 */
 .menu-level1
@@ -129,6 +106,32 @@ li a
     color: var(--color-black);
 }
 
+/* 탭 컨텐츠 시작 */
+.tabContents
+{
+    height: calc(100vh - 260px);
+    width: calc(100% - 20px);
+    display: none;
+    margin-top: 30px;
+}
+
+.tabContents div
+{
+    font-size: var(--font-L);
+}
+
+.tabContents.on
+{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    color: var(--color-white);
+}
+
+/* 탭 컨텐츠 끝 */
+
+
 /* gif호버 애니메이션 설정 */
 .hov-ani
 {
@@ -138,8 +141,8 @@ li a
 
 .hov-ani-img img
 {
-    width: 100px;
-    height:100px;
+	width:100%;
+	height:80%;
 }
 
 .hov-anim {
