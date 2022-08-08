@@ -60,10 +60,10 @@
                 {
             %>
             <div class="hov-ani">
-                <a class="hov-ani-img" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
+                <a class="hov-ani-box" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
                     <img src="<%=urpoDTO.getStaticImage() %>" alt="" data-animated="<%=urpoDTO.getGifImage() %>"
                          data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
-                    <br><%=urpoDTO.getTitle()%>
+                    <div class="hov-ani-title"><%=urpoDTO.getTitle()%></div>
                 </a>
             </div>
             <%
