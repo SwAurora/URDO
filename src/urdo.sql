@@ -161,6 +161,8 @@ CREATE EVENT monthRecReset
     COMMENT '매달 1일 00시에 monthRec 초기화'
     DO
     call monthRecReset();
+    
+insert into member_tbl values('admin', '$2a$10$n9VIAGQPzHImY6P5rTAlXenyO30P4ieU3OpOb88EZ2BG/LfVA1uK2', 'eee1717test@daum.net', '관리자', 9999, 1, 1, '1;'); 
 #----------------------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------------------------------------------------------------
 select * from board_tbl order by recommend desc limit 6;
@@ -171,3 +173,6 @@ select * from bestmonth_tbl;
 select * from board_tbl where no in (select board_no from bestnow_tbl order by bestNow_no desc) limit 12;
 
 insert into bestmonth_tbl(board_no) value(967);
+
+
+
