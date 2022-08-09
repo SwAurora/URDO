@@ -59,7 +59,6 @@
     String subject = request.getParameter("subject");
     String depth1;
     String depth2;
-    System.out.println(subject);
     switch(subject)
     {
         case "bestNow":
