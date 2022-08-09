@@ -5,6 +5,7 @@ import com.korea.dto.UrpoDTO;
 import com.korea.service.BoardService;
 import com.korea.service.UrpoService;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -14,6 +15,7 @@ public class MainController implements SubController
     BoardService service = BoardService.getInstance();
     UrpoService uservice = UrpoService.getInstance();
     String category = "urcon";
+
     @Override
     public void execute(HttpServletRequest req, HttpServletResponse resp)
     {

@@ -44,11 +44,11 @@
                     <div>홈</div>
                     <div>|</div>
                     <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
-	                    <input type="text" class="searchBar" placeholder="검색어를 입력하세요" id="searchBar" name="keyword">
-	                    <input type="hidden" name="subject" value="searchMain">
-	                    <a href="javascript:search()" class="searchBtn">
-	                    	<img src="resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon"
-	                         id="searchBarIcon">
+                        <input type="text" class="searchBar" placeholder="검색어를 입력하세요" id="searchBar" name="keyword">
+                        <input type="hidden" name="subject" value="searchMain">
+                        <a href="javascript:search()" class="searchBtn">
+                            <img src="resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon"
+                                 id="searchBarIcon">
                         </a>
                     </form>
                 </div>
@@ -109,23 +109,26 @@
                         ArrayList<BoardDTO> list = (ArrayList<BoardDTO>) request.getAttribute("list");
                     %>
                     <tr id="humor-img">
-                    <%
-                        for(BoardDTO boardDTO : list)
-                        {
-                            if(boardDTO.getFilename() != null)
+                        <%
+                            for(BoardDTO boardDTO : list)
                             {
-                    %>
-                                <td><a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" class="pic"></a></td>
-                    <%
-                            }
-                            else
-                            {
-                    %>
-                                <td><a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><img src="/resources/img/board/thumbLogo.svg" class="pic"></a></td>
-                    <%
-                            }
+                                if(boardDTO.getFilename() != null)
+                                {
+                        %>
+                        <td><a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><img
+                                src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>"
+                                class="pic"></a></td>
+                        <%
                         }
-                    %>
+                        else
+                        {
+                        %>
+                        <td><a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><img
+                                src="/resources/img/board/thumbLogo.svg" class="pic"></a></td>
+                        <%
+                                }
+                            }
+                        %>
                     </tr>
                     <tr class="best-humor-row2">
                         <%
@@ -169,8 +172,6 @@
             </div>
             <!-- contents-top 끝 -->
         </div>
-
-
         <div id="contents-bottom">
             <!-- 실시간 유머 등 게시판 -->
             <div id="realTimeBoard">
@@ -182,17 +183,17 @@
                         <li>월간 베스트</li>
                     </ul>
                     <div id="buttonbox">
-                        <span>1/3</span>
-                        <button id="prev">◀</button>
-                        <button id="next">▶</button>
+                        <span id="pageNum">1/3</span>
+                        <button id="prev" onclick="goPrev()">◀</button>
+                        <button id="next" onclick="goNext()">▶</button>
                     </div>
                 </div>
                 <%
                     ArrayList<BoardDTO> list2 = (ArrayList<BoardDTO>) request.getAttribute("list2");
-                	System.out.println(list2.toString());
+                    ArrayList<BoardDTO> list3 = (ArrayList<BoardDTO>) request.getAttribute("list3");
                 %>
                 <div id="Board-table">
-                    <table class="change-board">
+                    <table id="table1" class="change-board">
                         <tr>
                             <td>썸네일</td>
                             <td class="name">글제목</td>
@@ -202,35 +203,41 @@
                             <td>날짜</td>
                         </tr>
                         <%
-                        
-                            for(BoardDTO boardDTO : list2)
+                            for(int i = 0; i < list2.size(); i++)
                             {
-                                out.println("<tr>");
-                                if(boardDTO.getFilename() != null)
-                                {
                         %>
-                                    <td><img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" alt="#" class="bestThumb"></td>
+                                <tr>
+                                    <td>
                         <%
-                                }
-                                else
-                                {
+                            if(list2.get(i).getFilename() != null)
+                            {
                         %>
-                                    <td><img src="/resources/img/board/thumbLogo.svg" alt="#" class="bestThumb"></td>
+                                <img src="/resources/files/B<%=list2.get(i).getNo()%>/<%=list2.get(i).getFilename().split(";")[0]%>"
+                                     class="bestThumb">
                         <%
-                                }
+                        }
+                        else
+                        {
                         %>
-                                <td class="name"><a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%></a></td>
-                                <td><%=boardDTO.getViews()%></td>
-                                <td><%=boardDTO.getRecommend()%></td>
-                                <td><%=boardDTO.getWriter()%></td>
-                                <td><%=boardDTO.getDate()%></td>
+                                <img src="/resources/img/board/thumbLogo.svg" class="bestThumb">
                         <%
-                                out.println("</tr>");
+                            }
+                        %>
+                                    </td>
+                                    <td><a href="/Board/read.do?board=bestNow&no=<%=list2.get(i).getNo()%>"><%=list2.get(i).getTitle()%></a></td>
+                                    <td><%=list2.get(i).getViews()%></td>
+                                    <td><%=list2.get(i).getRecommend()%></td>
+                                    <td><%=list2.get(i).getWriter()%></td>
+                                    <td><%=list2.get(i).getDate()%></td>
+                                </tr>
+                        <%
+                                if(i == 3)
+                                    break;
                             }
                         %>
 
                     </table>
-                    <table>
+                    <table id="table2">
                         <tr>
                             <td>썸네일</td>
                             <td class="name">글제목</td>
@@ -239,42 +246,210 @@
                             <td>글쓴이</td>
                             <td>날짜</td>
                         </tr>
+                        <%
+                            for(int i = 4; i < list2.size(); i++)
+                            {
+                        %>
                         <tr>
-                            <td>1</td>
-                            <td>실시간 뉴스 TEXT</td>
-                            <td>15</td>
-                            <td>1</td>
-                            <td>홍길동</td>
-                            <td>2022-06-22</td>
+                            <td>
+                                <%
+                                    if(list2.get(i).getFilename() != null)
+                                    {
+                                %>
+                                <img src="/resources/files/B<%=list2.get(i).getNo()%>/<%=list2.get(i).getFilename().split(";")[0]%>"
+                                     class="bestThumb">
+                                <%
+                                }
+                                else
+                                {
+                                %>
+                                <img src="/resources/img/board/thumbLogo.svg" class="bestThumb">
+                                <%
+                                    }
+                                %>
+                            </td>
+                            <td><a href="/Board/read.do?board=bestNow&no=<%=list2.get(i).getNo()%>"><%=list2.get(i).getTitle()%></a></td>
+                            <td><%=list2.get(i).getViews()%></td>
+                            <td><%=list2.get(i).getRecommend()%></td>
+                            <td><%=list2.get(i).getWriter()%></td>
+                            <td><%=list2.get(i).getDate()%></td>
                         </tr>
+                        <%
+                                if(i == 7)
+                                    break;
+                            }
+                        %>
+                    </table>
+                    <table id="table3">
                         <tr>
-                            <td>2</td>
-                            <td>실시간 뉴스 TEXT</td>
-                            <td>15</td>
-                            <td>1</td>
-                            <td>홍길동</td>
-                            <td>2022-06-22</td>
+                            <td>썸네일</td>
+                            <td class="name">글제목</td>
+                            <td>조회수</td>
+                            <td>추천</td>
+                            <td>글쓴이</td>
+                            <td>날짜</td>
                         </tr>
+                        <%
+                            for(int i = 8; i < list2.size(); i++)
+                            {
+                        %>
                         <tr>
-                            <td>3</td>
-                            <td>실시간 뉴스 TEXT</td>
-                            <td>15</td>
-                            <td>1</td>
-                            <td>홍길동</td>
-                            <td>2022-06-22</td>
+                            <td>
+                                <%
+                                    if(list2.get(i).getFilename() != null)
+                                    {
+                                %>
+                                <img src="/resources/files/B<%=list2.get(i).getNo()%>/<%=list2.get(i).getFilename().split(";")[0]%>"
+                                     class="bestThumb">
+                                <%
+                                }
+                                else
+                                {
+                                %>
+                                <img src="/resources/img/board/thumbLogo.svg" class="bestThumb">
+                                <%
+                                    }
+                                %>
+                            </td>
+                            <td><a href="/Board/read.do?board=bestNow&no=<%=list2.get(i).getNo()%>"><%=list2.get(i).getTitle()%></a></td>
+                            <td><%=list2.get(i).getViews()%></td>
+                            <td><%=list2.get(i).getRecommend()%></td>
+                            <td><%=list2.get(i).getWriter()%></td>
+                            <td><%=list2.get(i).getDate()%></td>
                         </tr>
+                        <%
+                            }
+                        %>
+                    </table>
+                    <table id="table4">
                         <tr>
-                            <td>4</td>
-                            <td>실시간 뉴스 TEXT</td>
-                            <td>15</td>
-                            <td>1</td>
-                            <td>홍길동</td>
-                            <td>2022-06-22</td>
+                            <td>썸네일</td>
+                            <td class="name">글제목</td>
+                            <td>조회수</td>
+                            <td>추천</td>
+                            <td>글쓴이</td>
+                            <td>날짜</td>
                         </tr>
+                        <%
+                            for(int i = 0; i < list3.size(); i++)
+                            {
+                        %>
+                        <tr>
+                            <td>
+                                <%
+                                    if(list3.get(i).getFilename() != null)
+                                    {
+                                %>
+                                <img src="/resources/files/B<%=list3.get(i).getNo()%>/<%=list3.get(i).getFilename().split(";")[0]%>"
+                                     class="bestThumb">
+                                <%
+                                }
+                                else
+                                {
+                                %>
+                                <img src="/resources/img/board/thumbLogo.svg" class="bestThumb">
+                                <%
+                                    }
+                                %>
+                            </td>
+                            <td><a href="/Board/read.do?board=bestMonth&no=<%=list3.get(i).getNo()%>"><%=list3.get(i).getTitle()%></a></td>
+                            <td><%=list3.get(i).getViews()%></td>
+                            <td><%=list3.get(i).getRecommend()%></td>
+                            <td><%=list3.get(i).getWriter()%></td>
+                            <td><%=list3.get(i).getDate()%></td>
+                        </tr>
+                        <%
+                                if(i == 3)
+                                    break;
+                            }
+                        %>
+                    </table>
+                    <table id="table5">
+                        <tr>
+                            <td>썸네일</td>
+                            <td class="name">글제목</td>
+                            <td>조회수</td>
+                            <td>추천</td>
+                            <td>글쓴이</td>
+                            <td>날짜</td>
+                        </tr>
+                        <%
+                            for(int i = 4; i < list3.size(); i++)
+                            {
+                        %>
+                        <tr>
+                            <td>
+                                <%
+                                    if(list3.get(i).getFilename() != null)
+                                    {
+                                %>
+                                <img src="/resources/files/B<%=list3.get(i).getNo()%>/<%=list3.get(i).getFilename().split(";")[0]%>"
+                                     class="bestThumb">
+                                <%
+                                }
+                                else
+                                {
+                                %>
+                                <img src="/resources/img/board/thumbLogo.svg" class="bestThumb">
+                                <%
+                                    }
+                                %>
+                            </td>
+                            <td><a href="/Board/read.do?board=bestMonth&no=<%=list3.get(i).getNo()%>"><%=list3.get(i).getTitle()%></a></td>
+                            <td><%=list3.get(i).getViews()%></td>
+                            <td><%=list3.get(i).getRecommend()%></td>
+                            <td><%=list3.get(i).getWriter()%></td>
+                            <td><%=list3.get(i).getDate()%></td>
+                        </tr>
+                        <%
+                                if(i == 7)
+                                    break;
+                            }
+                        %>
+                    </table>
+                    <table id="table6">
+                        <tr>
+                            <td>썸네일</td>
+                            <td class="name">글제목</td>
+                            <td>조회수</td>
+                            <td>추천</td>
+                            <td>글쓴이</td>
+                            <td>날짜</td>
+                        </tr>
+                        <%
+                            for(int i = 8; i < list3.size(); i++)
+                            {
+                        %>
+                        <tr>
+                            <td>
+                                <%
+                                    if(list3.get(i).getFilename() != null)
+                                    {
+                                %>
+                                <img src="/resources/files/B<%=list3.get(i).getNo()%>/<%=list3.get(i).getFilename().split(";")[0]%>"
+                                     class="bestThumb">
+                                <%
+                                }
+                                else
+                                {
+                                %>
+                                <img src="/resources/img/board/thumbLogo.svg" class="bestThumb">
+                                <%
+                                    }
+                                %>
+                            </td>
+                            <td><a href="/Board/read.do?board=bestMonth&no=<%=list3.get(i).getNo()%>"><%=list3.get(i).getTitle()%></a></td>
+                            <td><%=list3.get(i).getViews()%></td>
+                            <td><%=list3.get(i).getRecommend()%></td>
+                            <td><%=list3.get(i).getWriter()%></td>
+                            <td><%=list3.get(i).getDate()%></td>
+                        </tr>
+                        <%
+                            }
+                        %>
                     </table>
                 </div>
             </div>
-
             <!-- 포인트샵 -->
             <div id="pointshop">
                 <h2 class="mainTitle">포인트샵</h2>

@@ -25,6 +25,7 @@ public class ReadController implements SubController
         {
 			String no = req.getParameter("no");
             int num = Integer.parseInt(no);
+
             Cookie[] cookies = req.getCookies();
             for(Cookie cookie : cookies)
             {
@@ -37,7 +38,7 @@ public class ReadController implements SubController
                 }
             }
 
-			dto = service.Select(Integer.parseInt(no));
+            dto = service.Select(Integer.parseInt(no));
 
 			req.setAttribute("dto", dto);
             req.getRequestDispatcher("/WEB-INF/board/read.jsp").forward(req, resp);
