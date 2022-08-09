@@ -33,7 +33,10 @@ public class MainController implements SubController
             req.setAttribute("urconList", urconList);
             List<UrpoDTO> urconList2 = uservice.ShowItems(category, 13, 12);
             req.setAttribute("urconList2", urconList2);
-            
+
+            Cookie views = new Cookie("views", "true");
+            views.setPath("/Board");
+            resp.addCookie(views);
             
             req.getRequestDispatcher("main.jsp").forward(req, resp);
         }
