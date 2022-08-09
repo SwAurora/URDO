@@ -135,18 +135,28 @@ li a
 /* gif호버 애니메이션 설정 */
 .hov-ani
 {
-    scroll: hidden;
-    text-align:center;
+	display:flex;
+	flex-direction:column;
+	justify-content: space-around;
+}
+.hov-ani-box {
+	display:flex;
+	flex-direction:column;
+	justify-content: space-around;
 }
 
-.hov-ani-img img
+.hov-ani-box img
 {
 	width:100%;
-	height:80%;
+	height:15vh;
+	background-color:white;
+	
 }
 
 .hov-anim {
-	background-color:white;
+}
+
+.hov-ani-title {
 }
 
 /* gif 호버 애니메이션 끝 */

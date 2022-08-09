@@ -102,7 +102,7 @@
             </div>
             <div class="item">
                 <div class="text">이메일</div>
-                <div class="text"><input type="email" id="email" class="ipSet" value="<%=dto.getEmail()%>" disabled>
+                <div class="text"><input type="email" pattern="^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$" id="email" class="ipSet" value="<%=dto.getEmail()%>" disabled>
                 </div>
                 <a class="updateBtn" id="submitBtn1" href="javascript:sujung(1)">수정</a>
                 <a class="updateBtn" id="submitBtn1-1" href="javascript:cancel(1)">취소</a>
@@ -110,7 +110,7 @@
             <div id="noticeEmail"></div>
             <div class="item">
                 <div class="text">닉네임</div>
-                <div class="text"><input type="text" id="nickname" class="ipSet" value="<%=dto.getNickname()%>"
+                <div class="text"><input type="text" id="nickname" class="ipSet" value="<%=dto.getNickname()%>" pattern="^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$"
                                          disabled>
                 </div>
                 <a class="updateBtn" id="submitBtn2" href="javascript:sujung(2)">수정</a>
@@ -172,11 +172,18 @@
                     {
                         if($('#submitBtn1').html() === '저장')
                         {
+                        	
+                        	var email_rule =RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+                        	 
+                        	
                             let frm1 = document.frm1;
                             frm1.email.value = $('#email').val();
+                            
                             if($('#noticeEmail').text() == "이메일이 이미 존재합니다." || $('#noticeEmail').text() == "")
                             {
                                 alert('이메일이 이미 존재합니다.');
+                            } else if(!email_rule.test($('#email').val())) {
+                            	alert('이메일을 형식에 맞게 작성해주세요.');
                             }
                             else
                             {
@@ -194,12 +201,15 @@
                     {
                         if($('#submitBtn2').html() === '저장')
                         {
+                        	var nickname_rule = RegExp(/^[a-zA-Z0-9-가-힣]{2,10}$/);
 
                             let frm1 = document.frm1;
                             frm1.nickname.value = $('#nickname').val();
                             if($('#noticeNickname').text() == "닉네임 이미 존재합니다." || $('#noticeNickname').text() == "")
                             {
                                 alert('닉네임이 이미 존재합니다.');
+                            } else if(!nickname_rule.test($('#nickname').val())) {
+                            	alert('닉네임을 형식에 맞게 작성해주세요. 2-10글자, 한글이나 영문 가능')
                             }
                             else
                             {

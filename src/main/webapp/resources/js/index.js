@@ -89,9 +89,9 @@ $('#pointshop>ul li').on('click', function()
     $('#pointshop>ul li').removeClass('item');
     $('#pointshop>ul li').eq(ItemIdx).addClass('item');
 
-    $('#pointshop-table>table').hide();
-    $('#pointshop-table>table').removeClass('item');
-    $('#pointshop-table>table').eq(ItemIdx).addClass('item').show();
+    $('#pointshop-table>div').hide();
+    $('#pointshop-table>div').removeClass('item');
+    $('#pointshop-table>div').eq(ItemIdx).addClass('item').show();
 
 });
 
