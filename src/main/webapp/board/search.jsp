@@ -44,6 +44,7 @@
         limit = Integer.parseInt(request.getParameter("limit"));
     }
     totalcount = (int) request.getAttribute("tcnt");
+    
     totalPage = (int) Math.ceil((double) totalcount / limit);
     totalBlock = (int) Math.ceil((double) totalPage / pagePerBlock);
     nowBlock = (int) Math.ceil((double) nowPage / pagePerBlock);
@@ -120,8 +121,8 @@
             <div><%=depth2 %></div>
             <div>|</div>
             <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
-	        	<input type="hidden" name="subject" value="searchMain">
-	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
+	        	<input type="hidden" name="subject" value=<%=subject %>>
+	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar" value="<%=keyword%>">
 	        	<a href="javascript:search()" class="searchBtn">
 	        		<img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
 	        	</a>
@@ -135,6 +136,9 @@
 						search();
 					}
 				});
+	        	$('#searchBar').click( function() {
+	        		$('#searchBar').val("");
+	        	})
         	});
         	
         	function search() {
@@ -158,7 +162,7 @@
                     <option value="20">20개</option>
                     <option value="30">30개</option>
                 </select>
-                <input type="hidden" name="subject" value="searchMain">
+                <input type="hidden" name="subject" value=<%=subject %>>
                 <input type="hidden" name="keyword" value=<%=keyword %>>
             </form>
             <%
@@ -244,7 +248,7 @@
         </div>
         <!-- 페이지네이션 시작 -->
         <div class="boardfoot">
-            <div class="page_wrap">
+            <div class="page_wrap" id="page_wrap">
                 <%
                     if(nowBlock > 1)
                     {
@@ -261,13 +265,19 @@
                     %>
                     <%--페이지 번호--%>
                     <%
+                    	System.out.println("pageStart : " + pageStart);
+                    	System.out.println("pagePerBlock : " + pagePerBlock);
+                    	System.out.println("totalPage : " + totalPage);
+                    	System.out.println("pageEnd : " + pageEnd);
+                    	System.out.println("limit : " + limit);
                         for(; pageStart <= pageEnd; pageStart++)
                         {
                             if(pageStart == nowPage)
                             {
+                            	System.out.println("첫페이지!");
                     %>
                     <a class="page_num on"
-                       href="/Board/search.do?limit=<%=limit %>&page=<%=pageStart%>&subject=searchMain&keyword=<%=keyword %>"><%=pageStart%>
+                       href="/Board/search.do?limit=<%=limit %>&page=<%=pageStart%>&subject=<%=subject %>&keyword=<%=keyword %>"><%=pageStart%>
                     </a>
                     <%
                     }
@@ -275,7 +285,7 @@
                     {
                     %>
                     <a class="page_num"
-                       href="/Board/search.do?limit=<%=limit %>&page=<%=pageStart%>&subject=searchMain&keyword=<%=keyword %>"><%=pageStart%>
+                       href="/Board/search.do?limit=<%=limit %>&page=<%=pageStart%>&subject=<%=subject %>&keyword=<%=keyword %>"><%=pageStart%>
                     </a>
                     <%
                             }

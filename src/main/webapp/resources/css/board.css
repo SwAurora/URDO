@@ -216,7 +216,10 @@ a
     text-align: center;
     margin-left: calc(50% - 80px);
 }
-
+/* search페이지 페이지네이션 - 게시글작성 버튼이없어서... */
+#page_wrap {
+	margin:0;
+}
 .page_num
 {
     margin: 3px;

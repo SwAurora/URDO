@@ -69,7 +69,7 @@
             <div>|</div>
             <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
 	        	<input type="hidden" name="subject" value="searchMain">
-	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
+	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar" value="<%=keyword%>">
 	        	<a href="javascript:search()" class="searchBtn">
 	        		<img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
 	        	</a>
@@ -83,6 +83,9 @@
 						search();
 					}
 				});
+	        	$('#searchBar').click( function() {
+	        		$('#searchBar').val("");
+	        	})
         	});
         	
         	function search() {
@@ -240,7 +243,7 @@
         </div>
         <!-- 페이지네이션 시작 -->
         <div class="boardfoot">
-            <div class="page_wrap">
+            <div class="page_wrap" id="page_wrap">
                 <%
                     if(nowBlock > 1)
                     {
