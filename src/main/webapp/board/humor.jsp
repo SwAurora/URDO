@@ -63,7 +63,6 @@
 %>
 <%
     String listNullMsg = (String) request.getAttribute("listNullMsg");
-	String checkSearch = (String) request.getAttribute("checkSearch");
 %>
 <!--네비게이션 시작-->
 <jsp:include page="/resources/includes/nav.jsp"/>
@@ -110,10 +109,6 @@
         <!-- 게시판 내용 관련 코드 -->
         <!-- 게시판윗부분 시작 -->
         <div class="board_list_wrap">
-            <%
-                if(checkSearch == null)
-                {
-            %>
 	            <form action="/Board/humor.do" method="get">
 	                <select class="sel" onchange="this.form.submit()" name="limit" id="sel1">
 	                    <option value="10">10개</option>
@@ -122,7 +117,6 @@
 	                </select>
 	            </form>
             <%
-            	}
                 String getlimit = request.getParameter("limit");
 
                 if(getlimit != null)

@@ -33,8 +33,6 @@ public class SearchController implements SubController{
                 limit = Integer.parseInt(tmplimit);
             }
             
-            // 검색페이지인지 단순 view페이지인지 확인하는 factor
-            req.setAttribute("checkSearch", "1");
             
             
             // subject에 따른 분기문
@@ -52,7 +50,13 @@ public class SearchController implements SubController{
                 req.setAttribute("list", list);
 
                 req.setAttribute("nowPage", nowPage);
-                req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
+                
+                // 페이지네이션을 위해 keyword를 세션에남겼다.
+                HttpSession session = req.getSession();
+                session.setAttribute("keyword", keyword);
+                
+                
+                req.getRequestDispatcher("/board/searchMain.jsp").forward(req, resp);
                 
             } else if(subject.equals("bestNow")) {
             	List<BoardDTO> list = service.getBestNow(keyword ,start, limit);
@@ -68,7 +72,12 @@ public class SearchController implements SubController{
                 req.setAttribute("list", list);
 
                 req.setAttribute("nowPage", nowPage);
-                req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
+                
+                // 페이지네이션을 위해 keyword를 세션에남겼다.
+                HttpSession session = req.getSession();
+                session.setAttribute("keyword", keyword);
+                
+                req.getRequestDispatcher("/board/search.jsp").forward(req, resp);
                 
             } else if(subject.equals("bestMonth")) {
             	List<BoardDTO> list = service.getBestMonth(keyword ,start, limit);
@@ -84,7 +93,12 @@ public class SearchController implements SubController{
                 req.setAttribute("list", list);
 
                 req.setAttribute("nowPage", nowPage);
-                req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
+                
+                // 페이지네이션을 위해 keyword를 세션에남겼다.
+                HttpSession session = req.getSession();
+                session.setAttribute("keyword", keyword);
+                
+                req.getRequestDispatcher("/board/search.jsp").forward(req, resp);
                 
             } else {
             	List<BoardDTO> list = service.getBoardList(subject, keyword ,start, limit);

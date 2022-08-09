@@ -1509,7 +1509,7 @@ public class BoardDAO extends DAO
         int result = 0;
         try
         {
-            pstmt = conn.prepareStatement("SELECT count(*) FROM board_tbl WHERE no = (SELECT board_no FROM bestnow_tbl) and title like ?");
+            pstmt = conn.prepareStatement("select count(*) from board_tbl where no = any (select board_no from bestnow_tbl where title like ?)");
             pstmt.setString(1, "%" + keyword + "%");
             rs = pstmt.executeQuery();
             rs.next();
@@ -1583,7 +1583,7 @@ public class BoardDAO extends DAO
         int result = 0;
         try
         {
-            pstmt = conn.prepareStatement("SELECT count(*) FROM board_tbl WHERE no = (SELECT board_no FROM bestmonth_tbl) and title like ?");
+            pstmt = conn.prepareStatement("select count(*) from board_tbl where no = any (select board_no from bestmonth_tbl where title like ?)");
             pstmt.setString(1, "%" + keyword + "%");
             rs = pstmt.executeQuery();
             rs.next();

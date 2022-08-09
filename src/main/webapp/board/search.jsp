@@ -44,6 +44,7 @@
         limit = Integer.parseInt(request.getParameter("limit"));
     }
     totalcount = (int) request.getAttribute("tcnt");
+    
     totalPage = (int) Math.ceil((double) totalcount / limit);
     totalBlock = (int) Math.ceil((double) totalPage / pagePerBlock);
     nowBlock = (int) Math.ceil((double) nowPage / pagePerBlock);
@@ -51,7 +52,7 @@
 <%
 	String listNullMsg = (String) request.getAttribute("listNullMsg"); // 검색결과가 없을 때의 메세지
 	HttpSession session3 = request.getSession();
-	String keyword = (String) session3.getAttribute("keyword"); //페이지네이션 정보처리를 위해 session에 keyword 남기기
+	String keyword = (String) session3.getAttribute("keyword"); // 페이지네이션 정보처리를 위해 session에 keyword 남기기
 %>
 
 <%
@@ -105,8 +106,6 @@
             depth2 = "웃긴자료";
     }
 %>
-
-
 <!--네비게이션 시작-->
 <jsp:include page="/resources/includes/nav.jsp"/>
 
@@ -120,8 +119,8 @@
             <div><%=depth2 %></div>
             <div>|</div>
             <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
-	        	<input type="hidden" name="subject" value="searchMain">
-	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar">
+	        	<input type="hidden" name="subject" value=<%=subject %>>
+	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar" value="<%=keyword%>">
 	        	<a href="javascript:search()" class="searchBtn">
 	        		<img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
 	        	</a>
@@ -135,6 +134,9 @@
 						search();
 					}
 				});
+	        	$('#searchBar').click( function() {
+	        		$('#searchBar').val("");
+	        	})
         	});
         	
         	function search() {
@@ -153,13 +155,13 @@
             if(listNullMsg == null) {
             %>
             <form action="/Board/search.do" method="get">
+                <input type="hidden" name="subject" value=<%=subject %>>
+                <input type="hidden" name="keyword" value=<%=keyword %>>
                 <select class="sel" onchange="this.form.submit()" name="limit" id="sel1">
                     <option value="10">10개</option>
                     <option value="20">20개</option>
                     <option value="30">30개</option>
                 </select>
-                <input type="hidden" name="subject" value="searchMain">
-                <input type="hidden" name="keyword" value=<%=keyword %>>
             </form>
             <%
             	}
@@ -244,7 +246,7 @@
         </div>
         <!-- 페이지네이션 시작 -->
         <div class="boardfoot">
-            <div class="page_wrap">
+            <div class="page_wrap" id="page_wrap">
                 <%
                     if(nowBlock > 1)
                     {
@@ -267,7 +269,7 @@
                             {
                     %>
                     <a class="page_num on"
-                       href="/Board/search.do?limit=<%=limit %>&page=<%=pageStart%>&subject=searchMain&keyword=<%=keyword %>"><%=pageStart%>
+                       href="/Board/search.do?limit=<%=limit %>&page=<%=pageStart%>&subject=<%=subject %>&keyword=<%=keyword %>"><%=pageStart%>
                     </a>
                     <%
                     }
@@ -275,7 +277,7 @@
                     {
                     %>
                     <a class="page_num"
-                       href="/Board/search.do?limit=<%=limit %>&page=<%=pageStart%>&subject=searchMain&keyword=<%=keyword %>"><%=pageStart%>
+                       href="/Board/search.do?limit=<%=limit %>&page=<%=pageStart%>&subject=<%=subject %>&keyword=<%=keyword %>"><%=pageStart%>
                     </a>
                     <%
                             }
@@ -306,12 +308,12 @@
             if(num === 1)
             {
                 page = pageBlock * nowBlock + 1;
-                location.href= "/Board/search.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href= "/Board/search.do?limit="+<%=limit %>+ "&page=" + page + "&subject=" + <%=subject%> + "&keyword=" + <%=keyword %>;
             }
             else
             {
                 page = pageBlock * (nowBlock - 2) + pageBlock;
-                location.href= "/Board/search.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href= "/Board/search.do?limit="+<%=limit %>+"&page=" + page+"&subject="+ <%=subject%> +"&keyword="+<%=keyword %>;
             }
         }
     </script>
