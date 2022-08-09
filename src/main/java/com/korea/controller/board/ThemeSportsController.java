@@ -40,7 +40,9 @@ public class ThemeSportsController implements SubController
             req.setAttribute("tcnt", tcnt);
             req.setAttribute("list", list);
             
+            // 검색 결과페이지 인지 검증하는 팩터들...
             req.setAttribute("listNullMsg", null);
+            req.setAttribute("checkSearch", null);
 
             Cookie views = new Cookie("views", "true");
             resp.addCookie(views);

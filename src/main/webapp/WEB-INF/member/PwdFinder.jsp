@@ -47,9 +47,11 @@
             </div>
 
             <button type="submit" class="loginA" style="border:0; cursor:pointer">
-                <span>임시 비밀번호 발송</span>
+                <span>SEND</span>
                 <i></i>
             </button>
+            <div id="caution" class="caution" >※ 가입 시 작성하신 이메일로 임시 비밀번호가 발송됩니다. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;임시 비밀번호로 로그인 후 비밀번호를 변경해주세요.</div>
             <input type="hidden" name="flag" value="true">
         </div>
     </form>

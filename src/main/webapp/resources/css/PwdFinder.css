@@ -124,6 +124,7 @@ a
     padding: 10px 30px;
     transition: 0.5s;
     border-radius: 5px;
+    margin:20px 0 50px 0;
 }
 
 .loginA:hover
@@ -227,4 +228,10 @@ a
     background-size: cover;
     cursor: pointer;
     user-select: none;
+}
+
+
+
+#caution {
+	font-size : var(--font-M) ;
 }
