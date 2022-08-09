@@ -44,21 +44,22 @@
         limit = Integer.parseInt(request.getParameter("limit"));
     }
     totalcount = (int) request.getAttribute("tcnt");
-    
+
     totalPage = (int) Math.ceil((double) totalcount / limit);
     totalBlock = (int) Math.ceil((double) totalPage / pagePerBlock);
     nowBlock = (int) Math.ceil((double) nowPage / pagePerBlock);
 %>
 <%
-	String listNullMsg = (String) request.getAttribute("listNullMsg"); // 검색결과가 없을 때의 메세지
-	HttpSession session3 = request.getSession();
-	String keyword = (String) session3.getAttribute("keyword"); // 페이지네이션 정보처리를 위해 session에 keyword 남기기
+    String listNullMsg = (String) request.getAttribute("listNullMsg"); // 검색결과가 없을 때의 메세지
+    HttpSession session3 = request.getSession();
+    String keyword = (String) session3.getAttribute("keyword"); // 페이지네이션 정보처리를 위해 session에 keyword 남기기
 %>
 
 <%
     String subject = request.getParameter("subject");
     String depth1;
     String depth2;
+    System.out.println(subject);
     switch(subject)
     {
         case "bestNow":
@@ -116,43 +117,53 @@
             게시판 > <%=depth1 %> > <%=depth2 %>
         </div>
         <div id="search">
-            <div><%=depth2 %></div>
+            <div><%=depth2 %>
+            </div>
             <div>|</div>
             <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
-	        	<input type="hidden" name="subject" value=<%=subject %>>
-	            <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar" value="<%=keyword%>">
-	        	<a href="javascript:search()" class="searchBtn">
-	        		<img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
-	        	</a>
-           	</form>
+                <input type="hidden" name="subject" value=<%=subject %>>
+                <input type="text" class="searchBar" placeholder="검색어를 입력하세요" name="keyword" id="searchBar"
+                       value="<%=keyword%>">
+                <a href="javascript:search()" class="searchBtn">
+                    <img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon"
+                         id="searchBarIcon">
+                </a>
+            </form>
         </div>
-        
+
         <script>
-        	$('document').ready(function() {
-	            $("#searchBar").on("keyup",function(key){
-					if(key.keyCode==13) { 
-						search();
-					}
-				});
-	        	$('#searchBar').click( function() {
-	        		$('#searchBar').val("");
-	        	})
-        	});
-        	
-        	function search() {
-        		if($('#searchBar').val() === "") {
-        			alert("검색어를 입력해주세요.");
-        		}
-        		document.getElementById("searchFrm").submit();
-        	}
-        
+            $('document').ready(function()
+            {
+                $("#searchBar").on("keyup", function(key)
+                {
+                    if(key.keyCode == 13)
+                    {
+                        search();
+                    }
+                });
+                $('#searchBar').click(function()
+                {
+                    $('#searchBar').val("");
+                })
+            });
+
+            function search()
+            {
+                if($('#searchBar').val() === "")
+                {
+                    alert("검색어를 입력해주세요.");
+                }
+                document.getElementById("searchFrm").submit();
+            }
+
         </script>
 
         <!-- 게시판 내용 관련 코드 -->
         <!-- 게시판윗부분 시작 -->
         <div class="board_list_wrap">
-       		<%
-            if(listNullMsg == null) {
+            <%
+                if(listNullMsg == null)
+                {
             %>
             <form action="/Board/search.do" method="get">
                 <input type="hidden" name="subject" value=<%=subject %>>
@@ -164,7 +175,7 @@
                 </select>
             </form>
             <%
-            	}
+                }
                 String getlimit = request.getParameter("limit");
                 if(getlimit != null)
                 {
@@ -186,7 +197,8 @@
                     <col id="boardCol6">
                 </colgroup>
                 <%
-                if(listNullMsg == null) {
+                    if(listNullMsg == null)
+                    {
                 %>
                 <tr class="titlename">
                     <td class="tname">썸네일</td>
@@ -197,11 +209,13 @@
                     <td class="tname">날짜</td>
                 </tr>
                 <%
-                } else {
+                }
+                else
+                {
                 %>
                 <%=listNullMsg %>
-                <%	
-                }
+                <%
+                    }
                 %>
                 <!-- 게시판 내용물 시작 -->
                 <%
@@ -215,7 +229,8 @@
                             if(boardDTO.getFilename() != null)
                             {
                         %>
-                        <img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>" class="pic">
+                        <img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>"
+                             class="pic">
                         <%
                         }
                         else
@@ -303,17 +318,19 @@
         function block(num)
         {
             let page;
-            let pageBlock = <%=pagePerBlock%>;
-            let nowBlock = <%=nowBlock%>;
+            let pageBlock = '<%=pagePerBlock%>';
+            let nowBlock = '<%=nowBlock%>';
+            let subject = '<%=subject%>';
+            let keyword = '<%=keyword%>';
             if(num === 1)
             {
                 page = pageBlock * nowBlock + 1;
-                location.href= "/Board/search.do?limit="+<%=limit %>+ "&page=" + page + "&subject=" + <%=subject%> + "&keyword=" + <%=keyword %>;
+                location.href = "/Board/search.do?limit" + <%=limit%> + "&page=" + page + "&subject=" + subject + "&keyword=" + keyword;
             }
             else
             {
                 page = pageBlock * (nowBlock - 2) + pageBlock;
-                location.href= "/Board/search.do?limit="+<%=limit %>+"&page=" + page+"&subject="+ <%=subject%> +"&keyword="+<%=keyword %>;
+                location.href = "/Board/search.do?limit" + <%=limit%> + "&page=" + page + "&subject=" + subject + "&keyword=" + keyword;
             }
         }
     </script>
