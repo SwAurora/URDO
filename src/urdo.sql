@@ -174,5 +174,4 @@ select * from board_tbl where no in (select board_no from bestnow_tbl order by b
 
 insert into bestmonth_tbl(board_no) value(967);
 
-
-
+select * from board_tbl order by no desc;
