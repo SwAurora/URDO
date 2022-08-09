@@ -52,6 +52,7 @@
 	String listNullMsg = (String) request.getAttribute("listNullMsg"); // 검색결과가 없을 때의 메세지
 	HttpSession session3 = request.getSession();
 	String keyword = (String) session3.getAttribute("keyword"); //페이지네이션 정보처리를 위해 session에 keyword 남기기
+	String subject = request.getParameter("subject");
 %>
 
 
@@ -302,15 +303,17 @@
             let page;
             let pageBlock = <%=pagePerBlock%>;
             let nowBlock = <%=nowBlock%>;
+            let subject = '<%=subject%>';
+            let keyword = '<%=keyword%>';
             if(num === 1)
             {
                 page = pageBlock * nowBlock + 1;
-                location.href= "/Board/search.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href = "/Board/search.do?limit" + <%=limit%> + "&page=" + page + "&subject=" + subject + "&keyword=" + keyword;
             }
             else
             {
                 page = pageBlock * (nowBlock - 2) + pageBlock;
-                location.href= "/Board/search.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href = "/Board/search.do?limit" + <%=limit%> + "&page=" + page + "&subject=" + subject + "&keyword=" + keyword;
             }
         }
     </script>

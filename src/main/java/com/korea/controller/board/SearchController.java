@@ -64,7 +64,7 @@ public class SearchController implements SubController
                 session.setAttribute("keyword", keyword);
 
 
-                req.getRequestDispatcher("/board/searchMain.jsp").forward(req, resp);
+                req.getRequestDispatcher("/board/searchMain.jsp?subject=" + subject).forward(req, resp);
 
             }
             else if(subject.equals("bestNow"))
