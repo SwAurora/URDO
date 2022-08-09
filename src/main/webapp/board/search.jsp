@@ -52,7 +52,7 @@
 <%
 	String listNullMsg = (String) request.getAttribute("listNullMsg"); // 검색결과가 없을 때의 메세지
 	HttpSession session3 = request.getSession();
-	String keyword = (String) session3.getAttribute("keyword"); //페이지네이션 정보처리를 위해 session에 keyword 남기기
+	String keyword = (String) session3.getAttribute("keyword"); // 페이지네이션 정보처리를 위해 session에 keyword 남기기
 %>
 
 <%
@@ -106,8 +106,6 @@
             depth2 = "웃긴자료";
     }
 %>
-
-
 <!--네비게이션 시작-->
 <jsp:include page="/resources/includes/nav.jsp"/>
 
@@ -157,13 +155,13 @@
             if(listNullMsg == null) {
             %>
             <form action="/Board/search.do" method="get">
+                <input type="hidden" name="subject" value=<%=subject %>>
+                <input type="hidden" name="keyword" value=<%=keyword %>>
                 <select class="sel" onchange="this.form.submit()" name="limit" id="sel1">
                     <option value="10">10개</option>
                     <option value="20">20개</option>
                     <option value="30">30개</option>
                 </select>
-                <input type="hidden" name="subject" value=<%=subject %>>
-                <input type="hidden" name="keyword" value=<%=keyword %>>
             </form>
             <%
             	}
@@ -265,16 +263,10 @@
                     %>
                     <%--페이지 번호--%>
                     <%
-                    	System.out.println("pageStart : " + pageStart);
-                    	System.out.println("pagePerBlock : " + pagePerBlock);
-                    	System.out.println("totalPage : " + totalPage);
-                    	System.out.println("pageEnd : " + pageEnd);
-                    	System.out.println("limit : " + limit);
                         for(; pageStart <= pageEnd; pageStart++)
                         {
                             if(pageStart == nowPage)
                             {
-                            	System.out.println("첫페이지!");
                     %>
                     <a class="page_num on"
                        href="/Board/search.do?limit=<%=limit %>&page=<%=pageStart%>&subject=<%=subject %>&keyword=<%=keyword %>"><%=pageStart%>
@@ -316,12 +308,12 @@
             if(num === 1)
             {
                 page = pageBlock * nowBlock + 1;
-                location.href= "/Board/search.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href= "/Board/search.do?limit="+<%=limit %>+ "&page=" + page + "&subject=" + <%=subject%> + "&keyword=" + <%=keyword %>;
             }
             else
             {
                 page = pageBlock * (nowBlock - 2) + pageBlock;
-                location.href= "/Board/search.do?limit=" + <%=limit%> + "&page=" + page;
+                location.href= "/Board/search.do?limit="+<%=limit %>+"&page=" + page+"&subject="+ <%=subject%> +"&keyword="+<%=keyword %>;
             }
         }
     </script>

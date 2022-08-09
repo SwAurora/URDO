@@ -21,7 +21,7 @@ public class SearchController implements SubController{
         	String subject = req.getParameter("subject");
             String tmplimit = req.getParameter("limit");
             String nowPage = req.getParameter("page");
-            String keyword = (String) req.getParameter("keyword");
+            String keyword = req.getParameter("keyword");
             int start = 0;
             int limit = 10;
             if(tmplimit != null && nowPage != null) {
@@ -33,8 +33,6 @@ public class SearchController implements SubController{
                 limit = Integer.parseInt(tmplimit);
             }
             
-            // 검색페이지인지 단순 view페이지인지 확인하는 factor
-            req.setAttribute("checkSearch", "1");
             
             
             // subject에 따른 분기문
@@ -56,6 +54,7 @@ public class SearchController implements SubController{
                 // 페이지네이션을 위해 keyword를 세션에남겼다.
                 HttpSession session = req.getSession();
                 session.setAttribute("keyword", keyword);
+                
                 
                 req.getRequestDispatcher("/board/searchMain.jsp").forward(req, resp);
                 
