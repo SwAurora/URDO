@@ -304,6 +304,7 @@
 			            %>               
                     </div>
 
+
                     <div>
 			            <%
 			                ArrayList<UrpoDTO> urconList2 = (ArrayList<UrpoDTO>) request.getAttribute("urconList2");
@@ -336,6 +337,16 @@
                         <img src="resources/img/index/stop.png">
                         준비중입니다.
                     </div>
+                    
+   		            <script>
+		                $(".hov-anim").mouseover(function()
+		                {
+		                    $(this).attr("src", $(this).data("animated"))
+		                }), $(".hov-anim").mouseout(function()
+		                {
+		                    $(this).attr("src", $(this).data("static"))
+		                });
+		            </script>
 
                 </div>
             </div>

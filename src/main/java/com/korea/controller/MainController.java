@@ -32,6 +32,7 @@ public class MainController implements SubController
             List<UrpoDTO> urconList2 = uservice.ShowItems(category, 13, 12);
             req.setAttribute("urconList2", urconList2);
             
+            
             req.getRequestDispatcher("main.jsp").forward(req, resp);
         }
         catch(Exception e)
