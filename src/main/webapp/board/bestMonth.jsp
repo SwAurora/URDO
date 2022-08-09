@@ -107,13 +107,13 @@
         <!-- 게시판 내용 관련 코드 -->
         <!-- 게시판윗부분 시작 -->
         <div class="board_list_wrap">
-            <form action="/Board/bestNow.do" method="get">
-                <select class="sel" onchange="this.form.submit()" name="limit" id="sel1">
-                    <option value="10">10개</option>
-                    <option value="20">20개</option>
-                    <option value="30">30개</option>
-                </select>
-            </form>
+	            <form action="/Board/humor.do" method="get">
+	                <select class="sel" onchange="this.form.submit()" name="limit" id="sel1">
+	                    <option value="10">10개</option>
+	                    <option value="20">20개</option>
+	                    <option value="30">30개</option>
+	                </select>
+	            </form>
             <%
                 String getlimit = request.getParameter("limit");
 

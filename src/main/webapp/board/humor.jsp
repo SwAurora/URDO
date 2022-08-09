@@ -63,6 +63,7 @@
 %>
 <%
     String listNullMsg = (String) request.getAttribute("listNullMsg");
+	String checkSearch = (String) request.getAttribute("checkSearch");
 %>
 <!--네비게이션 시작-->
 <jsp:include page="/resources/includes/nav.jsp"/>
@@ -71,7 +72,7 @@
 <section class="Main">
     <div class="container">
         <div id="container_Title">
-            게시판 > 유머 > 웃긴자료
+            게시판 > 유머 > 웃긴 자료
         </div>
         <div id="search">
             <div>웃긴 자료</div>
@@ -86,8 +87,8 @@
         </div>
 
         <script>
-            $('document').ready(function()
-            {
+        
+            $('document').ready(function() {
                 $("#searchBar").on("keyup", function(key)
                 {
                     if(key.keyCode == 13)
@@ -97,8 +98,7 @@
                 });
             });
 
-            function search()
-            {
+            function search() {
                 if($('#searchBar').val() === "")
                 {
                     alert("검색어를 입력해주세요.");
@@ -110,14 +110,19 @@
         <!-- 게시판 내용 관련 코드 -->
         <!-- 게시판윗부분 시작 -->
         <div class="board_list_wrap">
-            <form action="/Board/humor.do" method="get">
-                <select class="sel" onchange="this.form.submit()" name="limit" id="sel1">
-                    <option value="10">10개</option>
-                    <option value="20">20개</option>
-                    <option value="30">30개</option>
-                </select>
-            </form>
             <%
+                if(checkSearch == null)
+                {
+            %>
+	            <form action="/Board/humor.do" method="get">
+	                <select class="sel" onchange="this.form.submit()" name="limit" id="sel1">
+	                    <option value="10">10개</option>
+	                    <option value="20">20개</option>
+	                    <option value="30">30개</option>
+	                </select>
+	            </form>
+            <%
+            	}
                 String getlimit = request.getParameter("limit");
 
                 if(getlimit != null)
@@ -225,6 +230,7 @@
                         {
                             if(pageStart == nowPage)
                             {
+                            	
                     %>
                     <a class="page_num on"
                        href="/Board/humor.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>

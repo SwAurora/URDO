@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.korea.controller.SubController;
 import com.korea.dto.BoardDTO;
@@ -16,6 +17,7 @@ public class SearchController implements SubController{
     public void execute(HttpServletRequest req, HttpServletResponse resp)
     {
         try {
+        	// 검색 시 받아야하는 팩터들...
         	String subject = req.getParameter("subject");
             String tmplimit = req.getParameter("limit");
             String nowPage = req.getParameter("page");
@@ -30,7 +32,12 @@ public class SearchController implements SubController{
             if(tmplimit != null) {
                 limit = Integer.parseInt(tmplimit);
             }
-
+            
+            // 검색페이지인지 단순 view페이지인지 확인하는 factor
+            req.setAttribute("checkSearch", "1");
+            
+            
+            // subject에 따른 분기문
             if(subject.equals("searchMain")) {
             	List<BoardDTO> list = service.getBoardListMain(keyword ,start, limit);
                 int tcnt = service.getTotalCntMain(keyword);
@@ -43,7 +50,6 @@ public class SearchController implements SubController{
 
                 req.setAttribute("tcnt", tcnt);
                 req.setAttribute("list", list);
-
 
                 req.setAttribute("nowPage", nowPage);
                 req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
@@ -63,6 +69,7 @@ public class SearchController implements SubController{
 
                 req.setAttribute("nowPage", nowPage);
                 req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
+                
             } else if(subject.equals("bestMonth")) {
             	List<BoardDTO> list = service.getBestMonth(keyword ,start, limit);
                 int tcnt = service.getBestMonthTotalCount(keyword);
@@ -78,6 +85,7 @@ public class SearchController implements SubController{
 
                 req.setAttribute("nowPage", nowPage);
                 req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
+                
             } else {
             	List<BoardDTO> list = service.getBoardList(subject, keyword ,start, limit);
                 int tcnt = service.getTotalCnt(subject, keyword);
@@ -91,11 +99,16 @@ public class SearchController implements SubController{
                 req.setAttribute("tcnt", tcnt);
                 req.setAttribute("list", list);
 
-
                 req.setAttribute("nowPage", nowPage);
-                req.getRequestDispatcher("/board/"+subject+".jsp").forward(req, resp);
+                
+                // 페이지네이션을 위해 keyword를 세션에남겼다.
+                HttpSession session = req.getSession();
+                session.setAttribute("keyword", keyword);
+                
+                req.getRequestDispatcher("/board/search.jsp").forward(req, resp);
             }
             
+            // 조회수를 위한 쿠키
             Cookie views = new Cookie("views", "true");
             resp.addCookie(views);
             

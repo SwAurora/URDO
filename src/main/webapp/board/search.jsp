@@ -54,6 +54,58 @@
 	String keyword = (String) session3.getAttribute("keyword"); //페이지네이션 정보처리를 위해 session에 keyword 남기기
 %>
 
+<%
+    String subject = request.getParameter("subject");
+    String depth1;
+    String depth2;
+    switch(subject)
+    {
+        case "bestNow":
+            depth1 = "베스트 게시글";
+            depth2 = "실시간 베스트";
+            break;
+        case "bestMonth":
+            depth1 = "베스트 게시글";
+            depth2 = "월간 베스트";
+            break;
+        case "humor":
+            depth1 = "유머";
+            depth2 = "웃긴 자료";
+            break;
+        case "creArt":
+            depth1 = "창작";
+            depth2 = "그림";
+            break;
+        case "creCook":
+            depth1 = "창작";
+            depth2 = "요리";
+            break;
+        case "regionRestaurant":
+            depth1 = "지역";
+            depth2 = "맛집";
+            break;
+        case "regionLandmark":
+            depth1 = "지역";
+            depth2 = "명소";
+            break;
+        case "themeGame":
+            depth1 = "테마";
+            depth2 = "게임";
+            break;
+        case "themeSports":
+            depth1 = "테마";
+            depth2 = "스포츠";
+            break;
+        case "themeMusic":
+            depth1 = "테마";
+            depth2 = "음악";
+            break;
+        default:
+            depth1 = "유머";
+            depth2 = "웃긴자료";
+    }
+%>
+
 
 <!--네비게이션 시작-->
 <jsp:include page="/resources/includes/nav.jsp"/>
@@ -62,10 +114,10 @@
 <section class="Main">
     <div class="container">
         <div id="container_Title">
-            게시판 > 전체 게시물 검색
+            게시판 > <%=depth1 %> > <%=depth2 %>
         </div>
         <div id="search">
-            <div>전체 게시물 검색</div>
+            <div><%=depth2 %></div>
             <div>|</div>
             <form id="searchFrm" action="/Board/search.do" onsubmit="return false">
 	        	<input type="hidden" name="subject" value="searchMain">
@@ -110,7 +162,7 @@
                 <input type="hidden" name="keyword" value=<%=keyword %>>
             </form>
             <%
-            }
+            	}
                 String getlimit = request.getParameter("limit");
                 if(getlimit != null)
                 {
@@ -125,7 +177,6 @@
             <table class="board_list" id="t1">
                 <colgroup>
                     <col id="boardCol1">
-                    <col id="boardCol7">
                     <col id="boardCol2">
                     <col id="boardCol3">
                     <col id="boardCol4">
@@ -137,7 +188,6 @@
                 %>
                 <tr class="titlename">
                     <td class="tname">썸네일</td>
-                    <td class="tname">게시판</td>
                     <td class="tname" id="titleboard">글제목</td>
                     <td class="tname">조회</td>
                     <td class="tname">추천</td>
@@ -173,52 +223,6 @@
                         <%
                             }
                         %>
-                    </td>
-                    <td>
-                    <%
-                    String depth2;
-                    String board = boardDTO.getSubject();
-                    switch(board)
-                    {
-                        case "bestNow":
-                            depth2 = "실시간 베스트";
-                            break;
-                        case "bestMonth":
-                            depth2 = "월간 베스트";
-                            break;
-                        case "humor":
-                            depth2 = "웃긴 자료";
-                            break;
-                        case "creArt":
-                            depth2 = "그림";
-                            break;
-                        case "creCook":
-                            depth2 = "요리";
-                            break;
-                        case "regionRestaurant":
-                            depth2 = "맛집";
-                            break;
-                        case "regionLandmark":
-                            depth2 = "명소";
-                            break;
-                        case "themeGame":
-                            depth2 = "게임";
-                            break;
-                        case "themeSports":
-                            depth2 = "스포츠";
-                            break;
-                        case "themeMusic":
-                            depth2 = "음악";
-                            break;
-                        default:
-                            depth2 = "웃긴자료";
-                    }
-                    
-                    
-                    %>
-                    <%=depth2 %>
-                    
-                    
                     </td>
                     <td><a href="/Board/read.do?board=themeGame&no=<%=boardDTO.getNo()%>"><%=boardDTO.getTitle()%>
                     </a>
