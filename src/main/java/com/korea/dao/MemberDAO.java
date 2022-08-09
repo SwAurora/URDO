@@ -288,6 +288,7 @@ public class MemberDAO extends DAO
         }
         return result;
     }
+    
 
     public void temporaryPw(String id, String pw)
     {
@@ -314,4 +315,6 @@ public class MemberDAO extends DAO
             }
         }
     }
+
+
 }

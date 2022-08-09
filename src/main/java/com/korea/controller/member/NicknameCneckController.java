@@ -2,6 +2,7 @@ package com.korea.controller.member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +19,14 @@ public class NicknameCneckController implements SubController{
 		
 		PrintWriter out;
 		
-		if(service.checkNickname(nickname) == 1) {
+		if(!Pattern.matches("^(?=.*[a-z0-9가-힣])[a-z0-9가-힣]{2,10}$",nickname)) {
+			try {
+				out = resp.getWriter();
+				out.print("닉네임 형식에 맞지 않습니다.");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else if(service.checkNickname(nickname) == 1) {
 			try {
 				out = resp.getWriter();
 				out.print("닉네임 이미 존재합니다.");

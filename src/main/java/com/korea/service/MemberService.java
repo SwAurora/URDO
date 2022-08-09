@@ -81,9 +81,11 @@ public class MemberService
     {
         return dao.checkEmail(email);
     }
+    
 
     public void temporaryPw(String id, String pw)
     {
         dao.temporaryPw(id, pw);
     }
+
 }
