@@ -64,7 +64,7 @@ public class SearchController implements SubController
                 session.setAttribute("keyword", keyword);
 
 
-                req.getRequestDispatcher("/board/searchMain.jsp").forward(req, resp);
+                req.getRequestDispatcher("/board/searchMain.jsp?subject=" + subject).forward(req, resp);
 
             }
             else if(subject.equals("bestNow"))
@@ -90,7 +90,7 @@ public class SearchController implements SubController
                 HttpSession session = req.getSession();
                 session.setAttribute("keyword", keyword);
 
-                req.getRequestDispatcher("/board/search.jsp").forward(req, resp);
+                req.getRequestDispatcher("/board/search.jsp?subject=" + subject).forward(req, resp);
 
             }
             else if(subject.equals("bestMonth"))
@@ -116,7 +116,7 @@ public class SearchController implements SubController
                 HttpSession session = req.getSession();
                 session.setAttribute("keyword", keyword);
 
-                req.getRequestDispatcher("/board/search.jsp").forward(req, resp);
+                req.getRequestDispatcher("/board/search.jspsubject=" + subject).forward(req, resp);
 
             }
             else
