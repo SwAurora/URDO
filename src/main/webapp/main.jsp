@@ -498,17 +498,30 @@
 			            %>               
                     </div>
                     
-                    <div>
-                        <img src="resources/img/index/stop.png">
-                        준비중입니다.
-
+                    <div class="">
+			            <%
+			                ArrayList<UrpoDTO> urconList3 = (ArrayList<UrpoDTO>) request.getAttribute("urconList3");
+			                for(UrpoDTO urpoDTO : urconList3)
+			                {
+			            %>
+			            <div class="hov-ani">
+			                <a class="hov-ani-box" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
+			                    <img src="<%=urpoDTO.getStaticImage() %>" alt="" data-animated="<%=urpoDTO.getGifImage() %>"
+			                         data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
+			                    <div class="hov-ani-title"><%=urpoDTO.getTitle()%></div>
+			                </a>
+			            </div>
+			            <%
+			                }
+			            %>   
                     </div>
 
-                    <div>
+                    <div class="">
                         <img src="resources/img/index/stop.png">
                         준비중입니다.
                     </div>
-                    <div>
+                    
+                    <div class="">
                         <img src="resources/img/index/stop.png">
                         준비중입니다.
                     </div>

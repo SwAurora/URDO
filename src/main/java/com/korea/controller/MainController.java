@@ -33,7 +33,9 @@ public class MainController implements SubController
             req.setAttribute("urconList", urconList);
             List<UrpoDTO> urconList2 = uservice.ShowItems(category, 13, 12);
             req.setAttribute("urconList2", urconList2);
-
+            List<UrpoDTO> urconList3 = uservice.ShowItems(category, 26, 12);
+            req.setAttribute("urconList3", urconList3);
+            
             Cookie views = new Cookie("views", "true");
             views.setPath("/Board");
             resp.addCookie(views);
