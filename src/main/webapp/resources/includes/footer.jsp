@@ -12,7 +12,7 @@
     </div>
     <div id="footer-right">
       <div id="sns">
-        <a href="https://github.com/"><img src="/resources/img/index/github-square-brands.svg" alt="깃허브"></a>
+        <a href="https://github.com/SwAurora/URDO"><img src="/resources/img/index/github-square-brands.svg" alt="깃허브"></a>
         <a href="https://twitter.com/?lang=ko"><img src="/resources/img/index/twitter-square-brands.svg" alt="트위터"></a>
         <a href="https://www.instagram.com/"><img src="/resources/img/index/instagram-square-brands.svg" alt="인스타"></a>
       </div>
