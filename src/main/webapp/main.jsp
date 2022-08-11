@@ -526,14 +526,12 @@
 			            %>   
                     </div>
 
-                    <div class="">
-                        <img src="resources/img/index/stop.png">
-                        준비중입니다.
+                    <div class="" style="grid-template-columns:1fr; grid-template-rows : 1fr; ">
+                        <img src="resources/img/index/stop.png" style="width:50px;">
                     </div>
                     
-                    <div class="">
-                        <img src="resources/img/index/stop.png">
-                        준비중입니다.
+                    <div class=""  style="grid-template-columns:1fr; grid-template-rows : 1fr;">
+                        <img src="resources/img/index/stop.png" style="width:50px;">
                     </div>
                     
    		            <script>

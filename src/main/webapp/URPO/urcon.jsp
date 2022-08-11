@@ -35,10 +35,36 @@
             <div id="search">
                 <div>유알콘</div>
                 <div>|</div>
-                <input type="text" class="searchBar" placeholder="검색어를 입력하세요">
-                <img src="/resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
+                <form id="searchFrm" action="/URPO/search.do" onsubmit="return false">
+	                <input type="text" class="searchBar" id="searchBar" placeholder="검색어를 입력하세요" name="keyword">
+	            <a href="javascript:search()" class="searchBtn">
+	        		<img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
+	        	</a>
+                </form>
             </div>
         </header>
+        
+        <script>
+        // 검색창 스크립트
+        
+            $('document').ready(function() {
+                $("#searchBar").on("keyup", function(key)
+                {
+                    if(key.keyCode == 13)
+                    {
+                        search();
+                    }
+                });
+            });
+
+            function search() {
+                if($('#searchBar').val() === "")
+                {
+                    alert("검색어를 입력해주세요.");
+                }
+                document.getElementById("searchFrm").submit();
+            }
+        </script>
 
         <!-- 탭버튼 시작 -->
         <ul class="menu-level1">
