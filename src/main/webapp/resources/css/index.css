@@ -55,6 +55,10 @@ a
     width: 100px;
 }
 
+.weatherInfo {
+	padding-top: 10px;
+}
+
 #searchFrm {
 	display:flex;
 	align-items:center;
@@ -156,7 +160,8 @@ a
 
 /* 베스트 유머 */
 
-caption
+
+.mainTitle
 {
     text-align: left;
     font-size: var(--font-XL);
@@ -165,58 +170,77 @@ caption
     border-bottom: 1px solid var(--color-lightgray);
 }
 
+
 #best-humor
 {
-    width: 70%;
-    font-size: var(--font-L);
-}
-
-#best-humor table
-{
     width: 100%;
+	display: flex;
 }
 
-#best-humor tr
-{
-	/* display: flex; */
+#testflex {
+	display: flex;
 }
 
-.best-humor-row2 td
+
+#testflex p {
+	width: 100%;
+}
+
+.best-humor2
 {
     font-size: 16px;
-    width: 180px;
-    height: 20px;
-    overflow: hidden;
+    display: flex;
 }
 
-.best-humor-row3 td
+.best-humor3
 {
     font-size: var(--font-S);
     height: 14px;
     color: var(--color-warning);
     font-weight: var(--font-weight-bold);
+    display: flex;
 }
 
-#humor-img td {
-	width: 180px;
-	height: 180px;
+#humor-img { 
+	display: flex;
+	width: 100%;
+	gap: 10px;
+}
+
+#humor-img a {
+	width: calc(calc(100% / 6) - 8.4px);
+	height: 100%;
+}
+
+
+.span1 {
+	width: calc(calc(100% / 6) - 8.4px);
+	border: 1px solid red;
+	display: inline-block;	
+}
+
+
+
+.pic {
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
+	
 	
 }
 
-#best-humor img
-{
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    object-fit: cover;
-    
-}
+
+
+
+
 
 #best-humor img:hover
 {
     transform: scale(1.1, 1.1);
     transition: 0.5s;
 }
+
+
 
 /* 배너(스와이프) */
 
@@ -317,6 +341,7 @@ caption
 {
     width:50px;
     height:40px;
+    margin-top: 4px;
 }
 
 /* 현재 메뉴 알려주기 */
@@ -387,8 +412,38 @@ caption
 #Board-table .change-board
 {
     display: table;
-
 }
+
+
+
+/*제목 가로 길이 늘려줌*/
+
+.thumbnail {
+	width: 10%
+}
+
+.name
+{
+    width: 38%;
+}
+
+.count {
+	width: 10%;
+}
+
+.recommend {
+	width: 10%;
+}
+
+.writer {
+	width: 10%;
+}
+
+.Bdate {
+	width: 30%;
+}
+
+
 
 /* 포인트샵 */
 

@@ -76,7 +76,7 @@
             </script>
             <div id="weather">
                 <div><img class="weatherIcon"></div>
-                <div>
+                <div class="weatherInfo">
                     <span class="place"></span><br>
                     <span class="temperature"></span><br>
                     <span class="weatherDescription"></span><br>
@@ -103,52 +103,62 @@
         <div id="contents-top">
             <!-- 베스트 유머 게시판 -->
             <div id="best-humor">
-                <table>
-                    <caption class="mainTitle">베스트 유머</caption>
+                <div>
+                    <h1 class="mainTitle">베스트 유머</h1>
                     <%
                         ArrayList<BoardDTO> list = (ArrayList<BoardDTO>) request.getAttribute("list");
                     %>
-                    <tr id="humor-img">
-                        <%
-                            for(BoardDTO boardDTO : list)
-                            {
-                                if(boardDTO.getFilename() != null)
-                                {
-                        %>
-                        <td><a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><img
-                                src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>"
-                                class="pic"></a></td>
-                        <%
-                        }
-                        else
-                        {
-                        %>
-                        <td><a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><img
-                                src="/resources/img/board/thumbLogo.svg" class="pic"></a></td>
-                        <%
-                                }
-                            }
-                        %>
-                    </tr>
-                    <tr class="best-humor-row2">
-                        <%
-                            for(BoardDTO boardDTO : list)
-                            {
-                                out.println("<td>" + boardDTO.getTitle() + "</td>");
-                            }
-                        %>
-                    </tr>
-                    <tr class="best-humor-row3">
-                        <%
-                            for(BoardDTO boardDTO : list)
-                            {
-                                out.println("<td>" + boardDTO.getRecommend() + "</td>");
-                            }
-                        %>
-                    </tr>
-                </table>
-            </div>
+                    <div id="testflex">
+                    	<div id="testbox">
+		                    <div id="humor-img">
+		                        <%
+		                            for(BoardDTO boardDTO : list)
+		                            {
+		                                if(boardDTO.getFilename() != null)
+		                                {
+		                        %>
+		                        <a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>">
+		                        <img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>"
+		                                class="pic"></a>
+		                        <%
+		                        }
+		                        else
+		                        {
+		                        %>
+		                        <a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><img
+		                                src="/resources/img/board/thumbLogo.svg" class="pic"></a>
+		                        <%
+		                                }
+		                            }
+		                        %>
+		                 
+		                 </div>
+		                
+		                <div style=gap:10px; height: auto; width: 100%;">
+		                 
+	                        <%
+	                            for(BoardDTO boardDTO : list)
+	                            {
+	                                out.println("<span class='span1'>" + boardDTO.getTitle() + "</span>");
+	                            }
+	                        %>
+	                       
+	                        <br>
+	                        
+	                        <%
+	                            for(BoardDTO boardDTO : list)
+	                            {
+	                                out.println("<span class='span2'>" + boardDTO.getRecommend() + "</span>");
+	                            }
+	                        %>
+	                        </div>
+	                        
+	                        
+                        </div>
 
+                    </div>
+                    </div>
+                </div>
             <!-- 광고 -->
             <div id="banner">
                 <div class="swiper banner">
@@ -195,12 +205,12 @@
                 <div id="Board-table">
                     <table id="table1" class="change-board">
                         <tr>
-                            <td>썸네일</td>
+                                 <td class="thumbnail">썸네일</td>
                             <td class="name">글제목</td>
-                            <td>조회수</td>
-                            <td>추천</td>
-                            <td>글쓴이</td>
-                            <td>날짜</td>
+                            <td class="count">조회수</td>
+                            <td class="recommend">추천</td>
+                            <td class="writer">글쓴이</td>
+                            <td class="Bdate">날짜</td>
                         </tr>
                         <%
                             for(int i = 0; i < list2.size(); i++)
@@ -239,12 +249,12 @@
                     </table>
                     <table id="table2">
                         <tr>
-                            <td>썸네일</td>
+                           	<td class="thumbnail">썸네일</td>
                             <td class="name">글제목</td>
-                            <td>조회수</td>
-                            <td>추천</td>
-                            <td>글쓴이</td>
-                            <td>날짜</td>
+                            <td class="count">조회수</td>
+                            <td class="recommend">추천</td>
+                            <td class="writer">글쓴이</td>
+                            <td class="Bdate">날짜</td>
                         </tr>
                         <%
                             for(int i = 4; i < list2.size(); i++)
@@ -281,13 +291,13 @@
                         %>
                     </table>
                     <table id="table3">
-                        <tr>
-                            <td>썸네일</td>
+                        <tr>     
+                        	<td class="thumbnail">썸네일</td>
                             <td class="name">글제목</td>
-                            <td>조회수</td>
-                            <td>추천</td>
-                            <td>글쓴이</td>
-                            <td>날짜</td>
+                            <td class="count">조회수</td>
+                            <td class="recommend">추천</td>
+                            <td class="writer">글쓴이</td>
+                            <td class="Bdate">날짜</td>
                         </tr>
                         <%
                             for(int i = 8; i < list2.size(); i++)
@@ -323,12 +333,12 @@
                     </table>
                     <table id="table4">
                         <tr>
-                            <td>썸네일</td>
+                            <td class="thumbnail">썸네일</td>
                             <td class="name">글제목</td>
-                            <td>조회수</td>
-                            <td>추천</td>
-                            <td>글쓴이</td>
-                            <td>날짜</td>
+                            <td class="count">조회수</td>
+                            <td class="recommend">추천</td>
+                            <td class="writer">글쓴이</td>
+                            <td class="Bdate">날짜</td>
                         </tr>
                         <%
                             for(int i = 0; i < list3.size(); i++)
@@ -366,12 +376,12 @@
                     </table>
                     <table id="table5">
                         <tr>
-                            <td>썸네일</td>
+                          	<td class="thumbnail">썸네일</td>
                             <td class="name">글제목</td>
-                            <td>조회수</td>
-                            <td>추천</td>
-                            <td>글쓴이</td>
-                            <td>날짜</td>
+                            <td class="count">조회수</td>
+                            <td class="recommend">추천</td>
+                            <td class="writer">글쓴이</td>
+                            <td class="Bdate">날짜</td>
                         </tr>
                         <%
                             for(int i = 4; i < list3.size(); i++)
@@ -409,12 +419,12 @@
                     </table>
                     <table id="table6">
                         <tr>
-                            <td>썸네일</td>
+                            <td class="thumbnail">썸네일</td>
                             <td class="name">글제목</td>
-                            <td>조회수</td>
-                            <td>추천</td>
-                            <td>글쓴이</td>
-                            <td>날짜</td>
+                            <td class="count">조회수</td>
+                            <td class="recommend">추천</td>
+                            <td class="writer">글쓴이</td>
+                            <td class="Bdate">날짜</td>
                         </tr>
                         <%
                             for(int i = 8; i < list3.size(); i++)
