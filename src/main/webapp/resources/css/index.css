@@ -464,6 +464,9 @@ caption
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows : repeat(3, 1fr);
     gap:10px;
+    height:245px;
+    color:var(--color-text);
+    font-size:var(--font-S);
 }
 .hov-ani {
 	width:100%;
@@ -473,6 +476,11 @@ caption
 }
 .hov-ani-box img {
 	background-color:var(--color-white);
+}
+.hov-ani-title {
+	text-decoration:none;
+	color:var(--color-text);
+	
 }
 
 /* footer */
