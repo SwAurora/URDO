@@ -109,56 +109,36 @@
                         ArrayList<BoardDTO> list = (ArrayList<BoardDTO>) request.getAttribute("list");
                     %>
                     <div id="testflex">
-                    	<div id="testbox">
-		                    <div id="humor-img">
-		                        <%
-		                            for(BoardDTO boardDTO : list)
-		                            {
-		                                if(boardDTO.getFilename() != null)
-		                                {
-		                        %>
-		                        <a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>">
-		                        <img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>"
-		                                class="pic"></a>
-		                        <%
-		                        }
-		                        else
-		                        {
-		                        %>
-		                        <a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><img
-		                                src="/resources/img/board/thumbLogo.svg" class="pic"></a>
-		                        <%
-		                                }
-		                            }
-		                        %>
-		                 
-		                 </div>
-		                
-		                <div style=gap:10px; height: auto; width: 100%;">
-		                 
-	                        <%
-	                            for(BoardDTO boardDTO : list)
-	                            {
-	                                out.println("<span class='span1'>" + boardDTO.getTitle() + "</span>");
-	                            }
-	                        %>
-	                       
-	                        <br>
-	                        
-	                        <%
-	                            for(BoardDTO boardDTO : list)
-	                            {
-	                                out.println("<span class='span2'>" + boardDTO.getRecommend() + "</span>");
-	                            }
-	                        %>
-	                        </div>
-	                        
-	                        
+                        <div id="testbox">
+                            <div id="humor-img">
+                                <%
+                                    for(BoardDTO boardDTO : list)
+                                    {
+                                        if(boardDTO.getFilename() != null)
+                                        {
+                                %>
+                                <a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>">
+                                    <img src="/resources/files/B<%=boardDTO.getNo()%>/<%=boardDTO.getFilename().split(";")[0]%>"
+                                         class="pic"><br><span class="span1"><%=boardDTO.getTitle()%></span><br><span
+                                        class="span2"><%=boardDTO.getRecommend()%></span></a>
+                                <%
+                                }
+                                else
+                                {
+                                %>
+                                <a href="/Board/read.do?board=<%=boardDTO.getSubject()%>&no=<%=boardDTO.getNo()%>"><img
+                                        src="/resources/img/board/thumbLogo.svg" class="pic"><br><span
+                                        class="span1"><%=boardDTO.getTitle()%></span><br><span
+                                        class="span2"><%=boardDTO.getRecommend()%></span></a>
+                                <%
+                                        }
+                                    }
+                                %>
+                            </div>
                         </div>
-
-                    </div>
                     </div>
                 </div>
+            </div>
             <!-- 광고 -->
             <div id="banner">
                 <div class="swiper banner">
@@ -205,7 +185,7 @@
                 <div id="Board-table">
                     <table id="table1" class="change-board">
                         <tr>
-                                 <td class="thumbnail">썸네일</td>
+                            <td class="thumbnail">썸네일</td>
                             <td class="name">글제목</td>
                             <td class="count">조회수</td>
                             <td class="recommend">추천</td>
@@ -216,30 +196,36 @@
                             for(int i = 0; i < list2.size(); i++)
                             {
                         %>
-                                <tr>
-                                    <td>
-                        <%
-                            if(list2.get(i).getFilename() != null)
-                            {
-                        %>
+                        <tr>
+                            <td>
+                                <%
+                                    if(list2.get(i).getFilename() != null)
+                                    {
+                                %>
                                 <img src="/resources/files/B<%=list2.get(i).getNo()%>/<%=list2.get(i).getFilename().split(";")[0]%>"
                                      class="bestThumb">
-                        <%
-                        }
-                        else
-                        {
-                        %>
+                                <%
+                                }
+                                else
+                                {
+                                %>
                                 <img src="/resources/img/board/thumbLogo.svg" class="bestThumb">
-                        <%
-                            }
-                        %>
-                                    </td>
-                                    <td><a href="/Board/read.do?board=bestNow&no=<%=list2.get(i).getNo()%>"><%=list2.get(i).getTitle()%></a></td>
-                                    <td><%=list2.get(i).getViews()%></td>
-                                    <td><%=list2.get(i).getRecommend()%></td>
-                                    <td><%=list2.get(i).getWriter()%></td>
-                                    <td><%=list2.get(i).getDate()%></td>
-                                </tr>
+                                <%
+                                    }
+                                %>
+                            </td>
+                            <td>
+                                <a href="/Board/read.do?board=bestNow&no=<%=list2.get(i).getNo()%>"><%=list2.get(i).getTitle()%>
+                                </a></td>
+                            <td><%=list2.get(i).getViews()%>
+                            </td>
+                            <td><%=list2.get(i).getRecommend()%>
+                            </td>
+                            <td><%=list2.get(i).getWriter()%>
+                            </td>
+                            <td><%=list2.get(i).getDate()%>
+                            </td>
+                        </tr>
                         <%
                                 if(i == 3)
                                     break;
@@ -249,7 +235,7 @@
                     </table>
                     <table id="table2">
                         <tr>
-                           	<td class="thumbnail">썸네일</td>
+                            <td class="thumbnail">썸네일</td>
                             <td class="name">글제목</td>
                             <td class="count">조회수</td>
                             <td class="recommend">추천</td>
@@ -278,11 +264,17 @@
                                     }
                                 %>
                             </td>
-                            <td><a href="/Board/read.do?board=bestNow&no=<%=list2.get(i).getNo()%>"><%=list2.get(i).getTitle()%></a></td>
-                            <td><%=list2.get(i).getViews()%></td>
-                            <td><%=list2.get(i).getRecommend()%></td>
-                            <td><%=list2.get(i).getWriter()%></td>
-                            <td><%=list2.get(i).getDate()%></td>
+                            <td>
+                                <a href="/Board/read.do?board=bestNow&no=<%=list2.get(i).getNo()%>"><%=list2.get(i).getTitle()%>
+                                </a></td>
+                            <td><%=list2.get(i).getViews()%>
+                            </td>
+                            <td><%=list2.get(i).getRecommend()%>
+                            </td>
+                            <td><%=list2.get(i).getWriter()%>
+                            </td>
+                            <td><%=list2.get(i).getDate()%>
+                            </td>
                         </tr>
                         <%
                                 if(i == 7)
@@ -291,8 +283,8 @@
                         %>
                     </table>
                     <table id="table3">
-                        <tr>     
-                        	<td class="thumbnail">썸네일</td>
+                        <tr>
+                            <td class="thumbnail">썸네일</td>
                             <td class="name">글제목</td>
                             <td class="count">조회수</td>
                             <td class="recommend">추천</td>
@@ -321,11 +313,17 @@
                                     }
                                 %>
                             </td>
-                            <td><a href="/Board/read.do?board=bestNow&no=<%=list2.get(i).getNo()%>"><%=list2.get(i).getTitle()%></a></td>
-                            <td><%=list2.get(i).getViews()%></td>
-                            <td><%=list2.get(i).getRecommend()%></td>
-                            <td><%=list2.get(i).getWriter()%></td>
-                            <td><%=list2.get(i).getDate()%></td>
+                            <td>
+                                <a href="/Board/read.do?board=bestNow&no=<%=list2.get(i).getNo()%>"><%=list2.get(i).getTitle()%>
+                                </a></td>
+                            <td><%=list2.get(i).getViews()%>
+                            </td>
+                            <td><%=list2.get(i).getRecommend()%>
+                            </td>
+                            <td><%=list2.get(i).getWriter()%>
+                            </td>
+                            <td><%=list2.get(i).getDate()%>
+                            </td>
                         </tr>
                         <%
                             }
@@ -362,11 +360,17 @@
                                     }
                                 %>
                             </td>
-                            <td><a href="/Board/read.do?board=bestMonth&no=<%=list3.get(i).getNo()%>"><%=list3.get(i).getTitle()%></a></td>
-                            <td><%=list3.get(i).getViews()%></td>
-                            <td><%=list3.get(i).getRecommend()%></td>
-                            <td><%=list3.get(i).getWriter()%></td>
-                            <td><%=list3.get(i).getDate()%></td>
+                            <td>
+                                <a href="/Board/read.do?board=bestMonth&no=<%=list3.get(i).getNo()%>"><%=list3.get(i).getTitle()%>
+                                </a></td>
+                            <td><%=list3.get(i).getViews()%>
+                            </td>
+                            <td><%=list3.get(i).getRecommend()%>
+                            </td>
+                            <td><%=list3.get(i).getWriter()%>
+                            </td>
+                            <td><%=list3.get(i).getDate()%>
+                            </td>
                         </tr>
                         <%
                                 if(i == 3)
@@ -376,7 +380,7 @@
                     </table>
                     <table id="table5">
                         <tr>
-                          	<td class="thumbnail">썸네일</td>
+                            <td class="thumbnail">썸네일</td>
                             <td class="name">글제목</td>
                             <td class="count">조회수</td>
                             <td class="recommend">추천</td>
@@ -405,11 +409,17 @@
                                     }
                                 %>
                             </td>
-                            <td><a href="/Board/read.do?board=bestMonth&no=<%=list3.get(i).getNo()%>"><%=list3.get(i).getTitle()%></a></td>
-                            <td><%=list3.get(i).getViews()%></td>
-                            <td><%=list3.get(i).getRecommend()%></td>
-                            <td><%=list3.get(i).getWriter()%></td>
-                            <td><%=list3.get(i).getDate()%></td>
+                            <td>
+                                <a href="/Board/read.do?board=bestMonth&no=<%=list3.get(i).getNo()%>"><%=list3.get(i).getTitle()%>
+                                </a></td>
+                            <td><%=list3.get(i).getViews()%>
+                            </td>
+                            <td><%=list3.get(i).getRecommend()%>
+                            </td>
+                            <td><%=list3.get(i).getWriter()%>
+                            </td>
+                            <td><%=list3.get(i).getDate()%>
+                            </td>
                         </tr>
                         <%
                                 if(i == 7)
@@ -448,11 +458,17 @@
                                     }
                                 %>
                             </td>
-                            <td><a href="/Board/read.do?board=bestMonth&no=<%=list3.get(i).getNo()%>"><%=list3.get(i).getTitle()%></a></td>
-                            <td><%=list3.get(i).getViews()%></td>
-                            <td><%=list3.get(i).getRecommend()%></td>
-                            <td><%=list3.get(i).getWriter()%></td>
-                            <td><%=list3.get(i).getDate()%></td>
+                            <td>
+                                <a href="/Board/read.do?board=bestMonth&no=<%=list3.get(i).getNo()%>"><%=list3.get(i).getTitle()%>
+                                </a></td>
+                            <td><%=list3.get(i).getViews()%>
+                            </td>
+                            <td><%=list3.get(i).getRecommend()%>
+                            </td>
+                            <td><%=list3.get(i).getWriter()%>
+                            </td>
+                            <td><%=list3.get(i).getDate()%>
+                            </td>
                         </tr>
                         <%
                             }
@@ -472,77 +488,83 @@
                 </ul>
                 <div id="pointshop-table">
                     <div class="item">
-			            <%
-			                ArrayList<UrpoDTO> urconList = (ArrayList<UrpoDTO>) request.getAttribute("urconList");
-			                for(UrpoDTO urpoDTO : urconList)
-			                {
-			            %>
-			            <div class="hov-ani">
-			                <a class="hov-ani-box" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
-			                    <img src="<%=urpoDTO.getStaticImage() %>" alt="" data-animated="<%=urpoDTO.getGifImage() %>"
-			                         data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
-			                    <div class="hov-ani-title"><%=urpoDTO.getTitle()%></div>
-			                </a>
-			            </div>
-			            <%
-			                }
-			            %>               
+                        <%
+                            ArrayList<UrpoDTO> urconList = (ArrayList<UrpoDTO>) request.getAttribute("urconList");
+                            for(UrpoDTO urpoDTO : urconList)
+                            {
+                        %>
+                        <div class="hov-ani">
+                            <a class="hov-ani-box" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
+                                <img src="<%=urpoDTO.getStaticImage() %>" alt=""
+                                     data-animated="<%=urpoDTO.getGifImage() %>"
+                                     data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
+                                <div class="hov-ani-title"><%=urpoDTO.getTitle()%>
+                                </div>
+                            </a>
+                        </div>
+                        <%
+                            }
+                        %>
                     </div>
 
 
                     <div>
-			            <%
-			                ArrayList<UrpoDTO> urconList2 = (ArrayList<UrpoDTO>) request.getAttribute("urconList2");
-			                for(UrpoDTO urpoDTO : urconList2)
-			                {
-			            %>
-			            <div class="hov-ani">
-			                <a class="hov-ani-box" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
-			                    <img src="<%=urpoDTO.getStaticImage() %>" alt="" data-animated="<%=urpoDTO.getGifImage() %>"
-			                         data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
-			                    <div class="hov-ani-title"><%=urpoDTO.getTitle()%></div>
-			                </a>
-			            </div>
-			            <%
-			                }
-			            %>               
+                        <%
+                            ArrayList<UrpoDTO> urconList2 = (ArrayList<UrpoDTO>) request.getAttribute("urconList2");
+                            for(UrpoDTO urpoDTO : urconList2)
+                            {
+                        %>
+                        <div class="hov-ani">
+                            <a class="hov-ani-box" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
+                                <img src="<%=urpoDTO.getStaticImage() %>" alt=""
+                                     data-animated="<%=urpoDTO.getGifImage() %>"
+                                     data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
+                                <div class="hov-ani-title"><%=urpoDTO.getTitle()%>
+                                </div>
+                            </a>
+                        </div>
+                        <%
+                            }
+                        %>
                     </div>
-                    
+
                     <div class="">
-			            <%
-			                ArrayList<UrpoDTO> urconList3 = (ArrayList<UrpoDTO>) request.getAttribute("urconList3");
-			                for(UrpoDTO urpoDTO : urconList3)
-			                {
-			            %>
-			            <div class="hov-ani">
-			                <a class="hov-ani-box" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
-			                    <img src="<%=urpoDTO.getStaticImage() %>" alt="" data-animated="<%=urpoDTO.getGifImage() %>"
-			                         data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
-			                    <div class="hov-ani-title"><%=urpoDTO.getTitle()%></div>
-			                </a>
-			            </div>
-			            <%
-			                }
-			            %>   
+                        <%
+                            ArrayList<UrpoDTO> urconList3 = (ArrayList<UrpoDTO>) request.getAttribute("urconList3");
+                            for(UrpoDTO urpoDTO : urconList3)
+                            {
+                        %>
+                        <div class="hov-ani">
+                            <a class="hov-ani-box" href="/URPO/read.do?no=<%=urpoDTO.getNo()%>">
+                                <img src="<%=urpoDTO.getStaticImage() %>" alt=""
+                                     data-animated="<%=urpoDTO.getGifImage() %>"
+                                     data-static="<%=urpoDTO.getStaticImage() %>" class="hov-anim">
+                                <div class="hov-ani-title"><%=urpoDTO.getTitle()%>
+                                </div>
+                            </a>
+                        </div>
+                        <%
+                            }
+                        %>
                     </div>
 
                     <div class="" style="grid-template-columns:1fr; grid-template-rows : 1fr; ">
-                        <img src="resources/img/index/stop.png" style="width:50px;">
+                        <img src="resources/img/index/stop.png" style="width:120px;height:auto;">
                     </div>
-                    
+
                     <div class=""  style="grid-template-columns:1fr; grid-template-rows : 1fr;">
-                        <img src="resources/img/index/stop.png" style="width:50px;">
+                        <img src="resources/img/index/stop.png" style="width:120px;height:auto;">
                     </div>
-                    
-   		            <script>
-		                $(".hov-anim").mouseover(function()
-		                {
-		                    $(this).attr("src", $(this).data("animated"))
-		                }), $(".hov-anim").mouseout(function()
-		                {
-		                    $(this).attr("src", $(this).data("static"))
-		                });
-		            </script>
+
+                    <script>
+                        $(".hov-anim").mouseover(function()
+                        {
+                            $(this).attr("src", $(this).data("animated"))
+                        }), $(".hov-anim").mouseout(function()
+                        {
+                            $(this).attr("src", $(this).data("static"))
+                        });
+                    </script>
 
                 </div>
             </div>

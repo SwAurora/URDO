@@ -28,13 +28,12 @@ a
     margin-top: 28.5px;
     display: flex;
     align-items: center;
-    gap:40px;
+    gap: 40px;
 }
 
 #search div
 {
 }
-
 
 #weather
 {
@@ -55,14 +54,16 @@ a
     width: 100px;
 }
 
-.weatherInfo {
-	padding-top: 10px;
+.weatherInfo
+{
+    padding-top: 10px;
 }
 
-#searchFrm {
-	display:flex;
-	align-items:center;
-	gap:40px;
+#searchFrm
+{
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
 .searchBarIcon
@@ -90,9 +91,11 @@ a
 {
     color: var(--color-placeholder);
 }
-.searchBtn {
-	display:flex;
-	align-items:center;
+
+.searchBtn
+{
+    display: flex;
+    align-items: center;
 }
 
 /* 공지사항 */
@@ -160,7 +163,6 @@ a
 
 /* 베스트 유머 */
 
-
 .mainTitle
 {
     text-align: left;
@@ -170,77 +172,61 @@ a
     border-bottom: 1px solid var(--color-lightgray);
 }
 
-
 #best-humor
 {
     width: 100%;
-	display: flex;
+    display: flex;
 }
 
-#testflex {
-	display: flex;
+#testflex
+{
+    display: flex;
 }
 
-
-#testflex p {
-	width: 100%;
+#testflex p
+{
+    width: 100%;
 }
 
-.best-humor2
+#humor-img
+{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+#humor-img a
+{
+    width: calc(calc(100% / 6) - 8.4px);
+    height: 100%;
+}
+
+.pic
+{
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border: 1px solid #d3d3d3;
+}
+
+.span1
 {
     font-size: 16px;
-    display: flex;
+    color: var(--color-blackToWhite);
 }
 
-.best-humor3
+.span2
 {
     font-size: var(--font-S);
-    height: 14px;
     color: var(--color-warning);
     font-weight: var(--font-weight-bold);
-    display: flex;
 }
-
-#humor-img { 
-	display: flex;
-	width: 100%;
-	gap: 10px;
-}
-
-#humor-img a {
-	width: calc(calc(100% / 6) - 8.4px);
-	height: 100%;
-}
-
-
-.span1 {
-	width: calc(calc(100% / 6) - 8.4px);
-	border: 1px solid red;
-	display: inline-block;	
-}
-
-
-
-.pic {
-	width: 100%;
-	height: 150px;
-	object-fit: cover;
-	
-	
-}
-
-
-
-
-
 
 #best-humor img:hover
 {
     transform: scale(1.1, 1.1);
     transition: 0.5s;
 }
-
-
 
 /* 배너(스와이프) */
 
@@ -339,8 +325,8 @@ a
 
 .bestThumb
 {
-    width:50px;
-    height:40px;
+    width: 50px;
+    height: 40px;
     margin-top: 4px;
 }
 
@@ -414,12 +400,11 @@ a
     display: table;
 }
 
-
-
 /*제목 가로 길이 늘려줌*/
 
-.thumbnail {
-	width: 10%
+.thumbnail
+{
+    width: 10%
 }
 
 .name
@@ -427,23 +412,25 @@ a
     width: 38%;
 }
 
-.count {
-	width: 10%;
+.count
+{
+    width: 10%;
 }
 
-.recommend {
-	width: 10%;
+.recommend
+{
+    width: 10%;
 }
 
-.writer {
-	width: 10%;
+.writer
+{
+    width: 10%;
 }
 
-.Bdate {
-	width: 30%;
+.Bdate
+{
+    width: 30%;
 }
-
-
 
 /* 포인트샵 */
 
@@ -515,32 +502,39 @@ a
 
 #pointshop-table .item
 {
-    
+
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows : repeat(3, 1fr);
-    gap:10px;
-    place-items:center;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    place-items: center;
     min-height: 245px;
-    
-    color:var(--color-text);
-    font-size:var(--font-S);
-    
-    
+
+    color: var(--color-text);
+    font-size: var(--font-S);
+
 }
-.hov-ani {
-	width:100%;
+
+.hov-ani
+{
+    width: 100%;
 }
-.hov-ani-box {
-	width:100%;
+
+.hov-ani-box
+{
+    width: 100%;
 }
-.hov-ani-box img {
-	background-color:var(--color-white);
+
+.hov-ani-box img
+{
+    background-color: var(--color-white);
 }
-.hov-ani-title {
-	text-decoration:none;
-	color:var(--color-text);
-	
+
+.hov-ani-title
+{
+    text-decoration: none;
+    color: var(--color-text);
+
 }
 
 /* footer */
@@ -557,7 +551,7 @@ footer
     font-size: var(--font-S);
     margin-top: 15px;
     width: 97%;
-    align-items: inherit;
+    align-items: center;
 }
 
 #footer-logo
