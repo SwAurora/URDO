@@ -45,6 +45,7 @@ import com.korea.controller.urpo.UrconController;
 import com.korea.controller.urpo.UrpoIconController;
 import com.korea.controller.urpo.UrpoPurchaseController;
 import com.korea.controller.urpo.UrpoReadController;
+import com.korea.controller.urpo.UrpoSearchController;
 
 @MultipartConfig(
         fileSizeThreshold = 1024*1024*10, // 10mb
@@ -105,6 +106,7 @@ public class FrontController extends HttpServlet
         list.put("/URPO/read.do", new UrpoReadController());
         list.put("/URPO/purchase.do", new UrpoPurchaseController());
         list.put("/URPO/icon.do", new UrpoIconController());
+        list.put("/URPO/search.do", new UrpoSearchController());
 
         // 관리자
      

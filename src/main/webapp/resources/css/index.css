@@ -460,13 +460,18 @@ caption
 
 #pointshop-table .item
 {
+    
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows : repeat(3, 1fr);
     gap:10px;
-    height:245px;
+    place-items:center;
+    min-height: 245px;
+    
     color:var(--color-text);
     font-size:var(--font-S);
+    
+    
 }
 .hov-ani {
 	width:100%;
@@ -497,7 +502,7 @@ footer
     font-size: var(--font-S);
     margin-top: 15px;
     width: 97%;
-    align-items: center;
+    align-items: inherit;
 }
 
 #footer-logo
