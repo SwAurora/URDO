@@ -67,6 +67,7 @@ create table bestMonth_tbl
 insert into member_tbl values('admin', '$2a$10$n9VIAGQPzHImY6P5rTAlXenyO30P4ieU3OpOb88EZ2BG/LfVA1uK2', 'eee1717test@daum.net', '관리자', 9999, 1, 1, '1;');
 
 #------------------------------------------------ 게시판 채우기 프로시저
+DELIMITER $$
 create procedure board()
 BEGIN
     DECLARE i INT DEFAULT 1;
@@ -83,10 +84,10 @@ BEGIN
             insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('themeMusic', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
             set i = i+1;
         end while;
-END;
+END $$
+DELIMITER ;
 
 CALL board();
-
 #------------------------------------------------- 댓글 테이블
 create table reply_tbl
 (
@@ -126,6 +127,7 @@ create table urpo_tbl
 );
 
 #------------------------------------------------- 포인트샵 채우기 프로시저
+DELIMITER $$
 CREATE PROCEDURE urpoProcedure()
 BEGIN
 
@@ -140,20 +142,26 @@ BEGIN
                 (concat('타이틀',i), concat(i,'번째 아이콘 설명입니다...'), 20,  concat('/resources/img/urpo/urcon/urcon',i,'.jpg' ), concat('/resources/img/urpo/urcon/urcon',i,'.gif' ), 'urcon', 'admin1234');
             set i = i+1;
         end while;
-END;
+END $$
+DELIMITER ;
 
 call urpoProcedure();
 
 
 #------------------------------------------------- 일간, 월간 추천 수 초기화 이벤트
+DELIMITER $$
 CREATE PROCEDURE dayRecReset()
 BEGIN
     update board_tbl set day_rec = 0 where day_rec < 20;
-END;
+END $$
+DELIMITER ;
+
+DELIMITER $$
 CREATE PROCEDURE monthRecReset()
 BEGIN
     update board_tbl set month_rec = 0 where month_rec < 50;
-END;
+END $$
+DELIMITER ;
 
 CREATE EVENT dayRecReset
     ON SCHEDULE every 1 day

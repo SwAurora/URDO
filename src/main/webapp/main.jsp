@@ -506,8 +506,6 @@
                             }
                         %>
                     </div>
-
-
                     <div>
                         <%
                             ArrayList<UrpoDTO> urconList2 = (ArrayList<UrpoDTO>) request.getAttribute("urconList2");
@@ -548,7 +546,7 @@
                         %>
                     </div>
 
-                    <div class="" style="grid-template-columns:1fr; grid-template-rows : 1fr; ">
+                    <div class="" style="grid-template-columns:1fr; grid-template-rows : 1fr;">
                         <img src="resources/img/index/stop.png" style="width:120px;height:auto;">
                     </div>
 
