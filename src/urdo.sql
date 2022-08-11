@@ -49,26 +49,6 @@ create table board_tbl
     foreign key(writer) references member_tbl(nickname) on update cascade on delete cascade
 );
 
-create procedure board()
-BEGIN
-    DECLARE i INT DEFAULT 1;
-    while(i<=100) DO
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('bestNow', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0, 0, 0);
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('bestMonth', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0, 0, 0);
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('humor', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0, 0, 0);
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('creArt', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0, 0, 0);
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('creCook', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0, 0, 0);
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('regionRestaurant', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0, 0, 0);
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('regionLandmark', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0, 0, 0);
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('themeGame', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0, 0, 0);
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('themeSports', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0, 0, 0);
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('themeMusic', concat('제목', i), concat('내용', i), 'guest1', SYSDATE(), 0, 0, 0, 0);
-            set i = i+1;
-        end while;
-END;
-
-CALL board();
-
 create table bestNow_tbl
 (
     bestNow_no int primary key auto_increment,
@@ -82,6 +62,30 @@ create table bestMonth_tbl
     board_no int,
     foreign key (board_no) references board_tbl(no) on delete cascade
 );
+
+#------------------------------------------------ 관리자 계정 추가
+insert into member_tbl values('admin', '$2a$10$n9VIAGQPzHImY6P5rTAlXenyO30P4ieU3OpOb88EZ2BG/LfVA1uK2', 'eee1717test@daum.net', '관리자', 9999, 1, 1, '1;');
+
+#------------------------------------------------ 게시판 채우기 프로시저
+create procedure board()
+BEGIN
+    DECLARE i INT DEFAULT 1;
+    while(i<=100) DO
+            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('bestNow', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('bestMonth', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('humor', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('creArt', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('creCook', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('regionRestaurant', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('regionLandmark', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('themeGame', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('themeSports', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
+            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('themeMusic', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
+            set i = i+1;
+        end while;
+END;
+
+CALL board();
 
 #------------------------------------------------- 댓글 테이블
 create table reply_tbl
@@ -121,6 +125,7 @@ create table urpo_tbl
     producer varchar(40)
 );
 
+#------------------------------------------------- 포인트샵 채우기 프로시저
 CREATE PROCEDURE urpoProcedure()
 BEGIN
 
@@ -139,6 +144,8 @@ END;
 
 call urpoProcedure();
 
+
+#------------------------------------------------- 일간, 월간 추천 수 초기화 이벤트
 CREATE PROCEDURE dayRecReset()
 BEGIN
     update board_tbl set day_rec = 0 where day_rec < 20;
@@ -162,6 +169,5 @@ CREATE EVENT monthRecReset
     DO
     call monthRecReset();
     
-insert into member_tbl values('admin', '$2a$10$n9VIAGQPzHImY6P5rTAlXenyO30P4ieU3OpOb88EZ2BG/LfVA1uK2', 'eee1717test@daum.net', '관리자', 9999, 1, 1, '1;'); 
 #----------------------------------------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------------------------------------------------------------
