@@ -12,21 +12,22 @@ import com.korea.dto.UrpoDTO;
 public class UrpoService {
 	UrpoDAO dao = new UrpoDAO();
 	private static UrpoService instance = null;
+	
 	public static UrpoService getInstance() {
 		if(instance==null) {
 			instance = new UrpoService();
 		}
 		return instance;
 	}
-	/*
-	public boolean ProduceUrcon(UrpoDTO dto){
-		return dao.insert(dto);
-	}
-	*/
 	
 	// 카테고리 명으로 아이템 목록 보기
 	public List<UrpoDTO> ShowItems(String category, int start, int limit) {
 		return dao.ShowItems(category, start, limit);
+	}
+	
+	// 카테고리명과 키워드로 아이템 목록 불러오기(검색)
+	public List<UrpoDTO> ShowKeywordItems(String category, String keyword, int start, int limit){
+		return dao.ShowKeywordItems(category, keyword, start, limit);
 	}
 	
 	// 아이템 목록 리스트로 아이템 목록 보기
@@ -44,7 +45,13 @@ public class UrpoService {
         return dao.purchase(dto, price, no);
     }
 
+    // 카테고리로 전체 아이템 수 구하기
 	public int getTotalCnt(String category) {
 		return dao.getTotalCount(category);
+	}
+	
+	// 카테고리와 키워드로 전체 아이템 수 구하기(검색)
+	public int getTotalKeywordCount(String category, String keyword) {
+		return dao.getTotalKeywordCount(category, keyword);
 	}
 }

@@ -19,40 +19,6 @@ public class UrpoDAO extends DAO
         return instance;
     }
 
-//    public boolean insert(UrpoDTO dto)
-//    {
-//        try
-//        {
-//            pstmt = conn.prepareStatement("insert into urpo_tbl values(?,?,'설명은생략한다',?,'gifImage',?,?)");
-//            pstmt.setString(1, dto.getProducer());
-//            pstmt.setString(2, dto.getTitle());
-//            pstmt.setInt(3, dto.getPrice());
-//            pstmt.setString(4, dto.getStaticImage());
-//            pstmt.setString(5, dto.getCategory());
-//            int result = pstmt.executeUpdate();
-//            if(result > 0)
-//            {
-//                return true;
-//            }
-//        }
-//        catch(Exception e)
-//        {
-//            e.printStackTrace();
-//        }
-//        finally
-//        {
-//            try
-//            {
-//                pstmt.close();
-//            }
-//            catch(Exception e)
-//            {
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        return false;
-//    }
 
     // 카테고리로 아이템 불러오기
     public List<UrpoDTO> ShowItems(String category, int start, int limit)
@@ -64,6 +30,41 @@ public class UrpoDAO extends DAO
             pstmt.setString(1, category);
             pstmt.setInt(2, start);
             pstmt.setInt(3, limit);
+            rs = pstmt.executeQuery();
+
+            while(rs.next()) {
+                dto = new UrpoDTO();
+                dto.setNo(rs.getInt("no"));
+                dto.setTitle(rs.getString("title"));
+                dto.setDiscription(rs.getString("discription"));
+                dto.setPrice(rs.getInt("price"));
+                dto.setStaticImage(rs.getString("staticImage"));
+                dto.setGifImage(rs.getString("gifImage"));
+                dto.setCategory(rs.getString("category"));
+                dto.setProducer(rs.getString("producer"));
+                list.add(dto);
+            }
+        } catch(Exception e)
+        {
+            e.printStackTrace();
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        return list;
+    }
+    
+    // 카테고리와 키워드로 아이템 불러오기(검색기능)
+    public List<UrpoDTO> ShowKeywordItems(String category, String keyword, int start, int limit)
+    {
+        ArrayList<UrpoDTO> list = new ArrayList<>();
+        UrpoDTO dto;
+        try {
+            pstmt = conn.prepareStatement("select * from urpo_tbl where category = ? and title like ? order by no desc limit ?, ?");
+            pstmt.setString(1, category);
+            pstmt.setString(2, "%" + keyword + "%");
+            pstmt.setInt(3, start);
+            pstmt.setInt(4, limit);
             rs = pstmt.executeQuery();
 
             while(rs.next()) {
@@ -171,12 +172,33 @@ public class UrpoDAO extends DAO
         return false;
     }
 
+    // 카테고리로 전체아이템 수 계산하기
     public int getTotalCount(String category)
     {
         int result = 0;
         try {
             pstmt = conn.prepareStatement("select count(*) from urpo_tbl where category = ?");
             pstmt.setString(1, category);
+            rs = pstmt.executeQuery();
+            rs.next();
+            result = rs.getInt(1);
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            try { rs.close(); } catch(Exception e) { e.printStackTrace(); }
+            try { pstmt.close(); } catch(Exception e) { e.printStackTrace(); }
+        }
+        return result;
+    }
+    
+    // 카테고리와 키워드로 전체아이템 수 계산하기
+    public int getTotalKeywordCount(String category, String keyword)
+    {
+        int result = 0;
+        try {
+            pstmt = conn.prepareStatement("select count(*) from urpo_tbl where category = ? and title like ?");
+            pstmt.setString(1, category);
+            pstmt.setString(2, "%" + keyword + "%");
             rs = pstmt.executeQuery();
             rs.next();
             result = rs.getInt(1);
