@@ -8,25 +8,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>URDO</title>
     <!-- 링크 -->
-    <jsp:include page="resources/includes/link.jsp"/>
+    <jsp:include page="../resources/includes/link.jsp"/>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="resources/css/yak.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/terms.css">
 </head>
 <body>
-<%
-    String msg = (String) request.getAttribute("msg");
-    if(msg != null)
-    {
-%>
-<script>
-    alert("<%=msg%>");
-    location.href = "/";
-</script>
-<%
-    }
-%>
 <!--네비게이션 시작-->
-<jsp:include page="resources/includes/nav.jsp"/>
+<jsp:include page="../resources/includes/nav.jsp"/>
 
 <!-- 메인 시작 -->
 <section class="Main">
@@ -502,6 +491,7 @@
 
     </div>
 
+    <jsp:include page="/resources/includes/footer.jsp"/>
 </section>
 
 <!--전체 JS-->
