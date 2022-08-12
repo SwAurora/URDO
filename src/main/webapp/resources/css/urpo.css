@@ -294,20 +294,17 @@ li a
     width: 300px;
 }
 
-.ud_contents
-{
+.ud_contents {
     font-size: var(--font-M);
 }
 
-.ud_discription
-{
+.ud_discription {
     height: 222px;
     padding-top: 6%;
 }
 
 
-.ud_price
-{
+.ud_price {
     width: 150px;
     height: 50px;
     line-height: 50px;
@@ -319,21 +316,27 @@ li a
     color: var(--color-white);
     cursor: pointer;
 }
-.ud_price:hover
-{
+.ud_price:hover {
     background-color: var(--color-pointhover);
 }
 
-.urcon_infobox
-{
+.urcon_infobox {
     font-size: var(--font-M);
 }
 
 /* 아이콘 보기 끝 */
 
-/* urconRead 시작 */
-
-/* urconRead 끝 */
-
+/* 가이드 시작 */
+.guideCont {
+	display:flex;
+	flex-direction:column;
+	border:1px solid red;
+	width:calc(100% - 20px);
+	font-size:var(--font-M);
+}
+.guideContTop {
+	font-size:var(--font-L);
+}
+/* 가이드 끝 */
 
 

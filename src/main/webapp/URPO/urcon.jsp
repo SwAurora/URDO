@@ -48,10 +48,8 @@
         // 검색창 스크립트
         
             $('document').ready(function() {
-                $("#searchBar").on("keyup", function(key)
-                {
-                    if(key.keyCode == 13)
-                    {
+                $("#searchBar").on("keyup", function(key) {
+                    if(key.keyCode == 13) {
                         search();
                     }
                 });
@@ -69,10 +67,10 @@
         <!-- 탭버튼 시작 -->
         <ul class="menu-level1">
             <li class="level1 on">
-                <a href="pointShop.html" class="on">유알콘</a>
+                <a href="/URPO.do" class="on">유알콘</a>
             </li>
             <li class="level1">
-                <a href="pointShopGuide.html">가이드</a>
+                <a href="/URPO/guide.do">가이드</a>
             </li>
         </ul>
 

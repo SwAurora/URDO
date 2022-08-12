@@ -41,7 +41,7 @@
                 <div>유알콘</div>
                 <div>|</div>
                 <form id="searchFrm" action="/URPO/search.do" onsubmit="return false">
-	                <input type="text" class="searchBar" id="searchBar" placeholder="검색어를 입력하세요" name="keyword">
+	                <input type="text" class="searchBar" id="searchBar" placeholder="검색어를 입력하세요" name="keyword" value=<%=keyword %>>
 	            <a href="javascript:search()" class="searchBtn">
 	        		<img src="../resources/img/sidebar/main-searchbar.svg" class="searchBarIcon menuIcon" id="searchBarIcon">
 	        	</a>
@@ -51,44 +51,44 @@
         
         <script>
         // 검색창 스크립트
-        
-            $('document').ready(function() {
-                $("#searchBar").on("keyup", function(key)
-                {
-                    if(key.keyCode == 13)
-                    {
-                        search();
-                    }
-                });
-            });
+         $('document').ready(function() {
+             $("#searchBar").on("keyup", function(key) {
+                 if(key.keyCode == 13) {
+                     search();
+                 }
+             });
+             $('#searchBar').click(function() {
+                 $('#searchBar').val("");
+             });
+         });
 
-            function search() {
-                if($('#searchBar').val() === "")
-                {
-                    alert("검색어를 입력해주세요.");
-                }
-                document.getElementById("searchFrm").submit();
-            }
+         function search() {
+             if($('#searchBar').val() === "")
+             {
+                 alert("검색어를 입력해주세요.");
+             }
+             document.getElementById("searchFrm").submit();
+         }
         </script>
 
         <!-- 탭버튼 시작 -->
         <ul class="menu-level1">
             <li class="level1 on">
-                <a href="pointShop.html" class="on">유알콘</a>
+                <a href="/URPO.do" class="on">유알콘</a>
             </li>
             <li class="level1">
-                <a href="pointShopGuide.html">가이드</a>
+                <a href="/URPO/guide.do">가이드</a>
             </li>
         </ul>
 
-
-        <!-- 탭컨텐츠 시작 -->
-        <!-- 실시간인기 컨텐츠 -->
+		<%
+		if(listNullMsg != null) {
+		%>
+			<%=listNullMsg %>
+		<%
+		} else {
+		%>
         <div class="tabContents on">
-        	
-        	
-        	
-        	
             <%
                 ArrayList<UrpoDTO> list = (ArrayList<UrpoDTO>) request.getAttribute("list");
                 for(UrpoDTO urpoDTO : list)
@@ -164,7 +164,7 @@
                             {
                     %>
                     <a class="page_num on"
-                       href="/URPO.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
+                       href="/URPO/search.do?limit=<%=limit%>&page=<%=pageStart%>&keyword=<%=keyword %>"><%=pageStart%>
                     </a>
                     <%
                     }
@@ -172,7 +172,7 @@
                     {
                     %>
                     <a class="page_num"
-                       href="/URPO.do?limit=<%=limit%>&page=<%=pageStart%>"><%=pageStart%>
+                       href="/URPO/search.do?limit=<%=limit%>&page=<%=pageStart%>&keyword=<%=keyword %>"><%=pageStart%>
                     </a>
                     <%
                             }
@@ -199,19 +199,28 @@
                 let page;
                 let pageBlock = <%=pagePerBlock%>;
                 let nowBlock = <%=nowBlock%>;
+                let keyword = '<%=keyword%>';
                 if(num === 1)
                 {
                     page = pageBlock * nowBlock + 1;
-                    location.href = "/URPO.do?limit=" + <%=limit%> +"&page=" + page;
+                    location.href = "/URPO/search.do?limit=" + <%=limit%> +"&page=" + page + "&keyword=" + keyword;
                 }
                 else
                 {
                     page = pageBlock * (nowBlock - 2) + pageBlock;
-                    location.href = "/URPO.do?limit=" + <%=limit%> +"&page=" + page;
+                    location.href = "/URPO/search.do?limit=" + <%=limit%> +"&page=" + page + "&keyword=" + keyword;
                 }
             }
         </script>
         <!-- 페이지네이션 끝 -->
+		
+		
+		<%
+		}
+		
+		%>
+        <!-- 탭컨텐츠 시작 -->
+        <!-- 실시간인기 컨텐츠 -->
     </div>
 </section>
 

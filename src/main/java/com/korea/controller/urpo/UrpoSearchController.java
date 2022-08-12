@@ -27,7 +27,7 @@ public class UrpoSearchController implements SubController{
             String keyword = req.getParameter("keyword");
             
             int start = 0;
-            int limit = 10;
+            int limit = 30;
             
             if(tmplimit != null && nowPage != null) {
                 limit = Integer.parseInt(tmplimit);
