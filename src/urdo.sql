@@ -72,8 +72,6 @@ create procedure board()
 BEGIN
     DECLARE i INT DEFAULT 1;
     while(i<=100) DO
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('bestNow', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('bestMonth', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
             insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('humor', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
             insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('creArt', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
             insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('creCook', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);

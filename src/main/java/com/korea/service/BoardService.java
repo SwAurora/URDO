@@ -16,6 +16,8 @@ public class BoardService
 {
     BoardDAO dao = BoardDAO.getInstance();
 
+    String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
+    String rootPathLinux = "/opt/tomcat/apache-tomcat-9.0.65/webapps/ROOT/resources/files/";
     private static BoardService instance = null;
 
     public static BoardService getInstance()
@@ -36,14 +38,16 @@ public class BoardService
     {
         return dao.Select(subject, start, limit);
     }
-    
+
     // 키워드 검색
-    public List<BoardDTO> getBoardList(String subject, String keyword, int start, int limit) {
+    public List<BoardDTO> getBoardList(String subject, String keyword, int start, int limit)
+    {
         return dao.Select(subject, keyword, start, limit);
     }
-    
+
     // 메인페이지-키워드검색
-    public List<BoardDTO> getBoardListMain(String keyword, int start, int limit) {
+    public List<BoardDTO> getBoardListMain(String keyword, int start, int limit)
+    {
         return dao.SelectMain(keyword, start, limit);
     }
 
@@ -56,7 +60,7 @@ public class BoardService
     {
         return dao.SelectBestNow();
     }
-    
+
     // bestNow검색
     public List<BoardDTO> getBestNow(String keyword, int start, int limit)
     {
@@ -83,18 +87,18 @@ public class BoardService
     {
         return dao.getTotalCount(table);
     }
-    
-    
+
+
     // 페이징처리 - 키워드검색
     public int getTotalCnt(String table, String keyword)
     {
         return dao.getTotalCount(table, keyword);
     }
-    
+
     // 페이징처리 - 메인페이지 검색
     public int getTotalCntMain(String keyword)
     {
-    	return dao.getTotalCountMain(keyword);
+        return dao.getTotalCountMain(keyword);
     }
 
     public boolean PostBoard(BoardDTO dto)
@@ -105,20 +109,24 @@ public class BoardService
     //파일포함 글쓰기 서비스
     public boolean PostBoard(BoardDTO dto, ArrayList<Part> parts)
     {
-    	String subPath = "B" + (dao.getLastNo());
-        String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
+        String subPath = "B" + (dao.getLastNo());
+        //        String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
         File RealPath;
         if(rootPath.contains("metadata"))
         {
             rootPath = rootPath.replaceAll("/WEB-INF/classes", "");
             RealPath = new File(rootPath + "/resources/files/" + subPath);
         }
-        else
+        else if(rootPath.contains("target"))
         {
             rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
             RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
         }
-        
+        else
+        {
+            RealPath = new File(rootPathLinux + subPath);
+        }
+
         if(!RealPath.exists())
             RealPath.mkdirs();
 
@@ -199,17 +207,21 @@ public class BoardService
     public void update(BoardDTO dto, ArrayList<Part> Parts)
     {
         String subPath = "B" + (dto.getNo());
-        String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
+        //        String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
         File RealPath;
         if(rootPath.contains("metadata"))
         {
             rootPath = rootPath.replaceAll("/WEB-INF/classes", "");
             RealPath = new File(rootPath + "/resources/files/" + subPath);
         }
-        else
+        else if(rootPath.contains("target"))
         {
             rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
             RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
+        }
+        else
+        {
+            RealPath = new File(rootPathLinux + subPath);
         }
 
         if(!RealPath.exists())
@@ -267,17 +279,21 @@ public class BoardService
         }
 
         String subPath = "B" + (dto.getNo());
-        String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
+        //        String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
         File RealPath;
         if(rootPath.contains("metadata"))
         {
             rootPath = rootPath.replaceAll("/WEB-INF/classes", "");
             RealPath = new File(rootPath + "/resources/files/" + subPath);
         }
-        else
+        else if(rootPath.contains("target"))
         {
             rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
             RealPath = new File(rootPath + "/src/main/webapp/resources/files/" + subPath);
+        }
+        else
+        {
+            RealPath = new File(rootPathLinux + subPath);
         }
 
         if(!RealPath.exists())
@@ -325,7 +341,7 @@ public class BoardService
         }
         return dao.delete(no);
     }
-    
+
     // 댓글 서비스 시작
     public boolean reply(ReplyDTO rdto)
     {
@@ -336,25 +352,30 @@ public class BoardService
     {
         return dao.getReplylist(bno);
     }
-    
-    public boolean replyDelete(int no) {
-    	return dao.replyDelete(no);
+
+    public boolean replyDelete(int no)
+    {
+        return dao.replyDelete(no);
     }
     // 댓글 서비스 끝
 
 
     public File fileChk(String no)
     {
-        String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
+        //        String rootPath = Objects.requireNonNull(this.getClass().getClassLoader().getResource("")).getPath();
         if(rootPath.contains("metadata"))
         {
             rootPath = rootPath.replaceAll("/WEB-INF/classes", "");
             rootPath = rootPath + "/resources/files/";
         }
-        else
+        else if(rootPath.contains("target"))
         {
             rootPath = rootPath.replaceAll("target/URDO-1.0-SNAPSHOT/WEB-INF/classes/", "");
             rootPath = rootPath + "/src/main/webapp/resources/files/";
+        }
+        else
+        {
+            rootPath = rootPathLinux;
         }
         return new File(rootPath + "B" + no);
     }
@@ -379,10 +400,12 @@ public class BoardService
     {
         dao.recUp(bno);
     }
+
     public void dayRecUp(int bno)
     {
         dao.dayRecUp(bno);
     }
+
     public void monthRecUp(int bno)
     {
         dao.monthRecUp(bno);
@@ -392,10 +415,12 @@ public class BoardService
     {
         return dao.recCount(no);
     }
+
     public int getDayRec(int bno)
     {
         return dao.getDayRec(bno);
     }
+
     public int getMonthRec(int bno)
     {
         return dao.getMonthRec(bno);
@@ -406,14 +431,17 @@ public class BoardService
     {
         return dao.getMyPost(nickname);
     }
+
     public int getMyReply(String id)
     {
         return dao.getMyReply(id);
     }
+
     public int getMyReceivedRec(String nickname)
     {
         return dao.getMyReceivedRec(nickname);
     }
+
     public int getMyRec(String id)
     {
         return dao.getMyRec(id);
@@ -423,6 +451,7 @@ public class BoardService
     {
         dao.bestNowUp(bno);
     }
+
     public void bestMonthUp(int bno)
     {
         dao.bestMonthUp(bno);
@@ -432,7 +461,7 @@ public class BoardService
     {
         return dao.getBestNowTotalCount();
     }
-    
+
     public int getBestNowTotalCount(String keyword)
     {
         return dao.getBestNowTotalCount(keyword);
@@ -442,7 +471,7 @@ public class BoardService
     {
         return dao.getBestMonthTotalCount();
     }
-    
+
     public int getBestMonthTotalCount(String keyword)
     {
         return dao.getBestMonthTotalCount(keyword);
