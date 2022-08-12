@@ -328,11 +328,12 @@ li a
 
 /* 가이드 시작 */
 .guideCont {
-	display:flex;
-	flex-direction:column;
-	border:1px solid red;
 	width:calc(100% - 20px);
 	font-size:var(--font-M);
+}
+.urconGuideImg {
+	display:inline;
+	margin:0 3px;
 }
 .guideContTop {
 	font-size:var(--font-L);
