@@ -42,6 +42,7 @@ import com.korea.controller.member.ShowInfoController;
 import com.korea.controller.member.SignUpController;
 import com.korea.controller.member.UpdateController;
 import com.korea.controller.urpo.UrconController;
+import com.korea.controller.urpo.UrpoGuideController;
 import com.korea.controller.urpo.UrpoIconController;
 import com.korea.controller.urpo.UrpoPurchaseController;
 import com.korea.controller.urpo.UrpoReadController;
@@ -107,6 +108,7 @@ public class FrontController extends HttpServlet
         list.put("/URPO/purchase.do", new UrpoPurchaseController());
         list.put("/URPO/icon.do", new UrpoIconController());
         list.put("/URPO/search.do", new UrpoSearchController());
+        list.put("/URPO/guide.do", new UrpoGuideController());
 
         // 관리자
      

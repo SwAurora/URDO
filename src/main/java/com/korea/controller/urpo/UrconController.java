@@ -22,14 +22,12 @@ public class UrconController implements SubController
             String nowPage = req.getParameter("page");
             int start = 0;
             int limit = 30;
-            if(tmplimit != null && nowPage != null)
-            {
+            if(tmplimit != null && nowPage != null) {
                 limit = Integer.parseInt(tmplimit);
                 int nowpage = Integer.parseInt(nowPage);
                 start = (limit * nowpage) - limit;
             }
-            if(tmplimit != null)
-            {
+            if(tmplimit != null) {
                 limit = Integer.parseInt(tmplimit);
             }
         	List<UrpoDTO> list = service.ShowItems(category, start, limit);
