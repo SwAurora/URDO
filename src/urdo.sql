@@ -49,14 +49,14 @@ create table board_tbl
     foreign key(writer) references member_tbl(nickname) on update cascade on delete cascade
 );
 
-create table bestNow_tbl
+create table bestnow_tbl
 (
     bestNow_no int primary key auto_increment,
     board_no int,
     foreign key (board_no) references board_tbl(no) on delete cascade
 );
 
-create table bestMonth_tbl
+create table bestmonth_tbl
 (
     bestMonth_no int primary key auto_increment,
     board_no int,
@@ -126,7 +126,7 @@ create table urpo_tbl
 
 #------------------------------------------------- 포인트샵 채우기 프로시저
 DELIMITER $$
-CREATE PROCEDURE urpoProcedure()
+CREATE PROCEDURE urpoprocedure()
 BEGIN
 
     DECLARE i INT;
@@ -143,7 +143,7 @@ BEGIN
 END $$
 DELIMITER ;
 
-call urpoProcedure();
+call urpoprocedure();
 
 
 #------------------------------------------------- 일간, 월간 추천 수 초기화 이벤트
