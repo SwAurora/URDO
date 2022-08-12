@@ -330,13 +330,33 @@ li a
 .guideCont {
 	width:calc(100% - 20px);
 	font-size:var(--font-M);
+	display:flex;
+	flex-direction:column;
+	gap:10px;
+	line-height:1.2rem;
 }
-.urconGuideImg {
-	display:inline;
-	margin:0 3px;
+.paraTitle {
+}
+.paraContent {
+	display:flex;
+	flex-direction:column;
+	gap:10px;
 }
 .guideContTop {
-	font-size:var(--font-L);
+	font-size:var(--font-XL);
+	line-height:2rem;
+}
+#imgBtn {
+	border:none;
+	background-color:var(--color-background);
+	color:var(--color-text);
+	font-weight:var(--font-weight-bold);
+}
+#imgModal {
+	display:none;
+}
+.paraIn {
+	padding-left:20px;
 }
 /* 가이드 끝 */
 
