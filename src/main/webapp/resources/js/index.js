@@ -165,7 +165,10 @@ function getWeather(lat, lon) {
 
 init();
 
-
+function goTerms()
+{
+    location.href = '/footer/terms.jsp';
+}
 
 function goDeveloper()
 {

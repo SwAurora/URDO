@@ -49,14 +49,14 @@ create table board_tbl
     foreign key(writer) references member_tbl(nickname) on update cascade on delete cascade
 );
 
-create table bestNow_tbl
+create table bestnow_tbl
 (
     bestNow_no int primary key auto_increment,
     board_no int,
     foreign key (board_no) references board_tbl(no) on delete cascade
 );
 
-create table bestMonth_tbl
+create table bestmonth_tbl
 (
     bestMonth_no int primary key auto_increment,
     board_no int,
@@ -72,8 +72,6 @@ create procedure board()
 BEGIN
     DECLARE i INT DEFAULT 1;
     while(i<=100) DO
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('bestNow', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
-            insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('bestMonth', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
             insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('humor', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
             insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('creArt', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
             insert into board_tbl(subject, title, content, writer, date, views, recommend, day_rec, month_rec) values ('creCook', concat('제목', i), concat('내용', i), '관리자', SYSDATE(), 0, 0, 0, 0);
@@ -128,7 +126,7 @@ create table urpo_tbl
 
 #------------------------------------------------- 포인트샵 채우기 프로시저
 DELIMITER $$
-CREATE PROCEDURE urpoProcedure()
+CREATE PROCEDURE urpoprocedure()
 BEGIN
 
     DECLARE i INT;
@@ -145,7 +143,7 @@ BEGIN
 END $$
 DELIMITER ;
 
-call urpoProcedure();
+call urpoprocedure();
 
 
 #------------------------------------------------- 일간, 월간 추천 수 초기화 이벤트

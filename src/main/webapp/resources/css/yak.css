@@ -4,10 +4,6 @@
 /* 	전체가운데정렬 */
 /* 	margin: auto 100px; */
 }
-.service_boxArea {
-}
-.service_ruleBox {
-}
 .rule_list
 {
     display: flex;
