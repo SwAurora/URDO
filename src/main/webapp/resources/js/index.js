@@ -176,7 +176,7 @@ function goDeveloper()
 }
 
 function goTerms() {
-	location.href = '/footer/Yak.jsp';
+	location.href = '/footer/terms.jsp';
 }
 
 
