@@ -498,9 +498,17 @@
             </div>
 
             <p class="bottom_txt">이 약관은 2022년 07월 01일부터 시행합니다.</p>
+            <div class="goTop" onclick="goTop()">
+            	GO TOP
+           	</div>
         </div>
 
     </div>
+    <script>
+	    function goTop() {
+	        $('.Main').scrollTop(0);
+	    }
+    </script>
 
 </section>
 
