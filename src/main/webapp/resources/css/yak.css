@@ -75,7 +75,6 @@
 	color:var(--color-white);
 	font-weight:var(--font-weight-medium);
 	cursor:pointer;
-	display:none;
 }
 .goTop:hover {
 	background-color:var(--color-warninghover);

@@ -554,6 +554,8 @@ footer
 
 #footer-logo
 {
+	display:flex;
+	align-items:center;
     margin-right: 5px;
     line-height: 20px;
 }
@@ -567,6 +569,9 @@ footer
 {
     line-height: 20px;
     margin-left: 20px;
+}
+#footer-terms span:hover {
+	font-weight:bold;
 }
 
 #footer-right

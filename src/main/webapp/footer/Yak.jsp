@@ -8,9 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>URDO</title>
     <!-- 링크 -->
-    <jsp:include page="resources/includes/link.jsp"/>
+    <jsp:include page="/resources/includes/link.jsp"/>
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="resources/css/yak.css">
+    <link rel="stylesheet" type="text/css" href="/resources/css/yak.css">
 </head>
 <body>
 <%
@@ -26,7 +26,7 @@
     }
 %>
 <!--네비게이션 시작-->
-<jsp:include page="resources/includes/nav.jsp"/>
+<jsp:include page="/resources/includes/nav.jsp"/>
 
 <!-- 메인 시작 -->
 <section class="Main">

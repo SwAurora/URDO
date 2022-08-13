@@ -172,4 +172,8 @@ function goDeveloper()
     location.href = '/footer/developer.jsp';
 }
 
+function goTerms() {
+	location.href = '/footer/Yak.jsp';
+}
+
 
