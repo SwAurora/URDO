@@ -1,0 +1,77 @@
+/* 약관 설명창 */
+.page-description {
+	margin:0 20px 0 0;
+/* 	전체가운데정렬 */
+/* 	margin: auto 100px; */
+}
+.rule_list
+{
+    display: flex;
+    width: 100%;
+    margin-bottom: 40px;
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.rule_list ul
+{
+    list-style: none;
+}
+
+.rule_list ul li a
+{
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--color-text);
+    font-size: var(--font-M);
+}
+
+.title_b
+{
+    display: block;
+    font-size: 18px;
+    color: var(--color-text);
+    font-weight: bold;
+    margin-bottom: 20px;
+    
+}
+
+.title_b .rule_subList
+{
+    font-size: var(--font-S);
+   
+}
+
+/*
+.title_b, .rule_subList, .bottom_txt {
+	width:80%;
+    margin: 0 auto;
+}
+.rule_subList {
+	margin-bottom:20px;
+}
+
+*/
+.rule_subList .second_list
+{
+    font-size: var(--font-S);
+    line-height:1.5rem;
+    padding-left:20px;
+    list-style:none; 
+}
+.goTop {
+	background-color:var(--color-warning);
+	width:100px; height:36px;
+	line-height:36px;
+	text-align:center;
+	border-radius:8px;
+	position:absolute;
+	bottom:20px; right:50px;
+	color:var(--color-white);
+	font-weight:var(--font-weight-medium);
+	cursor:pointer;
+}
+.goTop:hover {
+	background-color:var(--color-warninghover);
+}

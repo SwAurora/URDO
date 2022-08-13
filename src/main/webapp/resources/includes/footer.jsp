@@ -5,7 +5,9 @@
       <img src="/resources/img/sidebar/logo.svg" alt="로고">
     </div>
     <div id="footer-terms">
-      <span onclick="goTerms()" style="cursor: pointer;">이용약관</span> | <span onclick="goDeveloper()" style="cursor:pointer;">개발자 소개</span> <br>
+      <span onclick="goTerms()" style="cursor:pointer;">서비스 이용약관</span>
+<!--        | 개인정보 처리방침 | 청소년보호정책 | 이용약관 -->
+      | <span onclick="goDeveloper()" style="cursor:pointer;">개발자 소개</span> <br>
       URDO | 사업자등록번호 111-22-33333 | 대구 중구 중앙대로 366 반월센트럴타워 9층 | Fax 123-1234-1234 | 대표이사 강현선 <br>
       Since 2022.06.04, Copyright (c) 2022 URDO All right reserved.
     </div>

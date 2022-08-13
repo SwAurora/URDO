@@ -57,6 +57,8 @@ function Logout()
     location.href = '/Logout.do';
 }
 
+
+
 let chk1 = document.getElementById('check1');
 let chk2 = document.getElementById('check2');
 let chk3 = document.getElementById('check3');
