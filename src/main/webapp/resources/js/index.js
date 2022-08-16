@@ -134,8 +134,8 @@ function handleSuccess(position) {
 }
 //좌표를 얻는데 실패했을 때 쓰이는 함수 
 function handleError() {
-    const latitude = '37.541';
-    const longitude = '126.986'; 
+    const latitude = '35.866';
+    const longitude = '128.593';
 
     getWeather(latitude, longitude);
 }
