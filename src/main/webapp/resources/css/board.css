@@ -99,12 +99,16 @@ a
 /* 게시판 내용물 사이즈 */
 #boardCol2
 {
-    width: 45%;
+    width:50%;
 }
 
 #boardCol3
 {
     text-align: left;
+}
+
+#boardCol5 {
+    width:12%;
 }
 
 #boardCol6
