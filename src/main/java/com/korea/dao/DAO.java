@@ -11,7 +11,7 @@ public class DAO
 //    String pw = "1234";
 
      String id = "manager";
-     String pw = "1234";
+     String pw = "Dbdkfeh1!";
     String url = "jdbc:mysql://localhost:3306/urdo";
 
     Connection conn = null;

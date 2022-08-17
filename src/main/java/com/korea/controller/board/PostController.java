@@ -31,7 +31,16 @@ public class PostController implements SubController
             {
                 String subject = req.getParameter("subjects");
                 String title = req.getParameter("title");
+                title = title.replaceAll("<", "&lt");
+                title = title.replaceAll(">", "&rgt");
+                title = title.replaceAll("&", "&amp");
+                title = title.replaceAll(",", "&quot");
+                title = title.replaceAll("\n", "");
                 String content = req.getParameter("content");
+                content = content.replaceAll("<", "&lt");
+                content = content.replaceAll(">", "&rgt");
+                content = content.replaceAll("&", "&amp");
+                content = content.replaceAll(",", "&quot");
                 content = content.replaceAll("\n", "<br>");
                 HttpSession session = req.getSession();
                 String id = (String) session.getAttribute("id");
