@@ -1,12 +1,6 @@
 @charset "UTF-8";
 
 section {
-          	position: relative;
-          	top: 50px;
-          	left: 0px;
-          	height: 800px;
-          	width: 1200px;
-          	margin: 0 auto;    
         }
 
         #notice_table {

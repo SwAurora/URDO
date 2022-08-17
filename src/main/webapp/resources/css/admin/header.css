@@ -2,11 +2,6 @@
 
 
 header {
-  position: relative;
-  top: 0px;
-  left: calc(100%-220px);
-  height: auto;
-  width: 100%;
 }
 
 #headerTop {
@@ -18,8 +13,12 @@ header {
 #headernav {
   margin-left: auto;
   display: flex;
-
 }
+#tomain, .tomain {
+	text-decoration:none;
+	color:black;
+}
+
 
 #headernav li {
   width: 80px;
@@ -40,6 +39,7 @@ header {
   color: white;
   text-align: center;
   line-height: 150px;
+  margin-left:200px;
 
 }
 

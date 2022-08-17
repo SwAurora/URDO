@@ -6,7 +6,6 @@
 	<div id="nav-header">
         <!--로고-->
         <img src="/resources/img/sidebar/logo.svg" alt="LOGO" id="logo" width="32px" height="32px">
-    
    	</div>
 
 
@@ -15,7 +14,7 @@
         <li><a href="#"><span> 회원 관리 </span></a></li>
         <li><a href="/admin"><span> 사이트 관리 </span></a></li>
         <ul class="subnav">
-	        <li><a href="/admin"><span> 공지사항 </span></a></li>
+	        <li><a href="/admin/notice.do"><span> 공지사항 </span></a></li>
 	        <li><a href="/admin"><span> 배너 </span></a></li>
           </ul>
 

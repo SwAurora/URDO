@@ -7,7 +7,7 @@
 	      <ul id="headernav">
 	        <li id="todobtn"><a href="javascript:showTodolist()">TODO </a></li>
 	        <!-- 클릭시 todo -->
-	        <li><a href="/main.do"> 메인이동 </a></li>
+	        <li><a href="/main.do" class ="tomain" id="tomain"> 메인이동 </a></li>
 	      </ul>
 	  </div>
 	

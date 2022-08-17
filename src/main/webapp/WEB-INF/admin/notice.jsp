@@ -27,7 +27,7 @@
 
 
     <section>
-
+	<div class="boardcon">
       <div id="sc_top">
         <h1>공지사항</h1>
         <div>
@@ -145,7 +145,7 @@
       </div>
     </div>
       
-
+</div>
     </section>
 
 
