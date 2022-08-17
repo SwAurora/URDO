@@ -41,6 +41,7 @@ import com.korea.controller.member.PwdUpdateController;
 import com.korea.controller.member.ShowInfoController;
 import com.korea.controller.member.SignUpController;
 import com.korea.controller.member.UpdateController;
+import com.korea.controller.mini.*;
 import com.korea.controller.urpo.UrconController;
 import com.korea.controller.urpo.UrpoGuideController;
 import com.korea.controller.urpo.UrpoIconController;
@@ -115,6 +116,14 @@ public class FrontController extends HttpServlet
         list.put("/admin/notice.do", new NoticeController());
         list.put("/admin/banner.do", new BannerController());
         list.put("/admin/board.do", new BoardController());
+
+        // 미니 홈피
+        list.put("/mini/mini_index.do", new miniIndexController());
+        list.put("/mini/mini_guest.do", new miniGuestController());
+        list.put("/mini/mini_album.do", new miniAlbumController());
+        list.put("/mini/mini_juk.do", new miniJukController());
+        list.put("/mini/mini_snake.do", new miniSnakeController());
+
     }
 
     @Override
