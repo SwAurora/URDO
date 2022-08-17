@@ -47,10 +47,14 @@ button {
     border: 0;
 }
 
-#main {
-	position: absolute;
-	left: 200px;
-	top: 0px;
-    width: 90%;
+section {
+	margin-left:200px;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
 }
 
+.boardcon {
+	width:80%;
+	margin:20px 0;
+}

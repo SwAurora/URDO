@@ -8,9 +8,9 @@
 
 <link rel="stylesheet" href="/resources/css/admin/common.css">
 <link rel="stylesheet" href="/resources/css/admin/adminMain.css">
-
 <link rel="stylesheet" href="/resources/css/admin/nav.css">
 <link rel="stylesheet" href="/resources/css/admin/footer.css">
+<link rel="stylesheet" href="/resources/css/admin/header.css">
 
 <!-- 차트 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
@@ -31,7 +31,7 @@
       <ul id="headernav">
         <li id="todobtn"><a href="javascript:showTodolist()">TODO </a></li>
         <!-- 클릭시 todo -->
-         <li><a href="/main.do"> 메인이동 </a></li>
+         <li><a href="/main.do" style="color:black;"> 메인이동 </a></li>
       </ul>
   </div>
 
