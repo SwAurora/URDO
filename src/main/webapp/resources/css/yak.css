@@ -1,8 +1,8 @@
 /* 약관 설명창 */
 .page-description {
-	margin:0 20px 0 0;
+/* 	margin:0 20px 0 0; */
 /* 	전체가운데정렬 */
-/* 	margin: auto 100px; */
+	margin: auto 100px;
 }
 .rule_list
 {

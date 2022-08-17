@@ -11,7 +11,7 @@
     <jsp:include page="../resources/includes/link.jsp"/>
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="../resources/css/index.css">
-    <link rel="stylesheet" type="text/css" href="../resources/css/terms.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/yak.css">
 </head>
 <body>
 <!--네비게이션 시작-->
