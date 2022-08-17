@@ -36,13 +36,23 @@ public class PostUpdateController implements SubController
         {
             String subject = req.getParameter("subject");
             String title = req.getParameter("title");
+            title = title.replaceAll("<", "&lt");
+            title = title.replaceAll(">", "&rgt");
+            title = title.replaceAll("&", "&amp");
+            title = title.replaceAll(",", "&quot");
+            title = title.replaceAll("\n", "");
             String content = req.getParameter("content");
+            content = content.replaceAll("<", "&lt");
+            content = content.replaceAll(">", "&rgt");
+            content = content.replaceAll("&", "&amp");
+            content = content.replaceAll(",", "&quot");
+            content = content.replaceAll("\n", "<br>");
             String filename = req.getParameter("filename");
 
             BoardDTO dto = new BoardDTO();
             dto.setNo(Integer.parseInt(no));
             dto.setTitle(title);
-            dto.setContent(content.replaceAll("\n", "<br>"));
+            dto.setContent(content);
             dto.setFilename(filename);
 
             String delfiles = req.getParameter("delfiles");

@@ -8,7 +8,7 @@ create table member_tbl
     id varchar(20) primary key,
     pw varchar(100) not null,
     email varchar(40) not null,
-    nickname varchar(20) not null unique,
+    nickname varchar(10) not null unique,
     point int,
     grade int,
     icon int default 1,
@@ -38,7 +38,7 @@ create table board_tbl
     subject varchar(20) not null,
     title varchar(45) not null,
     content varchar(10000) not null,
-    writer varchar(20) not null,
+    writer varchar(10) not null,
     date varchar(45) not null,
     views int,
     recommend int,
@@ -92,7 +92,7 @@ create table reply_tbl
   no int primary key auto_increment,
   boardNo int not null,
   memberId varchar(20) not null,
-  writer varchar(20) not null,
+  writer varchar(10) not null,
   content varchar(2000) not null,
   regdate varchar(45),
   foreign key(boardNo) references board_tbl(no) on delete cascade,
@@ -163,7 +163,7 @@ DELIMITER ;
 
 CREATE EVENT dayRecReset
     ON SCHEDULE every 1 day
-        STARTS '2022-08-08 00:00:00'
+        STARTS '2022-08-18 00:00:00'
     COMMENT '매일 00시에 dayRec 초기화'
     DO
     call dayRecReset();
