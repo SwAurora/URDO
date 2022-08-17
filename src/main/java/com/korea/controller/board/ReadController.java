@@ -39,6 +39,18 @@ public class ReadController implements SubController
             }
 
             dto = service.Select(Integer.parseInt(no));
+            String title = dto.getTitle();
+            title = title.replaceAll("&lt", "<");
+            title = title.replaceAll("&rgt", ">");
+            title = title.replaceAll("&amp", "&");
+            title = title.replaceAll("&quot", ",");
+            dto.setTitle(title);
+            String content = dto.getContent();
+            content = content.replaceAll("&lt", "<");
+            content = content.replaceAll("&rgt", ">");
+            content = content.replaceAll("&amp", "&");
+            content = content.replaceAll("&quot", ",");
+            dto.setContent(content);
 
 			req.setAttribute("dto", dto);
             req.getRequestDispatcher("/WEB-INF/board/read.jsp").forward(req, resp);
