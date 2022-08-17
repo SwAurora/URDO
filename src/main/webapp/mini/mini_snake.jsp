@@ -1,13 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
-<link rel="stylesheet" href="../resources/css/mini/snake.css">
-<link rel="stylesheet" href="../resources/css/mini/album.css">
-<link rel="stylesheet" href="../resources/css/mini/font.css">
-<link rel="stylesheet" href="../resources/css/mini/guest.css">
-<link rel="stylesheet" href="../resources/css/mini/home.css">
-<link rel="stylesheet" href="../resources/css/mini/juk.css">
-<link rel="stylesheet" href="../resources/css/mini/layout.css">
+<link rel="stylesheet" href="/resources/css/common.css">
+<link rel="stylesheet" href="/resources/css/mini/snake.css">
+<link rel="stylesheet" href="/resources/css/mini/album.css">
+<link rel="stylesheet" href="/resources/css/mini/guest.css">
+<link rel="stylesheet" href="/resources/css/mini/home.css">
+<link rel="stylesheet" href="/resources/css/mini/juk.css">
+<link rel="stylesheet" href="/resources/css/mini/layout.css">
 
 <!--sweet alert JS-->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -16,6 +16,8 @@
     <title>Title</title>
 </head>
 <body>
+
+<jsp:include page="/resources/includes/nav.jsp"/>
 
 <section class="Main">
     <div class="bookcover">
@@ -100,7 +102,12 @@
     </div>
 </section>
 
-<script src="../resources/js/miniSnake.js"></script>
+<script src="/resources/js/miniSnake.js"></script>
+
+<!--전체 JS-->
+<script src="/resources/js/common.js"></script>
+<!-- index JS -->
+<script src="/resources/js/index.js"></script>
 
 </body>
 </html>
