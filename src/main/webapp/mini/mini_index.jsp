@@ -1,19 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
-<link rel="stylesheet" href="/resources/css/common.css">
-<link rel="stylesheet" href="/resources/css/mini/snake.css">
-<link rel="stylesheet" href="/resources/css/mini/album.css">
-<link rel="stylesheet" href="/resources/css/mini/guest.css">
-<link rel="stylesheet" href="/resources/css/mini/home.css">
-<link rel="stylesheet" href="/resources/css/mini/juk.css">
-<link rel="stylesheet" href="/resources/css/mini/layout.css">
 
 <head>
-    <title>Title</title>
+<title>URDO</title>
+	
+	<link rel="stylesheet" href="/resources/css/mini/home.css">
+	<link rel="stylesheet" href="/resources/css/mini/layout.css">
+	<jsp:include page="/resources/includes/link.jsp"/>
+	
 </head>
 <body>
-<jsp:include page="/resources/includes/nav.jsp"/>
+<jsp:include page="../resources/includes/nav.jsp"/>
 
 <section class="Main">
     <div class="bookcover">

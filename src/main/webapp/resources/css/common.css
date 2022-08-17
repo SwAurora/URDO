@@ -227,12 +227,13 @@ body.dark
     font-weight: var(--font-weight-bold);
 }
 
-#nav-header .head-span2
+
+#head-span2
 {
     font-size: var(--font-S);
     font-weight: var(--font-weight-light);
-    width: 163px;
 }
+
 
 /* ======== #nav-header ======== */
 
@@ -246,6 +247,12 @@ body.dark
     font-size: var(--font-M);
     font-weight: var(--font-weight-bold);
 }
+#Quick_menu table td
+{
+    font-size: var(--font-M);
+    font-weight: var(--font-weight-bold);
+}
+
 
 #Quick_menu img
 {

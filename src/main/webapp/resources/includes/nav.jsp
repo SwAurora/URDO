@@ -6,7 +6,7 @@
         <img src="/resources/img/sidebar/logo.svg" alt="LOGO" id="logo" class="" onclick="GoHome()">
         <div id="logo-name">
             <span class="head-span1">URDO</span>
-            <span class="head-span2">유머를 위한 알렉산드리아 도서관</span>
+            <span class="head-span2" id="head-span2">유머를 위한 알렉산드리아 도서관</span>
         </div>
         <div>
             <button id="arrow" onclick="moving_sidebar()">
