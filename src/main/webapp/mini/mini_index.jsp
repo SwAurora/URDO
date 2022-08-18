@@ -13,7 +13,7 @@
 <body>
 <jsp:include page="../resources/includes/nav.jsp"/>
 
-<section class="Main">
+<section class="Main" style="display:flex; justify-content:center; align-items:center;">
     <div class="bookcover">
         <div class="bookdot">
             <div class="page">
