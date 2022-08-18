@@ -952,7 +952,7 @@ public class BoardDAO extends DAO
             Connection conn = pool.getConnection();
             PreparedStatement pstmt;
             ResultSet rs;
-            pstmt = conn.prepareStatement("select * from reply_tbl where boardNo = ? order by no desc");
+            pstmt = conn.prepareStatement("select * from reply_tbl where boardNo = ?");
             pstmt.setInt(1, bno);
             rs = pstmt.executeQuery();
             while(rs.next())

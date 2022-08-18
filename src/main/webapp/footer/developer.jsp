@@ -29,7 +29,7 @@
           <p class="card-body">
             사이드바, 레이아웃
           </p>
-          <a href="#" class="button"><img src="../resources/img/developer/github.svg" alt="#" class="developer-github"><span>GO GitHub</span></a>
+          <a href="https://github.com/SwAurora" class="button"><img src="../resources/img/developer/github.svg" alt="#" class="developer-github"><span>GO GitHub</span></a>
         </div>
       </div>
 
@@ -41,7 +41,7 @@
           <p class="card-body">
             포인트샵,스토리보드,스타일가이드
           </p>
-          <a href="#" class="button"><img src="../resources/img/developer/github.svg" alt="#" class="developer-github"><span>GO GitHub</span></a>
+          <a href="https://github.com/Kanghyeonseon" class="button"><img src="../resources/img/developer/github.svg" alt="#" class="developer-github"><span>GO GitHub</span></a>
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
           <p class="card-body">
             로그인, 회원가입, 미니홈피
           </p>
-          <a href="#" class="button"><img src="../resources/img/developer/github.svg" alt="#" class="developer-github"><span>GO GitHub</span></a>
+          <a href="https://github.com/wjdwlsaud" class="button"><img src="../resources/img/developer/github.svg" alt="#" class="developer-github"><span>GO GitHub</span></a>
         </div>
       </div>
 
@@ -66,7 +66,7 @@
           <p class="card-body">
             게시판
           </p>
-          <a href="#" class="button"><img src="../resources/img/developer/github.svg" alt="#" class="developer-github"><span>GO GitHub</span></a>
+          <a href="https://github.com/eee1717" class="button"><img src="../resources/img/developer/github.svg" alt="#" class="developer-github"><span>GO GitHub</span></a>
         </div>
       </div>
 
@@ -78,7 +78,7 @@
           <p class="card-body">
             메인페이지
           </p>
-          <a href="#" class="button"><img src="../resources/img/developer/github.svg" alt="#" class="developer-github"><span>GO GitHub</span></a>
+          <a href="https://github.com/qjfwlq475" class="button"><img src="../resources/img/developer/github.svg" alt="#" class="developer-github"><span>GO GitHub</span></a>
         </div>
       </div>
     </div>
