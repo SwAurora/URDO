@@ -173,11 +173,11 @@
   </div>
 
 
+<%@include file="/resources/includes/admin/footer.jsp" %>
 </section>
 
 
 <!-- 푸터  -->
-<%@include file="/resources/includes/admin/footer.jsp" %>
 
 
 <script src="/resources/js/adminMain.js"></script>

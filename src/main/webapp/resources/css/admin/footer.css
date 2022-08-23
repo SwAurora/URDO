@@ -4,6 +4,8 @@ footer {
 	height: 220px;
 	background-color: rgb(23, 23, 24);
 	margin-left:200px;
+	width:100%;
+	margin-bottom:0;
 }
 
 #footer-terms {

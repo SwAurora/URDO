@@ -146,8 +146,9 @@ section {
 	flex-direction:column;
 	align-items:center;
 	width:100%;
-	margin-left:0;
-	margin:20px 0;
+	gap:20px;
+	margin:20px 0 0 0;
+	
 }
 
 
@@ -156,7 +157,6 @@ section {
   margin-left:200px;
   display:flex;
   flex-direction:column;
-  height:1000px;
 
 }
 
@@ -212,7 +212,7 @@ section {
 #miniBoard {
   margin-top: 20px;
   display: flex;  
-  justify-content: space-between;   
+  justify-content: space-between;
 }
 
 
