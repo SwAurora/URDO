@@ -1,16 +1,15 @@
 package com.korea.controller.member;
 
+import com.korea.controller.SubController;
+import com.korea.service.MemberService;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import com.korea.controller.SubController;
-import com.korea.service.MemberService;
-
-public class NicknameCneckController implements SubController{
+public class NicknameCheckController implements SubController{
 
 	MemberService service = MemberService.getInstance();
 	@Override

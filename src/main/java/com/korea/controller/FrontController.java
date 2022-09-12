@@ -1,53 +1,18 @@
 package com.korea.controller;
 
-import java.io.IOException;
-import java.util.HashMap;
+import com.korea.controller.admin.*;
+import com.korea.controller.auth.*;
+import com.korea.controller.board.*;
+import com.korea.controller.member.*;
+import com.korea.controller.mini.*;
+import com.korea.controller.urpo.*;
 
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.korea.controller.admin.BannerController;
-import com.korea.controller.admin.BoardController;
-import com.korea.controller.admin.NoticeController;
-import com.korea.controller.auth.LoginController;
-import com.korea.controller.auth.LogoutController;
-import com.korea.controller.board.BestMonthController;
-import com.korea.controller.board.BestNowController;
-import com.korea.controller.board.CreArtController;
-import com.korea.controller.board.CreCookController;
-import com.korea.controller.board.DeleteController;
-import com.korea.controller.board.HumorController;
-import com.korea.controller.board.PostController;
-import com.korea.controller.board.PostUpdateController;
-import com.korea.controller.board.ReadController;
-import com.korea.controller.board.RecController;
-import com.korea.controller.board.RecCountController;
-import com.korea.controller.board.RegionLandmarkController;
-import com.korea.controller.board.RegionRestaurantController;
-import com.korea.controller.board.ReplyController;
-import com.korea.controller.board.ReplyDeleteController;
-import com.korea.controller.board.ReplyListController;
-import com.korea.controller.board.SearchController;
-import com.korea.controller.board.ThemeGameController;
-import com.korea.controller.board.ThemeMusicController;
-import com.korea.controller.board.ThemeSportsController;
-import com.korea.controller.member.DeleteMemberController;
-import com.korea.controller.member.EmailCheckController;
-import com.korea.controller.member.NicknameCneckController;
-import com.korea.controller.member.PwdFinderController;
-import com.korea.controller.member.PwdUpdateController;
-import com.korea.controller.member.ShowInfoController;
-import com.korea.controller.member.SignUpController;
-import com.korea.controller.member.UpdateController;
-import com.korea.controller.mini.*;
-import com.korea.controller.urpo.UrconController;
-import com.korea.controller.urpo.UrpoGuideController;
-import com.korea.controller.urpo.UrpoIconController;
-import com.korea.controller.urpo.UrpoPurchaseController;
-import com.korea.controller.urpo.UrpoReadController;
-import com.korea.controller.urpo.UrpoSearchController;
+import java.io.IOException;
+import java.util.HashMap;
 
 @MultipartConfig(
         fileSizeThreshold = 1024*1024*10, // 10mb
@@ -78,7 +43,7 @@ public class FrontController extends HttpServlet
         list.put("/PwdUpdate.do", new PwdUpdateController());
         list.put("/Delete.do", new DeleteMemberController());
         list.put("/EmailCheck.do", new EmailCheckController());
-        list.put("/NicknameCheck.do", new NicknameCneckController());
+        list.put("/NicknameCheck.do", new NicknameCheckController());
         list.put("/PwdFinder.do", new PwdFinderController());
 
         // 게시판
@@ -112,7 +77,6 @@ public class FrontController extends HttpServlet
         list.put("/URPO/guide.do", new UrpoGuideController());
 
         // 관리자
-     
         list.put("/admin/notice.do", new NoticeController());
         list.put("/admin/banner.do", new BannerController());
         list.put("/admin/board.do", new BoardController());

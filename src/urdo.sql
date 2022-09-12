@@ -121,7 +121,8 @@ create table urpo_tbl
     staticImage varchar(500),
     gifImage varchar(500),
     category varchar(45),
-    producer varchar(40)
+    producer varchar(40),
+    foreign key(producer) references member_tbl(nickname)
 );
 
 #------------------------------------------------- 포인트샵 채우기 프로시저
@@ -132,19 +133,18 @@ BEGIN
     DECLARE i INT;
     insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer)
     values
-        ('디폴트', '디폴트', 1, '/resources/img/urpo/urcon/default.jpg', '/resources/img/urpo/urcon/default.gif', 'default', 'admin1234');
+        ('디폴트', '디폴트', 1, '/resources/img/urpo/urcon/default.jpg', '/resources/img/urpo/urcon/default.gif', 'default', '관리자');
     SET i=1;
     while(i<=33) DO
             insert into urpo_tbl (title, discription, price, staticImage, gifImage, category, producer)
             values
-                (concat('타이틀',i), concat(i,'번째 아이콘 설명입니다...'), 20,  concat('/resources/img/urpo/urcon/urcon',i,'.jpg' ), concat('/resources/img/urpo/urcon/urcon',i,'.gif' ), 'urcon', 'admin1234');
+                (concat('타이틀',i), concat(i,'번째 아이콘 설명입니다...'), 20,  concat('/resources/img/urpo/urcon/urcon',i,'.jpg' ), concat('/resources/img/urpo/urcon/urcon',i,'.gif' ), 'urcon', '관리자');
             set i = i+1;
         end while;
 END $$
 DELIMITER ;
 
 call urpoprocedure();
-
 
 #------------------------------------------------- 일간, 월간 추천 수 초기화 이벤트
 DELIMITER $$
