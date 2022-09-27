@@ -60,7 +60,8 @@
 
 ### ✅ 사이드 내비게이션
 
-![Untitled](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/102352988/192492737-27cf8c2d-5160-43c7-8c1e-2a35ac385d0b.png)
+
 
 - 유알도에서 가장 자주 사용 할 메뉴들을 모아 사이드 내비게이션으로 구성하였습니다.
 - **메인페이지, 퀵메뉴 링크**
