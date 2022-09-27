@@ -70,37 +70,38 @@
 - **로그인** : 클릭 시 로그인 및 회원가입 페이지로 링크됩니다.
 
 ### ✅ 메인
+![2  메인](https://user-images.githubusercontent.com/102352988/192492910-e4d6ddcd-bbef-40a0-a3e8-cf5ddead1a98.png)
 
-![Untitled](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/Untitled%201.png)
 
 - 유알도 회원들이 관심있어 할 만한 베스트 게시글과 포인트샵의 신작 아이콘을 확인하실 수 있습니다.
 
 ### ✅ 게시판
 
-![Untitled](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/Untitled%202.png)
+![3  게시판](https://user-images.githubusercontent.com/102352988/192492956-61cdca8c-4c93-4c16-92e1-3b3fd40b95ef.png)
+![3  게시판2](https://user-images.githubusercontent.com/102352988/192492963-bae56748-9002-43bc-ab5d-8b537fac50f7.png)
 
-![Untitled](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/Untitled%203.png)
 
 - 글을 작성하거나 확인할 수 있는 게시판 페이지입니다.
 
 ### ✅ 로그인 & 회원가입 & 비밀번호 찾기
 
-![4. 로그인.png](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/4._%25EB%25A1%259C%25EA%25B7%25B8%25EC%259D%25B8.png)
+![4  로그인](https://user-images.githubusercontent.com/102352988/192492996-5a20ed46-478e-480f-996c-9fae6c78ccc4.png)
+![4  회원가입](https://user-images.githubusercontent.com/102352988/192493001-23f899b5-8f21-4407-805d-8cf003fda157.png)
 
-![4. 회원가입.png](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/4._%25ED%259A%258C%25EC%259B%2590%25EA%25B0%2580%25EC%259E%2585.png)
 
 - 로그인, 회원가입 페이지입니다.
 
 ### ✅ 마이페이지
 
-![5. 마이페이지.png](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/5._%25EB%25A7%2588%25EC%259D%25B4%25ED%258E%2598%25EC%259D%25B4%25EC%25A7%2580.png)
+![5  마이페이지](https://user-images.githubusercontent.com/102352988/192493032-3ba7ca12-dde8-4214-a92e-54e7dbfd55b9.png)
+
 
 - 유알도와 관련된 내 정보가 표시되는 페이지입니다.
 - 포인트샵에서 구매한 유알콘으로 프로필 아이콘을 꾸밀 수 있습니다.
 
 ### ✅ 포인트샵
+![7  포인트샵](https://user-images.githubusercontent.com/102352988/192493182-e0817924-80eb-4507-86e6-dedeb84e480d.png)
 
-![Untitled](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/Untitled%204.png)
 
 - 유알도 활동으로 모은 아이콘을 구매할 수 있는 아이콘샵입니다.
 
@@ -109,29 +110,32 @@
 - 프로젝트 시작 전 구상, 설계하는 단계를 거쳤습니다.
 
 ### ✅ ERD
+![URDO_ERD](https://user-images.githubusercontent.com/102352988/192493230-6de51d0a-f0a4-40a4-8207-3651d7a96a7e.png)
 
-![URDO_ERD.png](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/URDO_ERD.png)
 
 ### ✅ 프로세스
 
-![프로세스.png](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/%25ED%2594%2584%25EB%25A1%259C%25EC%2584%25B8%25EC%258A%25A4.png)
+![프로세스](https://user-images.githubusercontent.com/102352988/192493275-ed153918-5fe8-4bd3-968a-da8b00a3d4eb.png)
+
 
 ### ✅ 시퀀스다이어그램
 
-![URDO_SequencdDiagram.png](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/URDO_SequencdDiagram.png)
+![URDO_SequencdDiagram](https://user-images.githubusercontent.com/102352988/192493314-8438e831-151c-4682-a587-7dc7c89b007a.png)
+
 
 ### ✅ 클래스다이어그램
+![URDO_ClassDiagram drawio](https://user-images.githubusercontent.com/102352988/192493343-9de7938e-e6d6-401b-b49d-ac069ea6e98f.png)
 
-![URDO_ClassDiagram.drawio.png](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/URDO_ClassDiagram.drawio.png)
 
 ### ✅ 유스케이스
 
-![URDO_UseCaseDiagram.drawio.png](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/URDO_UseCaseDiagram.drawio.png)
+
+![URDO_UseCaseDiagram drawio](https://user-images.githubusercontent.com/102352988/192493382-79451bd6-ab7a-489f-8b9d-757520628731.png)
 
 ### ✅ 플로우차트
 
-![URDO_FlowChart.drawio.png](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/URDO_FlowChart.drawio.png)
+![URDO_FlowChart drawio](https://user-images.githubusercontent.com/102352988/192493425-b1c40551-6d7b-4c0c-8b1d-979d37a86970.png)
+
 
 # 🎨 스타일가이드
-
-[URDO_StyleGuide.pptx](URDO%20PROJECT%2084f1e7d5784f44fa8484f613b4fd03b2/URDO_StyleGuide.pptx)
+[스타일가이드 링크] (https://drive.google.com/file/d/149opNVlTTKr_L_L-AgOoQmDz5paRuH2x/view?usp=sharing)
