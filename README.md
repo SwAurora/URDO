@@ -7,7 +7,6 @@ http://www.urdo.kro.kr
 💡 [URDO] = [유머를 위한 알렉산드리아 도서관]   
 
 
-
 # 👨🏻‍💻 적용기술
 
 - HTML, CSS, JavaScript, JQuery
