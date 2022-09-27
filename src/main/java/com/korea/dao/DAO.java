@@ -7,9 +7,6 @@ import java.sql.ResultSet;
 
 public class DAO
 {
-//    String id = "root";
-//    String pw = "1234";
-
      String id = "manager";
      String pw = "Dbdkfeh1!";
     String url = "jdbc:mysql://localhost:3306/urdo";

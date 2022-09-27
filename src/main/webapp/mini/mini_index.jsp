@@ -1,24 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-
-
 <head>
-<title>URDO</title>
-	
-	<link rel="stylesheet" href="/resources/css/mini/home.css">
-	<link rel="stylesheet" href="/resources/css/mini/layout.css">
-	<jsp:include page="/resources/includes/link.jsp"/>
-	
+    <title>URDO</title>
+    <link rel="stylesheet" href="/resources/css/mini/home.css">
+    <link rel="stylesheet" href="/resources/css/mini/layout.css">
+    <jsp:include page="/resources/includes/link.jsp"/>
 </head>
 <body>
 <jsp:include page="../resources/includes/nav.jsp"/>
-
 <section class="Main" style="display:flex; justify-content:center; align-items:center;">
     <div class="bookcover">
         <div class="bookdot">
             <div class="page">
                 <div class="column1">
-                    <div class="visit"><span class="basic-text">TODAY <span id="TODAY">28</span> | TOTAL 24562</span></div>
+                    <div class="visit"><span class="basic-text">TODAY <span id="TODAY">28</span> | TOTAL 24562</span>
+                    </div>
                     <div class="profile">
                         <img class="profile-image" src="../resources/img/mini/profileImage.jpg">
                         <div class="profile-text basic-text">@Ano<br>학생이라는 죄로<br>학교라는 교도소에서<br>교실이라는 감옥에 갇혀<br>출석부라는
@@ -98,5 +94,12 @@
 <!-- index JS -->
 <script src="/resources/js/index.js"></script>
 
+<%
+    String flag = request.getParameter("flag");
+    if(flag != null)
+    {
+        out.println("<script>alert('준비 중인 페이지입니다.')</script>");
+    }
+%>
 </body>
 </html>

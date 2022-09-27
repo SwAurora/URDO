@@ -35,7 +35,6 @@ import java.util.Vector;        //DBConn객체 저장용 컬렉션(스레드에 
 public class DBConnectionMgr
 {
     private Vector connections = new Vector(10);
-//    private String _driver = "com.mysql.cj.jdbc.Driver", _url = "jdbc:mysql://127.0.0.1:3306/urdo?useUnicode=true&characterEncoding=UTF-8", _user = "root", _password = "1234";
     private String _driver = "com.mysql.cj.jdbc.Driver", _url = "jdbc:mysql://127.0.0.1:3306/urdo?useUnicode=true&characterEncoding=UTF-8", _user = "manager", _password = "Dbdkfeh1!";
     private boolean _traceOn = false;
     private boolean initialized = false;
