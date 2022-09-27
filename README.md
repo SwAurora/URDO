@@ -138,4 +138,4 @@
 
 
 # 🎨 스타일가이드
-[스타일가이드 링크] (https://drive.google.com/file/d/149opNVlTTKr_L_L-AgOoQmDz5paRuH2x/view?usp=sharing)
+[스타일가이드 링크](https://drive.google.com/file/d/149opNVlTTKr_L_L-AgOoQmDz5paRuH2x/view?usp=sharing)
