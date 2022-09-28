@@ -1,5 +1,5 @@
 # URDO PROJECT
-[http://www.urdo.kro.kr](http://www.urdo.kro.kr, "클릭하면 유알도로 이동합니다.")
+http://www.urdo.kro.k
 
 # 🔥 목적
 
